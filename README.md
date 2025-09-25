@@ -24,7 +24,7 @@
 The Universal Digital Identity Framework (UDIF) is a **cryptographically secure, post-quantum identity infrastructure**.  
 It replaces the fragile trust models of legacy PKI and federated login systems with a **deterministic, policy-bound, and extensible identity framework**.
 
-[UDIF Help Documentation](https://qrcs-corp.github.io/UDIF/)  
+<!--[UDIF Help Documentation](https://qrcs-corp.github.io/UDIF/)-->
 [UDIF Protocol Specification](https://qrcs-corp.github.io/UDIF/pdf/udif_specification.pdf)  
 [UDIF Summary Document](https://qrcs-corp.github.io/UDIF/pdf/udif_summary.pdf)  
 
