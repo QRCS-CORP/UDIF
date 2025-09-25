@@ -6,6 +6,7 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/QRCS-CORP/UDIF/build.yml?branch=main)](https://github.com/QRCS-CORP/UDIF/actions)
 [![Coverage Status](https://coveralls.io/repos/github/QRCS-CORP/UDIF/badge.svg?branch=main)](https://coveralls.io/github/QRCS-CORP/UDIF?branch=main)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
+[![GitHub release](https://img.shields.io/github/v/release/QRCS-CORP/UDIF)](https://github.com/QRCS-CORP/UDIF/releases)
 -->
 
 [![Platforms](https://img.shields.io/badge/platforms-Linux%20|%20macOS%20|%20Windows-blue)](#)
@@ -13,7 +14,6 @@
 [![License: QRCS License](https://img.shields.io/badge/License-QRCS%20License-blue.svg)](https://github.com/QRCS-CORP/UDIF/blob/main/License.txt)
 [![Language](https://img.shields.io/static/v1?label=Language&message=C%2023&color=blue)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf)
 [![docs](https://img.shields.io/badge/docs-online-brightgreen)](https://qrcs-corp.github.io/UDIF/)
-[![GitHub release](https://img.shields.io/github/v/release/QRCS-CORP/UDIF)](https://github.com/QRCS-CORP/UDIF/releases)
 [![Custom: Standard](https://img.shields.io/static/v1?label=Security%20Standard&message=ISO/IEC%2017701&color=blue)](#)
 [![Custom: Target](https://img.shields.io/static/v1?label=Target%20Industry&message=Digital%20Identity&color=brightgreen)](#)
 
