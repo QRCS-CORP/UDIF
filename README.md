@@ -5,6 +5,7 @@
 <!--
 [![Build Status](https://img.shields.io/github/actions/workflow/status/QRCS-CORP/UDIF/build.yml?branch=main)](https://github.com/QRCS-CORP/UDIF/actions)
 [![Coverage Status](https://coveralls.io/repos/github/QRCS-CORP/UDIF/badge.svg?branch=main)](https://coveralls.io/github/QRCS-CORP/UDIF?branch=main)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
 -->
 
 [![Platforms](https://img.shields.io/badge/platforms-Linux%20|%20macOS%20|%20Windows-blue)](#)
@@ -13,7 +14,6 @@
 [![Language](https://img.shields.io/static/v1?label=Language&message=C%2023&color=blue)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf)
 [![docs](https://img.shields.io/badge/docs-online-brightgreen)](https://qrcs-corp.github.io/UDIF/)
 [![GitHub release](https://img.shields.io/github/v/release/QRCS-CORP/UDIF)](https://github.com/QRCS-CORP/UDIF/releases)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
 [![Custom: Standard](https://img.shields.io/static/v1?label=Security%20Standard&message=ISO/IEC%2017701&color=blue)](#)
 [![Custom: Target](https://img.shields.io/static/v1?label=Target%20Industry&message=Digital%20Identity&color=brightgreen)](#)
 
@@ -43,7 +43,6 @@ Core design goals:
 - Privacy through **minimal-disclosure queries** with Merkle proofs.  
 - Explicit **policy hashes** to prevent silent drift.  
 - Federated trust domains interoperating via proxies (UIP).  
-
 
 ## Architecture
 
@@ -92,8 +91,6 @@ The subject entity (person, device, or application).
 - Stores claims locally and presents Merkle proofs as needed.  
 - Uses tokens for authentication and authorization.  
 
----
-
 ## UDIF Protocol Overview
 
 - **Certificates:** Hierarchical root → issuer → entity, each cryptographically bound to namespace and policy.  
@@ -102,8 +99,6 @@ The subject entity (person, device, or application).
 - **Tokens:** Portable attestation objects used for authorization.  
 - **Revocation:** Logged and anchored events cascade through the hierarchy.  
 - **Queries:** Minimal-disclosure checks (existence, ownership, membership) return only YES/NO/DENY with optional proofs.  
-
----
 
 ## File Description (planned)
 
@@ -117,8 +112,6 @@ The UDIF library will be modular and organized as follows:
 - **tokens.c:** Token issue, encode/decode, and verify.  
 - **capability.c:** Capability and permission mask evaluation.  
 - **network.c (future):** Inter-domain treaty and proxy resolution.  
-
----
 
 ## Getting Started
 
@@ -134,8 +127,6 @@ Once the codebase is published:
 
 UDIF will use the [QSC cryptographic library](https://github.com/QRCS-CORP/QSC) for hashing, signatures, and KEM operations.  
 *QRCS-PL private License. See license file for details. All rights reserved by QRCS Corporation, copyrighted and patents pending.*
-
----
 
 ## License
 
