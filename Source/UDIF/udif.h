@@ -81,7 +81,7 @@
 * UDIF adopts the MPDC header organization to maximize reuse and consistency across projects:
 * function-mapping macros for cryptographic agility; tightly scoped, centrally defined size
 * constants; strict packet header format with time-validity windows; and compact error enums
-* with string tables. Implementations SHOULD mirror MPDC’s packet-associated-data practice
+* with string tables. Implementations SHOULD mirror MPDC's packet-associated-data practice
 * (adding serialized headers as AEAD associated data) and sequence/time checks when applicable
 * to UDIF transport wrappers.
 * 
