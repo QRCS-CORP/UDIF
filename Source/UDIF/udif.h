@@ -74,7 +74,7 @@
 * error-to-string conversion.
 * 
 * \note
-* UDIF builds on a shared “common” header for export macros, debug asserts, and compiler/visibility control.
+* UDIF builds on a shared common header for export macros, debug asserts, and compiler/visibility control.
 * Include udifcommon.h prior to using this header in all translation units.
 * 
 * \section udif_rationale Design Rationale and Parity with MPDC
@@ -1446,7 +1446,7 @@ UDIF_EXPORT_API typedef enum udif_claim_type
 	udif_claim_commodity_id = 0x10U,	/*!< Commodity/asset identifier */
 	udif_claim_biometric_hash = 0x11U,	/*!< Biometric template hash */
 	udif_claim_institution_id = 0x12U,	/*!< Institutional ID / account */
-	udif_claim_public_key = 0x13U,		/*!< Subject’s public key / fingerprint */
+	udif_claim_public_key = 0x13U,		/*!< Subjects public key / fingerprint */
 	udif_claim_age_over = 0x14U,		/*!< Age threshold proof (boolean) */
 	udif_claim_citizenship = 0x15U,		/*!< Country citizenship assertion */
 	udif_claim_residency = 0x16U,		/*!< Residency assertion */

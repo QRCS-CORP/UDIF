@@ -495,7 +495,7 @@ size_t udif_certificate_child_encode(char enck[UDIF_CHILD_CERTIFICATE_STRING_SIZ
 		++spos;
 
 		slen = UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE;
-		size_t enclen = qsc_encoding_base64_encoded_size(slen);
+		//size_t enclen = qsc_encoding_base64_encoded_size(slen);
 		qsc_encoding_base64_encode(tmpvk, UDIF_VERIFICATION_KEY_ENCODING_SIZE, child->verkey, slen);
 		spos += qsc_stringutils_add_line_breaks((enck + spos), UDIF_ROOT_CERTIFICATE_STRING_SIZE - spos, UDIF_CERTIFICATE_LINE_LENGTH, tmpvk, sizeof(tmpvk));
 
