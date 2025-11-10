@@ -158,7 +158,7 @@ static udif_protocol_errors ads_remote_signing_response(qsc_socket* csock, const
 			if (qsc_memutils_are_equal((const uint8_t*)dnode.address, (const uint8_t*)csock->address, UDIF_CERTIFICATE_ADDRESS_SIZE) == true)
 			{
 				//udif_child_certificate rcert = { 0 };
-
+				(void)packetin;
 				// TODO
 				//udif_network_remote_signing_response_state rsr = {
 				//	.csock = csock,
