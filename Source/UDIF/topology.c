@@ -1207,7 +1207,7 @@ size_t udif_topology_list_to_string(const udif_topology_list_state* list, char* 
 	return spos;
 }
 
-size_t udif_topology_node_encode(const udif_topology_node_state* node, char* output)
+size_t udif_topology_node_encode(const udif_topology_node_state* node, char output[UDIF_TOPOLOGY_NODE_ENCODED_SIZE])
 {
 	size_t slen;
 	size_t spos;
