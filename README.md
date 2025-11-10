@@ -2,31 +2,32 @@
 
 ## Introduction
 
-<!--
-[![Build Status](https://img.shields.io/github/actions/workflow/status/QRCS-CORP/UDIF/build.yml?branch=main)](https://github.com/QRCS-CORP/UDIF/actions)
-[![Coverage Status](https://coveralls.io/repos/github/QRCS-CORP/UDIF/badge.svg?branch=main)](https://coveralls.io/github/QRCS-CORP/UDIF?branch=main)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
-[![GitHub release](https://img.shields.io/github/v/release/QRCS-CORP/UDIF)](https://github.com/QRCS-CORP/UDIF/releases)
--->
-
+[![Build](https://github.com/QRCS-CORP/UDIF/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/QRCS-CORP/UDIF/actions/workflows/build.yml)
+[![CodeQL](https://github.com/QRCS-CORP/UDIF/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/QRCS-CORP/UDIF/actions/workflows/codeql-analysis.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/qrcs-corp/udif/badge)](https://www.codefactor.io/repository/github/qrcs-corp/udif)
 [![Platforms](https://img.shields.io/badge/platforms-Linux%20|%20macOS%20|%20Windows-blue)](#)
-[![Security Policy](https://img.shields.io/badge/security-policy-blue)](https://github.com/QRCS-CORP/UDIF/security/policy) 
+[![Security Policy](https://img.shields.io/badge/security-policy-blue)](https://github.com/QRCS-CORP/UDIF/security/policy)
 [![License: QRCS License](https://img.shields.io/badge/License-QRCS%20License-blue.svg)](https://github.com/QRCS-CORP/UDIF/blob/main/License.txt)
 [![Language](https://img.shields.io/static/v1?label=Language&message=C%2023&color=blue)](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf)
 [![docs](https://img.shields.io/badge/docs-online-brightgreen)](https://qrcs-corp.github.io/UDIF/)
-[![Custom: Standard](https://img.shields.io/static/v1?label=Security%20Standard&message=ISO/IEC%2017701&color=blue)](#)
-[![Custom: Target](https://img.shields.io/static/v1?label=Target%20Industry&message=Digital%20Identity&color=brightgreen)](#)
+[![GitHub release](https://img.shields.io/github/v/release/QRCS-CORP/UDIF)](https://github.com/QRCS-CORP/UDIF/releases/tag/2025-11-09)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
+[![Custom: Standard](https://img.shields.io/static/v1?label=Security%20Standard&message=MISRA&color=blue)](https://misra.org.uk/)
+[![Custom: Target](https://img.shields.io/static/v1?label=Target%20Industry&message=Communications&color=brightgreen)](#)
+
 
 **UDIF: A Post-Quantum, Federated, Policy-Driven Digital Identity Framework**
 
 ## Overview
 
 The Universal Digital Identity Framework (UDIF) is a **cryptographically secure, post-quantum identity infrastructure**.  
-It replaces the fragile trust models of legacy PKI and federated login systems with a **deterministic, policy-bound, and extensible identity framework**.
+It replaces the fragile trust models of legacy PKI and federated login systems with a **deterministic, policy-bound, and extensible identity framework**. This project is currently under construction.
 
-<!--[UDIF Help Documentation](https://qrcs-corp.github.io/UDIF/)-->
+
+[UDIF Help Documentation](https://qrcs-corp.github.io/UDIF/)  
 [UDIF Protocol Specification](https://qrcs-corp.github.io/UDIF/pdf/udif_specification.pdf)  
-[UDIF Summary Document](https://qrcs-corp.github.io/UDIF/pdf/udif_summary.pdf)  
+[UDIF Summary Document](https://qrcs-corp.github.io/UDIF/pdf/udif_summary.pdf)
+
 
 UDIF defines standardized object formats for:
 
