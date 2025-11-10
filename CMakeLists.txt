@@ -36,7 +36,7 @@ target_include_directories(udif_ura PRIVATE "Source/URA")
 target_link_libraries(udif_ura PRIVATE udif)
 
 # Warnings
-foreach(target udif audif_ura)
+foreach(target udif udif_ura)
   if (MSVC)
     target_compile_options(${target} PRIVATE /W4 /WX)
   else()
