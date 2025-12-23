@@ -25,8 +25,9 @@ It replaces the fragile trust models of legacy PKI and federated login systems w
 
 
 [UDIF Help Documentation](https://qrcs-corp.github.io/UDIF/)  
+[UDIF Summary Document](https://qrcs-corp.github.io/UDIF/pdf/udif_summary.pdf)  
 [UDIF Protocol Specification](https://qrcs-corp.github.io/UDIF/pdf/udif_specification.pdf)  
-[UDIF Summary Document](https://qrcs-corp.github.io/UDIF/pdf/udif_summary.pdf)
+[UDIF Formal Analysis](https://qrcs-corp.github.io/UDIF/pdf/udif_formal.pdf)  
 
 
 UDIF defines standardized object formats for:
@@ -131,9 +132,10 @@ UDIF will use the [QSC cryptographic library](https://github.com/QRCS-CORP/QSC) 
 
 ## License
 
-ACQUISITION INQUIRIES:  
-QRCS is currently seeking a corporate acquirer for this technology.  
-Parties interested in exclusive licensing or acquisition should contact: contact@qrcscorp.ca  
+INVESTMENT INQUIRIES:
+QRCS is currently seeking a corporate investor for this technology.
+Parties interested in licensing or investment should connect to us at: contact@qrcscorp.ca  
+Visit https://www.qrcscorp.ca for a full inventory of our products and services.    
 
 PATENT NOTICE:  
 One or more patent applications (provisional and/or non-provisional) covering aspects of this software have been filed with the United States Patent and Trademark Office (USPTO). Unauthorized use may result in patent infringement liability.  
