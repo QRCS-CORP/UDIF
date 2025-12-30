@@ -1,6 +1,6 @@
 # UDIF: Universal Digital Identity Framework
 
-## Introduction
+## Introduction 
 
 [![Build](https://github.com/QRCS-CORP/UDIF/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/QRCS-CORP/UDIF/actions/workflows/build.yml)
 [![CodeQL](https://github.com/QRCS-CORP/UDIF/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/QRCS-CORP/UDIF/actions/workflows/codeql-analysis.yml)
