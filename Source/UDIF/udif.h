@@ -1,99 +1,53 @@
-/* 2025 Quantum Resistant Cryptographic Solutions Corporation
+/* 2025-2026 Quantum Resistant Cryptographic Solutions Corporation
  * All Rights Reserved.
  *
- * NOTICE: This software and all accompanying materials are the exclusive 
- * property of Quantum Resistant Cryptographic Solutions Corporation (QRCS).
- * The intellectual and technical concepts contained within this implementation 
- * are proprietary to QRCS and its authorized licensors and are protected under 
- * applicable U.S. and international copyright, patent, and trade secret laws.
+ * NOTICE:
+ * This software and all accompanying materials are the exclusive property of
+ * Quantum Resistant Cryptographic Solutions Corporation (QRCS). The intellectual
+ * and technical concepts contained herein are proprietary to QRCS and are
+ * protected under applicable Canadian, U.S., and international copyright,
+ * patent, and trade secret laws.
  *
- * CRYPTOGRAPHIC STANDARDS:
- * - This software includes implementations of cryptographic algorithms such as 
- *   SHA3, AES, and others. These algorithms are public domain or standardized 
- *   by organizations such as NIST and are NOT the property of QRCS.
- * - However, all source code, optimizations, and implementations in this library 
- *   are original works of QRCS and are protected under this license.
+ * CRYPTOGRAPHIC ALGORITHMS AND IMPLEMENTATIONS:
+ * - This software includes implementations of cryptographic primitives and
+ *   algorithms that are standardized or in the public domain, such as AES
+ *   and SHA-3, which are not proprietary to QRCS.
+ * - This software also includes cryptographic primitives, constructions, and
+ *   algorithms designed by QRCS, including but not limited to RCS, SCB, CSX, QMAC, and
+ *   related components, which are proprietary to QRCS.
+ * - All source code, implementations, protocol compositions, optimizations,
+ *   parameter selections, and engineering work contained in this software are
+ *   original works of QRCS and are protected under this license.
  *
- * RESTRICTIONS:
- * - Redistribution, modification, or unauthorized distribution of this software, 
- *   in whole or in part, is strictly prohibited.
- * - This software is provided for non-commercial, educational, and research 
- *   purposes only. Commercial use in any form is expressly forbidden.
+ * LICENSE AND USE RESTRICTIONS:
+ * - This software is licensed under the Quantum Resistant Cryptographic Solutions
+ *   Public Research and Evaluation License (QRCS-PREL), 2025-2026.
+ * - Permission is granted solely for non-commercial evaluation, academic research,
+ *   cryptographic analysis, interoperability testing, and feasibility assessment.
+ * - Commercial use, production deployment, commercial redistribution, or
+ *   integration into products or services is strictly prohibited without a
+ *   separate written license agreement executed with QRCS.
  * - Licensing and authorized distribution are solely at the discretion of QRCS.
- * - Any use of this software implies acceptance of these restrictions.
+ *
+ * EXPERIMENTAL CRYPTOGRAPHY NOTICE:
+ * Portions of this software may include experimental, novel, or evolving
+ * cryptographic designs. Use of this software is entirely at the user's risk.
  *
  * DISCLAIMER:
- * This software is provided "as is," without warranty of any kind, express or 
- * implied, including but not limited to warranties of merchantability or fitness 
- * for a particular purpose. QRCS disclaims all liability for any direct, indirect, 
- * incidental, or consequential damages resulting from the use or misuse of this software.
+ * THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE, SECURITY, OR NON-INFRINGEMENT. QRCS DISCLAIMS ALL
+ * LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ * ARISING FROM THE USE OR MISUSE OF THIS SOFTWARE.
  *
  * FULL LICENSE:
- * This software is subject to the **Quantum Resistant Cryptographic Solutions 
- * Proprietary License (QRCS-PL)**. The complete license terms are included 
- * in the LICENSE.txt file distributed with this software.
+ * This software is subject to the Quantum Resistant Cryptographic Solutions
+ * Public Research and Evaluation License (QRCS-PREL), 2025-2026. The complete license terms
+ * are provided in the accompanying LICENSE file or at https://www.qrcscorp.ca.
  *
  * Written by: John G. Underhill
  * Contact: contact@qrcscorp.ca
  */
-
-/**
-* \file udif.h
-* \brief UDIF Common Definitions and Core Library Configuration.
-* 
-* \details
-* This header defines the common constants, macros, enumerations, structures, and public API prototypes
-* for the Universal Digital Identity Framework (UDIF). It provides the core library configuration used by
-* UDIF components (controllers, proxies, institutional servers, and clients), including certificate and claim
-* handling, capability tokens, identity encoding, permission masks, and secure transport primitives sourced
-* from the QSC library.
-* 
-* UDIF composes standardized post-quantum asymmetric schemes with SHAKE-based hashing/KDF and an AEAD stream
-* cipher for confidentiality and integrity. Algorithm families are selected through build-time configuration,
-* mapping UDIF high-level operations (key generation, encapsulation/decapsulation, signing, verification,
-* hashing, KDF, AEAD) to corresponding QSC library implementations. This style follows the MPDC design pattern
-* (function-mapping macros, configurable parameter sets, and protocol-wide constants) to ensure portability
-* across deployments and security levels.
-* 
-* Key elements defined in this header include:
-* Function-Mapping Macros: Aliases that bind UDIF cryptographic operations (KEM, signature, hash/KDF, AEAD)
-* to QSC implementations selected via compile-time parameter sets.
-* Modifiable Constants: Preprocessor options to enable/disable library features (e.g., certificate
-* extensions, epoch/valid-time enforcement, extended MAC length, strict claim validation, IPv6).
-* Parameter Macros: Canonical byte lengths and field sizes for identities, serials, certificate fields,
-* capability tokens, claim encodings, network packet framing, timing windows, and maximum message sizes.
-* Enumerations: Configuration sets, entity designations (UDC, UIP, UIS, Client), error/status codes for
-* library and protocol operations, certificate and claim types, capability and permission classes, and versioning.
-* Structures: Root, domain, and entity certificates; identity descriptors; capability/permission masks;
-* claim sets; encoded identity blobs; network packet headers; and cipher/key parameter aggregates.
-* Static Constants: Canonical strings (PEM-like headers/footers), OID/label tags, human-readable error text,
-* and curve/parameter labels aligned to the active configuration set.
-* 
-* Public API Prototypes: Core routines for certificate/claim encode-decode, identity/capability validation,
-* token issue/verify, packet header (de)serialization and time-window checks, AEAD context management, and
-* error-to-string conversion.
-* 
-* \note
-* UDIF builds on a shared common header for export macros, debug asserts, and compiler/visibility control.
-* Include udifcommon.h prior to using this header in all translation units.
-* 
-* \section udif_rationale Design Rationale and Parity with MPDC
-* UDIF adopts the MPDC header organization to maximize reuse and consistency across projects:
-* function-mapping macros for cryptographic agility; tightly scoped, centrally defined size
-* constants; strict packet header format with time-validity windows; and compact error enums
-* with string tables. Implementations SHOULD mirror MPDC's packet-associated-data practice
-* (adding serialized headers as AEAD associated data) and sequence/time checks when applicable
-* to UDIF transport wrappers.
-* 
-* \test
-* Although this header does not implement tests, it underpins modules that validate:
-* Correct mapping of UDIF high-level calls to QSC routines and parameter sets.
-* Consistency of field/size constants for identities, certificates, claims, and tokens.
-* Deterministic (de)serialization of headers, certificates, capabilities, and claims.
-* Enforcement of sequence and UTC valid-time windows in packet prechecks.
-* Accurate conversion of error/status codes to diagnostic strings.
-* These tests collectively ensure correctness, robustness, and cryptographic soundness of the UDIF core library.
-*/
 
 #ifndef UDIF_H
 #define UDIF_H
