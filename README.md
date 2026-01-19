@@ -14,6 +14,7 @@
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/QRCS-CORP/UDIF.svg)](https://github.com/QRCS-CORP/UDIF/commits/main)
 [![Custom: Standard](https://img.shields.io/static/v1?label=Security%20Standard&message=MISRA&color=blue)](https://misra.org.uk/)
 [![Custom: Target](https://img.shields.io/static/v1?label=Target%20Industry&message=Communications&color=brightgreen)](#)
+[![Sponsor UDIF](https://img.shields.io/badge/Sponsor-UDIF-blue?logo=github-sponsors)](https://github.com/sponsors/QRCS-CORP)
 
 
 **UDIF: A Post-Quantum, Federated, Policy-Driven Digital Identity Framework**
@@ -59,11 +60,6 @@ The project focuses on:
 
 UDIF is being developed as a long-term, standards-grade system. Sponsorship directly supports continued research, formal specification work, reference implementations, security analysis, and public documentation.  
 If you believe in open, verifiable digital infrastructure that is privacy-preserving and future-proof, consider sponsoring the project.  
-
-### Sponsor UDIF
-[![Sponsor UDIF](https://img.shields.io/badge/Sponsor-UDIF-blue?logo=github-sponsors)](https://github.com/sponsors/QRCS-CORP)
-
-### Short Call to Action
 
 **Support UDIF development**  
 Help fund open research and implementation of a post-quantum, auditable digital identity framework.  
