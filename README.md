@@ -44,7 +44,34 @@ Core design goals:
 - Deterministic canonicalization of every object.  
 - Privacy through **minimal-disclosure queries** with Merkle proofs.  
 - Explicit **policy hashes** to prevent silent drift.  
-- Federated trust domains interoperating via proxies (UIP).  
+- Federated trust domains interoperating via proxies (UIP).
+- 
+## Support the Universal Digital Identity Framework (UDIF)
+
+UDIF is an open, cryptographically rigorous framework for universal digital identity, asset representation, and auditable ownership. It is designed from first principles to address long-standing problems in identity interoperability, privacy, provenance, and post-quantum security.  
+
+The project focuses on:  
+
+- Post-quantum secure identity and object containers  
+- Deterministic encoding, minimal-disclosure queries, and capability-based authorization  
+- Tamper-evident audit logs with hierarchical anchoring  
+- Cross-domain interoperability without surveillance or data leakage  
+
+UDIF is being developed as a long-term, standards-grade system. Sponsorship directly supports continued research, formal specification work, reference implementations, security analysis, and public documentation.  
+If you believe in open, verifiable digital infrastructure that is privacy-preserving and future-proof, consider sponsoring the project.  
+
+### Sponsor UDIF
+[![Sponsor UDIF](https://img.shields.io/badge/Sponsor-UDIF-blue?logo=github-sponsors)](https://github.com/sponsors/QRCS-CORP)
+
+### Short Call to Action
+
+**Support UDIF development**  
+Help fund open research and implementation of a post-quantum, auditable digital identity framework.  
+[Become a Sponsor →](https://github.com/sponsors/QRCS-CORP)  
+
+### Transparency
+
+Sponsorship funds are used for protocol research, formal analysis, implementation work, and long-term maintenance of the UDIF specification and associated tooling.
 
 ## Architecture
 
