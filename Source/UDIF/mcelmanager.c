@@ -16,7 +16,7 @@
 #define DEFAULT_MEMBERSHIP_INTERVAL 1000U
 #define DEFAULT_TRANSACTION_INTERVAL 10000U
 #define DEFAULT_REGISTRY_INTERVAL 5000U
-#define MAX_RECORD_PATH 256U
+#define MAX_RECORD_PATH (QSC_SYSTEM_MAX_PATH)
 #define MAX_BLOCK_BUFFER 65536U
 
 static const char* get_ledger_namespace(udif_ledger_type type)
@@ -456,9 +456,7 @@ udif_mcel_manager* udif_mcel_initialize(const char* basepath, const udif_checkpo
     udif_mcel_manager* mgr;
     udif_checkpoint_config defconfig = { 0U };
     udif_errors err;
-    bool ret;
 
-    ret = false;
     mgr = NULL;
 
     if (basepath != NULL)
