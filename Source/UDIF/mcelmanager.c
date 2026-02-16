@@ -8,8 +8,8 @@
 #include "folderutils.h"
 #include "intutils.h"
 #include "memutils.h"
-#include "stringutils.h"
 #include "sha3.h"
+#include "stringutils.h"
 #include <time.h>
 
  /* Internal constants */
@@ -333,10 +333,10 @@ static bool seal_block_internal(udif_mcel_manager* mgr, udif_mcel_ledger* ledger
     uint8_t blkroot[MCEL_BLOCK_HASH_SIZE] = { 0U };
     uint8_t blkcommit[MCEL_BLOCK_HASH_SIZE] = { 0U };
     uint8_t blockbuf[MAX_BLOCK_BUFFER] = { 0U };
+    uint64_t outlen;
     uint64_t timestamp;
-    size_t outlen;
-    bool ret;
     bool res;
+    bool ret;
 
     res = false;
 
@@ -390,10 +390,10 @@ static bool seal_checkpoint_internal(udif_mcel_manager* mgr, udif_mcel_ledger* l
     mcel_checkpoint_header chkhdr = { 0U };
     uint8_t chkcommit[MCEL_BLOCK_HASH_SIZE] = { 0U };
     uint8_t bundlebuf[MCEL_CHECKPOINT_BUNDLE_ENCODED_SIZE] = { 0U };
+    uint64_t outpos;
     uint64_t timestamp;
-    size_t outpos;
-    bool ret;
     bool res;
+    bool ret;
 
     res = false;
     ret = ledger->haveblockroot;
@@ -420,7 +420,8 @@ static bool seal_checkpoint_internal(udif_mcel_manager* mgr, udif_mcel_ledger* l
         outpos = 0U;
 
         /* seal checkpoint */
-        ret = mcel_ledger_seal_checkpoint(&ledger->mcelstate, chkcommit, &chkhdr, ledger->lastblockroot, mgr->sigkey, bundlebuf, sizeof(bundlebuf), &outpos);
+        ret = mcel_ledger_seal_checkpoint(&ledger->mcelstate, chkcommit, &chkhdr, ledger->lastblockroot, mgr->sigkey, 
+            bundlebuf, sizeof(bundlebuf), &outpos);
 
         if (ret == true)
         {
