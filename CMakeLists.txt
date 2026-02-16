@@ -25,13 +25,13 @@ include(FetchContent)
 FetchContent_Declare(
   MCEL
   GIT_REPOSITORY https://github.com/QRCS-CORP/MCEL.git
-  GIT_TAG master
+  GIT_TAG main
 )
 FetchContent_MakeAvailable(MCEL)
 
 # UDIF Static Library
 file(GLOB_RECURSE UDIF_SOURCES "Source/UDIF/*.c")
-file(GLOB_RECURSE UDIF_HEADERS "Source/UDIF/include/*.h")
+file(GLOB_RECURSE UDIF_HEADERS "Source/UDIF/*.h")
 
 add_library(udif STATIC ${UDIF_SOURCES} ${UDIF_HEADERS})
 target_include_directories(udif PUBLIC "Source/UDIF")
