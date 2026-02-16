@@ -890,7 +890,7 @@ UDIF_EXPORT_API typedef enum udif_version_sets
  * \def UDIF_ERROR_STRING_DEPTH
  * \brief Number of entries per error string table.
  */
-#define UDIF_ERROR_STRING_DEPTH 26U
+#define UDIF_ERROR_STRING_DEPTH 27U
 
 /*!
  * \def UDIF_ERROR_STRING_SIZE
@@ -904,7 +904,7 @@ static const char UDIF_ERROR_STRINGS[UDIF_ERROR_STRING_DEPTH][UDIF_ERROR_STRING_
 {
 	"No error condition",
 	"Invalid input parameter",
-	"Invalid function state"
+	"Invalid function state",
 	"Authentication failed",
 	"The certificate expired",
 	"The certificate has been revoked",
