@@ -133,7 +133,7 @@ static const char UDIF_CAPABILITY_ERROR_STRINGS[][UDIF_ERROR_STRING_SIZE] =
  * \enum udif_capability_id
  * \brief Canonical capability identifiers (bit positions map to the mask).
  */
-UDIF_EXPORT_API typedef enum udif_capability_id
+typedef enum udif_capability_id
 {
 	udif_capability_issue_certificate = 0x00U,		/*!< Issue subordinate certificates */
 	udif_capability_revoke_certificate = 0x01U,	/*!< Revoke certificates */
@@ -150,7 +150,7 @@ UDIF_EXPORT_API typedef enum udif_capability_id
 * \enum udif_capability_verbs
 * \brief Capability permission verbs (bit positions)
 */
-UDIF_EXPORT_API typedef enum udif_capability_verbs
+typedef enum udif_capability_verbs
 {
 	udif_capability_query_exist = 0U,			/*!< Query existence */
 	udif_capability_query_owner_binding = 1U,	/*!< Query owner binding */
@@ -179,7 +179,7 @@ UDIF_EXPORT_API typedef enum udif_capability_verbs
 * \enum udif_capability_scopes
 * \brief Capability scope flags
 */
-UDIF_EXPORT_API typedef enum udif_capability_scopes
+typedef enum udif_capability_scopes
 {
 	udif_scope_local = 0U,						/*!< Local only */
 	udif_scope_intra_domain = 1U,				/*!< Intra-domain */

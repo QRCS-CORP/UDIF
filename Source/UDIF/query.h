@@ -145,7 +145,7 @@
  * \enum udif_query_types
  * \brief Query predicate types
  */
-UDIF_EXPORT_API typedef enum udif_query_types
+typedef enum udif_query_types
 {
 	udif_query_exist = 1U,						/*!< Existence query */
 	udif_query_owner_binding = 2U,				/*!< Owner binding query */
@@ -157,7 +157,7 @@ UDIF_EXPORT_API typedef enum udif_query_types
 * \enum udif_query_verdicts
 * \brief Query response verdicts
 */
-UDIF_EXPORT_API typedef enum udif_query_verdicts
+typedef enum udif_query_verdicts
 {
 	udif_verdict_no = 0U,						/*!< Negative response */
 	udif_verdict_yes = 1U,						/*!< Positive response */

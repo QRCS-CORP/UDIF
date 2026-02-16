@@ -69,6 +69,7 @@
 #if defined(_DLL)
 #	define UDIF_DLL_API
 #endif
+
 /*!
 \def UDIF_EXPORT_API
 * \brief The api export prefix

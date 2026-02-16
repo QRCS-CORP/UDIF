@@ -554,7 +554,7 @@
  * \enum udif_claim_type
  * \brief Claim type identifiers (deterministic canonicalization required).
  */
-UDIF_EXPORT_API typedef enum udif_claim_type
+typedef enum udif_claim_type
 {
 	udif_claim_unknown = 0U,					/*!< Unspecified claim type */
 	udif_claim_commodity_id = 1U,				/*!< Commodity/asset identifier */
@@ -575,7 +575,7 @@ UDIF_EXPORT_API typedef enum udif_claim_type
  * \enum udif_configuration_sets
  * \brief The UDIF algorithm configuration sets.
  */
-UDIF_EXPORT_API typedef enum udif_configuration_sets
+typedef enum udif_configuration_sets
 {
 	udif_configuration_set_none = 0x00U,										/*!< No algorithm identifier is set */
 	udif_configuration_set_dilithium1_kyber1_rcs256_shake256 = 0x01U,			/*!< The Dilithium-S1/Kyber-S1/RCS-256/SHAKE-256 algorithm set */
@@ -624,7 +624,7 @@ static const udif_configuration_sets UDIF_CONFIGURATION_SET = udif_configuration
 * \enum udif_errors
 * \brief UDIF error codes
 */
-UDIF_EXPORT_API typedef enum udif_errors
+typedef enum udif_errors
 {
 	udif_error_none = 0U,						/*!< No error */
 	udif_error_invalid_input = 1U,				/*!< Invalid input parameter */
@@ -658,7 +658,7 @@ UDIF_EXPORT_API typedef enum udif_errors
  * \enum udif_error_capability
  * \brief Capability/permission evaluation errors.
  */
-UDIF_EXPORT_API typedef enum udif_error_capability
+typedef enum udif_error_capability
 {
 	udif_ecap_none = 0U,						/*!< No error */
 	udif_ecap_denied = 1U,						/*!< Capability denied by policy */
@@ -670,7 +670,7 @@ UDIF_EXPORT_API typedef enum udif_error_capability
  * \enum udif_error_claims
  * \brief Claim/claim-set error codes.
  */
-UDIF_EXPORT_API typedef enum udif_error_claims
+typedef enum udif_error_claims
 {
 	udif_ecl_none = 0U,							/*!< No error */
 	udif_ecl_type_unknown = 1U,					/*!< Unknown claim type */
@@ -684,7 +684,7 @@ UDIF_EXPORT_API typedef enum udif_error_claims
  * \enum udif_error_encoding
  * \brief Encoding/decoding errors for UDIF objects.
  */
-UDIF_EXPORT_API typedef enum udif_error_encoding
+typedef enum udif_error_encoding
 {
 	udif_eenc_none = 0U,						/*!< No error */
 	udif_eenc_overflow = 1U,					/*!< Buffer overflow/size mismatch */
@@ -697,7 +697,7 @@ UDIF_EXPORT_API typedef enum udif_error_encoding
  * \enum udif_error_identity
  * \brief Identity-specific error codes.
  */
-UDIF_EXPORT_API typedef enum udif_error_identity
+typedef enum udif_error_identity
 {
 	udif_eid_none = 0U,							/*!< No error */
 	udif_eid_namespace_bad = 1U,				/*!< Invalid namespace code */
@@ -714,7 +714,7 @@ UDIF_EXPORT_API typedef enum udif_error_identity
  * \enum udif_error_policy
  * \brief Policy evaluation/lookup errors.
  */
-UDIF_EXPORT_API typedef enum udif_error_policy
+typedef enum udif_error_policy
 {
 	udif_epol_none = 0U,						/*!< No error */
 	udif_epol_not_found = 1U,					/*!< Policy not found */
@@ -726,7 +726,7 @@ UDIF_EXPORT_API typedef enum udif_error_policy
 * \enum udif_logging_event_codes
 * \brief Membership and transaction log event codes
 */
-UDIF_EXPORT_API typedef enum udif_logging_event_codes
+typedef enum udif_logging_event_codes
 {
 	udif_event_enroll = 1U,						/*!< Entity enrollment */
 	udif_event_suspend = 2U,					/*!< Entity suspension */
@@ -748,7 +748,7 @@ UDIF_EXPORT_API typedef enum udif_logging_event_codes
  * \enum udif_permission_class
  * \brief Permission classes whose bits populate the permission mask.
  */
-UDIF_EXPORT_API typedef enum udif_permission_class
+typedef enum udif_permission_class
 {
 	udif_perm_read_claims = 0U,					/*!< Read subject claims */
 	udif_perm_write_claims = 1U,				/*!< Write/update subject claims */
@@ -765,7 +765,7 @@ UDIF_EXPORT_API typedef enum udif_permission_class
  * \enum udif_policy_decision
  * \brief Policy evaluation outcome.
  */
-UDIF_EXPORT_API typedef enum udif_policy_decision
+typedef enum udif_policy_decision
 {
 	udif_policy_permit = 0U,					/*!< Permit */
 	udif_policy_deny = 1U,						/*!< Deny */
@@ -777,7 +777,7 @@ UDIF_EXPORT_API typedef enum udif_policy_decision
 * \enum udif_roles
 * \brief UDIF entity roles
 */
-UDIF_EXPORT_API typedef enum udif_roles
+typedef enum udif_roles
 {
 	udif_role_none = 0U,						/*!< No role specified */
 	udif_role_root = 1U,						/*!< Root authority */
@@ -794,7 +794,7 @@ UDIF_EXPORT_API typedef enum udif_roles
  * \enum udif_time_validation
  * \brief Results of time/validity-window checks.
  */
-UDIF_EXPORT_API typedef enum udif_time_validation
+typedef enum udif_time_validation
 {
 	udif_time_valid = 0U,						/*!< Within window */
 	udif_time_future = 1U,						/*!< Not yet valid */
@@ -806,7 +806,7 @@ UDIF_EXPORT_API typedef enum udif_time_validation
  * \enum udif_token_type
  * \brief Token families issued/validated within UDIF.
  */
-UDIF_EXPORT_API typedef enum udif_token_type
+typedef enum udif_token_type
 {
 	udif_token_none = 0U,						/*!< Not a token */
 	udif_token_capability = 1U,					/*!< Capability token (authZ) */
@@ -818,7 +818,7 @@ UDIF_EXPORT_API typedef enum udif_token_type
  * \enum udif_status
  * \brief Generic status codes for UDIF operations.
  */
-UDIF_EXPORT_API typedef enum udif_status
+typedef enum udif_status
 {
 	udif_status_success = 0U,					/*!< Operation succeeded */
 	udif_status_invalid_argument = 1U,			/*!< Bad input parameter(s) */
@@ -834,7 +834,7 @@ UDIF_EXPORT_API typedef enum udif_status
  * \enum udif_verify_policy
  * \brief Verification strictness for identity/cert/claim checks.
  */
-UDIF_EXPORT_API typedef enum udif_verify_policy
+typedef enum udif_verify_policy
 {
 	udif_verify_strict = 0U,					/*!< All checks required (fail-closed) */
 	udif_verify_lenient = 1U					/*!< Allow missing non-critical fields (fail-open subset) */
@@ -844,7 +844,7 @@ UDIF_EXPORT_API typedef enum udif_verify_policy
  * \enum udif_version_sets
  * \brief The UDIF version sets.
  */
-UDIF_EXPORT_API typedef enum udif_version_sets
+typedef enum udif_version_sets
 {
 	udif_version_set_none = 0x00U,				/*!< No version identifier is set */
 	udif_version_set_one_zero = 0x01U,			/*!< The 1.0 version identifier */
