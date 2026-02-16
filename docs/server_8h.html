@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>UDIF: Universal Digital Identification Framework: C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/UDIF/server.h File Reference</title>
+<title>UDIF: Universal Digital Identification Framework: C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/Saved/server.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,8 +60,8 @@ $(function(){initNavTree('server_8h.html','',''); });
 
 <p>The common UDIF server functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;udifcommon.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="certificate_8h_source.html">certificate.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="udifcommon_8h_source.html">udifcommon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_saved_2certificate_8h_source.html">certificate.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="commands_8h_source.html">commands.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="logger_8h_source.html">logger.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="udif_8h_source.html">udif.h</a>&quot;</code><br />
@@ -86,9 +86,9 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a3a8b0d4652d3453d6fe8567336b750e1" id="r_a3a8b0d4652d3453d6fe8567336b750e1"><td class="memItemLeft" align="right" valign="top"><a id="a3a8b0d4652d3453d6fe8567336b750e1" name="a3a8b0d4652d3453d6fe8567336b750e1"></a>
-typedef UDIF_EXPORT_API enum <a class="el" href="#a8a1e928aa8c391ac3f55aea44818d50c">udif_server_server_loop_status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_server_server_loop_status</b></td></tr>
+typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a8a1e928aa8c391ac3f55aea44818d50c">udif_server_server_loop_status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_server_server_loop_status</b></td></tr>
 <tr class="memitem:a59551ffdeef11d465789cb99ed8a6a81" id="r_a59551ffdeef11d465789cb99ed8a6a81"><td class="memItemLeft" align="right" valign="top"><a id="a59551ffdeef11d465789cb99ed8a6a81" name="a59551ffdeef11d465789cb99ed8a6a81"></a>
-typedef UDIF_EXPORT_API struct udif_server_application_state&#160;</td><td class="memItemRight" valign="bottom"><b>udif_server_application_state</b></td></tr>
+typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_server_application_state&#160;</td><td class="memItemRight" valign="bottom"><b>udif_server_application_state</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -100,113 +100,113 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8be1000380947a9b8315001cddd6e0e1" id="r_a8be1000380947a9b8315001cddd6e0e1"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8be1000380947a9b8315001cddd6e0e1">udif_server_certificate_directory</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *dpath, size_t pathlen)</td></tr>
+<tr class="memitem:a8be1000380947a9b8315001cddd6e0e1" id="r_a8be1000380947a9b8315001cddd6e0e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8be1000380947a9b8315001cddd6e0e1">udif_server_certificate_directory</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *dpath, size_t pathlen)</td></tr>
 <tr class="memdesc:a8be1000380947a9b8315001cddd6e0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the full delimited path to the certificate storage directory.  <br /></td></tr>
-<tr class="memitem:a63f84a3129485f7ebf38be7f4884d488" id="r_a63f84a3129485f7ebf38be7f4884d488"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63f84a3129485f7ebf38be7f4884d488">udif_server_certificate_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen, const char *issuer)</td></tr>
+<tr class="memitem:a63f84a3129485f7ebf38be7f4884d488" id="r_a63f84a3129485f7ebf38be7f4884d488"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63f84a3129485f7ebf38be7f4884d488">udif_server_certificate_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen, const char *issuer)</td></tr>
 <tr class="memdesc:a63f84a3129485f7ebf38be7f4884d488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the full path to a certificate.  <br /></td></tr>
-<tr class="memitem:aebec90f0683836823728dd42ee368e06" id="r_aebec90f0683836823728dd42ee368e06"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebec90f0683836823728dd42ee368e06">udif_server_child_certificate_export</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *dpath)</td></tr>
+<tr class="memitem:aebec90f0683836823728dd42ee368e06" id="r_aebec90f0683836823728dd42ee368e06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebec90f0683836823728dd42ee368e06">udif_server_child_certificate_export</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *dpath)</td></tr>
 <tr class="memdesc:aebec90f0683836823728dd42ee368e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export the local certificate to a file.  <br /></td></tr>
-<tr class="memitem:a6a610663da94b2614f56e737bcff5964" id="r_a6a610663da94b2614f56e737bcff5964"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a610663da94b2614f56e737bcff5964">udif_server_child_certificate_from_issuer</a> (udif_child_certificate *ccert, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
+<tr class="memitem:a6a610663da94b2614f56e737bcff5964" id="r_a6a610663da94b2614f56e737bcff5964"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a610663da94b2614f56e737bcff5964">udif_server_child_certificate_from_issuer</a> (udif_child_certificate *ccert, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
 <tr class="memdesc:a6a610663da94b2614f56e737bcff5964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the certificate instance from file using the issuer string.  <br /></td></tr>
-<tr class="memitem:abf21c5b92c5cca4120d1f9633f03bdb7" id="r_abf21c5b92c5cca4120d1f9633f03bdb7"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf21c5b92c5cca4120d1f9633f03bdb7">udif_server_child_certificate_from_serial</a> (udif_child_certificate *ccert, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const uint8_t *serial)</td></tr>
+<tr class="memitem:abf21c5b92c5cca4120d1f9633f03bdb7" id="r_abf21c5b92c5cca4120d1f9633f03bdb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf21c5b92c5cca4120d1f9633f03bdb7">udif_server_child_certificate_from_serial</a> (udif_child_certificate *ccert, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const uint8_t *serial)</td></tr>
 <tr class="memdesc:abf21c5b92c5cca4120d1f9633f03bdb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the certificate instance from file using the serial number.  <br /></td></tr>
-<tr class="memitem:a418f8fff8945b45f9b06bee9fe3b5cdf" id="r_a418f8fff8945b45f9b06bee9fe3b5cdf"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a418f8fff8945b45f9b06bee9fe3b5cdf">udif_server_child_certificate_generate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *ccert, uint64_t period, uint8_t *capability)</td></tr>
+<tr class="memitem:a418f8fff8945b45f9b06bee9fe3b5cdf" id="r_a418f8fff8945b45f9b06bee9fe3b5cdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a418f8fff8945b45f9b06bee9fe3b5cdf">udif_server_child_certificate_generate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *ccert, uint64_t period, uint8_t *capability)</td></tr>
 <tr class="memdesc:a418f8fff8945b45f9b06bee9fe3b5cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a new child certificate.  <br /></td></tr>
-<tr class="memitem:ab5144799ae84821b574da5ccde8925f4" id="r_ab5144799ae84821b574da5ccde8925f4"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5144799ae84821b574da5ccde8925f4">udif_server_child_certificate_import</a> (udif_child_certificate *lcert, <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *fpath)</td></tr>
+<tr class="memitem:ab5144799ae84821b574da5ccde8925f4" id="r_ab5144799ae84821b574da5ccde8925f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5144799ae84821b574da5ccde8925f4">udif_server_child_certificate_import</a> (udif_child_certificate *lcert, <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *fpath)</td></tr>
 <tr class="memdesc:ab5144799ae84821b574da5ccde8925f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Import the local certificate signed by the root.  <br /></td></tr>
-<tr class="memitem:a1fd8849fa1931d1dad47c6d75d8d3942" id="r_a1fd8849fa1931d1dad47c6d75d8d3942"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fd8849fa1931d1dad47c6d75d8d3942">udif_server_child_certificate_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen)</td></tr>
+<tr class="memitem:a1fd8849fa1931d1dad47c6d75d8d3942" id="r_a1fd8849fa1931d1dad47c6d75d8d3942"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fd8849fa1931d1dad47c6d75d8d3942">udif_server_child_certificate_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen)</td></tr>
 <tr class="memdesc:a1fd8849fa1931d1dad47c6d75d8d3942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the full path to the child certificate.  <br /></td></tr>
-<tr class="memitem:a7d9d76365a4b1e504d1c327af767b8d0" id="r_a7d9d76365a4b1e504d1c327af767b8d0"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d9d76365a4b1e504d1c327af767b8d0">udif_server_child_certificate_path_from_issuer</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen, const char *issuer)</td></tr>
+<tr class="memitem:a7d9d76365a4b1e504d1c327af767b8d0" id="r_a7d9d76365a4b1e504d1c327af767b8d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d9d76365a4b1e504d1c327af767b8d0">udif_server_child_certificate_path_from_issuer</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen, const char *issuer)</td></tr>
 <tr class="memdesc:a7d9d76365a4b1e504d1c327af767b8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the certificate file path from the certificate issuer name.  <br /></td></tr>
-<tr class="memitem:a0b6e132b4d27ac2225f7e9864ebf22e5" id="r_a0b6e132b4d27ac2225f7e9864ebf22e5"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b6e132b4d27ac2225f7e9864ebf22e5">udif_server_child_certificate_print</a> (const char *fpath, size_t pathlen)</td></tr>
+<tr class="memitem:a0b6e132b4d27ac2225f7e9864ebf22e5" id="r_a0b6e132b4d27ac2225f7e9864ebf22e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b6e132b4d27ac2225f7e9864ebf22e5">udif_server_child_certificate_print</a> (const char *fpath, size_t pathlen)</td></tr>
 <tr class="memdesc:a0b6e132b4d27ac2225f7e9864ebf22e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the local child certificate to console.  <br /></td></tr>
-<tr class="memitem:a61febab4cdf2c9a6aac15bac7857d9fa" id="r_a61febab4cdf2c9a6aac15bac7857d9fa"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61febab4cdf2c9a6aac15bac7857d9fa">udif_server_local_certificate_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const udif_child_certificate *ccert, const char *address)</td></tr>
+<tr class="memitem:a61febab4cdf2c9a6aac15bac7857d9fa" id="r_a61febab4cdf2c9a6aac15bac7857d9fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61febab4cdf2c9a6aac15bac7857d9fa">udif_server_local_certificate_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const udif_child_certificate *ccert, const char *address)</td></tr>
 <tr class="memdesc:a61febab4cdf2c9a6aac15bac7857d9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store a child certificate.  <br /></td></tr>
-<tr class="memitem:a743974b273885b366bf5768ca4bdbc2e" id="r_a743974b273885b366bf5768ca4bdbc2e"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a743974b273885b366bf5768ca4bdbc2e">udif_server_clear_config</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a743974b273885b366bf5768ca4bdbc2e" id="r_a743974b273885b366bf5768ca4bdbc2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a743974b273885b366bf5768ca4bdbc2e">udif_server_clear_config</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a743974b273885b366bf5768ca4bdbc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase and reset the configuration file.  <br /></td></tr>
-<tr class="memitem:a74a427257208a8232ec3be54811bad11" id="r_a74a427257208a8232ec3be54811bad11"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74a427257208a8232ec3be54811bad11">udif_server_clear_log</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a74a427257208a8232ec3be54811bad11" id="r_a74a427257208a8232ec3be54811bad11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74a427257208a8232ec3be54811bad11">udif_server_clear_log</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a74a427257208a8232ec3be54811bad11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase the log file.  <br /></td></tr>
-<tr class="memitem:a80b6fff4127d6b0e94299805f0aa2772" id="r_a80b6fff4127d6b0e94299805f0aa2772"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80b6fff4127d6b0e94299805f0aa2772">udif_server_erase_all</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a80b6fff4127d6b0e94299805f0aa2772" id="r_a80b6fff4127d6b0e94299805f0aa2772"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80b6fff4127d6b0e94299805f0aa2772">udif_server_erase_all</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a80b6fff4127d6b0e94299805f0aa2772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase all state, including log files, and reset configuration.  <br /></td></tr>
-<tr class="memitem:a68efee66e20255289f3868e0ac28522e" id="r_a68efee66e20255289f3868e0ac28522e"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68efee66e20255289f3868e0ac28522e">udif_server_log_host</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a68efee66e20255289f3868e0ac28522e" id="r_a68efee66e20255289f3868e0ac28522e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68efee66e20255289f3868e0ac28522e">udif_server_log_host</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a68efee66e20255289f3868e0ac28522e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable logging on the server.  <br /></td></tr>
-<tr class="memitem:a8f2a2eee31dac18aa54c116aa7dfd665" id="r_a8f2a2eee31dac18aa54c116aa7dfd665"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f2a2eee31dac18aa54c116aa7dfd665">udif_server_log_print</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a8f2a2eee31dac18aa54c116aa7dfd665" id="r_a8f2a2eee31dac18aa54c116aa7dfd665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f2a2eee31dac18aa54c116aa7dfd665">udif_server_log_print</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a8f2a2eee31dac18aa54c116aa7dfd665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the log file to the console.  <br /></td></tr>
-<tr class="memitem:a3e44d78c3b3a0a566eeecabbd1f99dc3" id="r_a3e44d78c3b3a0a566eeecabbd1f99dc3"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e44d78c3b3a0a566eeecabbd1f99dc3">udif_server_log_write_message</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, <a class="el" href="commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7">udif_application_messages</a> msgtype, const char *message, size_t msglen)</td></tr>
+<tr class="memitem:a3e44d78c3b3a0a566eeecabbd1f99dc3" id="r_a3e44d78c3b3a0a566eeecabbd1f99dc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e44d78c3b3a0a566eeecabbd1f99dc3">udif_server_log_write_message</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, <a class="el" href="commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7">udif_application_messages</a> msgtype, const char *message, size_t msglen)</td></tr>
 <tr class="memdesc:a3e44d78c3b3a0a566eeecabbd1f99dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the log.  <br /></td></tr>
-<tr class="memitem:a822a65c0c8e7a159e7d1824ef610253b" id="r_a822a65c0c8e7a159e7d1824ef610253b"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a822a65c0c8e7a159e7d1824ef610253b">udif_server_mfkcol_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen)</td></tr>
+<tr class="memitem:a822a65c0c8e7a159e7d1824ef610253b" id="r_a822a65c0c8e7a159e7d1824ef610253b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a822a65c0c8e7a159e7d1824ef610253b">udif_server_mfkcol_path</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, char *fpath, size_t pathlen)</td></tr>
 <tr class="memdesc:a822a65c0c8e7a159e7d1824ef610253b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the path to the mfk collection file.  <br /></td></tr>
-<tr class="memitem:afff979fd753adcd21a828513e7881098" id="r_afff979fd753adcd21a828513e7881098"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afff979fd753adcd21a828513e7881098">udif_server_mfkcol_from_file</a> (qsc_collection_state *mfkcol, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:afff979fd753adcd21a828513e7881098" id="r_afff979fd753adcd21a828513e7881098"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afff979fd753adcd21a828513e7881098">udif_server_mfkcol_from_file</a> (qsc_collection_state *mfkcol, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:afff979fd753adcd21a828513e7881098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an encrypted mfk collection file to a collection state.  <br /></td></tr>
-<tr class="memitem:a241144cd53900a8835b36d4f8b13ccef" id="r_a241144cd53900a8835b36d4f8b13ccef"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a241144cd53900a8835b36d4f8b13ccef">udif_server_mfkcol_to_file</a> (const qsc_collection_state *mfkcol, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a241144cd53900a8835b36d4f8b13ccef" id="r_a241144cd53900a8835b36d4f8b13ccef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a241144cd53900a8835b36d4f8b13ccef">udif_server_mfkcol_to_file</a> (const qsc_collection_state *mfkcol, const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a241144cd53900a8835b36d4f8b13ccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an mfk collection to an encrypted file.  <br /></td></tr>
-<tr class="memitem:aacf4dc91f4225bff673378a3de0ad6b9" id="r_aacf4dc91f4225bff673378a3de0ad6b9"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf4dc91f4225bff673378a3de0ad6b9">udif_server_print_banner</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:aacf4dc91f4225bff673378a3de0ad6b9" id="r_aacf4dc91f4225bff673378a3de0ad6b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf4dc91f4225bff673378a3de0ad6b9">udif_server_print_banner</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:aacf4dc91f4225bff673378a3de0ad6b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the server banner.  <br /></td></tr>
-<tr class="memitem:a4495ffe043e17dbe061df38cb5b39583" id="r_a4495ffe043e17dbe061df38cb5b39583"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4495ffe043e17dbe061df38cb5b39583">udif_server_print_error</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, <a class="el" href="commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7">udif_application_messages</a> appmsg, const char *message, <a class="el" href="udif_8h.html#a6a92f563ca08c2dce733634e58d838b8">udif_protocol_errors</a> error)</td></tr>
+<tr class="memitem:a4495ffe043e17dbe061df38cb5b39583" id="r_a4495ffe043e17dbe061df38cb5b39583"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4495ffe043e17dbe061df38cb5b39583">udif_server_print_error</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, <a class="el" href="commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7">udif_application_messages</a> appmsg, const char *message, udif_protocol_errors error)</td></tr>
 <tr class="memdesc:a4495ffe043e17dbe061df38cb5b39583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a network error to the console.  <br /></td></tr>
-<tr class="memitem:afddd647ff06bdbefe64579479809f7d1" id="r_afddd647ff06bdbefe64579479809f7d1"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afddd647ff06bdbefe64579479809f7d1">udif_server_print_configuration</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:afddd647ff06bdbefe64579479809f7d1" id="r_afddd647ff06bdbefe64579479809f7d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afddd647ff06bdbefe64579479809f7d1">udif_server_print_configuration</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:afddd647ff06bdbefe64579479809f7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the server configuration.  <br /></td></tr>
-<tr class="memitem:a2f7cb728c9cb89b2ad64ed0acb6d8eea" id="r_a2f7cb728c9cb89b2ad64ed0acb6d8eea"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f7cb728c9cb89b2ad64ed0acb6d8eea">udif_server_root_certificate_export</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *dpath)</td></tr>
+<tr class="memitem:a2f7cb728c9cb89b2ad64ed0acb6d8eea" id="r_a2f7cb728c9cb89b2ad64ed0acb6d8eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f7cb728c9cb89b2ad64ed0acb6d8eea">udif_server_root_certificate_export</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *dpath)</td></tr>
 <tr class="memdesc:a2f7cb728c9cb89b2ad64ed0acb6d8eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export the root certificate to a directory.  <br /></td></tr>
-<tr class="memitem:accece2ed9d2074332040f10d8d5b31ab" id="r_accece2ed9d2074332040f10d8d5b31ab"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accece2ed9d2074332040f10d8d5b31ab">udif_server_root_import_dialogue</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:accece2ed9d2074332040f10d8d5b31ab" id="r_accece2ed9d2074332040f10d8d5b31ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accece2ed9d2074332040f10d8d5b31ab">udif_server_root_import_dialogue</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:accece2ed9d2074332040f10d8d5b31ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Import the root certificate.  <br /></td></tr>
-<tr class="memitem:a17c2dd0f7618ac746ecbe62d41a001a4" id="r_a17c2dd0f7618ac746ecbe62d41a001a4"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17c2dd0f7618ac746ecbe62d41a001a4">udif_server_root_certificate_generate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *rcert, uint64_t period)</td></tr>
+<tr class="memitem:a17c2dd0f7618ac746ecbe62d41a001a4" id="r_a17c2dd0f7618ac746ecbe62d41a001a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17c2dd0f7618ac746ecbe62d41a001a4">udif_server_root_certificate_generate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *rcert, uint64_t period)</td></tr>
 <tr class="memdesc:a17c2dd0f7618ac746ecbe62d41a001a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a new root certificate.  <br /></td></tr>
-<tr class="memitem:a801b90aef238f4f764a8b775d25af71e" id="r_a801b90aef238f4f764a8b775d25af71e"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a801b90aef238f4f764a8b775d25af71e">udif_server_root_certificate_load</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *root, const <a class="el" href="structudif__topology__list__state.html">udif_topology_list_state</a> *tlist)</td></tr>
+<tr class="memitem:a801b90aef238f4f764a8b775d25af71e" id="r_a801b90aef238f4f764a8b775d25af71e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a801b90aef238f4f764a8b775d25af71e">udif_server_root_certificate_load</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *root, const <a class="el" href="structudif__topology__list__state.html">udif_topology_list_state</a> *tlist)</td></tr>
 <tr class="memdesc:a801b90aef238f4f764a8b775d25af71e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a root certificate using the issuer name.  <br /></td></tr>
-<tr class="memitem:a1a2e22426b7a8c8443ead4273d913979" id="r_a1a2e22426b7a8c8443ead4273d913979"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a2e22426b7a8c8443ead4273d913979">udif_server_root_certificate_print</a> (const char *fpath, size_t pathlen)</td></tr>
+<tr class="memitem:a1a2e22426b7a8c8443ead4273d913979" id="r_a1a2e22426b7a8c8443ead4273d913979"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a2e22426b7a8c8443ead4273d913979">udif_server_root_certificate_print</a> (const char *fpath, size_t pathlen)</td></tr>
 <tr class="memdesc:a1a2e22426b7a8c8443ead4273d913979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a formatted root certificate to console.  <br /></td></tr>
-<tr class="memitem:aa7c0bb54d8049946f6b04d019a14a334" id="r_aa7c0bb54d8049946f6b04d019a14a334"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c0bb54d8049946f6b04d019a14a334">udif_server_root_certificate_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const udif_root_certificate *rcert)</td></tr>
+<tr class="memitem:aa7c0bb54d8049946f6b04d019a14a334" id="r_aa7c0bb54d8049946f6b04d019a14a334"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c0bb54d8049946f6b04d019a14a334">udif_server_root_certificate_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const udif_root_certificate *rcert)</td></tr>
 <tr class="memdesc:aa7c0bb54d8049946f6b04d019a14a334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store a root certificate to a file.  <br /></td></tr>
-<tr class="memitem:a79d09c61712e98c69ac8e93ae0ce71aa" id="r_a79d09c61712e98c69ac8e93ae0ce71aa"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79d09c61712e98c69ac8e93ae0ce71aa">udif_server_set_command_prompt</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a79d09c61712e98c69ac8e93ae0ce71aa" id="r_a79d09c61712e98c69ac8e93ae0ce71aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79d09c61712e98c69ac8e93ae0ce71aa">udif_server_set_command_prompt</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a79d09c61712e98c69ac8e93ae0ce71aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the command prompt to the current state mode.  <br /></td></tr>
-<tr class="memitem:a3006fd7caa817f304e7062a9196f5d3b" id="r_a3006fd7caa817f304e7062a9196f5d3b"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3006fd7caa817f304e7062a9196f5d3b">udif_server_set_console_timeout</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *snum, size_t numlen)</td></tr>
+<tr class="memitem:a3006fd7caa817f304e7062a9196f5d3b" id="r_a3006fd7caa817f304e7062a9196f5d3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3006fd7caa817f304e7062a9196f5d3b">udif_server_set_console_timeout</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *snum, size_t numlen)</td></tr>
 <tr class="memdesc:a3006fd7caa817f304e7062a9196f5d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of idle minutes before the user is logged out.  <br /></td></tr>
-<tr class="memitem:a5cb2b05118d93938ebbb4b11eba536de" id="r_a5cb2b05118d93938ebbb4b11eba536de"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cb2b05118d93938ebbb4b11eba536de">udif_server_set_domain_name</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *name, size_t namelen)</td></tr>
+<tr class="memitem:a5cb2b05118d93938ebbb4b11eba536de" id="r_a5cb2b05118d93938ebbb4b11eba536de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cb2b05118d93938ebbb4b11eba536de">udif_server_set_domain_name</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *name, size_t namelen)</td></tr>
 <tr class="memdesc:a5cb2b05118d93938ebbb4b11eba536de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rename the network domain.  <br /></td></tr>
-<tr class="memitem:a4e1076839b70bdcc99f2e677dea1e01d" id="r_a4e1076839b70bdcc99f2e677dea1e01d"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e1076839b70bdcc99f2e677dea1e01d">udif_server_set_host_name</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *name, size_t namelen)</td></tr>
+<tr class="memitem:a4e1076839b70bdcc99f2e677dea1e01d" id="r_a4e1076839b70bdcc99f2e677dea1e01d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e1076839b70bdcc99f2e677dea1e01d">udif_server_set_host_name</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *name, size_t namelen)</td></tr>
 <tr class="memdesc:a4e1076839b70bdcc99f2e677dea1e01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rename the server host.  <br /></td></tr>
-<tr class="memitem:a206b7b494af9b244319f3edeab90a50d" id="r_a206b7b494af9b244319f3edeab90a50d"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a206b7b494af9b244319f3edeab90a50d">udif_server_set_ip_address</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *address, size_t addlen)</td></tr>
+<tr class="memitem:a206b7b494af9b244319f3edeab90a50d" id="r_a206b7b494af9b244319f3edeab90a50d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a206b7b494af9b244319f3edeab90a50d">udif_server_set_ip_address</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *address, size_t addlen)</td></tr>
 <tr class="memdesc:a206b7b494af9b244319f3edeab90a50d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the IP address of the server.  <br /></td></tr>
-<tr class="memitem:a1f522a16a5f8df68c522e4624a9bc0ce" id="r_a1f522a16a5f8df68c522e4624a9bc0ce"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f522a16a5f8df68c522e4624a9bc0ce">udif_server_set_password_retries</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *snum, size_t numlen)</td></tr>
+<tr class="memitem:a1f522a16a5f8df68c522e4624a9bc0ce" id="r_a1f522a16a5f8df68c522e4624a9bc0ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f522a16a5f8df68c522e4624a9bc0ce">udif_server_set_password_retries</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *snum, size_t numlen)</td></tr>
 <tr class="memdesc:a1f522a16a5f8df68c522e4624a9bc0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of failed password retries.  <br /></td></tr>
-<tr class="memitem:a425472560d0ef5524b84a0e9deec335d" id="r_a425472560d0ef5524b84a0e9deec335d"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a425472560d0ef5524b84a0e9deec335d">udif_server_erase_signature_key</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a425472560d0ef5524b84a0e9deec335d" id="r_a425472560d0ef5524b84a0e9deec335d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a425472560d0ef5524b84a0e9deec335d">udif_server_erase_signature_key</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a425472560d0ef5524b84a0e9deec335d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase the signature-scheme signing key.  <br /></td></tr>
-<tr class="memitem:a28d46e05c8ef9a4eb9e59a0feba3d8c7" id="r_a28d46e05c8ef9a4eb9e59a0feba3d8c7"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28d46e05c8ef9a4eb9e59a0feba3d8c7">udif_server_state_backup_restore</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a28d46e05c8ef9a4eb9e59a0feba3d8c7" id="r_a28d46e05c8ef9a4eb9e59a0feba3d8c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28d46e05c8ef9a4eb9e59a0feba3d8c7">udif_server_state_backup_restore</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a28d46e05c8ef9a4eb9e59a0feba3d8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore the state from backup.  <br /></td></tr>
-<tr class="memitem:a8209a8c2da9d0bca8c82d694666c8107" id="r_a8209a8c2da9d0bca8c82d694666c8107"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8209a8c2da9d0bca8c82d694666c8107">udif_server_state_backup_save</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a8209a8c2da9d0bca8c82d694666c8107" id="r_a8209a8c2da9d0bca8c82d694666c8107"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8209a8c2da9d0bca8c82d694666c8107">udif_server_state_backup_save</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a8209a8c2da9d0bca8c82d694666c8107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backup the state.  <br /></td></tr>
-<tr class="memitem:add3eae2c27a5fbc49cd4fa6c52c7bc3a" id="r_add3eae2c27a5fbc49cd4fa6c52c7bc3a"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add3eae2c27a5fbc49cd4fa6c52c7bc3a">udif_server_state_initialize</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, <a class="el" href="udif_8h.html#a3ecc13d32a30f5eeb8824fce9004562b">udif_network_designations</a> srvtype)</td></tr>
+<tr class="memitem:add3eae2c27a5fbc49cd4fa6c52c7bc3a" id="r_add3eae2c27a5fbc49cd4fa6c52c7bc3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add3eae2c27a5fbc49cd4fa6c52c7bc3a">udif_server_state_initialize</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_network_designations srvtype)</td></tr>
 <tr class="memdesc:add3eae2c27a5fbc49cd4fa6c52c7bc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the internal state.  <br /></td></tr>
-<tr class="memitem:a106facf1725530192caa0de17ef57ffd" id="r_a106facf1725530192caa0de17ef57ffd"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106facf1725530192caa0de17ef57ffd">udif_server_state_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a106facf1725530192caa0de17ef57ffd" id="r_a106facf1725530192caa0de17ef57ffd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106facf1725530192caa0de17ef57ffd">udif_server_state_store</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a106facf1725530192caa0de17ef57ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the server state to file.  <br /></td></tr>
-<tr class="memitem:a7aad0fec0da750731b7b7c3c4664e1e6" id="r_a7aad0fec0da750731b7b7c3c4664e1e6"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aad0fec0da750731b7b7c3c4664e1e6">udif_server_state_unload</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a7aad0fec0da750731b7b7c3c4664e1e6" id="r_a7aad0fec0da750731b7b7c3c4664e1e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aad0fec0da750731b7b7c3c4664e1e6">udif_server_state_unload</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a7aad0fec0da750731b7b7c3c4664e1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload the server state from memory.  <br /></td></tr>
-<tr class="memitem:ad5483dccea2ec91ea801a600d9bea959" id="r_ad5483dccea2ec91ea801a600d9bea959"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5483dccea2ec91ea801a600d9bea959">udif_server_topology_adc_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *dcert)</td></tr>
+<tr class="memitem:ad5483dccea2ec91ea801a600d9bea959" id="r_ad5483dccea2ec91ea801a600d9bea959"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5483dccea2ec91ea801a600d9bea959">udif_server_topology_adc_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *dcert)</td></tr>
 <tr class="memdesc:ad5483dccea2ec91ea801a600d9bea959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the ADC certificate from state.  <br /></td></tr>
-<tr class="memitem:ac7055481cfb744020066b2dd5f90ceef" id="r_ac7055481cfb744020066b2dd5f90ceef"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7055481cfb744020066b2dd5f90ceef">udif_server_topology_load</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:ac7055481cfb744020066b2dd5f90ceef" id="r_ac7055481cfb744020066b2dd5f90ceef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7055481cfb744020066b2dd5f90ceef">udif_server_topology_load</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:ac7055481cfb744020066b2dd5f90ceef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the topology from an encrypted file to state.  <br /></td></tr>
-<tr class="memitem:ade404b3f7c1c17ad32fefb2ec819bc20" id="r_ade404b3f7c1c17ad32fefb2ec819bc20"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade404b3f7c1c17ad32fefb2ec819bc20">udif_server_topology_print_list</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:ade404b3f7c1c17ad32fefb2ec819bc20" id="r_ade404b3f7c1c17ad32fefb2ec819bc20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade404b3f7c1c17ad32fefb2ec819bc20">udif_server_topology_print_list</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:ade404b3f7c1c17ad32fefb2ec819bc20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the topological list to the console.  <br /></td></tr>
-<tr class="memitem:aded8a868157f8d799165b9deaf7214dd" id="r_aded8a868157f8d799165b9deaf7214dd"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded8a868157f8d799165b9deaf7214dd">udif_server_topology_purge_externals</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:aded8a868157f8d799165b9deaf7214dd" id="r_aded8a868157f8d799165b9deaf7214dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded8a868157f8d799165b9deaf7214dd">udif_server_topology_purge_externals</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:aded8a868157f8d799165b9deaf7214dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the topology list except for the root and local nodes.  <br /></td></tr>
-<tr class="memitem:a802d12578ff4f8251610a66d281b543f" id="r_a802d12578ff4f8251610a66d281b543f"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a802d12578ff4f8251610a66d281b543f">udif_server_topology_remove_certificate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
+<tr class="memitem:a802d12578ff4f8251610a66d281b543f" id="r_a802d12578ff4f8251610a66d281b543f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a802d12578ff4f8251610a66d281b543f">udif_server_topology_remove_certificate</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
 <tr class="memdesc:a802d12578ff4f8251610a66d281b543f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the certificate.  <br /></td></tr>
-<tr class="memitem:a1da7c7f229a6400c8c30f136c1005325" id="r_a1da7c7f229a6400c8c30f136c1005325"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1da7c7f229a6400c8c30f136c1005325">udif_server_topology_remove_node</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
+<tr class="memitem:a1da7c7f229a6400c8c30f136c1005325" id="r_a1da7c7f229a6400c8c30f136c1005325"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1da7c7f229a6400c8c30f136c1005325">udif_server_topology_remove_node</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, const char *issuer)</td></tr>
 <tr class="memdesc:a1da7c7f229a6400c8c30f136c1005325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from the topology.  <br /></td></tr>
-<tr class="memitem:a1cd725a263e1542cf006de0fdb0cdbbc" id="r_a1cd725a263e1542cf006de0fdb0cdbbc"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cd725a263e1542cf006de0fdb0cdbbc">udif_server_topology_reset</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a1cd725a263e1542cf006de0fdb0cdbbc" id="r_a1cd725a263e1542cf006de0fdb0cdbbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cd725a263e1542cf006de0fdb0cdbbc">udif_server_topology_reset</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a1cd725a263e1542cf006de0fdb0cdbbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all nodes and certificates except for the root.  <br /></td></tr>
-<tr class="memitem:ab474795cb406df8d25260d07e89cfbef" id="r_ab474795cb406df8d25260d07e89cfbef"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab474795cb406df8d25260d07e89cfbef">udif_server_topology_local_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *ccert)</td></tr>
+<tr class="memitem:ab474795cb406df8d25260d07e89cfbef" id="r_ab474795cb406df8d25260d07e89cfbef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab474795cb406df8d25260d07e89cfbef">udif_server_topology_local_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_child_certificate *ccert)</td></tr>
 <tr class="memdesc:ab474795cb406df8d25260d07e89cfbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the local certificate from state.  <br /></td></tr>
-<tr class="memitem:a268a9c1a6db602a8fca3ebc6d9564946" id="r_a268a9c1a6db602a8fca3ebc6d9564946"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a268a9c1a6db602a8fca3ebc6d9564946">udif_server_topology_root_exists</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a268a9c1a6db602a8fca3ebc6d9564946" id="r_a268a9c1a6db602a8fca3ebc6d9564946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a268a9c1a6db602a8fca3ebc6d9564946">udif_server_topology_root_exists</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a268a9c1a6db602a8fca3ebc6d9564946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the root certificate exists on file.  <br /></td></tr>
-<tr class="memitem:a67eef3d3694927d3ef6cf4b55fd21215" id="r_a67eef3d3694927d3ef6cf4b55fd21215"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67eef3d3694927d3ef6cf4b55fd21215">udif_server_topology_root_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *rcert)</td></tr>
+<tr class="memitem:a67eef3d3694927d3ef6cf4b55fd21215" id="r_a67eef3d3694927d3ef6cf4b55fd21215"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67eef3d3694927d3ef6cf4b55fd21215">udif_server_topology_root_fetch</a> (const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state, udif_root_certificate *rcert)</td></tr>
 <tr class="memdesc:a67eef3d3694927d3ef6cf4b55fd21215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the root certificate from state.  <br /></td></tr>
-<tr class="memitem:ae962c71fed5fd6264b506db955d7cd95" id="r_ae962c71fed5fd6264b506db955d7cd95"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae962c71fed5fd6264b506db955d7cd95">udif_server_topology_to_file</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:ae962c71fed5fd6264b506db955d7cd95" id="r_ae962c71fed5fd6264b506db955d7cd95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae962c71fed5fd6264b506db955d7cd95">udif_server_topology_to_file</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:ae962c71fed5fd6264b506db955d7cd95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the topology to an encrypted file.  <br /></td></tr>
-<tr class="memitem:ac107bc0420f4dcd3410979ab8d0a6281" id="r_ac107bc0420f4dcd3410979ab8d0a6281"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac107bc0420f4dcd3410979ab8d0a6281">udif_server_user_login</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:ac107bc0420f4dcd3410979ab8d0a6281" id="r_ac107bc0420f4dcd3410979ab8d0a6281"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac107bc0420f4dcd3410979ab8d0a6281">udif_server_user_login</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:ac107bc0420f4dcd3410979ab8d0a6281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the user login dialogue.  <br /></td></tr>
-<tr class="memitem:a4710af56db8218c76ea2b12f6481ab6b" id="r_a4710af56db8218c76ea2b12f6481ab6b"><td class="memItemLeft" align="right" valign="top">UDIF_EXPORT_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4710af56db8218c76ea2b12f6481ab6b">udif_server_user_logout</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
+<tr class="memitem:a4710af56db8218c76ea2b12f6481ab6b" id="r_a4710af56db8218c76ea2b12f6481ab6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4710af56db8218c76ea2b12f6481ab6b">udif_server_user_logout</a> (<a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *state)</td></tr>
 <tr class="memdesc:a4710af56db8218c76ea2b12f6481ab6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log out of the server.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -225,10 +225,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (UDIF_STORAGE_DOMAINNAME_MAX + UDIF_STORAGE_HOSTNAME_MAX + \</div>
-<div class="line">    UDIF_STORAGE_ADDRESS_MAX + UDIF_STORAGE_PATH_MAX + UDIF_STORAGE_USERNAME_MAX + <a class="code hl_define" href="udif_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a> + \</div>
+<div class="line">    UDIF_STORAGE_ADDRESS_MAX + UDIF_STORAGE_PATH_MAX + UDIF_STORAGE_USERNAME_MAX + <a class="code hl_define" href="_u_d_i_f_2certificate_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a> + \</div>
 <div class="line">    sizeof(uint16_t) + <span class="keyword">sizeof</span>(uint8_t) + <span class="keyword">sizeof</span>(uint8_t) + <span class="keyword">sizeof</span>(uint16_t) + <span class="keyword">sizeof</span>(<span class="keywordtype">bool</span>) + <span class="keyword">sizeof</span>(bool) + \</div>
-<div class="line">    UDIF_ASYMMETRIC_SIGNING_KEY_SIZE)</div>
-<div class="ttc" id="audif_8h_html_ac79eeb0997a293f4b539f69daadc13e9"><div class="ttname"><a href="udif_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_ISSUER_SIZE</div><div class="ttdoc">The maximum certificate issuer string length. The last character must be a string terminator.</div><div class="ttdef"><b>Definition</b> udif.h:899</div></div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a063205c071485a302e0899ab8287b5ea">UDIF_ASYMMETRIC_SIGNING_KEY_SIZE</a>)</div>
+<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_ac79eeb0997a293f4b539f69daadc13e9"><div class="ttname"><a href="_u_d_i_f_2certificate_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_ISSUER_SIZE</div><div class="ttdoc">The maximum certificate issuer string length. The last character must be a string terminator.</div><div class="ttdef"><b>Definition</b> certificate.h:138</div></div>
+<div class="ttc" id="audif_8h_html_a063205c071485a302e0899ab8287b5ea"><div class="ttname"><a href="udif_8h.html#a063205c071485a302e0899ab8287b5ea">UDIF_ASYMMETRIC_SIGNING_KEY_SIZE</a></div><div class="ttdeci">#define UDIF_ASYMMETRIC_SIGNING_KEY_SIZE</div><div class="ttdoc">The byte size of the asymmetric signature signing-key array.</div><div class="ttdef"><b>Definition</b> udif.h:258</div></div>
 </div><!-- fragment -->
 <p>Calculates the size of the UDIF server application state. </p>
 <p>This macro sums the sizes of various maximum string lengths and fixed?size fields used in the server state structure. </p>
@@ -269,7 +270,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_certificate_directory </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_certificate_directory </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -306,7 +307,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_certificate_path </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_certificate_path </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -349,7 +350,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_child_certificate_export </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_child_certificate_export </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -381,7 +382,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_child_certificate_from_issuer </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_child_certificate_from_issuer </td>
           <td>(</td>
           <td class="paramtype">udif_child_certificate *</td>          <td class="paramname"><span class="paramname"><em>ccert</em></span>, </td>
         </tr>
@@ -419,7 +420,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_child_certificate_from_serial </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_child_certificate_from_serial </td>
           <td>(</td>
           <td class="paramtype">udif_child_certificate *</td>          <td class="paramname"><span class="paramname"><em>ccert</em></span>, </td>
         </tr>
@@ -457,7 +458,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_child_certificate_generate </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_child_certificate_generate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -500,7 +501,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_child_certificate_import </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_child_certificate_import </td>
           <td>(</td>
           <td class="paramtype">udif_child_certificate *</td>          <td class="paramname"><span class="paramname"><em>lcert</em></span>, </td>
         </tr>
@@ -538,7 +539,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_child_certificate_path </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_child_certificate_path </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -575,7 +576,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_child_certificate_path_from_issuer </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_child_certificate_path_from_issuer </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -618,7 +619,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_child_certificate_print </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_child_certificate_print </td>
           <td>(</td>
           <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fpath</em></span>, </td>
         </tr>
@@ -650,7 +651,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_clear_config </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_clear_config </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -676,7 +677,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_clear_log </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_clear_log </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -702,7 +703,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_erase_all </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_erase_all </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -728,7 +729,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_erase_signature_key </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_erase_signature_key </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -754,7 +755,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_local_certificate_store </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_local_certificate_store </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -791,7 +792,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_log_host </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_log_host </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -817,7 +818,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_log_print </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_log_print </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -843,7 +844,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_log_write_message </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_log_write_message </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -887,7 +888,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_mfkcol_from_file </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_mfkcol_from_file </td>
           <td>(</td>
           <td class="paramtype">qsc_collection_state *</td>          <td class="paramname"><span class="paramname"><em>mfkcol</em></span>, </td>
         </tr>
@@ -919,7 +920,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_mfkcol_path </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_mfkcol_path </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -956,7 +957,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_mfkcol_to_file </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_mfkcol_to_file </td>
           <td>(</td>
           <td class="paramtype">const qsc_collection_state *</td>          <td class="paramname"><span class="paramname"><em>mfkcol</em></span>, </td>
         </tr>
@@ -987,7 +988,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_print_banner </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_print_banner </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1013,7 +1014,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_print_configuration </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_print_configuration </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1039,7 +1040,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_print_error </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_print_error </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1056,7 +1057,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="udif_8h.html#a6a92f563ca08c2dce733634e58d838b8">udif_protocol_errors</a></td>          <td class="paramname"><span class="paramname"><em>error</em></span>&#160;)</td>
+          <td class="paramtype">udif_protocol_errors</td>          <td class="paramname"><span class="paramname"><em>error</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1082,7 +1083,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_root_certificate_export </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_root_certificate_export </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1114,7 +1115,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_root_certificate_generate </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_root_certificate_generate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1151,7 +1152,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_root_certificate_load </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_root_certificate_load </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1189,7 +1190,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_root_certificate_print </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_root_certificate_print </td>
           <td>(</td>
           <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fpath</em></span>, </td>
         </tr>
@@ -1221,7 +1222,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_root_certificate_store </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_root_certificate_store </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1253,7 +1254,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_root_import_dialogue </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_root_import_dialogue </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1280,7 +1281,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_set_command_prompt </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_set_command_prompt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1306,7 +1307,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_set_console_timeout </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_set_console_timeout </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1344,7 +1345,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_set_domain_name </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_set_domain_name </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1382,7 +1383,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_set_host_name </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_set_host_name </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1420,7 +1421,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_set_ip_address </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_set_ip_address </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1458,7 +1459,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_set_password_retries </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_set_password_retries </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1496,7 +1497,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_state_backup_restore </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_state_backup_restore </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1522,7 +1523,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_state_backup_save </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_state_backup_save </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1548,14 +1549,14 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_state_initialize </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_state_initialize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="udif_8h.html#a3ecc13d32a30f5eeb8824fce9004562b">udif_network_designations</a></td>          <td class="paramname"><span class="paramname"><em>srvtype</em></span>&#160;)</td>
+          <td class="paramtype">udif_network_designations</td>          <td class="paramname"><span class="paramname"><em>srvtype</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1579,7 +1580,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_state_store </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_state_store </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1606,7 +1607,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_state_unload </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_state_unload </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1632,7 +1633,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_topology_adc_fetch </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_topology_adc_fetch </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1664,7 +1665,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_topology_load </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_topology_load </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1691,7 +1692,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_topology_local_fetch </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_topology_local_fetch </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1723,7 +1724,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_print_list </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_print_list </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1749,7 +1750,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_purge_externals </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_purge_externals </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1775,7 +1776,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_remove_certificate </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_remove_certificate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1806,7 +1807,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_remove_node </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_remove_node </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1837,7 +1838,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_reset </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_reset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1863,7 +1864,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_topology_root_exists </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_topology_root_exists </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1890,7 +1891,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_topology_root_fetch </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_topology_root_fetch </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
         </tr>
@@ -1922,7 +1923,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_topology_to_file </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_topology_to_file </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1948,7 +1949,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API bool udif_server_user_login </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_server_user_login </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -1975,7 +1976,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UDIF_EXPORT_API void udif_server_user_logout </td>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_server_user_logout </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structudif__server__application__state.html">udif_server_application_state</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
           <td></td>
@@ -2007,7 +2008,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_26cd59994238c2dc562ea2212e9609f3.html">UDIF</a></li><li class="navelem"><a href="server_8h.html">server.h</a></li>
+    <li class="navelem"><a href="dir_042c7fb8a04bd297428756c8f8047b93.html">Saved</a></li><li class="navelem"><a href="server_8h.html">server.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

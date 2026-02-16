@@ -49,68 +49,18 @@
  * Contact: contact@qrcscorp.ca
  */
 
-#ifndef UDIF_COMMON_H
-#define UDIF_COMMON_H
+#ifndef UDIFCOMMON_H
+#define UDIFCOMMON_H
 
-#include <errno.h>
+#include <assert.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-#include <limits.h>
-#include <string.h>
-#include "qsccommon.h"
-#include "intrinsics.h"
 
 /**
-* \internal
-* \file skdpcommon.h
-* \brief This file contains common definitions
-* \endcode
+* \file udifcommon.h
+* \brief UDIF common definitions and constants
 */
-
-static const char UDIF_DEFAULT_APP_PATH[] = "C:\\";
-static const char UDIF_LOG_FILENAME[] = "\\userlog.mlog";
-
-/** \cond DOXYGEN_IGNORE */
-/* application constants */
-#define UDIF_CRYPTO_PASSWORD_HASH 32U
-#define UDIF_DEFAULT_AUTH_RETRIES 3U
-#define UDIF_DEFAULT_PORT 8022U
-#define UDIF_DEFAULT_SESSION_TIMEOUT 5U
-#define UDIF_STORAGE_ADDRESS_MIN 7U
-#define UDIF_STORAGE_ADDRESS_MAX 65U
-#define UDIF_STORAGE_ASSOCIATION_HOSTS_MAX 16U
-#define UDIF_STORAGE_CERTIFICATE_NAME 128U
-#define UDIF_STORAGE_DEVICENAME_MAX 16U
-#define UDIF_STORAGE_DEVICENAME_MIN 2U
-#define UDIF_STORAGE_DOMAINNAME_MAX 260U
-#define UDIF_STORAGE_DOMAINNAME_MIN 2U
-#define UDIF_STORAGE_FILEPATH_MAX 256U
-#define UDIF_STORAGE_FILEPATH_MIN 8U
-#define UDIF_STORAGE_HOSTNAME_MIN 2U
-#define UDIF_STORAGE_HOSTNAME_MAX 128U
-#define UDIF_STORAGE_INPUT_MAX 256U
-#define UDIF_STORAGE_MAC_SIZE 32U
-#define UDIF_STORAGE_MAX_PATH 260U
-#define UDIF_STORAGE_MESSAGE_MAX 8192U
-#define UDIF_STORAGE_PASSWORD_MAX 256U
-#define UDIF_STORAGE_PASSWORD_MIN 8U
-#define UDIF_STORAGE_PASSWORD_RETRY 3U
-#define UDIF_STORAGE_PATH_MAX 260U
-#define UDIF_STORAGE_PROMPT_MAX 64U
-#define UDIF_STORAGE_RETRIES_MIN 1U
-#define UDIF_STORAGE_RETRIES_MAX 5U
-#define UDIF_STORAGE_SERVER_PAUSE_INTERVAL 250U
-#define UDIF_STORAGE_TIMEOUT_MIN 1U
-#define UDIF_STORAGE_TIMEOUT_MAX 60U
-#define UDIF_STORAGE_USERNAME_MAX 128U
-#define UDIF_STORAGE_USERNAME_MIN 6U
-#define UDIF_STORAGE_USERNAME_RETRY 3U
-
-/*!
-* \def UDIF_CONFIG_DILITHIUM_KYBER
-* \brief Sets the asymmetric cryptographic primitive-set to Dilithium/Kyber.
-*/
-#define UDIF_CONFIG_DILITHIUM_KYBER
 
 /*!
 \def UDIF_DLL_API
@@ -153,24 +103,15 @@ static const char UDIF_LOG_FILENAME[] = "\\userlog.mlog";
 #	define UDIF_EXPORT_API
 #endif
 
-#if defined(DEBUG) || defined(_DEBUG) || defined(__DEBUG__) || (defined(__GNUC__) && !defined(__OPTIMIZE__))
-  /*!
-   * \def UDIF_DEBUG_MODE
-   * \brief Defined when the build is in debug mode.
-   */
-#	define UDIF_DEBUG_MODE
-#endif
-
-#ifdef UDIF_DEBUG_MODE
-  /*!
-   * \def UDIF_ASSERT
-   * \brief Define the assert function and guarantee it as debug only.
-   */
-#  define UDIF_ASSERT(expr) assert(expr)
+/*!
+* \def UDIF_ASSERT
+* \brief Assertion macro for debug builds
+*/
+#if defined(_DEBUG)
+#	include <assert.h>
+#	define UDIF_ASSERT(x) assert(x)
 #else
-#  define UDIF_ASSERT(expr) ((void)0)
+#	define UDIF_ASSERT(x)
 #endif
-
-/** \endcond DOXYGEN_IGNORE */
 
 #endif

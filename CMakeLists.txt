@@ -20,6 +20,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(QSC)
 
+# Download and build MCEL
+include(FetchContent)
+FetchContent_Declare(
+  MCEL
+  GIT_REPOSITORY https://github.com/QRCS-CORP/MCEL.git
+  GIT_TAG master
+)
+FetchContent_MakeAvailable(MCEL)
+
 # UDIF Static Library
 file(GLOB_RECURSE UDIF_SOURCES "Source/UDIF/*.c")
 file(GLOB_RECURSE UDIF_HEADERS "Source/UDIF/include/*.h")
@@ -27,16 +36,10 @@ file(GLOB_RECURSE UDIF_HEADERS "Source/UDIF/include/*.h")
 add_library(udif STATIC ${UDIF_SOURCES} ${UDIF_HEADERS})
 target_include_directories(udif PUBLIC "Source/UDIF")
 target_link_libraries(udif PUBLIC qsc)
-
-# UDIF URA
-file(GLOB_RECURSE UDIF_URA_SOURCES "Source/URA/*.c")
-
-add_executable(udif_ura ${UDIF_URA_SOURCES})
-target_include_directories(udif_ura PRIVATE "Source/URA")
-target_link_libraries(udif_ura PRIVATE udif)
+target_link_libraries(udif PUBLIC mcel)
 
 # Warnings
-foreach(target udif udif_ura)
+foreach(target udif)
   if (MSVC)
     target_compile_options(${target} PRIVATE /W4 /WX)
   else()

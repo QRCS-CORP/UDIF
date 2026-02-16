@@ -58,13 +58,12 @@ $(function(){initNavTree('test.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt>File <a class="el" href="certificate_8h.html">certificate.h</a>  </dt>
+<dt>File <a class="el" href="_saved_2certificate_8h.html">certificate.h</a>  </dt>
 <dd><a class="anchor" id="_test000001"></a> When the UDIF_DEBUG_TESTS_RUN macro is defined, the function udif_certificate_functions_test() executes a series of self-tests that verify: </dd>
 <dt>File <a class="el" href="crypto_8h.html">crypto.h</a>  </dt>
 <dd><a class="anchor" id="_test000002"></a> The UDIF crypto functions are rigorously tested to ensure that: </dd>
 <dt>File <a class="el" href="udif_8h.html">udif.h</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_test000003"></a> Although this header does not implement tests, it underpins modules that validate: Correct mapping of UDIF high-level calls to QSC routines and parameter sets. Consistency of field/size constants for identities, certificates, claims, and tokens. Deterministic (de)serialization of headers, certificates, capabilities, and claims. Enforcement of sequence and UTC valid-time windows in packet prechecks. Accurate conversion of error/status codes to diagnostic strings. These tests collectively ensure correctness, robustness, and cryptographic soundness of the UDIF core library. </p>
-<p class="enddd"><a class="anchor" id="_test000004"></a> Although this header does not directly implement test routines, it underpins multiple test modules that validate:</p><ul>
+<dd><a class="anchor" id="_test000003"></a> Although this header does not directly implement test routines, it underpins multiple test modules that validate:<ul>
 <li>The correct mapping of UDIF high-level function calls to the underlying QSC library routines.</li>
 <li>The consistency and accuracy of defined constants (e.g., key sizes, certificate sizes, network parameters).</li>
 <li>The proper serialization/deserialization of packet headers and full packets (via udif_packet_header_serialize and udif_stream_to_packet).</li>

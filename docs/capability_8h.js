@@ -1,0 +1,55 @@
+var capability_8h =
+[
+    [ "udif_capability", "structudif__capability.html", "structudif__capability" ],
+    [ "UDIF_CAPABILITY_ENCODED_SIZE", "capability_8h.html#a1c541ec956c7a09a902ad4e792887276", null ],
+    [ "UDIF_CAPABILITY_SIGNED_SIZE", "capability_8h.html#acfc659e2f1c3487def3799deb6fa1578", null ],
+    [ "udif_capability_id", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bc", [
+      [ "udif_capability_issue_certificate", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bca4fd694cb04c16e384a7d8b7a389691e9", null ],
+      [ "udif_capability_revoke_certificate", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bcaa0d8366bf8a242718bc20f5767888af7", null ],
+      [ "udif_capability_issue_token", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bcac718111d996cb818e9938870528d0415", null ],
+      [ "udif_capability_validate_token", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bcadeccd7e779fc4abd55cb998dd11f2290", null ],
+      [ "udif_capability_register_issuer", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bca472f4b9f74a7ddfe9ad160c522957352", null ],
+      [ "udif_capability_rotate_keys", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bca90ce19d3756a6e8d7297af664d11ad85", null ],
+      [ "udif_capability_directory_query", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bcaaeebdf77e2a59a17140d2f127a436419", null ],
+      [ "udif_capability_audit_logging_access", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bcac2926e0171aad4ad8e2636a5f748236d", null ],
+      [ "udif_capability_admin", "capability_8h.html#a255e65a4251dbae1ba4c886d55d1c5bca801421c57e68aa022fb00cf1cf2750ac", null ]
+    ] ],
+    [ "udif_capability_scopes", "capability_8h.html#adb7c3090a8b4852efb2bbb21e7ce2838", [
+      [ "udif_scope_local", "capability_8h.html#adb7c3090a8b4852efb2bbb21e7ce2838a52ccd57844eb7f44487860fb29882bf1", null ],
+      [ "udif_scope_intra_domain", "capability_8h.html#adb7c3090a8b4852efb2bbb21e7ce2838a0137787f50fb3dde16dd64706ff2c40b", null ],
+      [ "udif_scope_treaty", "capability_8h.html#adb7c3090a8b4852efb2bbb21e7ce2838abf9bd87bbaddba91d68aa6f73a09200e", null ]
+    ] ],
+    [ "udif_capability_verbs", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544b", [
+      [ "udif_capability_query_exist", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bae7fb17b4d98fb9e49dde414e4dab4f49", null ],
+      [ "udif_capability_query_owner_binding", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba948f1a028510a9226555417e0ec4b382", null ],
+      [ "udif_capability_query_attr_bucket", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544baae56647bbc6a32bbb7e5603a4e139735", null ],
+      [ "udif_capability_prove_membership", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba03e4117f00da0c8017188cd13b181ae3", null ],
+      [ "udif_capability_forward_query", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bad62cf91f2adf2dbf21a712bcc8fc4b4f", null ],
+      [ "udif_capability_admin_enroll", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bab9024722ed31f7535456fa7b07405fa3", null ],
+      [ "udif_capability_admin_suspend", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bae4753d733d3c38e2e46e2e2e38729a33", null ],
+      [ "udif_capability_admin_resume", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba0bc0ea68056367d397b08f7fc1a475eb", null ],
+      [ "udif_capability_admin_revoke", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bab3d46dae4361a081f4ed8a79df85bb2e", null ],
+      [ "udif_capability_admin_branch_create", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba5cbc30d1715600f7415f0bb6016def8c", null ],
+      [ "udif_capability_admin_branch_retire", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba79a21f1b7d1651d5cccb9aec6f190464", null ],
+      [ "udif_capability_registry_commit", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba94fbaee5f321b6cf864bbf0323cacad9", null ],
+      [ "udif_capability_tx_create", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba74ecc0a95d836c9ca20b070cef431c52", null ],
+      [ "udif_capability_tx_accept", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba37967e88adece9b5368a355d9f317630", null ],
+      [ "udif_capability_logging_anchor_send", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba1c5008a5554da926e662b0624d9c3a4e", null ],
+      [ "udif_capability_logging_anchor_verify", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544bae250b54d376403f7e99ecabf304d3424", null ],
+      [ "udif_capability_treaty_negotiate", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba6d589e676ae4a8f3f8b988a01398cce6", null ],
+      [ "udif_capability_treaty_query_exec", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba0f4fe35bf12e69d1cf99c8c2d9eea2c1", null ],
+      [ "udif_capability_treaty_query_origin", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544baadcc827fbbcb1fc013c57e8595da7981", null ],
+      [ "udif_capability_telemetry_export", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba392da41fb574285ff18bd7e66dea5e02", null ],
+      [ "udif_capability_error_report", "capability_8h.html#ab8fea7dd3d6e150d18bd14fbbb64544ba158e784366b23d42ee29cd71b65cc6d3", null ]
+    ] ],
+    [ "udif_capability_allows_scope", "capability_8h.html#a7603be5077e72dbca64da84a87718a68", null ],
+    [ "udif_capability_allows_verb", "capability_8h.html#a56ca379507befcb0c275d5ed9313bb16", null ],
+    [ "udif_capability_clear", "capability_8h.html#a4616abd9cdb94d8092c6c94ff89655e6", null ],
+    [ "udif_capability_compute_digest", "capability_8h.html#a55610b84362807c275242792e1f091dc", null ],
+    [ "udif_capability_create", "capability_8h.html#a9f707dcade21a69f788644972f2f74e9", null ],
+    [ "udif_capability_deserialize", "capability_8h.html#a8c9809ccf9118df7655fc0980dcf0110", null ],
+    [ "udif_capability_grants_permission", "capability_8h.html#ab8582efa3ccb191afa6bae3299c9bfeb", null ],
+    [ "udif_capability_is_expired", "capability_8h.html#a4838a50e5669b5d49d38ccb424530ce0", null ],
+    [ "udif_capability_serialize", "capability_8h.html#a593bc99208a2a6fe77adf0742a10271a", null ],
+    [ "udif_capability_verify", "capability_8h.html#a376ddbbf833eb578fd7aa122cd6d7fea", null ]
+];

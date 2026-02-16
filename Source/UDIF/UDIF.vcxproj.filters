@@ -15,72 +15,72 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="udif.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="udifcommon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ura.h">
+    <ClInclude Include="doxymain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="certificate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="commands.h">
+    <ClInclude Include="object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="crypto.h">
+    <ClInclude Include="registry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="doxymain.h">
+    <ClInclude Include="anchor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="help.h">
+    <ClInclude Include="capability.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="logger.h">
+    <ClInclude Include="query.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="treaty.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resources.h">
+    <ClInclude Include="udifcommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="server.h">
+    <ClInclude Include="udif.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="topology.h">
+    <ClInclude Include="storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcelmanager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="udif.c">
+    <ClCompile Include="capability.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ura.c">
+    <ClCompile Include="object.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="registry.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="anchor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="certificate.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="crypto.c">
+    <ClCompile Include="query.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="help.c">
+    <ClCompile Include="treaty.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="logger.c">
+    <ClCompile Include="udif.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu.c">
+    <ClCompile Include="storage.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="server.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="topology.c">
+    <ClCompile Include="mcelmanager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

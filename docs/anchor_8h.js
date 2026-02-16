@@ -1,0 +1,25 @@
+var anchor_8h =
+[
+    [ "udif_anchor_record", "structudif__anchor__record.html", "structudif__anchor__record" ],
+    [ "UDIF_ANCHOR_INTERVAL_SEC", "anchor_8h.html#a4e6e2687f5ab546cdfab6d026432f405", null ],
+    [ "UDIF_ANCHOR_MAX_AGE_MAX", "anchor_8h.html#aba8a69544729a780e578215719719910", null ],
+    [ "UDIF_ANCHOR_MAX_SIZE", "anchor_8h.html#af70a525181ef20615f8ff8ed7012d9e7", null ],
+    [ "UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER", "anchor_8h.html#a99d50364a773cc567ab0bdc8f81017ce", null ],
+    [ "UDIF_ANCHOR_RECORD_SIZE", "anchor_8h.html#a6d0a0a9ae2f188d4b6909fe84f7457ba", null ],
+    [ "UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER", "anchor_8h.html#a56ced7d4902b59d23465d3bba9bd9c89", null ],
+    [ "UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER", "anchor_8h.html#afcb23c2c62078d7424b8a9822b64ca2a", null ],
+    [ "UDIF_ANCHOR_SEQUENCE_SIZE", "anchor_8h.html#a068e8e8b63cc5ce0b22dfccbbfaa4968", null ],
+    [ "UDIF_ANCHOR_SIGNING_SIZE", "anchor_8h.html#a6c4d5b972ba594a3568f122e6b781cb3", null ],
+    [ "udif_anchor_clear", "anchor_8h.html#a931d2135e2a23bcb613973b7f0582ef4", null ],
+    [ "udif_anchor_compare", "anchor_8h.html#aa6b8cf81068b9130b0920c1ec938c60b", null ],
+    [ "udif_anchor_compute_digest", "anchor_8h.html#ac02fc58f4572449718b1ea3055a1a5f8", null ],
+    [ "udif_anchor_compute_signature", "anchor_8h.html#a8e11fa13445d1f978dea720deaa50a88", null ],
+    [ "udif_anchor_create", "anchor_8h.html#a10d768dce6feca4df121045b8737576d", null ],
+    [ "udif_anchor_deserialize", "anchor_8h.html#a156db8a3c08635378367aed33b1e50ca", null ],
+    [ "udif_anchor_encoded_size", "anchor_8h.html#a77f9d9bd6ced0f15eb9665e9aba6abd8", null ],
+    [ "udif_anchor_is_fresh", "anchor_8h.html#a3e0a04ed59b9527fc96cca76a08c47bb", null ],
+    [ "udif_anchor_serialize", "anchor_8h.html#a849e45fd81fbff9010e0f276df11fa44", null ],
+    [ "udif_anchor_validate_sequence", "anchor_8h.html#ab5d914f77775b4e9f6868ab478925974", null ],
+    [ "udif_anchor_verify", "anchor_8h.html#a0e132a7ae8e3e5fd571cdcadd3f29e30", null ],
+    [ "udif_anchor_verify_chain", "anchor_8h.html#a4fa32d06d62c2b2e5a2a8fc47b1c7776", null ]
+];

@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)..\MCEL\MCEL</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <CompileAs>CompileAsC</CompileAs>
@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)..\MCEL\MCEL</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <CompileAs>CompileAsC</CompileAs>
@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)..\MCEL\MCEL</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <CompileAs>CompileAsC</CompileAs>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)..\MCEL\MCEL</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <CompileAs>CompileAsC</CompileAs>
@@ -143,32 +143,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ura.h" />
+    <ClInclude Include="anchor.h" />
+    <ClInclude Include="capability.h" />
     <ClInclude Include="certificate.h" />
-    <ClInclude Include="commands.h" />
-    <ClInclude Include="crypto.h" />
+    <ClInclude Include="mcelmanager.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="query.h" />
+    <ClInclude Include="registry.h" />
     <ClInclude Include="doxymain.h" />
-    <ClInclude Include="help.h" />
-    <ClInclude Include="logger.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="resources.h" />
-    <ClInclude Include="server.h" />
-    <ClInclude Include="topology.h" />
+    <ClInclude Include="storage.h" />
     <ClInclude Include="udif.h" />
     <ClInclude Include="udifcommon.h" />
+    <ClInclude Include="treaty.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ura.c" />
+    <ClCompile Include="anchor.c" />
+    <ClCompile Include="capability.c" />
     <ClCompile Include="certificate.c" />
-    <ClCompile Include="crypto.c" />
-    <ClCompile Include="help.c" />
-    <ClCompile Include="logger.c" />
-    <ClCompile Include="menu.c" />
-    <ClCompile Include="server.c" />
-    <ClCompile Include="topology.c" />
+    <ClCompile Include="mcelmanager.c" />
+    <ClCompile Include="object.c" />
+    <ClCompile Include="query.c" />
+    <ClCompile Include="registry.c" />
+    <ClCompile Include="storage.c" />
     <ClCompile Include="udif.c" />
+    <ClCompile Include="treaty.c" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MCEL\MCEL\MCEL.vcxproj">
+      <Project>{477429d9-9f8e-454a-9d48-37a3aad0ef9b}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\QSC\QSC\QSC.vcxproj">
       <Project>{7b7f8e47-0f7c-4273-a229-a7ab2a452ea9}</Project>
     </ProjectReference>
