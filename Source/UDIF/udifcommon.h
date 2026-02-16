@@ -74,14 +74,14 @@
 * \brief The api export prefix
 */
 #if defined(UDIF_DLL_API)
-#	if defined(QSC_SYSTEM_COMPILER_MSC)
-#		if defined(QSC_DLL_IMPORT)
+#	if defined(UDIF_SYSTEM_COMPILER_MSC)
+#		if defined(UDIF_DLL_IMPORT)
 #			define UDIF_EXPORT_API __declspec(dllimport)
 #		else
 #			define UDIF_EXPORT_API __declspec(dllexport)
 #		endif
-#	elif defined(QSC_SYSTEM_COMPILER_GCC)
-#		if defined(QSC_DLL_IMPORT)
+#	elif defined(UDIF_SYSTEM_COMPILER_GCC)
+#		if defined(UDIF_DLL_IMPORT)
 #		define UDIF_EXPORT_API __attribute__((dllimport))
 #		else
 #		define UDIF_EXPORT_API __attribute__((dllexport))
@@ -112,6 +112,14 @@
 #	define UDIF_ASSERT(x) assert(x)
 #else
 #	define UDIF_ASSERT(x)
+#endif
+
+#if defined(__cplusplus)
+#   define UDIF_CPLUSPLUS_ENABLED_START extern "C" {
+#   define UDIF_CPLUSPLUS_ENABLED_END }
+#else
+#   define UDIF_CPLUSPLUS_ENABLED_START
+#   define UDIF_CPLUSPLUS_ENABLED_END
 #endif
 
 #endif
