@@ -38,7 +38,7 @@ All cryptographic operations use NIST-standardized post-quantum primitives provi
 Core design goals:
 
 - **Post-quantum security** via NIST-standardized algorithms (ML-DSA, ML-KEM, SHA-3, AES-GCM)
-- **Cryptographic agility** Dilithium and Kyber can be easily substituted for SPHINCS+ and McEliece, AES-GCM for RCS
+- **Cryptographic agility** Dilithium and Kyber are easily substituted for SPHINCS+ and McEliece, AES-GCM for RCS
 - **QSTP** Powerful post-quantum key exchange and encrypted channels via the Quantum Secure Tunneling Protocol
 - **Hierarchical trust** with strict separation of administrative authority and asset ownership
 - **Tamper-evident audit trails** through MCEL-backed logs and signed Anchor Records
