@@ -223,7 +223,7 @@ udif_errors udif_treaty_deserialize(udif_treaty* treaty, const uint8_t* input, s
 
 	err = udif_error_invalid_input;
 
-	if (input != NULL && treaty != NULL)
+	if (input != NULL && treaty != NULL && inplen >= UDIF_TREATY_STRUCTURE_SIZE)
 	{
 		pos = 0U;
 
