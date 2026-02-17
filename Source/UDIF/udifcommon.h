@@ -53,9 +53,12 @@
 #define UDIFCOMMON_H
 
 #include <assert.h>
+#include <errno.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include "qsccommon.h"
 
 /**
 * \file udifcommon.h
@@ -79,36 +82,42 @@
 #endif
 
  /*!
- * \def UDIF_EXPORT_API
- * \brief API export macro for Microsoft compilers when importing from a DLL.
+ \def UDIF_DLL_API
+ * \brief Enables the dll api exports
+ */
+#if defined(_DLL)
+#	define UDIF_DLL_API
+#endif
+ /*!
+ \def UDIF_EXPORT_API
+ * \brief The api export prefix
  */
 #if defined(UDIF_DLL_API)
-
-#if defined(UDIF_SYSTEM_COMPILER_MSC)
-#   if defined(UDIF_DLL_IMPORT)
-#		define UDIF_EXPORT_API __declspec(dllimport)
-#   else
-#	    define UDIF_EXPORT_API __declspec(dllexport)
-#   endif
-#elif defined(UDIF_SYSTEM_COMPILER_GCC)
-#   if defined(UDIF_DLL_IMPORT)
-#		define UDIF_EXPORT_API UDIF_ATTRIBUTE((dllimport))
-#   else
-#		define UDIF_EXPORT_API UDIF_ATTRIBUTE((dllexport))
-#   endif
-#else
-#   if defined(__SUNPRO_C)
-#       if !defined(__GNU_C__)
-#		    define UDIF_EXPORT_API UDIF_ATTRIBUTE (visibility(__global))
-#       else
-#			define UDIF_EXPORT_API UDIF_ATTRIBUTE __global
-#       endif
-#   elif defined(_MSG_VER)
-#		define UDIF_EXPORT_API extern __declspec(dllexport)
-#   else
-#		define UDIF_EXPORT_API UDIF_ATTRIBUTE ((visibility ("default")))
-#   endif
-#endif
+#	if defined(QSC_SYSTEM_COMPILER_MSC)
+#		if defined(QSC_DLL_IMPORT)
+#			define UDIF_EXPORT_API __declspec(dllimport)
+#		else
+#			define UDIF_EXPORT_API __declspec(dllexport)
+#		endif
+#	elif defined(QSC_SYSTEM_COMPILER_GCC)
+#		if defined(QSC_DLL_IMPORT)
+#		define UDIF_EXPORT_API __attribute__((dllimport))
+#		else
+#		define UDIF_EXPORT_API __attribute__((dllexport))
+#		endif
+#	else
+#		if defined(__SUNPRO_C)
+#			if !defined(__GNU_C__)
+#				define UDIF_EXPORT_API __attribute__ (visibility(__global))
+#			else
+#				define UDIF_EXPORT_API __attribute__ __global
+#			endif
+#		elif defined(_MSG_VER)
+#			define UDIF_EXPORT_API extern __declspec(dllexport)
+#		else
+#			define UDIF_EXPORT_API __attribute__ ((visibility ("default")))
+#		endif
+#	endif
 #else
 #	define UDIF_EXPORT_API
 #endif
