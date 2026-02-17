@@ -37,11 +37,13 @@ All cryptographic operations use NIST-standardized post-quantum primitives provi
 
 Core design goals:
 
-- **Post-quantum security** via NIST-standardized algorithms (ML-DSA, ML-KEM, SHA-3)
+- **Post-quantum security** via NIST-standardized algorithms (ML-DSA, ML-KEM, SHA-3, AES-GCM)
+- **Cryptographic agility** Dilithium and Kyber can be easily substituted for SPHINCS+ and McEliece, AES-GCM for RCS
+- **QSTP** Powerful post-quantum key exchange and encrypted channels via the Quantum Secure Tunneling Protocol
 - **Hierarchical trust** with strict separation of administrative authority and asset ownership
 - **Tamper-evident audit trails** through MCEL-backed logs and signed Anchor Records
 - **Minimal-disclosure queries** returning only YES/NO/DENY with optional Merkle proofs
-- **Policy versioning** via the `policy_epoch` field carried in every certificate
+- **Policy versioning** via the policy epoch field carried in every certificate
 - **Federated interoperability** through bilateral treaties, without central authority dependencies
 - **Offline verification** — certificates are self-contained and require no network connectivity
 
@@ -65,7 +67,7 @@ A Branch Controller in user-admin mode. The operational core of a UDIF domain: i
 
 ### User Agent (UA)
 
-The leaf node of the hierarchy and the only entity that owns objects. Each User Agent holds a certificate issued by its Group Controller and maintains an Object Registry — a Merkle tree of the digests of all objects it owns. User Agents have no direct lateral communication; all traffic flows through their Group Controller.
+The leaf node of the hierarchy and the only entity that owns objects. Each User Agent holds a certificate issued by its Group Controller and maintains an Object Registry: a Merkle tree of the digests of all objects it owns. User Agents have no direct lateral communication; all traffic flows through their Group Controller.
 
 ---
 
@@ -73,11 +75,11 @@ The leaf node of the hierarchy and the only entity that owns objects. Each User 
 
 ### Certificates
 
-Hierarchical credentials binding entities to their public keys and capabilities. Each certificate carries a signature, verification key, serial number, issuer serial, 64-bit capability bitmap, validity window, `policy_epoch`, role, and suite identifier. Signed by the issuer's Dilithium private key; root certificates are self-signed.
+Hierarchical credentials binding entities to their public keys and capabilities. Each certificate carries a signature, verification key, serial number, issuer serial, 64-bit capability bitmap, validity window, policy epoch, role, and suite identifier. Signed by the issuer's Signature scheme private key; root certificates are self-signed by default, but can be optionally signed by a PKI authority.
 
 ### Objects
 
-Polymorphic containers representing any ownable entity — an identity, asset, account, device credential, or digital token. Each object carries a 16-byte serial number, creator and owner references, and a Merkle-committed attribute root binding it to its metadata. Objects are never deleted; they are cryptographically marked as destroyed, preserving the full audit trail.
+Polymorphic containers representing any ownable entity; an identity, asset, account, device credential, or digital token. Each object carries a 16-byte serial number, creator and owner references, and a Merkle-committed attribute root binding it to its metadata. Objects are never deleted; they are cryptographically marked as destroyed, preserving the full audit trail.
 
 ### Object Registries
 
@@ -120,6 +122,8 @@ Bilateral agreements defining the query predicates one UDIF domain may pose to a
 | `storage.c / .h` | Pluggable storage backend abstraction |
 | `treaty.c / .h` | Cross-domain treaty management and query routing |
 | `mcelmanager.c / .h` | MCEL integration — three-ledger management, checkpointing, and commitment coordination |
+
+A complete test harness is included, thoroughly testing functions and cryptographic operations and concepts in the UDIF Test project.
 
 ---
 
