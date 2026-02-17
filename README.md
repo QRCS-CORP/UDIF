@@ -150,8 +150,10 @@ Once the codebase is published:
 
 ### Cryptographic Dependencies
 
-UDIF will use the [QSC cryptographic library](https://github.com/QRCS-CORP/QSC) for hashing, signatures, and KEM operations.  
+UDIF uses the [QSC cryptographic library](https://github.com/QRCS-CORP/QSC) for hashing, signatures, and KEM operations.  
 *QRCS-PL private License. See license file for details. All rights reserved by QRCS Corporation, copyrighted and patents pending.*
+UDIF uses the [Merkle Chained Event Ledger](https://github.com/QRCS-CORP/MCEL) for block chain ledger event logging. All rights reserved by QRCS Corporation, copyrighted and patents pending.*
+UDIF uses the [Quantum Secure Tunneling Protocol](https://github.com/QRCS-CORP/QSTP) for key exchange, certificate validation and encrypted transport channels. All rights reserved by QRCS Corporation, copyrighted and patents pending.*
 
 ## License
 
