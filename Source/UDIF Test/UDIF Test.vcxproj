@@ -78,7 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;$(SolutionDir)..\QSTP\QSTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -96,7 +96,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;$(SolutionDir)..\QSTP\QSTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -112,7 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;$(SolutionDir)..\QSTP\QSTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\QSC\QSC;$(SolutionDir)UDIF;$(SolutionDir)..\MCEL\MCEL;$(SolutionDir)..\QSTP\QSTP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -164,6 +164,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\QSC\QSC\QSC.vcxproj">
       <Project>{7b7f8e47-0f7c-4273-a229-a7ab2a452ea9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QSTP\QSTP\MPTP.vcxproj">
+      <Project>{7044c00f-cf2f-49af-b1e9-4affc903ea41}</Project>
     </ProjectReference>
     <ProjectReference Include="..\UDIF\UDIF.vcxproj">
       <Project>{35c8e886-7dc5-4b47-a422-bb1a7f574b6b}</Project>
