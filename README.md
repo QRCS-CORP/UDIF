@@ -31,7 +31,7 @@
 
 ## Overview
 
-UDIF is a post-quantum identity and asset management framework that replaces the fragile trust models of legacy PKI and federated login systems with a hierarchical, cryptographically verifiable chain of authority. Every entity in a UDIF deployment holds a certificate signed by its parent, forming a verifiable chain back to a self-signed root. Objects representing identities, assets, or commodities are owned by end-user entities, tracked through their full lifecycle, and committed to tamper-evident audit logs via MCEL (Merkle Chain Event Ledger).
+UDIF is a post-quantum identity and asset management framework that replaces the fragile trust models of legacy PKI and federated login systems with a hierarchical, cryptographically verifiable chain of authority. Every entity in a UDIF deployment holds a certificate signed by its parent, forming a verifiable chain back to a self-signed root. Objects representing identities, assets, or commodities are owned by end-user entities, tracked through their full lifecycle, and committed to tamper-evident audit logs via MCEL (Merkle Chain Event Ledger). 
 
 All cryptographic operations use NIST-standardized post-quantum primitives provided by the QSC library: ML-DSA (Dilithium) for signatures, ML-KEM (Kyber) for key encapsulation, and SHA-3/SHAKE for hashing and key derivation. Structures are encoded as fixed-size binary records with little-endian byte order, ensuring deterministic, byte-stable serialization across all platforms. 
 
