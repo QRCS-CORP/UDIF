@@ -29,6 +29,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(MCEL)
 
+# Download and build QSTP
+include(FetchContent)
+FetchContent_Declare(
+  QSTP
+  GIT_REPOSITORY https://github.com/QRCS-CORP/QSTP.git
+  GIT_TAG main
+)
+FetchContent_MakeAvailable(QSTP)
+
 # UDIF Static Library
 file(GLOB_RECURSE UDIF_SOURCES "Source/UDIF/*.c")
 file(GLOB_RECURSE UDIF_HEADERS "Source/UDIF/*.h")
@@ -37,6 +46,7 @@ add_library(udif STATIC ${UDIF_SOURCES} ${UDIF_HEADERS})
 target_include_directories(udif PUBLIC "Source/UDIF")
 target_link_libraries(udif PUBLIC qsc)
 target_link_libraries(udif PUBLIC mcel)
+target_link_libraries(udif PUBLIC qstp)
 
 # Warnings
 foreach(target udif)
