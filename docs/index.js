@@ -1,17 +1,18 @@
 var index =
 [
     [ "Introduction", "index.html#intro_sec", null ],
-    [ "Architecture and Roles", "index.html#arch_sec", [
-      [ "UDIF Root Security (ARS)", "index.html#ars_sec", null ],
-      [ "UDIF Domain Controller (ADC)", "index.html#adc_sec", null ],
-      [ "UDIF Proxy Server (APS)", "index.html#aps_sec", null ],
-      [ "UDIF Client Device (ACD)", "index.html#acd_sec", null ]
+    [ "Protocol Roles", "index.html#role_sec", [
+      [ "Root Authority", "index.html#root_sec", null ],
+      [ "Branch Controller", "index.html#bc_sec", null ],
+      [ "Group Controller", "index.html#gc_sec", null ],
+      [ "User Agent", "index.html#ua_sec", null ]
     ] ],
-    [ "Protocol Overview", "index.html#proto_sec", [
-      [ "Registration and Entry", "index.html#join_sec", null ],
-      [ "Route Maps and Forwarding", "index.html#routing_sec", null ],
-      [ "Framing and Header", "index.html#pkt_sec", null ]
-    ] ],
-    [ "Cryptographic Primitives", "index.html#crypto_sec", null ],
-    [ "Files and Modules", "index.html#filesec_sec", null ]
+    [ "Canonical Data Model", "index.html#data_sec", null ],
+    [ "Certificates and Capabilities", "index.html#cap_sec", null ],
+    [ "Objects, Registries, and Transactions", "index.html#registry_sec", null ],
+    [ "MCEL Logs and Anchor Records", "index.html#mcel_sec", null ],
+    [ "UDIF-over-QSTP Transport Profile", "index.html#transport_sec", null ],
+    [ "Query and Treaty Processing", "index.html#query_sec", null ],
+    [ "Security Posture", "index.html#security_sec", null ],
+    [ "Primary Modules", "index.html#modules_sec", null ]
 ];

@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -62,6 +62,7 @@ $(function(){initNavTree('query_8h.html','',''); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="udif_8h_source.html">udif.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="capability_8h_source.html">capability.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="registry_8h_source.html">registry.h</a>&quot;</code><br />
 </div>
 <p><a href="query_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -74,9 +75,6 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ae12b8b28cc1c3cb476621b8d877e780d" id="r_ae12b8b28cc1c3cb476621b8d877e780d"><td class="memItemLeft" align="right" valign="top"><a id="ae12b8b28cc1c3cb476621b8d877e780d" name="ae12b8b28cc1c3cb476621b8d877e780d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_QUERY_ID_SIZE</b>&#160;&#160;&#160;16U</td></tr>
-<tr class="memdesc:ae12b8b28cc1c3cb476621b8d877e780d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The query id size. <br /></td></tr>
 <tr class="memitem:a464cc7a6716a90c90acfeb6784b691ba" id="r_a464cc7a6716a90c90acfeb6784b691ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a464cc7a6716a90c90acfeb6784b691ba">UDIF_QUERY_MAX_PREDICATE_SIZE</a>&#160;&#160;&#160;1024U</td></tr>
 <tr class="memdesc:a464cc7a6716a90c90acfeb6784b691ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum query predicate data size.  <br /></td></tr>
 <tr class="memitem:af45aa21002d51533bdaba4091c2183ef" id="r_af45aa21002d51533bdaba4091c2183ef"><td class="memItemLeft" align="right" valign="top"><a id="af45aa21002d51533bdaba4091c2183ef" name="af45aa21002d51533bdaba4091c2183ef"></a>
@@ -100,10 +98,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a177aacfa170a85d41197e4647bfa95fa" id="r_a177aacfa170a85d41197e4647bfa95fa"><td class="memItemLeft" align="right" valign="top"><a id="a177aacfa170a85d41197e4647bfa95fa" name="a177aacfa170a85d41197e4647bfa95fa"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a40bda23f3b4dd94b7c2be03c39a23e09">udif_query_types</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_query_types</b></td></tr>
-<tr class="memitem:a7e0b8731b854d16e5a4ccdcfa06290cb" id="r_a7e0b8731b854d16e5a4ccdcfa06290cb"><td class="memItemLeft" align="right" valign="top"><a id="a7e0b8731b854d16e5a4ccdcfa06290cb" name="a7e0b8731b854d16e5a4ccdcfa06290cb"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#ae00379521b3d185f453b4c9283d551fd">udif_query_verdicts</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_query_verdicts</b></td></tr>
+<tr class="memitem:a5c3ac45bb16ef298a2df3f04a1404299" id="r_a5c3ac45bb16ef298a2df3f04a1404299"><td class="memItemLeft" align="right" valign="top"><a id="a5c3ac45bb16ef298a2df3f04a1404299" name="a5c3ac45bb16ef298a2df3f04a1404299"></a>
+typedef enum <a class="el" href="#a40bda23f3b4dd94b7c2be03c39a23e09">udif_query_types</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_query_types</b></td></tr>
+<tr class="memitem:a4b518b4dbca69b7079ccc93cf2ccc1b1" id="r_a4b518b4dbca69b7079ccc93cf2ccc1b1"><td class="memItemLeft" align="right" valign="top"><a id="a4b518b4dbca69b7079ccc93cf2ccc1b1" name="a4b518b4dbca69b7079ccc93cf2ccc1b1"></a>
+typedef enum <a class="el" href="#ae00379521b3d185f453b4c9283d551fd">udif_query_verdicts</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_query_verdicts</b></td></tr>
 <tr class="memitem:a57bbe763cea74ec4e5e24ce815b60b08" id="r_a57bbe763cea74ec4e5e24ce815b60b08"><td class="memItemLeft" align="right" valign="top"><a id="a57bbe763cea74ec4e5e24ce815b60b08" name="a57bbe763cea74ec4e5e24ce815b60b08"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_query&#160;</td><td class="memItemRight" valign="bottom"><b>udif_query</b></td></tr>
 <tr class="memitem:ab029e3d8b4470d983283937b5ea543f3" id="r_ab029e3d8b4470d983283937b5ea543f3"><td class="memItemLeft" align="right" valign="top"><a id="ab029e3d8b4470d983283937b5ea543f3" name="ab029e3d8b4470d983283937b5ea543f3"></a>
@@ -147,14 +145,20 @@ Functions</h2></td></tr>
 <tr class="memdesc:a89baeedc9ec3b0b5d19666cce0e363d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if query is fresh.  <br /></td></tr>
 <tr class="memitem:a39c9cbabb4b519c1f552b51b6a373bd7" id="r_a39c9cbabb4b519c1f552b51b6a373bd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39c9cbabb4b519c1f552b51b6a373bd7">udif_query_response_clear</a> (<a class="el" href="structudif__query__response.html">udif_query_response</a> *response)</td></tr>
 <tr class="memdesc:a39c9cbabb4b519c1f552b51b6a373bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a query response.  <br /></td></tr>
-<tr class="memitem:a5ed22a40602c2b70fce186d708d8d455" id="r_a5ed22a40602c2b70fce186d708d8d455"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ed22a40602c2b70fce186d708d8d455">udif_query_response_compute_digest</a> (uint8_t *digest, const <a class="el" href="structudif__query__response.html">udif_query_response</a> *response, const uint8_t *queryid)</td></tr>
-<tr class="memdesc:a5ed22a40602c2b70fce186d708d8d455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute response digest.  <br /></td></tr>
+<tr class="memitem:a614aa83a3ce3037d3514bc14a1b06c21" id="r_a614aa83a3ce3037d3514bc14a1b06c21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a614aa83a3ce3037d3514bc14a1b06c21">udif_query_response_compute_digest</a> (uint8_t *digest, const <a class="el" href="structudif__query__response.html">udif_query_response</a> *response, const <a class="el" href="structudif__query.html">udif_query</a> *query)</td></tr>
+<tr class="memdesc:a614aa83a3ce3037d3514bc14a1b06c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute response digest.  <br /></td></tr>
+<tr class="memitem:a5d09ef10994271d7f12931c0c7fd5647" id="r_a5d09ef10994271d7f12931c0c7fd5647"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d09ef10994271d7f12931c0c7fd5647">udif_query_verify_response_signature</a> (const <a class="el" href="structudif__query__response.html">udif_query_response</a> *response, const uint8_t *respverkey)</td></tr>
+<tr class="memdesc:a5d09ef10994271d7f12931c0c7fd5647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a query response signature over the embedded query digest.  <br /></td></tr>
 <tr class="memitem:a3d848d5cbf9ffdb482a6fe03b70c33d6" id="r_a3d848d5cbf9ffdb482a6fe03b70c33d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d848d5cbf9ffdb482a6fe03b70c33d6">udif_query_response_deserialize</a> (<a class="el" href="structudif__query__response.html">udif_query_response</a> *response, const uint8_t *input, size_t inplen)</td></tr>
 <tr class="memdesc:a3d848d5cbf9ffdb482a6fe03b70c33d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize a query response.  <br /></td></tr>
 <tr class="memitem:a37e1dffe8a3cbec20806af4955a30023" id="r_a37e1dffe8a3cbec20806af4955a30023"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37e1dffe8a3cbec20806af4955a30023">udif_query_response_serialize</a> (uint8_t *output, size_t *outlen, const <a class="el" href="structudif__query__response.html">udif_query_response</a> *response)</td></tr>
 <tr class="memdesc:a37e1dffe8a3cbec20806af4955a30023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a query response.  <br /></td></tr>
 <tr class="memitem:a2218f3f6d3899213c78050b3c0020037" id="r_a2218f3f6d3899213c78050b3c0020037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2218f3f6d3899213c78050b3c0020037">udif_query_validate_authorization</a> (const <a class="el" href="structudif__query.html">udif_query</a> *query, const <a class="el" href="structudif__capability.html">udif_capability</a> *capability, const uint8_t *targser)</td></tr>
 <tr class="memdesc:a2218f3f6d3899213c78050b3c0020037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate query authorization.  <br /></td></tr>
+<tr class="memitem:afdf174a60e12977c80f3d0e8b63d3d0b" id="r_afdf174a60e12977c80f3d0e8b63d3d0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdf174a60e12977c80f3d0e8b63d3d0b">udif_query_predicate_is_canonical</a> (const <a class="el" href="structudif__query.html">udif_query</a> *query)</td></tr>
+<tr class="memdesc:afdf174a60e12977c80f3d0e8b63d3d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate the canonical predicate size for a query type.  <br /></td></tr>
+<tr class="memitem:ac57e69dc192f6eb9e733a65fb8e338cc" id="r_ac57e69dc192f6eb9e733a65fb8e338cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac57e69dc192f6eb9e733a65fb8e338cc">udif_query_evaluate_registry</a> (uint8_t *verdict, uint8_t *proof, size_t *prooflen, const <a class="el" href="structudif__query.html">udif_query</a> *query, const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *registry, const <a class="el" href="structudif__capability.html">udif_capability</a> *capability, const uint8_t *subjectser, uint64_t ctime)</td></tr>
+<tr class="memdesc:ac57e69dc192f6eb9e733a65fb8e338cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a query against a UA registry.  <br /></td></tr>
 <tr class="memitem:afc7ed9e59f6443db5b4ad044e03ecba5" id="r_afc7ed9e59f6443db5b4ad044e03ecba5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc7ed9e59f6443db5b4ad044e03ecba5">udif_query_verify_response</a> (const <a class="el" href="structudif__query__response.html">udif_query_response</a> *response, const <a class="el" href="structudif__query.html">udif_query</a> *query, const uint8_t *respverkey)</td></tr>
 <tr class="memdesc:afc7ed9e59f6443db5b4ad044e03ecba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a query response.  <br /></td></tr>
 </table>
@@ -203,16 +207,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + \</div>
-<div class="line">    <a class="code hl_define" href="#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a15369ca2420288adfc1af6931c40ca5f">UDIF_QUERY_VERDICT_SIZE</a> + \</div>
 <div class="line">    UDIF_VALID_TIME_SIZE + \</div>
 <div class="line">    <a class="code hl_define" href="#a3013339ab4ea2ee33e47d6bcd04773d5">UDIF_QUERY_PROOF_SIZE</a>)</div>
-<div class="ttc" id="aquery_8h_html_a15369ca2420288adfc1af6931c40ca5f"><div class="ttname"><a href="#a15369ca2420288adfc1af6931c40ca5f">UDIF_QUERY_VERDICT_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_VERDICT_SIZE</div><div class="ttdoc">The query verdict size.</div><div class="ttdef"><b>Definition</b> query.h:120</div></div>
-<div class="ttc" id="aquery_8h_html_a3013339ab4ea2ee33e47d6bcd04773d5"><div class="ttname"><a href="#a3013339ab4ea2ee33e47d6bcd04773d5">UDIF_QUERY_PROOF_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_PROOF_SIZE</div><div class="ttdoc">The query proof size.</div><div class="ttdef"><b>Definition</b> query.h:108</div></div>
-<div class="ttc" id="aquery_8h_html_ae12b8b28cc1c3cb476621b8d877e780d"><div class="ttname"><a href="#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_ID_SIZE</div><div class="ttdoc">The query id size.</div><div class="ttdef"><b>Definition</b> query.h:84</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
-<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
+<div class="ttc" id="aquery_8h_html_a15369ca2420288adfc1af6931c40ca5f"><div class="ttname"><a href="#a15369ca2420288adfc1af6931c40ca5f">UDIF_QUERY_VERDICT_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_VERDICT_SIZE</div><div class="ttdoc">The query verdict size.</div><div class="ttdef"><b>Definition</b> query.h:115</div></div>
+<div class="ttc" id="aquery_8h_html_a3013339ab4ea2ee33e47d6bcd04773d5"><div class="ttname"><a href="#a3013339ab4ea2ee33e47d6bcd04773d5">UDIF_QUERY_PROOF_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_PROOF_SIZE</div><div class="ttdoc">The query proof size.</div><div class="ttdef"><b>Definition</b> query.h:103</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
+<div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
+<div class="ttc" id="audif_8h_html_ae12b8b28cc1c3cb476621b8d877e780d"><div class="ttname"><a href="udif_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_ID_SIZE</div><div class="ttdoc">The query identifier field length in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:531</div></div>
 </div><!-- fragment -->
 <p>The query structure size. </p>
 
@@ -230,14 +236,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
-<div class="line">    <a class="code hl_define" href="#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    UDIF_VALID_TIME_SIZE + \</div>
 <div class="line">    <a class="code hl_define" href="#ae313a5c5e2bda9cd70b311f8cdb9a375">UDIF_QUERY_PREDICATE_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a8833f0b42997a41978f5f2dfde56ba4a">UDIF_QUERY_TYPE_SIZE</a>)</div>
-<div class="ttc" id="aquery_8h_html_a8833f0b42997a41978f5f2dfde56ba4a"><div class="ttname"><a href="#a8833f0b42997a41978f5f2dfde56ba4a">UDIF_QUERY_TYPE_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_TYPE_SIZE</div><div class="ttdoc">The query type size.</div><div class="ttdef"><b>Definition</b> query.h:114</div></div>
-<div class="ttc" id="aquery_8h_html_ae313a5c5e2bda9cd70b311f8cdb9a375"><div class="ttname"><a href="#ae313a5c5e2bda9cd70b311f8cdb9a375">UDIF_QUERY_PREDICATE_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_PREDICATE_SIZE</div><div class="ttdoc">The query predicate size.</div><div class="ttdef"><b>Definition</b> query.h:102</div></div>
-<div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
+<div class="ttc" id="aquery_8h_html_a8833f0b42997a41978f5f2dfde56ba4a"><div class="ttname"><a href="#a8833f0b42997a41978f5f2dfde56ba4a">UDIF_QUERY_TYPE_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_TYPE_SIZE</div><div class="ttdoc">The query type size.</div><div class="ttdef"><b>Definition</b> query.h:109</div></div>
+<div class="ttc" id="aquery_8h_html_ae313a5c5e2bda9cd70b311f8cdb9a375"><div class="ttname"><a href="#ae313a5c5e2bda9cd70b311f8cdb9a375">UDIF_QUERY_PREDICATE_SIZE</a></div><div class="ttdeci">#define UDIF_QUERY_PREDICATE_SIZE</div><div class="ttdoc">The query predicate size.</div><div class="ttdef"><b>Definition</b> query.h:97</div></div>
 </div><!-- fragment -->
 <p>The query structure size. </p>
 
@@ -706,6 +711,74 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac57e69dc192f6eb9e733a65fb8e338cc" name="ac57e69dc192f6eb9e733a65fb8e338cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac57e69dc192f6eb9e733a65fb8e338cc">&#9670;&#160;</a></span>udif_query_evaluate_registry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_query_evaluate_registry </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>verdict</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>proof</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>prooflen</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__query.html">udif_query</a> *</td>          <td class="paramname"><span class="paramname"><em>query</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>registry</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__capability.html">udif_capability</a> *</td>          <td class="paramname"><span class="paramname"><em>capability</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>subjectser</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>ctime</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Evaluate a query against a UA registry. </p>
+<p>Applies capability authorization and evaluates the query predicate against the supplied registry. Unauthorized queries return a DENY verdict without leaking target state. Membership-proof queries write the proof to the supplied proof buffer when authorized and true.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">verdict</td><td>The output verdict. </td></tr>
+    <tr><td class="paramname">proof</td><td>The output proof buffer, or NULL when no proof is requested. </td></tr>
+    <tr><td class="paramname">prooflen</td><td>The proof length, in/out, or NULL when no proof is requested. </td></tr>
+    <tr><td class="paramname">query</td><td>[const] The query to evaluate. </td></tr>
+    <tr><td class="paramname">registry</td><td>[const] The registry to evaluate against. </td></tr>
+    <tr><td class="paramname">capability</td><td>[const] The caller capability token. </td></tr>
+    <tr><td class="paramname">subjectser</td><td>[const] The caller certificate serial. </td></tr>
+    <tr><td class="paramname">ctime</td><td>The current UTC time.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on a completed evaluation. </dd></dl>
+
+</div>
+</div>
 <a id="a89baeedc9ec3b0b5d19666cce0e363d7" name="a89baeedc9ec3b0b5d19666cce0e363d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89baeedc9ec3b0b5d19666cce0e363d7">&#9670;&#160;</a></span>udif_query_is_fresh()</h2>
 
@@ -738,6 +811,33 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afdf174a60e12977c80f3d0e8b63d3d0b" name="afdf174a60e12977c80f3d0e8b63d3d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdf174a60e12977c80f3d0e8b63d3d0b">&#9670;&#160;</a></span>udif_query_predicate_is_canonical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_query_predicate_is_canonical </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__query.html">udif_query</a> *</td>          <td class="paramname"><span class="paramname"><em>query</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Validate the canonical predicate size for a query type. </p>
+<p>Checks that the query type is one of the core UDIF predicate families and that the predicate buffer has the exact canonical size required for that family.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>[const] The query to validate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the query predicate form is canonical. </dd></dl>
+
+</div>
+</div>
 <a id="a39c9cbabb4b519c1f552b51b6a373bd7" name="a39c9cbabb4b519c1f552b51b6a373bd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39c9cbabb4b519c1f552b51b6a373bd7">&#9670;&#160;</a></span>udif_query_response_clear()</h2>
 
@@ -764,8 +864,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5ed22a40602c2b70fce186d708d8d455" name="a5ed22a40602c2b70fce186d708d8d455"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ed22a40602c2b70fce186d708d8d455">&#9670;&#160;</a></span>udif_query_response_compute_digest()</h2>
+<a id="a614aa83a3ce3037d3514bc14a1b06c21" name="a614aa83a3ce3037d3514bc14a1b06c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614aa83a3ce3037d3514bc14a1b06c21">&#9670;&#160;</a></span>udif_query_response_compute_digest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -783,7 +883,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>queryid</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="structudif__query.html">udif_query</a> *</td>          <td class="paramname"><span class="paramname"><em>query</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -988,6 +1088,37 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if valid </dd></dl>
+
+</div>
+</div>
+<a id="a5d09ef10994271d7f12931c0c7fd5647" name="a5d09ef10994271d7f12931c0c7fd5647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d09ef10994271d7f12931c0c7fd5647">&#9670;&#160;</a></span>udif_query_verify_response_signature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_query_verify_response_signature </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__query__response.html">udif_query_response</a> *</td>          <td class="paramname"><span class="paramname"><em>response</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>respverkey</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verify a query response signature over the embedded query digest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">response</td><td>[const] The response to verify. </td></tr>
+    <tr><td class="paramname">respverkey</td><td>[const] The responder verification key.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the signature verifies. </dd></dl>
 
 </div>
 </div>

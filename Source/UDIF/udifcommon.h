@@ -52,12 +52,6 @@
 #ifndef UDIFCOMMON_H
 #define UDIFCOMMON_H
 
-#include <assert.h>
-#include <errno.h>
-#include <limits.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
 #include "qsccommon.h"
 
 /**
@@ -73,21 +67,6 @@
 #	define UDIF_DLL_API
 #endif
 
-#if defined(_DLL)
-/*!
- * \def UDIF_DLL_API
- * \brief Defined when building as a DLL.
- */
-#	define UDIF_DLL_API
-#endif
-
- /*!
- \def UDIF_DLL_API
- * \brief Enables the dll api exports
- */
-#if defined(_DLL)
-#	define UDIF_DLL_API
-#endif
  /*!
  \def UDIF_EXPORT_API
  * \brief The api export prefix

@@ -32,7 +32,7 @@ static bool anchor_test_create(void)
 	qsc_csp_generate(regroot, UDIF_CRYPTO_HASH_SIZE);
 	qsc_csp_generate(txroot, UDIF_CRYPTO_HASH_SIZE);
 	qsc_csp_generate(mroot, UDIF_CRYPTO_HASH_SIZE);
-	sequence = 1U;
+	sequence = 0U;
 	timestamp = qsc_timestamp_datetime_utc();
 	regcount = 42U;
 	txcount = 17U;
@@ -262,10 +262,10 @@ static bool anchor_test_verify(void)
 		}
 		else
 		{
-			/* verify anchor with sequence 0 (no sequence check) */
-			if (udif_anchor_verify(&anchor, kp.verkey, 3U) == false)
+			/* verify anchor with the exact same sequence */
+			if (udif_anchor_verify(&anchor, kp.verkey, sequence) == false)
 			{
-				qsc_consoleutils_print_line("anchor_test_verify: anchor verification without sequence check failed");
+				qsc_consoleutils_print_line("anchor_test_verify: anchor exact-sequence verification failed");
 				res = false;
 			}
 			else
@@ -294,7 +294,6 @@ static bool anchor_test_sequence_validation(void)
 	uint8_t regroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t txroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t mroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
-	uint64_t sequence;
 	uint64_t timestamp;
 	uint32_t regcount;
 	uint32_t txcount;
@@ -304,62 +303,58 @@ static bool anchor_test_sequence_validation(void)
 
 	res = true;
 
-	/* generate test data */
 	qsc_csp_generate(childser, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(regroot, UDIF_CRYPTO_HASH_SIZE);
 	qsc_csp_generate(txroot, UDIF_CRYPTO_HASH_SIZE);
 	qsc_csp_generate(mroot, UDIF_CRYPTO_HASH_SIZE);
-	sequence = 10U;
 	timestamp = qsc_timestamp_datetime_utc();
 	regcount = 200U;
 	txcount = 100U;
 	memcount = 50U;
 
-	/* generate keypair */
 	udif_signature_generate_keypair(kp.verkey, kp.sigkey, qsc_csp_generate);
 
-	/* create anchor with sequence 10 */
-	err = udif_anchor_create(&anchor, childser, sequence, timestamp, regroot, txroot, mroot, regcount, txcount, memcount, kp.sigkey, qsc_csp_generate);
+	err = udif_anchor_create(&anchor, childser, 0U, timestamp, regroot, txroot, mroot, regcount, txcount, memcount, kp.sigkey, qsc_csp_generate);
 
 	if (err != udif_error_none)
 	{
-		qsc_consoleutils_print_line("anchor_test_sequence_validation: anchor creation failed");
+		qsc_consoleutils_print_line("anchor_test_sequence_validation: genesis anchor creation failed");
+		res = false;
+	}
+	else if (udif_anchor_validate_sequence(&anchor, 0U) == false)
+	{
+		qsc_consoleutils_print_line("anchor_test_sequence_validation: genesis sequence rejected");
+		res = false;
+	}
+	else if (udif_anchor_validate_sequence(&anchor, 1U) == true)
+	{
+		qsc_consoleutils_print_line("anchor_test_sequence_validation: genesis accepted at wrong sequence");
 		res = false;
 	}
 	else
 	{
-		/* validate sequence after sequence 9 (should pass) */
-		if (udif_anchor_validate_sequence(&anchor, 9U) == false)
+		udif_anchor_clear(&anchor);
+		err = udif_anchor_create(&anchor, childser, 2U, timestamp + 2U, regroot, txroot, mroot, regcount, txcount, memcount, kp.sigkey, qsc_csp_generate);
+
+		if (err != udif_error_none)
 		{
-			qsc_consoleutils_print_line("anchor_test_sequence_validation: valid sequence rejected");
+			qsc_consoleutils_print_line("anchor_test_sequence_validation: second anchor creation failed");
 			res = false;
 		}
-		else
+		else if (udif_anchor_validate_sequence(&anchor, 2U) == false)
 		{
-			/* validate sequence as first anchor (prevseq = 0) */
-			if (udif_anchor_validate_sequence(&anchor, 0U) == false)
-			{
-				qsc_consoleutils_print_line("anchor_test_sequence_validation: first anchor sequence validation failed");
-				res = false;
-			}
-			else
-			{
-				/* validate with same sequence (should fail - not monotonic) */
-				if (udif_anchor_validate_sequence(&anchor, 10U) == true)
-				{
-					qsc_consoleutils_print_line("anchor_test_sequence_validation: non-monotonic sequence should fail");
-					res = false;
-				}
-				else
-				{
-					/* validate with higher previous sequence (should fail) */
-					if (udif_anchor_validate_sequence(&anchor, 11U) == true)
-					{
-						qsc_consoleutils_print_line("anchor_test_sequence_validation: sequence going backwards should fail");
-						res = false;
-					}
-				}
-			}
+			qsc_consoleutils_print_line("anchor_test_sequence_validation: exact sequence rejected");
+			res = false;
+		}
+		else if (udif_anchor_validate_sequence(&anchor, 1U) == true)
+		{
+			qsc_consoleutils_print_line("anchor_test_sequence_validation: skipped sequence accepted");
+			res = false;
+		}
+		else if (udif_anchor_validate_sequence(&anchor, 3U) == true)
+		{
+			qsc_consoleutils_print_line("anchor_test_sequence_validation: future sequence accepted");
+			res = false;
 		}
 	}
 

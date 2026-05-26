@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -71,23 +71,103 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a7213392aef033490ddadf81f45376b33" id="r_a7213392aef033490ddadf81f45376b33"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7213392aef033490ddadf81f45376b33">UDIF_CAP_QUERY_EXIST</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 0)</td></tr>
+<tr class="memdesc:a7213392aef033490ddadf81f45376b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to issue existence queries.  <br /></td></tr>
+<tr class="memitem:a269c5234f32afd2a20d654c760378fa9" id="r_a269c5234f32afd2a20d654c760378fa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a269c5234f32afd2a20d654c760378fa9">UDIF_CAP_QUERY_OWNER_BINDING</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 1)</td></tr>
+<tr class="memdesc:a269c5234f32afd2a20d654c760378fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to query object ownership binding.  <br /></td></tr>
+<tr class="memitem:a456c4fa2b0ebc4bb13d5d5babdcb5f9e" id="r_a456c4fa2b0ebc4bb13d5d5babdcb5f9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">UDIF_CAP_QUERY_ATTR_BUCKET</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 2)</td></tr>
+<tr class="memdesc:a456c4fa2b0ebc4bb13d5d5babdcb5f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to query predefined attribute buckets.  <br /></td></tr>
+<tr class="memitem:a7c25f0637e43e19d5dc4450626f120bc" id="r_a7c25f0637e43e19d5dc4450626f120bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c25f0637e43e19d5dc4450626f120bc">UDIF_CAP_PROVE_MEMBERSHIP</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 3)</td></tr>
+<tr class="memdesc:a7c25f0637e43e19d5dc4450626f120bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to request Merkle membership proofs.  <br /></td></tr>
+<tr class="memitem:a03933b96e95e4b22950876c61460abe3" id="r_a03933b96e95e4b22950876c61460abe3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 4)</td></tr>
+<tr class="memdesc:a03933b96e95e4b22950876c61460abe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to forward authorized queries.  <br /></td></tr>
+<tr class="memitem:a002ec56bf146015dfd626edf04cc6e9c" id="r_a002ec56bf146015dfd626edf04cc6e9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 5)</td></tr>
+<tr class="memdesc:a002ec56bf146015dfd626edf04cc6e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to enroll subordinate entities.  <br /></td></tr>
+<tr class="memitem:a0466909f7084ce4899abb293baec9640" id="r_a0466909f7084ce4899abb293baec9640"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 6)</td></tr>
+<tr class="memdesc:a0466909f7084ce4899abb293baec9640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to suspend subordinate certificates.  <br /></td></tr>
+<tr class="memitem:a6e221b5a9f04e4c78291117a195db900" id="r_a6e221b5a9f04e4c78291117a195db900"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 7)</td></tr>
+<tr class="memdesc:a6e221b5a9f04e4c78291117a195db900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to resume suspended subordinate certificates.  <br /></td></tr>
+<tr class="memitem:a1fe01db0e159904662683634b67bc81a" id="r_a1fe01db0e159904662683634b67bc81a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 8)</td></tr>
+<tr class="memdesc:a1fe01db0e159904662683634b67bc81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to revoke subordinate certificates.  <br /></td></tr>
+<tr class="memitem:a4c3e8e8c5cc265bb21df28aca870fc72" id="r_a4c3e8e8c5cc265bb21df28aca870fc72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 9)</td></tr>
+<tr class="memdesc:a4c3e8e8c5cc265bb21df28aca870fc72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to create subordinate branches or groups.  <br /></td></tr>
+<tr class="memitem:aaeeb1ca28039f230253793f81a4a623a" id="r_aaeeb1ca28039f230253793f81a4a623a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 10)</td></tr>
+<tr class="memdesc:aaeeb1ca28039f230253793f81a4a623a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to retire or prune subordinate branches.  <br /></td></tr>
+<tr class="memitem:ad827e17fe846f2e9c52b6446dbed5c03" id="r_ad827e17fe846f2e9c52b6446dbed5c03"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 11)</td></tr>
+<tr class="memdesc:ad827e17fe846f2e9c52b6446dbed5c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to commit registry roots.  <br /></td></tr>
+<tr class="memitem:a59e5c10401e1d5db4ef45ebee221bf92" id="r_a59e5c10401e1d5db4ef45ebee221bf92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59e5c10401e1d5db4ef45ebee221bf92">UDIF_CAP_TX_CREATE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 12)</td></tr>
+<tr class="memdesc:a59e5c10401e1d5db4ef45ebee221bf92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to originate transaction events.  <br /></td></tr>
+<tr class="memitem:a22d12bcadade6113e0527ba975a13ae5" id="r_a22d12bcadade6113e0527ba975a13ae5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22d12bcadade6113e0527ba975a13ae5">UDIF_CAP_TX_ACCEPT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 13)</td></tr>
+<tr class="memdesc:a22d12bcadade6113e0527ba975a13ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to accept incoming transaction transfers.  <br /></td></tr>
+<tr class="memitem:a323fcad61a16c6770a3242e5c91f246e" id="r_a323fcad61a16c6770a3242e5c91f246e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 14)</td></tr>
+<tr class="memdesc:a323fcad61a16c6770a3242e5c91f246e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to generate and send Anchor Records upstream.  <br /></td></tr>
+<tr class="memitem:a0444d638e46aa6a11a29523d111f9efd" id="r_a0444d638e46aa6a11a29523d111f9efd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 15)</td></tr>
+<tr class="memdesc:a0444d638e46aa6a11a29523d111f9efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to verify and append child Anchor Records.  <br /></td></tr>
+<tr class="memitem:aefe3799743134a4e71d362a9565831f6" id="r_aefe3799743134a4e71d362a9565831f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 16)</td></tr>
+<tr class="memdesc:aefe3799743134a4e71d362a9565831f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to negotiate and sign Peering Treaties.  <br /></td></tr>
+<tr class="memitem:aefa281bf81bfd244a5ec9a0b1b904939" id="r_aefa281bf81bfd244a5ec9a0b1b904939"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 17)</td></tr>
+<tr class="memdesc:aefa281bf81bfd244a5ec9a0b1b904939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to execute treaty-scoped queries.  <br /></td></tr>
+<tr class="memitem:a4124125abe03a2f93ce487f440d944b4" id="r_a4124125abe03a2f93ce487f440d944b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 18)</td></tr>
+<tr class="memdesc:a4124125abe03a2f93ce487f440d944b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to originate treaty-scoped queries.  <br /></td></tr>
+<tr class="memitem:a7c95ba82b2294d58205e24e617f564db" id="r_a7c95ba82b2294d58205e24e617f564db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 19)</td></tr>
+<tr class="memdesc:a7c95ba82b2294d58205e24e617f564db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to export telemetry counters.  <br /></td></tr>
+<tr class="memitem:ac66509a8398c94f890aab5558884b89c" id="r_ac66509a8398c94f890aab5558884b89c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 20)</td></tr>
+<tr class="memdesc:ac66509a8398c94f890aab5558884b89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants permission to issue signed error events into logs.  <br /></td></tr>
+<tr class="memitem:aa33a6c517d673daeb0ce9e5a1bc3d661" id="r_aa33a6c517d673daeb0ce9e5a1bc3d661"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa33a6c517d673daeb0ce9e5a1bc3d661">UDIF_CAP_RESERVED_FUTURE_CORE_MASK</a>&#160;&#160;&#160;(UINT64_C(0x00000000FFE00000))</td></tr>
+<tr class="memdesc:aa33a6c517d673daeb0ce9e5a1bc3d661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved capability bits for future UDIF core extensions.  <br /></td></tr>
+<tr class="memitem:ac83f4ec061581871ef7664a7471573ba" id="r_ac83f4ec061581871ef7664a7471573ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac83f4ec061581871ef7664a7471573ba">UDIF_CAP_RESERVED_PROFILE_MASK</a>&#160;&#160;&#160;(UINT64_C(0xFFFFFFFF00000000))</td></tr>
+<tr class="memdesc:ac83f4ec061581871ef7664a7471573ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved capability bits for profile-specific extensions.  <br /></td></tr>
+<tr class="memitem:a7963865832e7e52fd3b014bff97c3a3e" id="r_a7963865832e7e52fd3b014bff97c3a3e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7963865832e7e52fd3b014bff97c3a3e">UDIF_CAP_QUERY_MASK</a></td></tr>
+<tr class="memdesc:a7963865832e7e52fd3b014bff97c3a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all core predicate-query capabilities.  <br /></td></tr>
+<tr class="memitem:a7ec9846b8c8c7d2665ae691834ceb050" id="r_a7ec9846b8c8c7d2665ae691834ceb050"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ec9846b8c8c7d2665ae691834ceb050">UDIF_CAP_ADMIN_MASK</a></td></tr>
+<tr class="memdesc:a7ec9846b8c8c7d2665ae691834ceb050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all core administrative capabilities.  <br /></td></tr>
+<tr class="memitem:a0bd60cca6ab221c06fae77c79cdddf08" id="r_a0bd60cca6ab221c06fae77c79cdddf08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bd60cca6ab221c06fae77c79cdddf08">UDIF_CAP_TRANSACTION_MASK</a></td></tr>
+<tr class="memdesc:a0bd60cca6ab221c06fae77c79cdddf08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all core transaction and registry capabilities.  <br /></td></tr>
+<tr class="memitem:a5dc8ca020126719de9d087057d697169" id="r_a5dc8ca020126719de9d087057d697169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dc8ca020126719de9d087057d697169">UDIF_CAP_ANCHOR_MASK</a></td></tr>
+<tr class="memdesc:a5dc8ca020126719de9d087057d697169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all core anchoring capabilities.  <br /></td></tr>
+<tr class="memitem:a759b5026b00ea5ba5382f88517ceb7cd" id="r_a759b5026b00ea5ba5382f88517ceb7cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a759b5026b00ea5ba5382f88517ceb7cd">UDIF_CAP_TREATY_MASK</a></td></tr>
+<tr class="memdesc:a759b5026b00ea5ba5382f88517ceb7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all core treaty capabilities.  <br /></td></tr>
+<tr class="memitem:a0f1d14d29cb22e26152f7498486ef87e" id="r_a0f1d14d29cb22e26152f7498486ef87e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f1d14d29cb22e26152f7498486ef87e">UDIF_CAP_AUDIT_MASK</a></td></tr>
+<tr class="memdesc:a0f1d14d29cb22e26152f7498486ef87e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of core audit-support capabilities.  <br /></td></tr>
+<tr class="memitem:aacab4e31c9da4cf6d866e4ab70849998" id="r_aacab4e31c9da4cf6d866e4ab70849998"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacab4e31c9da4cf6d866e4ab70849998">UDIF_ROOT_CAPABILITIES</a></td></tr>
+<tr class="memdesc:aacab4e31c9da4cf6d866e4ab70849998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default capability mask for a UDIF Root certificate.  <br /></td></tr>
+<tr class="memitem:af08d5a5ec54644917530fbf3ed890acc" id="r_af08d5a5ec54644917530fbf3ed890acc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08d5a5ec54644917530fbf3ed890acc">UDIF_BC_CAPABILITIES</a></td></tr>
+<tr class="memdesc:af08d5a5ec54644917530fbf3ed890acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default capability mask for a UDIF Branch Controller certificate.  <br /></td></tr>
+<tr class="memitem:a2901e70fcd77ba70a34098da97845571" id="r_a2901e70fcd77ba70a34098da97845571"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2901e70fcd77ba70a34098da97845571">UDIF_GC_CAPABILITIES</a></td></tr>
+<tr class="memdesc:a2901e70fcd77ba70a34098da97845571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default capability mask for a UDIF Group Controller certificate.  <br /></td></tr>
+<tr class="memitem:a16e8dd9fd145c8de22a488c8b304d925" id="r_a16e8dd9fd145c8de22a488c8b304d925"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16e8dd9fd145c8de22a488c8b304d925">UDIF_CLIENT_CAPABILITIES</a></td></tr>
+<tr class="memdesc:a16e8dd9fd145c8de22a488c8b304d925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default capability mask for a UDIF client or User Agent certificate.  <br /></td></tr>
+<tr class="memitem:ac922508194dbaccd45189761693636e1" id="r_ac922508194dbaccd45189761693636e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac922508194dbaccd45189761693636e1">UDIF_CAP_CORE_DEFINED_MASK</a></td></tr>
+<tr class="memdesc:ac922508194dbaccd45189761693636e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all UDIF v1 core-defined capability bits.  <br /></td></tr>
+<tr class="memitem:afda0fbe652b3bbb171d1e2407ff6d062" id="r_afda0fbe652b3bbb171d1e2407ff6d062"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afda0fbe652b3bbb171d1e2407ff6d062">UDIF_TREATY_ORIGIN_CAPABILITIES</a>&#160;&#160;&#160;(<a class="el" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a> | <a class="el" href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a>)</td></tr>
+<tr class="memdesc:afda0fbe652b3bbb171d1e2407ff6d062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional capability overlay for originating treaty-scoped queries.  <br /></td></tr>
+<tr class="memitem:a252d8ec56cc8372a59f044558d424a96" id="r_a252d8ec56cc8372a59f044558d424a96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a252d8ec56cc8372a59f044558d424a96">UDIF_TREATY_EXEC_CAPABILITIES</a>&#160;&#160;&#160;(<a class="el" href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a>)</td></tr>
+<tr class="memdesc:a252d8ec56cc8372a59f044558d424a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional capability overlay for executing treaty-scoped queries.  <br /></td></tr>
+<tr class="memitem:aa3d82150992e537f2664e5c6ccb24db9" id="r_aa3d82150992e537f2664e5c6ccb24db9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3d82150992e537f2664e5c6ccb24db9">UDIF_TREATY_ADMIN_CAPABILITIES</a>&#160;&#160;&#160;(<a class="el" href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a>)</td></tr>
+<tr class="memdesc:aa3d82150992e537f2664e5c6ccb24db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional capability overlay for treaty negotiation.  <br /></td></tr>
+<tr class="memitem:ab141217c4d5b9959fa774a925c42b32e" id="r_ab141217c4d5b9959fa774a925c42b32e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab141217c4d5b9959fa774a925c42b32e">UDIF_CAP_NONE</a>&#160;&#160;&#160;(UINT64_C(0))</td></tr>
+<tr class="memdesc:ab141217c4d5b9959fa774a925c42b32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty capability mask.  <br /></td></tr>
+<tr class="memitem:adc13d4e098333fa3ccf3db9ef27e8ec2" id="r_adc13d4e098333fa3ccf3db9ef27e8ec2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc13d4e098333fa3ccf3db9ef27e8ec2">UDIF_CAP_ALL_CORE</a>&#160;&#160;&#160;(<a class="el" href="#ac922508194dbaccd45189761693636e1">UDIF_CAP_CORE_DEFINED_MASK</a>)</td></tr>
+<tr class="memdesc:adc13d4e098333fa3ccf3db9ef27e8ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask containing all UDIF v1 core-defined capabilities.  <br /></td></tr>
 <tr class="memitem:a0d34ea7eefffe1677600586619c34974" id="r_a0d34ea7eefffe1677600586619c34974"><td class="memItemLeft" align="right" valign="top"><a id="a0d34ea7eefffe1677600586619c34974" name="a0d34ea7eefffe1677600586619c34974"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CAPABILITY_POLICY_SIZE</b>&#160;&#160;&#160;4U</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CAPABILITY_POLICY_SIZE</b>&#160;&#160;&#160;8U</td></tr>
 <tr class="memitem:a1c541ec956c7a09a902ad4e792887276" id="r_a1c541ec956c7a09a902ad4e792887276"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c541ec956c7a09a902ad4e792887276">UDIF_CAPABILITY_ENCODED_SIZE</a></td></tr>
 <tr class="memdesc:a1c541ec956c7a09a902ad4e792887276"><td class="mdescLeft">&#160;</td><td class="mdescRight">The capability structure encoded size.  <br /></td></tr>
 <tr class="memitem:acfc659e2f1c3487def3799deb6fa1578" id="r_acfc659e2f1c3487def3799deb6fa1578"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc659e2f1c3487def3799deb6fa1578">UDIF_CAPABILITY_SIGNED_SIZE</a></td></tr>
 <tr class="memdesc:acfc659e2f1c3487def3799deb6fa1578"><td class="mdescLeft">&#160;</td><td class="mdescRight">The capability structure signed size.  <br /></td></tr>
+<tr class="memitem:a1e9c01eb61df31d4d1451d0013a7ea84" id="r_a1e9c01eb61df31d4d1451d0013a7ea84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e9c01eb61df31d4d1451d0013a7ea84">UDIF_CAPABILITY_ALL</a>&#160;&#160;&#160;UINT64_C(0x00000000001FFFFF)</td></tr>
+<tr class="memdesc:a1e9c01eb61df31d4d1451d0013a7ea84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full capability bitmap granting all defined verb bits.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:af2aa24f4c87d4bf33a322c951c5dd873" id="r_af2aa24f4c87d4bf33a322c951c5dd873"><td class="memItemLeft" align="right" valign="top"><a id="af2aa24f4c87d4bf33a322c951c5dd873" name="af2aa24f4c87d4bf33a322c951c5dd873"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_capability&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability</b></td></tr>
-<tr class="memitem:a4edd2e28cd272153e8baf9dbaafdfd2a" id="r_a4edd2e28cd272153e8baf9dbaafdfd2a"><td class="memItemLeft" align="right" valign="top"><a id="a4edd2e28cd272153e8baf9dbaafdfd2a" name="a4edd2e28cd272153e8baf9dbaafdfd2a"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a255e65a4251dbae1ba4c886d55d1c5bc">udif_capability_id</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_id</b></td></tr>
-<tr class="memitem:a4a0894474d136bdd7f78c184afec40f2" id="r_a4a0894474d136bdd7f78c184afec40f2"><td class="memItemLeft" align="right" valign="top"><a id="a4a0894474d136bdd7f78c184afec40f2" name="a4a0894474d136bdd7f78c184afec40f2"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#ab8fea7dd3d6e150d18bd14fbbb64544b">udif_capability_verbs</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_verbs</b></td></tr>
-<tr class="memitem:ade3db5e217d98d2b72dd988de6be29a1" id="r_ade3db5e217d98d2b72dd988de6be29a1"><td class="memItemLeft" align="right" valign="top"><a id="ade3db5e217d98d2b72dd988de6be29a1" name="ade3db5e217d98d2b72dd988de6be29a1"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#adb7c3090a8b4852efb2bbb21e7ce2838">udif_capability_scopes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_scopes</b></td></tr>
+<tr class="memitem:a56f030686c91d3e7610b9b338d9a2eef" id="r_a56f030686c91d3e7610b9b338d9a2eef"><td class="memItemLeft" align="right" valign="top"><a id="a56f030686c91d3e7610b9b338d9a2eef" name="a56f030686c91d3e7610b9b338d9a2eef"></a>
+typedef enum <a class="el" href="#a255e65a4251dbae1ba4c886d55d1c5bc">udif_capability_id</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_id</b></td></tr>
+<tr class="memitem:a59de36e3cf7ea9531e925389210bb076" id="r_a59de36e3cf7ea9531e925389210bb076"><td class="memItemLeft" align="right" valign="top"><a id="a59de36e3cf7ea9531e925389210bb076" name="a59de36e3cf7ea9531e925389210bb076"></a>
+typedef enum <a class="el" href="#ab8fea7dd3d6e150d18bd14fbbb64544b">udif_capability_verbs</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_verbs</b></td></tr>
+<tr class="memitem:a97354af192f3a2b29da804d03a06a088" id="r_a97354af192f3a2b29da804d03a06a088"><td class="memItemLeft" align="right" valign="top"><a id="a97354af192f3a2b29da804d03a06a088" name="a97354af192f3a2b29da804d03a06a088"></a>
+typedef enum <a class="el" href="#adb7c3090a8b4852efb2bbb21e7ce2838">udif_capability_scopes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_scopes</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -176,6 +256,653 @@ Functions</h2></td></tr>
 <li>Validity: When the capability expires </li>
 </ul>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="af08d5a5ec54644917530fbf3ed890acc" name="af08d5a5ec54644917530fbf3ed890acc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af08d5a5ec54644917530fbf3ed890acc">&#9670;&#160;</a></span>UDIF_BC_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_BC_CAPABILITIES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>)</div>
+<div class="ttc" id="acapability_8h_html_a002ec56bf146015dfd626edf04cc6e9c"><div class="ttname"><a href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_ENROLL</div><div class="ttdoc">Grants permission to enroll subordinate entities.</div><div class="ttdef"><b>Definition</b> capability.h:127</div></div>
+<div class="ttc" id="acapability_8h_html_a03933b96e95e4b22950876c61460abe3"><div class="ttname"><a href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a></div><div class="ttdeci">#define UDIF_CAP_FORWARD_QUERY</div><div class="ttdoc">Grants permission to forward authorized queries.</div><div class="ttdef"><b>Definition</b> capability.h:118</div></div>
+<div class="ttc" id="acapability_8h_html_a0444d638e46aa6a11a29523d111f9efd"><div class="ttname"><a href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a></div><div class="ttdeci">#define UDIF_CAP_LOG_ANCHOR_VERIFY</div><div class="ttdoc">Grants permission to verify and append child Anchor Records.</div><div class="ttdef"><b>Definition</b> capability.h:218</div></div>
+<div class="ttc" id="acapability_8h_html_a0466909f7084ce4899abb293baec9640"><div class="ttname"><a href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_SUSPEND</div><div class="ttdoc">Grants permission to suspend subordinate certificates.</div><div class="ttdef"><b>Definition</b> capability.h:136</div></div>
+<div class="ttc" id="acapability_8h_html_a1fe01db0e159904662683634b67bc81a"><div class="ttname"><a href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_REVOKE</div><div class="ttdoc">Grants permission to revoke subordinate certificates.</div><div class="ttdef"><b>Definition</b> capability.h:154</div></div>
+<div class="ttc" id="acapability_8h_html_a323fcad61a16c6770a3242e5c91f246e"><div class="ttname"><a href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a></div><div class="ttdeci">#define UDIF_CAP_LOG_ANCHOR_SEND</div><div class="ttdoc">Grants permission to generate and send Anchor Records upstream.</div><div class="ttdef"><b>Definition</b> capability.h:209</div></div>
+<div class="ttc" id="acapability_8h_html_a4c3e8e8c5cc265bb21df28aca870fc72"><div class="ttname"><a href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_BRANCH_CREATE</div><div class="ttdoc">Grants permission to create subordinate branches or groups.</div><div class="ttdef"><b>Definition</b> capability.h:163</div></div>
+<div class="ttc" id="acapability_8h_html_a6e221b5a9f04e4c78291117a195db900"><div class="ttname"><a href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_RESUME</div><div class="ttdoc">Grants permission to resume suspended subordinate certificates.</div><div class="ttdef"><b>Definition</b> capability.h:145</div></div>
+<div class="ttc" id="acapability_8h_html_a7c95ba82b2294d58205e24e617f564db"><div class="ttname"><a href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a></div><div class="ttdeci">#define UDIF_CAP_TELEMETRY_EXPORT</div><div class="ttdoc">Grants permission to export telemetry counters.</div><div class="ttdef"><b>Definition</b> capability.h:255</div></div>
+<div class="ttc" id="acapability_8h_html_aaeeb1ca28039f230253793f81a4a623a"><div class="ttname"><a href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a></div><div class="ttdeci">#define UDIF_CAP_ADMIN_BRANCH_RETIRE</div><div class="ttdoc">Grants permission to retire or prune subordinate branches.</div><div class="ttdef"><b>Definition</b> capability.h:172</div></div>
+<div class="ttc" id="acapability_8h_html_ac66509a8398c94f890aab5558884b89c"><div class="ttname"><a href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a></div><div class="ttdeci">#define UDIF_CAP_ERROR_REPORT</div><div class="ttdoc">Grants permission to issue signed error events into logs.</div><div class="ttdef"><b>Definition</b> capability.h:264</div></div>
+</div><!-- fragment -->
+<p>Default capability mask for a UDIF Branch Controller certificate. </p>
+<p>The Branch Controller capability mask grants authority to administer a subordinate branch or group subtree. It permits enrollment and lifecycle control of subordinate certificates, creation and retirement of subordinate branches or groups, forwarding of authorized queries, generation of upstream Anchor Records, verification of child Anchor Records, export of permitted telemetry counters, and issuance of signed operational error reports.</p>
+<p>This mask is appropriate for a Branch Controller operating in branch-admin mode. A Branch Controller operating as a Group Controller should instead use the Group Controller capability mask.</p>
+<p>Treaty capabilities are excluded from this default mask. They should be granted only when a valid Peering Treaty and parent policy explicitly permit cross-domain operation. </p>
+
+</div>
+</div>
+<a id="a4c3e8e8c5cc265bb21df28aca870fc72" name="a4c3e8e8c5cc265bb21df28aca870fc72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c3e8e8c5cc265bb21df28aca870fc72">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_BRANCH_CREATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_BRANCH_CREATE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 9)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to create subordinate branches or groups. </p>
+<p>Allows a Branch Controller to instantiate a subordinate Branch Controller or Group Controller. This bit should not be granted to User Agents. </p>
+
+</div>
+</div>
+<a id="aaeeb1ca28039f230253793f81a4a623a" name="aaeeb1ca28039f230253793f81a4a623a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeeb1ca28039f230253793f81a4a623a">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_BRANCH_RETIRE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_BRANCH_RETIRE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to retire or prune subordinate branches. </p>
+<p>Allows a Branch Controller to permanently retire, prune, or decommission a subordinate branch according to policy and audit requirements. </p>
+
+</div>
+</div>
+<a id="a002ec56bf146015dfd626edf04cc6e9c" name="a002ec56bf146015dfd626edf04cc6e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002ec56bf146015dfd626edf04cc6e9c">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_ENROLL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_ENROLL&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to enroll subordinate entities. </p>
+<p>Allows the holder to enroll new User Agents, Group Controllers, or subordinate Branch Controllers, depending on the holder role and parent-issued scope. </p>
+
+</div>
+</div>
+<a id="a7ec9846b8c8c7d2665ae691834ceb050" name="a7ec9846b8c8c7d2665ae691834ceb050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec9846b8c8c7d2665ae691834ceb050">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a>)</div>
+</div><!-- fragment -->
+<p>Mask of all core administrative capabilities. </p>
+
+</div>
+</div>
+<a id="a6e221b5a9f04e4c78291117a195db900" name="a6e221b5a9f04e4c78291117a195db900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e221b5a9f04e4c78291117a195db900">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_RESUME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_RESUME&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 7)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to resume suspended subordinate certificates. </p>
+<p>Allows the holder to restore a previously suspended User Agent, Group Controller, or Branch Controller when policy and audit conditions are met. </p>
+
+</div>
+</div>
+<a id="a1fe01db0e159904662683634b67bc81a" name="a1fe01db0e159904662683634b67bc81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe01db0e159904662683634b67bc81a">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_REVOKE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_REVOKE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 8)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to revoke subordinate certificates. </p>
+<p>Allows the holder to permanently revoke User Agent, Group Controller, or Branch Controller certificates within the holder's delegated authority. </p>
+
+</div>
+</div>
+<a id="a0466909f7084ce4899abb293baec9640" name="a0466909f7084ce4899abb293baec9640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0466909f7084ce4899abb293baec9640">&#9670;&#160;</a></span>UDIF_CAP_ADMIN_SUSPEND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ADMIN_SUSPEND&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to suspend subordinate certificates. </p>
+<p>Allows the holder to temporarily suspend User Agents, Group Controllers, or Branch Controllers pending audit, investigation, or policy review. </p>
+
+</div>
+</div>
+<a id="adc13d4e098333fa3ccf3db9ef27e8ec2" name="adc13d4e098333fa3ccf3db9ef27e8ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc13d4e098333fa3ccf3db9ef27e8ec2">&#9670;&#160;</a></span>UDIF_CAP_ALL_CORE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ALL_CORE&#160;&#160;&#160;(<a class="el" href="#ac922508194dbaccd45189761693636e1">UDIF_CAP_CORE_DEFINED_MASK</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mask containing all UDIF v1 core-defined capabilities. </p>
+<p>This mask is intended for validation, testing, and issuer-side policy construction. It should not be assigned blindly to subordinate certificates. </p>
+
+</div>
+</div>
+<a id="a5dc8ca020126719de9d087057d697169" name="a5dc8ca020126719de9d087057d697169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc8ca020126719de9d087057d697169">&#9670;&#160;</a></span>UDIF_CAP_ANCHOR_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ANCHOR_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a>)</div>
+</div><!-- fragment -->
+<p>Mask of all core anchoring capabilities. </p>
+
+</div>
+</div>
+<a id="a0f1d14d29cb22e26152f7498486ef87e" name="a0f1d14d29cb22e26152f7498486ef87e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1d14d29cb22e26152f7498486ef87e">&#9670;&#160;</a></span>UDIF_CAP_AUDIT_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_AUDIT_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>)</div>
+</div><!-- fragment -->
+<p>Mask of core audit-support capabilities. </p>
+
+</div>
+</div>
+<a id="ac922508194dbaccd45189761693636e1" name="ac922508194dbaccd45189761693636e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac922508194dbaccd45189761693636e1">&#9670;&#160;</a></span>UDIF_CAP_CORE_DEFINED_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_CORE_DEFINED_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a7213392aef033490ddadf81f45376b33">UDIF_CAP_QUERY_EXIST</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a269c5234f32afd2a20d654c760378fa9">UDIF_CAP_QUERY_OWNER_BINDING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">UDIF_CAP_QUERY_ATTR_BUCKET</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c25f0637e43e19d5dc4450626f120bc">UDIF_CAP_PROVE_MEMBERSHIP</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a59e5c10401e1d5db4ef45ebee221bf92">UDIF_CAP_TX_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a22d12bcadade6113e0527ba975a13ae5">UDIF_CAP_TX_ACCEPT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>)</div>
+<div class="ttc" id="acapability_8h_html_a22d12bcadade6113e0527ba975a13ae5"><div class="ttname"><a href="#a22d12bcadade6113e0527ba975a13ae5">UDIF_CAP_TX_ACCEPT</a></div><div class="ttdeci">#define UDIF_CAP_TX_ACCEPT</div><div class="ttdoc">Grants permission to accept incoming transaction transfers.</div><div class="ttdef"><b>Definition</b> capability.h:200</div></div>
+<div class="ttc" id="acapability_8h_html_a269c5234f32afd2a20d654c760378fa9"><div class="ttname"><a href="#a269c5234f32afd2a20d654c760378fa9">UDIF_CAP_QUERY_OWNER_BINDING</a></div><div class="ttdeci">#define UDIF_CAP_QUERY_OWNER_BINDING</div><div class="ttdoc">Grants permission to query object ownership binding.</div><div class="ttdef"><b>Definition</b> capability.h:90</div></div>
+<div class="ttc" id="acapability_8h_html_a4124125abe03a2f93ce487f440d944b4"><div class="ttname"><a href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a></div><div class="ttdeci">#define UDIF_CAP_TREATY_QUERY_ORIGIN</div><div class="ttdoc">Grants permission to originate treaty-scoped queries.</div><div class="ttdef"><b>Definition</b> capability.h:245</div></div>
+<div class="ttc" id="acapability_8h_html_a456c4fa2b0ebc4bb13d5d5babdcb5f9e"><div class="ttname"><a href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">UDIF_CAP_QUERY_ATTR_BUCKET</a></div><div class="ttdeci">#define UDIF_CAP_QUERY_ATTR_BUCKET</div><div class="ttdoc">Grants permission to query predefined attribute buckets.</div><div class="ttdef"><b>Definition</b> capability.h:100</div></div>
+<div class="ttc" id="acapability_8h_html_a59e5c10401e1d5db4ef45ebee221bf92"><div class="ttname"><a href="#a59e5c10401e1d5db4ef45ebee221bf92">UDIF_CAP_TX_CREATE</a></div><div class="ttdeci">#define UDIF_CAP_TX_CREATE</div><div class="ttdoc">Grants permission to originate transaction events.</div><div class="ttdef"><b>Definition</b> capability.h:191</div></div>
+<div class="ttc" id="acapability_8h_html_a7213392aef033490ddadf81f45376b33"><div class="ttname"><a href="#a7213392aef033490ddadf81f45376b33">UDIF_CAP_QUERY_EXIST</a></div><div class="ttdeci">#define UDIF_CAP_QUERY_EXIST</div><div class="ttdoc">Grants permission to issue existence queries.</div><div class="ttdef"><b>Definition</b> capability.h:81</div></div>
+<div class="ttc" id="acapability_8h_html_a7c25f0637e43e19d5dc4450626f120bc"><div class="ttname"><a href="#a7c25f0637e43e19d5dc4450626f120bc">UDIF_CAP_PROVE_MEMBERSHIP</a></div><div class="ttdeci">#define UDIF_CAP_PROVE_MEMBERSHIP</div><div class="ttdoc">Grants permission to request Merkle membership proofs.</div><div class="ttdef"><b>Definition</b> capability.h:109</div></div>
+<div class="ttc" id="acapability_8h_html_ad827e17fe846f2e9c52b6446dbed5c03"><div class="ttname"><a href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a></div><div class="ttdeci">#define UDIF_CAP_REGISTRY_COMMIT</div><div class="ttdoc">Grants permission to commit registry roots.</div><div class="ttdef"><b>Definition</b> capability.h:181</div></div>
+<div class="ttc" id="acapability_8h_html_aefa281bf81bfd244a5ec9a0b1b904939"><div class="ttname"><a href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a></div><div class="ttdeci">#define UDIF_CAP_TREATY_QUERY_EXEC</div><div class="ttdoc">Grants permission to execute treaty-scoped queries.</div><div class="ttdef"><b>Definition</b> capability.h:236</div></div>
+<div class="ttc" id="acapability_8h_html_aefe3799743134a4e71d362a9565831f6"><div class="ttname"><a href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a></div><div class="ttdeci">#define UDIF_CAP_TREATY_NEGOTIATE</div><div class="ttdoc">Grants permission to negotiate and sign Peering Treaties.</div><div class="ttdef"><b>Definition</b> capability.h:227</div></div>
+</div><!-- fragment -->
+<p>Mask of all UDIF v1 core-defined capability bits. </p>
+<p>Includes all normative UDIF v1 capability bits from bit 0 through bit 20. </p>
+
+</div>
+</div>
+<a id="ac66509a8398c94f890aab5558884b89c" name="ac66509a8398c94f890aab5558884b89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac66509a8398c94f890aab5558884b89c">&#9670;&#160;</a></span>UDIF_CAP_ERROR_REPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_ERROR_REPORT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to issue signed error events into logs. </p>
+<p>Allows the holder to create signed error reports or audit events and append them to the appropriate membership, transaction, or operational log. </p>
+
+</div>
+</div>
+<a id="a03933b96e95e4b22950876c61460abe3" name="a03933b96e95e4b22950876c61460abe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03933b96e95e4b22950876c61460abe3">&#9670;&#160;</a></span>UDIF_CAP_FORWARD_QUERY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_FORWARD_QUERY&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to forward authorized queries. </p>
+<p>Allows a Group Controller or Branch Controller to forward queries upstream or across treaty peers, subject to scope, treaty, and policy restrictions. </p>
+
+</div>
+</div>
+<a id="a323fcad61a16c6770a3242e5c91f246e" name="a323fcad61a16c6770a3242e5c91f246e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a323fcad61a16c6770a3242e5c91f246e">&#9670;&#160;</a></span>UDIF_CAP_LOG_ANCHOR_SEND</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_LOG_ANCHOR_SEND&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 14)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to generate and send Anchor Records upstream. </p>
+<p>Allows a Group Controller or Branch Controller to generate signed Anchor Records and submit them to its parent authority. </p>
+
+</div>
+</div>
+<a id="a0444d638e46aa6a11a29523d111f9efd" name="a0444d638e46aa6a11a29523d111f9efd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0444d638e46aa6a11a29523d111f9efd">&#9670;&#160;</a></span>UDIF_CAP_LOG_ANCHOR_VERIFY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_LOG_ANCHOR_VERIFY&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 15)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to verify and append child Anchor Records. </p>
+<p>Allows a parent controller to verify signed Anchor Records received from subordinate controllers and append accepted anchors to its logs. </p>
+
+</div>
+</div>
+<a id="ab141217c4d5b9959fa774a925c42b32e" name="ab141217c4d5b9959fa774a925c42b32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab141217c4d5b9959fa774a925c42b32e">&#9670;&#160;</a></span>UDIF_CAP_NONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_NONE&#160;&#160;&#160;(UINT64_C(0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empty capability mask. </p>
+<p>Represents the UDIF default-deny state. A certificate or capability token with this mask grants no operational rights. </p>
+
+</div>
+</div>
+<a id="a7c25f0637e43e19d5dc4450626f120bc" name="a7c25f0637e43e19d5dc4450626f120bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c25f0637e43e19d5dc4450626f120bc">&#9670;&#160;</a></span>UDIF_CAP_PROVE_MEMBERSHIP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_PROVE_MEMBERSHIP&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to request Merkle membership proofs. </p>
+<p>Allows the holder to request membership or registry proofs for Objects, registries, or committed records where such proofs are authorized by policy. </p>
+
+</div>
+</div>
+<a id="a456c4fa2b0ebc4bb13d5d5babdcb5f9e" name="a456c4fa2b0ebc4bb13d5d5babdcb5f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">&#9670;&#160;</a></span>UDIF_CAP_QUERY_ATTR_BUCKET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_QUERY_ATTR_BUCKET&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to query predefined attribute buckets. </p>
+<p>Allows the holder to evaluate approved attribute-bucket predicates, such as active, suspended, destroyed, or other profile-defined bucket states, without exposing raw attribute values. </p>
+
+</div>
+</div>
+<a id="a7213392aef033490ddadf81f45376b33" name="a7213392aef033490ddadf81f45376b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7213392aef033490ddadf81f45376b33">&#9670;&#160;</a></span>UDIF_CAP_QUERY_EXIST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_QUERY_EXIST&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to issue existence queries. </p>
+<p>Allows the holder to query whether a User Agent or Object exists within the authorized local, domain, or treaty scope. Responses are limited to minimal disclosure yes/no semantics. </p>
+
+</div>
+</div>
+<a id="a7963865832e7e52fd3b014bff97c3a3e" name="a7963865832e7e52fd3b014bff97c3a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7963865832e7e52fd3b014bff97c3a3e">&#9670;&#160;</a></span>UDIF_CAP_QUERY_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_QUERY_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a7213392aef033490ddadf81f45376b33">UDIF_CAP_QUERY_EXIST</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a269c5234f32afd2a20d654c760378fa9">UDIF_CAP_QUERY_OWNER_BINDING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">UDIF_CAP_QUERY_ATTR_BUCKET</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c25f0637e43e19d5dc4450626f120bc">UDIF_CAP_PROVE_MEMBERSHIP</a>)</div>
+</div><!-- fragment -->
+<p>Mask of all core predicate-query capabilities. </p>
+
+</div>
+</div>
+<a id="a269c5234f32afd2a20d654c760378fa9" name="a269c5234f32afd2a20d654c760378fa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269c5234f32afd2a20d654c760378fa9">&#9670;&#160;</a></span>UDIF_CAP_QUERY_OWNER_BINDING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_QUERY_OWNER_BINDING&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to query object ownership binding. </p>
+<p>Allows the holder to query whether a specified Object is currently bound to, or owned by, a specified User Agent within the authorized scope. </p>
+
+</div>
+</div>
+<a id="ad827e17fe846f2e9c52b6446dbed5c03" name="ad827e17fe846f2e9c52b6446dbed5c03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad827e17fe846f2e9c52b6446dbed5c03">&#9670;&#160;</a></span>UDIF_CAP_REGISTRY_COMMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_REGISTRY_COMMIT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 11)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to commit registry roots. </p>
+<p>Allows User Agents to commit their own registry roots, or Group Controllers to commit group registry state, depending on role and delegated scope. </p>
+
+</div>
+</div>
+<a id="aa33a6c517d673daeb0ce9e5a1bc3d661" name="aa33a6c517d673daeb0ce9e5a1bc3d661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa33a6c517d673daeb0ce9e5a1bc3d661">&#9670;&#160;</a></span>UDIF_CAP_RESERVED_FUTURE_CORE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_RESERVED_FUTURE_CORE_MASK&#160;&#160;&#160;(UINT64_C(0x00000000FFE00000))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reserved capability bits for future UDIF core extensions. </p>
+<p>Bits 21 through 31 are reserved for future UDIF core capability assignments. These bits must be zero in UDIF v1 certificates and capability tokens unless a later core revision explicitly defines them. </p>
+
+</div>
+</div>
+<a id="ac83f4ec061581871ef7664a7471573ba" name="ac83f4ec061581871ef7664a7471573ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac83f4ec061581871ef7664a7471573ba">&#9670;&#160;</a></span>UDIF_CAP_RESERVED_PROFILE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_RESERVED_PROFILE_MASK&#160;&#160;&#160;(UINT64_C(0xFFFFFFFF00000000))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reserved capability bits for profile-specific extensions. </p>
+<p>Bits 32 through 63 are reserved for profile-specific, jurisdictional, audit, privacy, or zero-knowledge extension profiles. Core implementations must not assign conflicting meanings to these bits. </p>
+
+</div>
+</div>
+<a id="a7c95ba82b2294d58205e24e617f564db" name="a7c95ba82b2294d58205e24e617f564db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c95ba82b2294d58205e24e617f564db">&#9670;&#160;</a></span>UDIF_CAP_TELEMETRY_EXPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TELEMETRY_EXPORT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 19)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to export telemetry counters. </p>
+<p>Allows the holder to export authorized telemetry counters in Anchor Records. Telemetry export must not disclose raw identifiers, attributes, or private transaction contents. </p>
+
+</div>
+</div>
+<a id="a0bd60cca6ab221c06fae77c79cdddf08" name="a0bd60cca6ab221c06fae77c79cdddf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd60cca6ab221c06fae77c79cdddf08">&#9670;&#160;</a></span>UDIF_CAP_TRANSACTION_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TRANSACTION_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a59e5c10401e1d5db4ef45ebee221bf92">UDIF_CAP_TX_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a22d12bcadade6113e0527ba975a13ae5">UDIF_CAP_TX_ACCEPT</a>)</div>
+</div><!-- fragment -->
+<p>Mask of all core transaction and registry capabilities. </p>
+
+</div>
+</div>
+<a id="a759b5026b00ea5ba5382f88517ceb7cd" name="a759b5026b00ea5ba5382f88517ceb7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a759b5026b00ea5ba5382f88517ceb7cd">&#9670;&#160;</a></span>UDIF_CAP_TREATY_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TREATY_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a>)</div>
+</div><!-- fragment -->
+<p>Mask of all core treaty capabilities. </p>
+
+</div>
+</div>
+<a id="aefe3799743134a4e71d362a9565831f6" name="aefe3799743134a4e71d362a9565831f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe3799743134a4e71d362a9565831f6">&#9670;&#160;</a></span>UDIF_CAP_TREATY_NEGOTIATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TREATY_NEGOTIATE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 16)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to negotiate and sign Peering Treaties. </p>
+<p>Allows an authorized Branch Controller or Group Controller to negotiate, approve, and sign treaty records with a peer domain controller. </p>
+
+</div>
+</div>
+<a id="aefa281bf81bfd244a5ec9a0b1b904939" name="aefa281bf81bfd244a5ec9a0b1b904939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa281bf81bfd244a5ec9a0b1b904939">&#9670;&#160;</a></span>UDIF_CAP_TREATY_QUERY_EXEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TREATY_QUERY_EXEC&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 17)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to execute treaty-scoped queries. </p>
+<p>Allows the holder to process incoming treaty queries within the predicate families and bounds explicitly allowed by a valid Peering Treaty. </p>
+
+</div>
+</div>
+<a id="a4124125abe03a2f93ce487f440d944b4" name="a4124125abe03a2f93ce487f440d944b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4124125abe03a2f93ce487f440d944b4">&#9670;&#160;</a></span>UDIF_CAP_TREATY_QUERY_ORIGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TREATY_QUERY_ORIGIN&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 18)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to originate treaty-scoped queries. </p>
+<p>Allows the holder to originate cross-domain treaty queries to a peer domain, subject to a valid treaty, predicate scope, and policy epoch. </p>
+
+</div>
+</div>
+<a id="a22d12bcadade6113e0527ba975a13ae5" name="a22d12bcadade6113e0527ba975a13ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d12bcadade6113e0527ba975a13ae5">&#9670;&#160;</a></span>UDIF_CAP_TX_ACCEPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TX_ACCEPT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 13)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to accept incoming transaction transfers. </p>
+<p>Allows the holder to co-sign and accept incoming object transfers or other transaction events requiring counterparty acceptance. </p>
+
+</div>
+</div>
+<a id="a59e5c10401e1d5db4ef45ebee221bf92" name="a59e5c10401e1d5db4ef45ebee221bf92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e5c10401e1d5db4ef45ebee221bf92">&#9670;&#160;</a></span>UDIF_CAP_TX_CREATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAP_TX_CREATE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 12)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grants permission to originate transaction events. </p>
+<p>Allows the holder to originate transaction events, including object creation, object update, or object transfer initiation, subject to role and ownership checks. </p>
+
+</div>
+</div>
+<a id="a1e9c01eb61df31d4d1451d0013a7ea84" name="a1e9c01eb61df31d4d1451d0013a7ea84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9c01eb61df31d4d1451d0013a7ea84">&#9670;&#160;</a></span>UDIF_CAPABILITY_ALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CAPABILITY_ALL&#160;&#160;&#160;UINT64_C(0x00000000001FFFFF)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Full capability bitmap granting all defined verb bits. </p>
+<p>Used when generating root or first-level subordinate certificates that require unrestricted operational capabilities within the domain. Covers all 21 defined verbs (bits 0-20). </p>
+
+</div>
+</div>
 <a id="a1c541ec956c7a09a902ad4e792887276" name="a1c541ec956c7a09a902ad4e792887276"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c541ec956c7a09a902ad4e792887276">&#9670;&#160;</a></span>UDIF_CAPABILITY_ENCODED_SIZE</h2>
 
@@ -196,7 +923,7 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a2f9c98b3a8f704a1e5cf414f2662ce9c">UDIF_CAPABILITY_BITMAP_SIZE</a> + \</div>
 <div class="line">    UDIF_CAPABILITY_POLICY_SIZE)</div>
 <div class="ttc" id="audif_8h_html_a2f9c98b3a8f704a1e5cf414f2662ce9c"><div class="ttname"><a href="udif_8h.html#a2f9c98b3a8f704a1e5cf414f2662ce9c">UDIF_CAPABILITY_BITMAP_SIZE</a></div><div class="ttdeci">#define UDIF_CAPABILITY_BITMAP_SIZE</div><div class="ttdoc">Capability bitmap size in bytes (64-bit)</div><div class="ttdef"><b>Definition</b> udif.h:415</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
 <div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
 <div class="ttc" id="audif_8h_html_adfb8d5ba78e062dcd315c51ff8af4bd6"><div class="ttname"><a href="udif_8h.html#adfb8d5ba78e062dcd315c51ff8af4bd6">UDIF_CRYPTO_MAC_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_MAC_SIZE</div><div class="ttdoc">The MAC function output byte size.</div><div class="ttdef"><b>Definition</b> udif.h:452</div></div>
 </div><!-- fragment -->
@@ -223,6 +950,138 @@ Functions</h2></td></tr>
 <div class="line">    UDIF_CAPABILITY_POLICY_SIZE)</div>
 </div><!-- fragment -->
 <p>The capability structure signed size. </p>
+
+</div>
+</div>
+<a id="a16e8dd9fd145c8de22a488c8b304d925" name="a16e8dd9fd145c8de22a488c8b304d925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16e8dd9fd145c8de22a488c8b304d925">&#9670;&#160;</a></span>UDIF_CLIENT_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CLIENT_CAPABILITIES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a7213392aef033490ddadf81f45376b33">UDIF_CAP_QUERY_EXIST</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a269c5234f32afd2a20d654c760378fa9">UDIF_CAP_QUERY_OWNER_BINDING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a456c4fa2b0ebc4bb13d5d5babdcb5f9e">UDIF_CAP_QUERY_ATTR_BUCKET</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c25f0637e43e19d5dc4450626f120bc">UDIF_CAP_PROVE_MEMBERSHIP</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a59e5c10401e1d5db4ef45ebee221bf92">UDIF_CAP_TX_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a22d12bcadade6113e0527ba975a13ae5">UDIF_CAP_TX_ACCEPT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>)</div>
+</div><!-- fragment -->
+<p>Default capability mask for a UDIF client or User Agent certificate. </p>
+<p>The client capability mask grants only end-entity rights. It permits minimal predicate queries, membership-proof requests where authorized, registry-root commitment for the client's own registry, transaction creation, transaction acceptance, and signed error reporting.</p>
+<p>A client must not receive administrative, branch-management, anchor-verifier, treaty-negotiation, or query-forwarding capabilities. User Agents are leaf entities in the UDIF hierarchy and cannot administer other certificates or interact laterally outside their Group Controller.</p>
+<dl class="section note"><dt>Note</dt><dd>In a stricter deployment profile, UDIF_CAP_PROVE_MEMBERSHIP may be removed from this default and issued only through a separate GC-signed capability token. </dd></dl>
+
+</div>
+</div>
+<a id="a2901e70fcd77ba70a34098da97845571" name="a2901e70fcd77ba70a34098da97845571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2901e70fcd77ba70a34098da97845571">&#9670;&#160;</a></span>UDIF_GC_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_GC_CAPABILITIES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad827e17fe846f2e9c52b6446dbed5c03">UDIF_CAP_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a323fcad61a16c6770a3242e5c91f246e">UDIF_CAP_LOG_ANCHOR_SEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7c95ba82b2294d58205e24e617f564db">UDIF_CAP_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac66509a8398c94f890aab5558884b89c">UDIF_CAP_ERROR_REPORT</a>)</div>
+</div><!-- fragment -->
+<p>Default capability mask for a UDIF Group Controller certificate. </p>
+<p>The Group Controller capability mask grants authority to administer User Agents within a group. It permits enrollment, suspension, resumption, and revocation of User Agent certificates, forwarding of authorized queries, registry-root commitment on behalf of the managed group, generation of upstream Anchor Records, export of permitted telemetry counters, and issuance of signed operational error reports.</p>
+<p>The mask intentionally excludes branch creation and branch retirement because a Group Controller directly manages User Agents and must not create subordinate administrative branches.</p>
+<p>Transaction origination and acceptance are excluded by default because those capabilities belong to User Agents as object owners. The Group Controller validates, logs, and anchors transaction evidence, but it does not own objects and should not receive object-owner transaction rights unless a specific implementation profile defines a separate service-actor role. </p>
+
+</div>
+</div>
+<a id="aacab4e31c9da4cf6d866e4ab70849998" name="aacab4e31c9da4cf6d866e4ab70849998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacab4e31c9da4cf6d866e4ab70849998">&#9670;&#160;</a></span>UDIF_ROOT_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_ROOT_CAPABILITIES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a002ec56bf146015dfd626edf04cc6e9c">UDIF_CAP_ADMIN_ENROLL</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0466909f7084ce4899abb293baec9640">UDIF_CAP_ADMIN_SUSPEND</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a6e221b5a9f04e4c78291117a195db900">UDIF_CAP_ADMIN_RESUME</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1fe01db0e159904662683634b67bc81a">UDIF_CAP_ADMIN_REVOKE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a4c3e8e8c5cc265bb21df28aca870fc72">UDIF_CAP_ADMIN_BRANCH_CREATE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aaeeb1ca28039f230253793f81a4a623a">UDIF_CAP_ADMIN_BRANCH_RETIRE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0444d638e46aa6a11a29523d111f9efd">UDIF_CAP_LOG_ANCHOR_VERIFY</a>)</div>
+</div><!-- fragment -->
+<p>Default capability mask for a UDIF Root certificate. </p>
+<p>The Root capability mask grants only domain-anchor and top-level issuance authority. It permits the Root to issue, suspend, resume, revoke, create, and retire subordinate branch authorities, and to verify Anchor Records submitted by immediate children.</p>
+<p>The Root mask intentionally excludes User Agent, object ownership, registry mutation, transaction origination, and treaty-query capabilities. The Root is the trust anchor and policy origin for the domain; operational authority is delegated to Branch Controllers and Group Controllers through signed subordinate certificates.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This mask is an issuer-side maximum for Root operation. It must not be copied blindly into subordinate certificates. </dd></dl>
+
+</div>
+</div>
+<a id="aa3d82150992e537f2664e5c6ccb24db9" name="aa3d82150992e537f2664e5c6ccb24db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3d82150992e537f2664e5c6ccb24db9">&#9670;&#160;</a></span>UDIF_TREATY_ADMIN_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_TREATY_ADMIN_CAPABILITIES&#160;&#160;&#160;(<a class="el" href="#aefe3799743134a4e71d362a9565831f6">UDIF_CAP_TREATY_NEGOTIATE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional capability overlay for treaty negotiation. </p>
+<p>Grants the ability to negotiate and sign Peering Treaties. This capability should normally be restricted to authorized Branch Controllers or specially designated Group Controllers. </p>
+
+</div>
+</div>
+<a id="a252d8ec56cc8372a59f044558d424a96" name="a252d8ec56cc8372a59f044558d424a96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a252d8ec56cc8372a59f044558d424a96">&#9670;&#160;</a></span>UDIF_TREATY_EXEC_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_TREATY_EXEC_CAPABILITIES&#160;&#160;&#160;(<a class="el" href="#aefa281bf81bfd244a5ec9a0b1b904939">UDIF_CAP_TREATY_QUERY_EXEC</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional capability overlay for executing treaty-scoped queries. </p>
+<p>Grants the ability to process treaty queries received from a peer domain. This mask must be constrained by the Peering Treaty, local policy, and the certificate's role. </p>
+
+</div>
+</div>
+<a id="afda0fbe652b3bbb171d1e2407ff6d062" name="afda0fbe652b3bbb171d1e2407ff6d062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda0fbe652b3bbb171d1e2407ff6d062">&#9670;&#160;</a></span>UDIF_TREATY_ORIGIN_CAPABILITIES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_TREATY_ORIGIN_CAPABILITIES&#160;&#160;&#160;(<a class="el" href="#a03933b96e95e4b22950876c61460abe3">UDIF_CAP_FORWARD_QUERY</a> | <a class="el" href="#a4124125abe03a2f93ce487f440d944b4">UDIF_CAP_TREATY_QUERY_ORIGIN</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional capability overlay for originating treaty-scoped queries. </p>
+<p>Grants the ability to originate treaty queries and forward them to a peer domain. This mask must be applied only when an active Peering Treaty and parent policy explicitly authorize the predicate family and peer scope. </p>
 
 </div>
 </div>

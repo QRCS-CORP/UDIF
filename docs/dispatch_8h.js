@@ -1,0 +1,27 @@
+var dispatch_8h =
+[
+    [ "udif_handler_fn", "dispatch_8h.html#a2a7bba4c9e052455532a1b794ace9ee4", null ],
+    [ "udif_dispatch", "dispatch_8h.html#ae4d9686945fb9bf65fec262cc03e0625", null ],
+    [ "udif_dispatch_is_permitted", "dispatch_8h.html#af027fe3cb93ff429b6c51fcd4fcd501a", null ],
+    [ "udif_handle_anchor_ack", "dispatch_8h.html#ac88ea7a1128e89d347b25f87de96605a", null ],
+    [ "udif_handle_anchor_push", "dispatch_8h.html#acf2216e4916702f79061bc7017b21819", null ],
+    [ "udif_handle_cap_grant", "dispatch_8h.html#a752a0b0cb52e03dca23e3e3aae1483df", null ],
+    [ "udif_handle_cap_revoke", "dispatch_8h.html#ada4d9d07ddaaf24ea936ce09e66f6cac", null ],
+    [ "udif_handle_cert_enroll_req", "dispatch_8h.html#a73ec5cd589b34e2c157e404bf38b448a", null ],
+    [ "udif_handle_cert_enroll_resp", "dispatch_8h.html#a94373e92ee5eb46871fca5d48cca9b46", null ],
+    [ "udif_handle_cert_resume", "dispatch_8h.html#a00c38b237203aaed89a06c601f888ecf", null ],
+    [ "udif_handle_cert_revoke", "dispatch_8h.html#a05cefd811d5c525b69c799ea9c577ab4", null ],
+    [ "udif_handle_cert_suspend", "dispatch_8h.html#a44ad911a66f96666dafc914aa83b4710", null ],
+    [ "udif_handle_error_report", "dispatch_8h.html#ad7e676c4f315f0280606c7aa04b7fd00", null ],
+    [ "udif_handle_object_create", "dispatch_8h.html#a82723178c2adb3070223628e8d577e83", null ],
+    [ "udif_handle_object_transfer_confirm", "dispatch_8h.html#a4090c2d62c7e13762e30201e9145a22e", null ],
+    [ "udif_handle_object_transfer_req", "dispatch_8h.html#a9c19d2b0e1eaec8d43052a4c0355f501", null ],
+    [ "udif_handle_query_req", "dispatch_8h.html#afda0509cb70c7749e8f22a44642201d0", null ],
+    [ "udif_handle_query_resp", "dispatch_8h.html#a3a8143b611f733185f07d6eae3026946", null ],
+    [ "udif_handle_registry_commit", "dispatch_8h.html#a327f41f0558253ad3e6c1cb5e3bed6c6", null ],
+    [ "udif_handle_treaty_cosign", "dispatch_8h.html#a6bdd68e8836c0f8a6f143267217d5c88", null ],
+    [ "udif_handle_treaty_propose", "dispatch_8h.html#aaad713590939c2f55604765acef1029f", null ],
+    [ "udif_handle_treaty_query_fwd", "dispatch_8h.html#a9dbdf2a52c69fd35994d12b916946ccd", null ],
+    [ "udif_handle_treaty_query_resp", "dispatch_8h.html#a201477718ca0534420f744590c7d0f3b", null ],
+    [ "udif_handle_treaty_revoke", "dispatch_8h.html#a51d4e57715e213def97d41bdb99380fc", null ]
+];

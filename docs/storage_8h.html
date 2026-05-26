@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -121,8 +121,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a48d74d136578a05dcacef20c306b5854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush buffered data.  <br /></td></tr>
 <tr class="memitem:a82a09103e0160c3749067adb5f7ed4d2" id="r_a82a09103e0160c3749067adb5f7ed4d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82a09103e0160c3749067adb5f7ed4d2">udif_storage_resolve_path</a> (const <a class="el" href="structudif__storage__context.html">udif_storage_context</a> *ctx, const uint8_t *loc, size_t loclen, char *outpath, size_t outpathlen)</td></tr>
 <tr class="memdesc:a82a09103e0160c3749067adb5f7ed4d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolve logical location to file path.  <br /></td></tr>
-<tr class="memitem:a9e451b1ea40546804209625fa054b29c" id="r_a9e451b1ea40546804209625fa054b29c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e451b1ea40546804209625fa054b29c">udif_storage_mkdir_recursive</a> (const char *path)</td></tr>
-<tr class="memdesc:a9e451b1ea40546804209625fa054b29c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create directory recursively.  <br /></td></tr>
 <tr class="memitem:af221e83e94b8a9e116fc21d55949ec08" id="r_af221e83e94b8a9e116fc21d55949ec08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af221e83e94b8a9e116fc21d55949ec08">udif_storage_get_handle</a> (<a class="el" href="structudif__storage__context.html">udif_storage_context</a> *ctx, const char *path, qsc_fileutils_mode mode, FILE **outfp)</td></tr>
 <tr class="memdesc:af221e83e94b8a9e116fc21d55949ec08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get or open cached file handle.  <br /></td></tr>
 <tr class="memitem:a53762594eae59bd0c44f623e643ffe08" id="r_a53762594eae59bd0c44f623e643ffe08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53762594eae59bd0c44f623e643ffe08">udif_storage_evict_handle</a> (<a class="el" href="structudif__storage__context.html">udif_storage_context</a> *ctx, const char *path)</td></tr>
@@ -446,33 +444,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
-
-</div>
-</div>
-<a id="a9e451b1ea40546804209625fa054b29c" name="a9e451b1ea40546804209625fa054b29c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e451b1ea40546804209625fa054b29c">&#9670;&#160;</a></span>udif_storage_mkdir_recursive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool udif_storage_mkdir_recursive </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create directory recursively. </p>
-<p>Creates all parent directories needed for a path.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>[const] The directory path</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns true on success </dd></dl>
 
 </div>
 </div>

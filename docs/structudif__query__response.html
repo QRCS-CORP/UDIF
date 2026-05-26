@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -66,7 +66,8 @@ $(function(){initNavTree('structudif__query__response.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a7bceb718cab8d86f393f90d566b211ed" id="r_a7bceb718cab8d86f393f90d566b211ed"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bceb718cab8d86f393f90d566b211ed">signature</a> [<a class="el" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a>]</td></tr>
-<tr class="memitem:a7b3f3e6ff87452d80e6700771edf0686" id="r_a7b3f3e6ff87452d80e6700771edf0686"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3f3e6ff87452d80e6700771edf0686">queryid</a> [<a class="el" href="query_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a>]</td></tr>
+<tr class="memitem:a7b3f3e6ff87452d80e6700771edf0686" id="r_a7b3f3e6ff87452d80e6700771edf0686"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3f3e6ff87452d80e6700771edf0686">queryid</a> [<a class="el" href="udif_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a>]</td></tr>
+<tr class="memitem:a9cf4f99c303ea39992542517e00cc208" id="r_a9cf4f99c303ea39992542517e00cc208"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cf4f99c303ea39992542517e00cc208">querydigest</a> [<a class="el" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a>]</td></tr>
 <tr class="memitem:a884829e8d6ab4d9298ca620f5f3b9b61" id="r_a884829e8d6ab4d9298ca620f5f3b9b61"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a884829e8d6ab4d9298ca620f5f3b9b61">respser</a> [<a class="el" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a>]</td></tr>
 <tr class="memitem:a0892db9bc8553799848457fdefd1c534" id="r_a0892db9bc8553799848457fdefd1c534"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0892db9bc8553799848457fdefd1c534">verdict</a></td></tr>
 <tr class="memitem:a465bef81f6478756e5443025b1f2ddfa" id="r_a465bef81f6478756e5443025b1f2ddfa"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a465bef81f6478756e5443025b1f2ddfa">timestamp</a></td></tr>
@@ -107,6 +108,21 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="a9cf4f99c303ea39992542517e00cc208" name="a9cf4f99c303ea39992542517e00cc208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cf4f99c303ea39992542517e00cc208">&#9670;&#160;</a></span>querydigest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t querydigest[<a class="el" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Canonical query digest </p>
+
+</div>
+</div>
 <a id="a7b3f3e6ff87452d80e6700771edf0686" name="a7b3f3e6ff87452d80e6700771edf0686"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b3f3e6ff87452d80e6700771edf0686">&#9670;&#160;</a></span>queryid</h2>
 
@@ -114,7 +130,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t queryid[<a class="el" href="query_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a>]</td>
+          <td class="memname">uint8_t queryid[<a class="el" href="udif_8h.html#ae12b8b28cc1c3cb476621b8d877e780d">UDIF_QUERY_ID_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">

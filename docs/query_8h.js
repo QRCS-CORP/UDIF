@@ -2,7 +2,6 @@ var query_8h =
 [
     [ "udif_query", "structudif__query.html", "structudif__query" ],
     [ "udif_query_response", "structudif__query__response.html", "structudif__query__response" ],
-    [ "UDIF_QUERY_ID_SIZE", "query_8h.html#ae12b8b28cc1c3cb476621b8d877e780d", null ],
     [ "UDIF_QUERY_MAX_PREDICATE_SIZE", "query_8h.html#a464cc7a6716a90c90acfeb6784b691ba", null ],
     [ "UDIF_QUERY_PREDICATE_SIZE", "query_8h.html#ae313a5c5e2bda9cd70b311f8cdb9a375", null ],
     [ "UDIF_QUERY_PROOF_SIZE", "query_8h.html#a3013339ab4ea2ee33e47d6bcd04773d5", null ],
@@ -29,12 +28,15 @@ var query_8h =
     [ "udif_query_create_owner_binding", "query_8h.html#a187375ee65a7fb7a4cdc95184d58ff73", null ],
     [ "udif_query_create_response", "query_8h.html#a1853d696cd6c09d9b00698499b8c5ff9", null ],
     [ "udif_query_deserialize", "query_8h.html#ac04764149c440c067e4acc67cfc0c3ee", null ],
+    [ "udif_query_evaluate_registry", "query_8h.html#ac57e69dc192f6eb9e733a65fb8e338cc", null ],
     [ "udif_query_is_fresh", "query_8h.html#a89baeedc9ec3b0b5d19666cce0e363d7", null ],
+    [ "udif_query_predicate_is_canonical", "query_8h.html#afdf174a60e12977c80f3d0e8b63d3d0b", null ],
     [ "udif_query_response_clear", "query_8h.html#a39c9cbabb4b519c1f552b51b6a373bd7", null ],
-    [ "udif_query_response_compute_digest", "query_8h.html#a5ed22a40602c2b70fce186d708d8d455", null ],
+    [ "udif_query_response_compute_digest", "query_8h.html#a614aa83a3ce3037d3514bc14a1b06c21", null ],
     [ "udif_query_response_deserialize", "query_8h.html#a3d848d5cbf9ffdb482a6fe03b70c33d6", null ],
     [ "udif_query_response_serialize", "query_8h.html#a37e1dffe8a3cbec20806af4955a30023", null ],
     [ "udif_query_serialize", "query_8h.html#af07fb0548fe6d2f99b26818dc377759c", null ],
     [ "udif_query_validate_authorization", "query_8h.html#a2218f3f6d3899213c78050b3c0020037", null ],
-    [ "udif_query_verify_response", "query_8h.html#afc7ed9e59f6443db5b4ad044e03ecba5", null ]
+    [ "udif_query_verify_response", "query_8h.html#afc7ed9e59f6443db5b4ad044e03ecba5", null ],
+    [ "udif_query_verify_response_signature", "query_8h.html#a5d09ef10994271d7f12931c0c7fd5647", null ]
 ];

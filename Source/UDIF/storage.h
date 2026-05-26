@@ -278,17 +278,6 @@ UDIF_EXPORT_API bool udif_storage_flush(void* context, const uint8_t* loc, size_
 bool udif_storage_resolve_path(const udif_storage_context* ctx, const uint8_t* loc, size_t loclen, char* outpath, size_t outpathlen);
 
 /*!
- * \brief Create directory recursively
- *
- * Creates all parent directories needed for a path.
- *
- * \param path: [const] The directory path
- *
- * \return Returns true on success
- */
-bool udif_storage_mkdir_recursive(const char* path);
-
-/*!
  * \brief Get or open cached file handle
  *
  * Returns a cached file handle for a path, opening it if necessary.
@@ -322,4 +311,4 @@ void udif_storage_evict_handle(udif_storage_context* ctx, const char* path);
  */
 void udif_storage_close_all_handles(udif_storage_context* ctx);
 
-#endif /* UDIF_STORAGE_H */
+#endif

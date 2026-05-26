@@ -141,32 +141,49 @@
   <ItemGroup>
     <ClCompile Include="anchor_test.c" />
     <ClCompile Include="mcelmgr_test.c" />
+    <ClCompile Include="mcel_hierarchy_test.c" />
     <ClCompile Include="object_test.c" />
+    <ClCompile Include="object_registry_transaction_test.c" />
     <ClCompile Include="query_test.c" />
+    <ClCompile Include="query_mechanism_test.c" />
     <ClCompile Include="registry_test.c" />
     <ClCompile Include="treaty_test.c" />
+    <ClCompile Include="tunnel_test.c" />
     <ClCompile Include="udif_test.c" />
     <ClCompile Include="capability_test.c" />
     <ClCompile Include="certificate_test.c" />
+    <ClCompile Include="conformance_test.c" />
+    <ClCompile Include="control_plane_test.c" />
+    <ClCompile Include="handler_conformance_test.c" />
+    <ClCompile Include="inter_domain_treaty_test.c" />
+    <ClCompile Include="load_endurance_test.c" />
+    <ClCompile Include="virtual_network_test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anchor_test.h" />
     <ClInclude Include="capability_test.h" />
     <ClInclude Include="certificate_test.h" />
+    <ClInclude Include="conformance_test.h" />
+    <ClInclude Include="control_plane_test.h" />
+    <ClInclude Include="handler_conformance_test.h" />
+    <ClInclude Include="inter_domain_treaty_test.h" />
+    <ClInclude Include="load_endurance_test.h" />
     <ClInclude Include="mcelmgr_test.h" />
+    <ClInclude Include="mcel_hierarchy_test.h" />
     <ClInclude Include="object_test.h" />
+    <ClInclude Include="object_registry_transaction_test.h" />
     <ClInclude Include="query_test.h" />
+    <ClInclude Include="query_mechanism_test.h" />
     <ClInclude Include="registry_test.h" />
     <ClInclude Include="udiftestcommon.h" />
     <ClInclude Include="treaty_test.h" />
+    <ClInclude Include="tunnel_test.h" />
     <ClInclude Include="udif_test.h" />
+    <ClInclude Include="virtual_network_test.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\QSC\QSC\QSC.vcxproj">
       <Project>{7b7f8e47-0f7c-4273-a229-a7ab2a452ea9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\QSTP\QSTP\MPTP.vcxproj">
-      <Project>{7044c00f-cf2f-49af-b1e9-4affc903ea41}</Project>
     </ProjectReference>
     <ProjectReference Include="..\UDIF\UDIF.vcxproj">
       <Project>{35c8e886-7dc5-4b47-a422-bb1a7f574b6b}</Project>

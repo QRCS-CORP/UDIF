@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -108,8 +108,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a920e3ff88df012bd5aab9eb9c2aa3137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute object digest.  <br /></td></tr>
 <tr class="memitem:a77c405f92e6db9cf8ada436c8eef505c" id="r_a77c405f92e6db9cf8ada436c8eef505c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77c405f92e6db9cf8ada436c8eef505c">udif_object_compute_signature</a> (<a class="el" href="structudif__object.html">udif_object</a> *obj, const uint8_t *sigkey, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
 <tr class="memdesc:a77c405f92e6db9cf8ada436c8eef505c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute object digest and signature.  <br /></td></tr>
-<tr class="memitem:a515016c6f4aa5c26bb4990fbc6157710" id="r_a515016c6f4aa5c26bb4990fbc6157710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a515016c6f4aa5c26bb4990fbc6157710">udif_object_compute_transfer_digest</a> (uint8_t *digest, const uint8_t *objserial, const uint8_t *txid, const uint8_t *toowner, uint64_t timestamp)</td></tr>
-<tr class="memdesc:a515016c6f4aa5c26bb4990fbc6157710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute transfer object digest.  <br /></td></tr>
+<tr class="memitem:a4aee0659d48c22390b41f131a3ceaf01" id="r_a4aee0659d48c22390b41f131a3ceaf01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aee0659d48c22390b41f131a3ceaf01">udif_object_compute_transfer_digest</a> (uint8_t *digest, const uint8_t *objserial, const uint8_t *originator, const uint8_t *toowner, uint64_t timestamp)</td></tr>
+<tr class="memdesc:a4aee0659d48c22390b41f131a3ceaf01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute transfer object digest.  <br /></td></tr>
 <tr class="memitem:ac4d6092d4cd935d88e9150b94259a57e" id="r_ac4d6092d4cd935d88e9150b94259a57e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4d6092d4cd935d88e9150b94259a57e">udif_object_create</a> (<a class="el" href="structudif__object.html">udif_object</a> *obj, const uint8_t *serial, uint32_t type, const uint8_t *creator, const uint8_t *attrroot, const uint8_t *owner, const uint8_t *sigkey, uint64_t ctime, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
 <tr class="memdesc:ac4d6092d4cd935d88e9150b94259a57e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new object.  <br /></td></tr>
 <tr class="memitem:a045198a7b4eeb74b521484591dd7439b" id="r_a045198a7b4eeb74b521484591dd7439b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a045198a7b4eeb74b521484591dd7439b">udif_object_deserialize</a> (<a class="el" href="structudif__object.html">udif_object</a> *obj, const uint8_t *input, size_t inplen)</td></tr>
@@ -132,6 +132,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ada1448291aa3512761e4621a0c001ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize a transfer record.  <br /></td></tr>
 <tr class="memitem:a5ac1711100dd17ea746a4dbe562fef5d" id="r_a5ac1711100dd17ea746a4dbe562fef5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ac1711100dd17ea746a4dbe562fef5d">udif_transfer_serialize</a> (uint8_t *output, size_t outlen, const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *transfer)</td></tr>
 <tr class="memdesc:a5ac1711100dd17ea746a4dbe562fef5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a transfer record.  <br /></td></tr>
+<tr class="memitem:a22c4720a616c5529ebf8212821f914e4" id="r_a22c4720a616c5529ebf8212821f914e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22c4720a616c5529ebf8212821f914e4">udif_transfer_compute_txid</a> (uint8_t *digest, const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *transfer)</td></tr>
+<tr class="memdesc:a22c4720a616c5529ebf8212821f914e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the transaction identifier for a transfer record.  <br /></td></tr>
 <tr class="memitem:a489e3b1f7741c111e1f472208ecbfb3c" id="r_a489e3b1f7741c111e1f472208ecbfb3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a489e3b1f7741c111e1f472208ecbfb3c">udif_transfer_verify</a> (const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *transfer, const uint8_t *senderverkey, const uint8_t *recvverkey)</td></tr>
 <tr class="memdesc:a489e3b1f7741c111e1f472208ecbfb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify transfer record.  <br /></td></tr>
 </table>
@@ -165,7 +167,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + \</div>
-<div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
@@ -174,9 +176,10 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="#a3e2c63771de3e5819629e531445d1c24">UDIF_OBJECT_TYPE_SIZE</a>)</div>
 <div class="ttc" id="aobject_8h_html_a3e2c63771de3e5819629e531445d1c24"><div class="ttname"><a href="#a3e2c63771de3e5819629e531445d1c24">UDIF_OBJECT_TYPE_SIZE</a></div><div class="ttdeci">#define UDIF_OBJECT_TYPE_SIZE</div><div class="ttdoc">Object type size in bytes.</div><div class="ttdef"><b>Definition</b> object.h:94</div></div>
 <div class="ttc" id="aobject_8h_html_aed16743e5a23e449e40c27e9977b0a9f"><div class="ttname"><a href="#aed16743e5a23e449e40c27e9977b0a9f">UDIF_OBJECT_FLAG_SIZE</a></div><div class="ttdeci">#define UDIF_OBJECT_FLAG_SIZE</div><div class="ttdoc">Object flag size in bytes.</div><div class="ttdef"><b>Definition</b> object.h:89</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
-<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
-<div class="ttc" id="audif_8h_html_a51914757bc049238aba954b9f37c51ff"><div class="ttname"><a href="udif_8h.html#a51914757bc049238aba954b9f37c51ff">UDIF_VALID_TIME_STRUCTURE_SIZE</a></div><div class="ttdeci">#define UDIF_VALID_TIME_STRUCTURE_SIZE</div><div class="ttdoc">The certificate expiration date length.</div><div class="ttdef"><b>Definition</b> udif.h:549</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
+<div class="ttc" id="audif_8h_html_a51914757bc049238aba954b9f37c51ff"><div class="ttname"><a href="udif_8h.html#a51914757bc049238aba954b9f37c51ff">UDIF_VALID_TIME_STRUCTURE_SIZE</a></div><div class="ttdeci">#define UDIF_VALID_TIME_STRUCTURE_SIZE</div><div class="ttdoc">The certificate expiration date length.</div><div class="ttdef"><b>Definition</b> udif.h:592</div></div>
+<div class="ttc" id="audif_8h_html_a7ba12b3dc631fc8e3fd139e8caf33600"><div class="ttname"><a href="udif_8h.html#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a></div><div class="ttdeci">#define UDIF_OBJECT_SERIAL_SIZE</div><div class="ttdoc">The object serial number field length in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
 <div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
 </div><!-- fragment -->
 <p>The encoded object record size. </p>
@@ -194,7 +197,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
@@ -217,7 +220,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    UDIF_VALID_TIME_SIZE)</div>
@@ -239,11 +242,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + \</div>
-<div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
-<div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#ae135bb229247a41b3ddc5e0dff304828">UDIF_TX_ID_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
 <div class="line">    UDIF_VALID_TIME_SIZE)</div>
+<div class="ttc" id="audif_8h_html_ae135bb229247a41b3ddc5e0dff304828"><div class="ttname"><a href="udif_8h.html#ae135bb229247a41b3ddc5e0dff304828">UDIF_TX_ID_SIZE</a></div><div class="ttdeci">#define UDIF_TX_ID_SIZE</div><div class="ttdoc">The transaction identifier field length in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:537</div></div>
 </div><!-- fragment -->
 <p>The encoded transfer record size. </p>
 
@@ -378,8 +382,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a515016c6f4aa5c26bb4990fbc6157710" name="a515016c6f4aa5c26bb4990fbc6157710"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a515016c6f4aa5c26bb4990fbc6157710">&#9670;&#160;</a></span>udif_object_compute_transfer_digest()</h2>
+<a id="a4aee0659d48c22390b41f131a3ceaf01" name="a4aee0659d48c22390b41f131a3ceaf01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aee0659d48c22390b41f131a3ceaf01">&#9670;&#160;</a></span>udif_object_compute_transfer_digest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +401,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>txid</em></span>, </td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>originator</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -418,7 +422,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">digest</td><td>The output digest (32 bytes) </td></tr>
     <tr><td class="paramname">objserial</td><td>[const] The object serial number </td></tr>
-    <tr><td class="paramname">txid</td><td>[const] The transfer id </td></tr>
+    <tr><td class="paramname">originator</td><td>[const] The current object owner </td></tr>
     <tr><td class="paramname">toowner</td><td>[const] The new object owner </td></tr>
     <tr><td class="paramname">timestamp</td><td>The current timestamp</td></tr>
   </table>
@@ -816,6 +820,38 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a22c4720a616c5529ebf8212821f914e4" name="a22c4720a616c5529ebf8212821f914e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22c4720a616c5529ebf8212821f914e4">&#9670;&#160;</a></span>udif_transfer_compute_txid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_transfer_compute_txid </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *</td>          <td class="paramname"><span class="paramname"><em>transfer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the transaction identifier for a transfer record. </p>
+<p>Computes the canonical transfer digest from the serialized transfer fields excluding both signatures and writes it to the output buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">digest</td><td>The output digest (32 bytes) </td></tr>
+    <tr><td class="paramname">transfer</td><td>[const] The transfer record</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
 
 </div>
 </div>

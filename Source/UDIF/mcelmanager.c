@@ -1,7 +1,3 @@
-/* 2025-2026 Quantum Resistant Cryptographic Solutions Corporation
- * All Rights Reserved.
- */
-
 #include "mcelmanager.h"
 #include "mcel.h"
 #include "acp.h"
@@ -46,17 +42,25 @@ static udif_mcel_ledger* get_active_ledger(udif_mcel_manager* mgr)
     {
         switch (mgr->actledger)
         {
-        case UDIF_LEDGER_MEMBERSHIP:
-            pres = mgr->membership;
-            break;
-        case UDIF_LEDGER_TRANSACTION:
-            pres = mgr->transaction;
-            break;
-        case UDIF_LEDGER_REGISTRY:
-            pres = mgr->registry;
-            break;
-        default:
-            pres = NULL;
+            case UDIF_LEDGER_MEMBERSHIP:
+            {
+                pres = mgr->membership;
+                break;
+            }
+            case UDIF_LEDGER_TRANSACTION:
+            {
+                pres = mgr->transaction;
+                break;
+            }
+            case UDIF_LEDGER_REGISTRY:
+            {
+                pres = mgr->registry;
+                break;
+            }
+            default:
+            {
+                pres = NULL;
+            }
         }
     }
 
@@ -75,17 +79,25 @@ static uint64_t get_checkpoint_interval(const udif_mcel_manager* mgr, udif_ledge
     {
         switch (type)
         {
-        case UDIF_LEDGER_MEMBERSHIP:
-            res = mgr->checkconfig.membinterval;
-            break;
-        case UDIF_LEDGER_TRANSACTION:
-            res = mgr->checkconfig.transinterval;
-            break;
-        case UDIF_LEDGER_REGISTRY:
-            res = mgr->checkconfig.reginterval;
-            break;
-        default:
-            res = 0U;
+            case UDIF_LEDGER_MEMBERSHIP:
+            {
+                res = mgr->checkconfig.membinterval;
+                break;
+            }
+            case UDIF_LEDGER_TRANSACTION:
+            {
+                res = mgr->checkconfig.transinterval;
+                break;
+            }
+            case UDIF_LEDGER_REGISTRY:
+            {
+                res = mgr->checkconfig.reginterval;
+                break;
+            }
+            default:
+            {
+                res = 0U;
+            }
         }
     }
 
@@ -124,8 +136,7 @@ static void storage_get_record_path(char* recpath, size_t pathlen, uint64_t seq)
 {
     char num[32U] = { 0U };
 
-    qsc_stringutils_concat_strings(recpath, pathlen, "records");
-    qsc_folderutils_append_delimiter(recpath);
+    qsc_stringutils_concat_strings(recpath, pathlen, "records/");
     qsc_stringutils_uint64_to_string(seq, num, sizeof(num));
     qsc_stringutils_concat_strings(recpath, pathlen, num);
     qsc_stringutils_concat_strings(recpath, pathlen, ".rec");
@@ -332,49 +343,60 @@ static bool seal_block_internal(udif_mcel_manager* mgr, udif_mcel_ledger* ledger
     mcel_block_header blkhdr = { 0U };
     uint8_t blkroot[MCEL_BLOCK_HASH_SIZE] = { 0U };
     uint8_t blkcommit[MCEL_BLOCK_HASH_SIZE] = { 0U };
-    uint8_t blockbuf[MAX_BLOCK_BUFFER] = { 0U };
+    uint8_t* blockbuf;
     uint64_t outlen;
     uint64_t timestamp;
     bool res;
     bool ret;
 
     res = false;
+    blockbuf = NULL;
 
     if (ledger->commitscount != 0U)
     {
-        /* fill block header */
-        qsc_memutils_clear(&blkhdr, sizeof(mcel_block_header));
-        qsc_memutils_copy(blkhdr.keyid, mgr->keyid, MCEL_BLOCK_KEYID_SIZE);
-        blkhdr.block_sequence = ledger->nextblockseq;
-        blkhdr.first_record_seq = ledger->firstrecordinblock;
+        blockbuf = (uint8_t*)qsc_memutils_malloc(MAX_BLOCK_BUFFER);
 
-        timestamp = (uint64_t)time(NULL);
-        blkhdr.timestamp = timestamp;
-        blkhdr.record_count = (uint32_t)ledger->commitscount;
-        blkhdr.flags = 0U;
-        blkhdr.version = MCEL_BLOCK_VERSION;
-        outlen = 0U;
-
-        /* seal block */
-        ret = mcel_ledger_seal_block(&ledger->mcelstate, blkroot, blkcommit, &blkhdr, ledger->reccommits,
-            ledger->commitscount, blockbuf, sizeof(blockbuf), &outlen);
-
-        if (ret == true)
+        if (blockbuf != NULL)
         {
-            /* save block root for checkpoint */
-            qsc_memutils_copy(ledger->lastblockroot, blkroot, MCEL_BLOCK_HASH_SIZE);
-            qsc_memutils_copy(ledger->lastblockcommit, blkcommit, MCEL_BLOCK_HASH_SIZE);
-            ledger->haveblockroot = true;
+            qsc_memutils_clear(blockbuf, MAX_BLOCK_BUFFER);
 
-            /* update tracking */
-            ++ledger->nextblockseq;
-            ++ledger->totalblocks;
-            ledger->firstrecordinblock = ledger->nextrecordseq;
+            /* fill block header */
+            qsc_memutils_clear(&blkhdr, sizeof(mcel_block_header));
+            qsc_memutils_copy(blkhdr.keyid, mgr->keyid, MCEL_BLOCK_KEYID_SIZE);
+            blkhdr.block_sequence = ledger->nextblockseq;
+            blkhdr.first_record_seq = ledger->firstrecordinblock;
 
-            /* reset batch */
-            ledger->commitscount = 0U;
-            qsc_memutils_clear(ledger->reccommits, MCEL_BLOCK_HASH_SIZE * ledger->commitscap);
-            res = true;
+            timestamp = (uint64_t)time(NULL);
+            blkhdr.timestamp = timestamp;
+            blkhdr.record_count = (uint32_t)ledger->commitscount;
+            blkhdr.flags = 0U;
+            blkhdr.version = MCEL_BLOCK_VERSION;
+            outlen = 0U;
+
+            /* seal block */
+            ret = mcel_ledger_seal_block(&ledger->mcelstate, blkroot, blkcommit, &blkhdr, ledger->reccommits,
+                ledger->commitscount, blockbuf, MAX_BLOCK_BUFFER, &outlen);
+
+            if (ret == true)
+            {
+                /* save block root for checkpoint */
+                qsc_memutils_copy(ledger->lastblockroot, blkroot, MCEL_BLOCK_HASH_SIZE);
+                qsc_memutils_copy(ledger->lastblockcommit, blkcommit, MCEL_BLOCK_HASH_SIZE);
+                ledger->haveblockroot = true;
+
+                /* update tracking */
+                ++ledger->nextblockseq;
+                ++ledger->totalblocks;
+                ledger->firstrecordinblock = ledger->nextrecordseq;
+
+                /* reset batch */
+                ledger->commitscount = 0U;
+                qsc_memutils_secure_erase(ledger->reccommits, MCEL_BLOCK_HASH_SIZE * ledger->commitscap);
+                res = true;
+            }
+
+            qsc_memutils_secure_erase(blockbuf, MAX_BLOCK_BUFFER);
+            qsc_memutils_alloc_free(blockbuf);
         }
     }
     else
@@ -407,7 +429,6 @@ static bool seal_checkpoint_internal(udif_mcel_manager* mgr, udif_mcel_ledger* l
     if (ret == true)
     {
         /* fill checkpoint header */
-        qsc_memutils_clear(&chkhdr, sizeof(mcel_checkpoint_header));
         qsc_memutils_copy(chkhdr.keyid, mgr->keyid, MCEL_CHECKPOINT_KEYID_SIZE);
         chkhdr.chk_sequence = ledger->nextcheckpointseq;
         chkhdr.first_record_seq = ledger->firstrecordincheckpoint;
@@ -520,8 +541,8 @@ udif_mcel_manager* udif_mcel_initialize(const char* basepath, const udif_checkpo
                         destroy_ledger(mgr->registry);
                     }
 
-                    qsc_memutils_clear(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
-                    qsc_memutils_clear(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
+                    qsc_memutils_secure_erase(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
+                    qsc_memutils_secure_erase(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
 
                     udif_storage_dispose(&mgr->storage);
                     qsc_memutils_alloc_free(mgr);
@@ -607,8 +628,8 @@ udif_mcel_manager* udif_mcel_open(const char* basepath, bool readonly, const uin
                         destroy_ledger(mgr->registry);
                     }
 
-                    qsc_memutils_clear(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
-                    qsc_memutils_clear(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
+                    qsc_memutils_secure_erase(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
+                    qsc_memutils_secure_erase(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
                     udif_storage_dispose(&mgr->storage);
                     qsc_memutils_alloc_free(mgr);
                     mgr = NULL;
@@ -651,14 +672,14 @@ void udif_mcel_dispose(udif_mcel_manager* mgr)
         }
 
         /* clear and free keys */
-        qsc_memutils_clear(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
-        qsc_memutils_clear(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
+        qsc_memutils_secure_erase(mgr->sigkey, MCEL_ASYMMETRIC_SIGNING_KEY_SIZE);
+        qsc_memutils_secure_erase(mgr->verkey, MCEL_ASYMMETRIC_VERIFY_KEY_SIZE);
 
         /* dispose storage */
         udif_storage_dispose(&mgr->storage);
 
         /* clear and free manager */
-        qsc_memutils_clear(mgr, sizeof(udif_mcel_manager));
+        qsc_memutils_secure_erase(mgr, sizeof(udif_mcel_manager));
         qsc_memutils_alloc_free(mgr);
     }
 }
@@ -706,11 +727,11 @@ bool udif_mcel_add_record(udif_mcel_manager* mgr, const uint8_t* data, size_t da
     MCEL_ASSERT(data != NULL);
     MCEL_ASSERT(outseq != NULL);
 
-    udif_mcel_ledger* ledger;
     mcel_record_header rechdr = { 0U };
     uint8_t pldcommit[MCEL_BLOCK_HASH_SIZE] = { 0U };
     uint8_t reccommit[MCEL_BLOCK_HASH_SIZE] = { 0U };
     char recpath[MAX_RECORD_PATH] = { 0U };
+    udif_mcel_ledger* ledger;
     uint64_t seq;
     uint64_t timestamp;
     bool res;
@@ -891,15 +912,13 @@ bool udif_mcel_create_checkpoint_group(udif_mcel_manager* mgr, udif_checkpoint_g
     MCEL_ASSERT(mgr != NULL);
     MCEL_ASSERT(outgroup != NULL);
 
-    udif_checkpoint_group group;
+    udif_checkpoint_group group = { 0 };
     bool res;
 
     res = false;
 
     if (mgr != NULL && mgr->initialized == true && mgr->readonly == false)
     {
-        qsc_memutils_clear(&group, sizeof(udif_checkpoint_group));
-
         /* create checkpoint for each ledger */
         udif_mcel_set_active_ledger(mgr, UDIF_LEDGER_MEMBERSHIP);
         res = seal_checkpoint_internal(mgr, mgr->membership);
@@ -950,6 +969,34 @@ bool udif_mcel_create_checkpoint_group(udif_mcel_manager* mgr, udif_checkpoint_g
             {
                 qsc_memutils_copy(outgroup, &group, sizeof(udif_checkpoint_group));
             }
+        }
+    }
+
+    return res;
+}
+
+
+bool udif_mcel_create_anchor(udif_mcel_manager* mgr, udif_anchor_record* anchor, const uint8_t* childser, uint64_t sequence, const uint8_t* sigkey, bool (*rng_generate)(uint8_t*, size_t))
+{
+    MCEL_ASSERT(mgr != NULL);
+    MCEL_ASSERT(anchor != NULL);
+    MCEL_ASSERT(childser != NULL);
+    MCEL_ASSERT(sigkey != NULL);
+    MCEL_ASSERT(rng_generate != NULL);
+
+    udif_checkpoint_group group = { 0 };
+    bool res;
+
+    res = false;
+
+    if (mgr != NULL && anchor != NULL && childser != NULL && sigkey != NULL && rng_generate != NULL)
+    {
+        if (udif_mcel_create_checkpoint_group(mgr, &group) == true)
+        {
+            res = (udif_anchor_create(anchor, childser, sequence, group.timestamp,
+                group.regcommit, group.transcommit, group.membcommit,
+                (uint32_t)mgr->registry->totalrecords, (uint32_t)mgr->transaction->totalrecords,
+                (uint32_t)mgr->membership->totalrecords, sigkey, rng_generate) == udif_error_none);
         }
     }
 

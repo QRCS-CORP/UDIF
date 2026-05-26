@@ -144,6 +144,30 @@
 #define UDIF_TREATY_SCOPE_MAX 256U
 
 /*!
+ * \def UDIF_TREATY_SCOPE_QUERY_EXIST
+ * \brief Treaty permits existence predicate forwarding.
+ */
+#define UDIF_TREATY_SCOPE_QUERY_EXIST UDIF_TREATY_SCOPE_QUERY
+
+/*!
+ * \def UDIF_TREATY_SCOPE_QUERY_OWNER
+ * \brief Treaty permits owner-binding predicate forwarding.
+ */
+#define UDIF_TREATY_SCOPE_QUERY_OWNER UDIF_TREATY_SCOPE_INTRA_DOMAIN
+
+/*!
+ * \def UDIF_TREATY_SCOPE_QUERY_ATTR
+ * \brief Treaty permits attribute-bucket predicate forwarding.
+ */
+#define UDIF_TREATY_SCOPE_QUERY_ATTR UDIF_TREATY_SCOPE_LOCAL
+
+/*!
+ * \def UDIF_TREATY_SCOPE_QUERY_PROOF
+ * \brief Treaty permits registry-membership proof forwarding.
+ */
+#define UDIF_TREATY_SCOPE_QUERY_PROOF UDIF_TREATY_SCOPE_TREATY
+
+/*!
  * \def UDIF_TREATY_POLICY_VERSION_SIZE
  * \brief The policy version size.
  */
@@ -225,6 +249,18 @@ UDIF_EXPORT_API udif_errors udif_treaty_accept(udif_treaty* treaty, const uint8_
 * \return Returns true if allowed
 */
 UDIF_EXPORT_API bool udif_treaty_allows_scope(const udif_treaty* treaty, uint32_t scope);
+
+/*!
+* \brief Check if treaty allows a query predicate family
+*
+* Tests if a treaty permits forwarding for the requested query type.
+*
+* \param treaty: [const] The treaty
+* \param querytype: The UDIF query type
+*
+* \return Returns true if the predicate family is permitted
+*/
+UDIF_EXPORT_API bool udif_treaty_allows_query(const udif_treaty* treaty, uint8_t querytype);
 
 /*!
 * \brief Clear a treaty
@@ -396,6 +432,28 @@ UDIF_EXPORT_API udif_errors udif_treaty_validate(const udif_treaty* treaty);
 * \param domverkeyb: [const] Domain B's public key
 *
 * \return Returns true if both signatures are valid
+*/
+
+/*!
+* \brief Verify the proposal signature on a pending treaty
+*
+* Verifies the Domain A signature before the local party co-signs the treaty.
+*
+* \param treaty: [const] The pending treaty proposal
+* \param domverkeya: [const] Domain A's public key
+*
+* \return Returns true if the proposal signature is valid
+*/
+UDIF_EXPORT_API bool udif_treaty_verify_proposal(const udif_treaty* treaty, const uint8_t* domverkeya);
+
+/*!
+* \brief Verify a treaty signatures and properties
+*
+* \param treaty: [const] The pending treaty proposal
+* \param domverkeya: [const] Domain A's public key
+* \param domverkeyb: [const] Domain A's public key
+*
+* \return Returns true if the treaty is valid
 */
 UDIF_EXPORT_API bool udif_treaty_verify(const udif_treaty* treaty, const uint8_t* domverkeya, const uint8_t* domverkeyb);
 

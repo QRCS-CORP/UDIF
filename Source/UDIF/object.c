@@ -5,9 +5,11 @@
 
 void udif_object_clear(udif_object* obj)
 {
+	UDIF_ASSERT(obj != NULL);
+
 	if (obj != NULL)
 	{
-		qsc_memutils_clear((uint8_t*)obj, sizeof(udif_object));
+		qsc_memutils_secure_erase((uint8_t*)obj, sizeof(udif_object));
 	}
 }
 
@@ -43,8 +45,8 @@ udif_errors udif_object_compute_digest(uint8_t* digest, const udif_object* obj)
 	{
 		pos = 0U;
 
-		qsc_memutils_copy(buf, obj->serial, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_memutils_copy(buf, obj->serial, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
 		qsc_memutils_copy(buf + pos, obj->attrroot, UDIF_CRYPTO_HASH_SIZE);
 		pos += UDIF_CRYPTO_HASH_SIZE;
 		qsc_memutils_copy(buf + pos, obj->creator, UDIF_SERIAL_NUMBER_SIZE);
@@ -69,43 +71,51 @@ udif_errors udif_object_compute_digest(uint8_t* digest, const udif_object* obj)
 
 udif_errors udif_object_compute_signature(udif_object* obj, const uint8_t* sigkey, bool (*rng_generate)(uint8_t*, size_t))
 {
+	UDIF_ASSERT(obj != NULL);
+	UDIF_ASSERT(sigkey != NULL);
+	UDIF_ASSERT(rng_generate != NULL);
+
 	uint8_t digest[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	size_t smlen;
 	udif_errors err;
 
-	/* compute digest and sign */
-	err = udif_object_compute_digest(digest, obj);
+	err = udif_error_invalid_input;
 	smlen = 0U;
 
-	if (err == udif_error_none)
+	if (obj != NULL && sigkey != NULL && rng_generate != NULL)
 	{
-		if (udif_signature_sign(obj->signature, &smlen, digest, UDIF_CRYPTO_HASH_SIZE, sigkey, rng_generate) == true)
+		err = udif_object_compute_digest(digest, obj);
+
+		if (err == udif_error_none)
 		{
-			if (smlen == UDIF_SIGNED_HASH_SIZE)
+			if (udif_signature_sign(obj->signature, &smlen, digest, UDIF_CRYPTO_HASH_SIZE, sigkey, rng_generate) == true)
 			{
-				err = udif_error_none;
+				if (smlen == UDIF_SIGNED_HASH_SIZE)
+				{
+					err = udif_error_none;
+				}
+				else
+				{
+					err = udif_error_signature_invalid;
+				}
 			}
 			else
 			{
 				err = udif_error_signature_invalid;
 			}
 		}
-		else
-		{
-			err = udif_error_signature_invalid;
-		}
 	}
 
-	qsc_memutils_clear(digest, UDIF_CRYPTO_HASH_SIZE);
+	qsc_memutils_secure_erase(digest, UDIF_CRYPTO_HASH_SIZE);
 
 	return err;
 }
 
-udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* objserial, const uint8_t* txid, const uint8_t* toowner, uint64_t timestamp)
+udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* objserial, const uint8_t* originator, const uint8_t* toowner, uint64_t timestamp)
 {
 	UDIF_ASSERT(digest != NULL);
 	UDIF_ASSERT(objserial != NULL);
-	UDIF_ASSERT(txid != NULL);
+	UDIF_ASSERT(originator != NULL);
 	UDIF_ASSERT(toowner != NULL);
 
 	uint8_t buf[UDIF_OBJECT_TRANSFER_SIZE] = { 0U };
@@ -114,14 +124,14 @@ udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* 
 
 	err = udif_error_encode_failure;
 
-	if (digest != NULL && objserial != NULL && txid != NULL && toowner != NULL)
+	if (digest != NULL && objserial != NULL && originator != NULL && toowner != NULL)
 	{
 		pos = 0U;
 
-		/* construct: objserial || txid || toowner || timestamp */
-		qsc_memutils_copy(buf, objserial, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
-		qsc_memutils_copy(buf + pos, txid, UDIF_SERIAL_NUMBER_SIZE);
+		/* construct: objserial || originator || toowner || timestamp */
+		qsc_memutils_copy(buf, objserial, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
+		qsc_memutils_copy(buf + pos, originator, UDIF_SERIAL_NUMBER_SIZE);
 		pos += UDIF_SERIAL_NUMBER_SIZE;
 		qsc_memutils_copy(buf + pos, toowner, UDIF_SERIAL_NUMBER_SIZE);
 		pos += UDIF_SERIAL_NUMBER_SIZE;
@@ -132,15 +142,15 @@ udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* 
 		qsc_cshake256_compute(digest, UDIF_CRYPTO_HASH_SIZE, buf, sizeof(buf), (const uint8_t*)UDIF_LABEL_TXID, sizeof(UDIF_LABEL_TXID) - 1U, NULL, 0U);
 
 		/* clear buffer */
-		qsc_memutils_clear(buf, pos);
+		qsc_memutils_secure_erase(buf, pos);
 		err = udif_error_none;
 	}
 
 	return err;
 }
 
-udif_errors udif_object_create(udif_object* obj, const uint8_t* serial, uint32_t type, const uint8_t* creator, const uint8_t* attrroot,
-	const uint8_t* owner, const uint8_t* sigkey, uint64_t ctime, bool (*rng_generate)(uint8_t*, size_t))
+udif_errors udif_object_create(udif_object* obj, const uint8_t* serial, uint32_t type, const uint8_t* creator, const uint8_t* attrroot, const uint8_t* owner, 
+	const uint8_t* sigkey, uint64_t ctime, bool (*rng_generate)(uint8_t*, size_t))
 {
 	UDIF_ASSERT(obj != NULL);
 	UDIF_ASSERT(serial != NULL);
@@ -158,7 +168,7 @@ udif_errors udif_object_create(udif_object* obj, const uint8_t* serial, uint32_t
 	{
 		qsc_memutils_clear((uint8_t*)obj, sizeof(udif_object));
 
-		qsc_memutils_copy(obj->serial, serial, UDIF_SERIAL_NUMBER_SIZE);
+		qsc_memutils_copy(obj->serial, serial, UDIF_OBJECT_SERIAL_SIZE);
 		obj->type = type;
 		qsc_memutils_copy(obj->attrroot, attrroot, UDIF_CRYPTO_HASH_SIZE);
 		qsc_memutils_copy(obj->creator, creator, UDIF_SERIAL_NUMBER_SIZE);
@@ -168,9 +178,7 @@ udif_errors udif_object_create(udif_object* obj, const uint8_t* serial, uint32_t
 		obj->flags = 0U;
 
 		/* compute digest and sign */
-		udif_object_compute_signature(obj, sigkey, rng_generate);
-
-		err = udif_error_none;
+		err = udif_object_compute_signature(obj, sigkey, rng_generate);
 	}
 
 	return err;
@@ -186,14 +194,14 @@ udif_errors udif_object_deserialize(udif_object* obj, const uint8_t* input, size
 
 	err = udif_error_decode_failure;
 
-	if (input != NULL && obj != NULL && inplen >= UDIF_OBJECT_ENCODED_SIZE)
+	if (input != NULL && obj != NULL && inplen == UDIF_OBJECT_ENCODED_SIZE)
 	{
 		pos = 0U;
 
 		qsc_memutils_copy(obj->signature, input, UDIF_SIGNED_HASH_SIZE);
 		pos += UDIF_SIGNED_HASH_SIZE;
-		qsc_memutils_copy(obj->serial, input + pos, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_memutils_copy(obj->serial, input + pos, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
 		qsc_memutils_copy(obj->attrroot, input + pos, UDIF_CRYPTO_HASH_SIZE);
 		pos += UDIF_CRYPTO_HASH_SIZE;
 		qsc_memutils_copy(obj->creator, input + pos, UDIF_SERIAL_NUMBER_SIZE);
@@ -253,7 +261,7 @@ udif_errors udif_object_destroy(udif_object* obj, const uint8_t* ownersigkey, ui
 			err = udif_error_signature_invalid;
 		}
 
-		qsc_memutils_clear(digest, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest, UDIF_CRYPTO_HASH_SIZE);
 	}
 
 	return err;
@@ -291,8 +299,8 @@ udif_errors udif_object_serialize(uint8_t* output, size_t outlen, const udif_obj
 
 		qsc_memutils_copy(output, obj->signature, UDIF_SIGNED_HASH_SIZE);
 		pos += UDIF_SIGNED_HASH_SIZE;
-		qsc_memutils_copy(output + pos, obj->serial, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_memutils_copy(output + pos, obj->serial, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
 		qsc_memutils_copy(output + pos, obj->attrroot, UDIF_CRYPTO_HASH_SIZE);
 		pos += UDIF_CRYPTO_HASH_SIZE;
 		qsc_memutils_copy(output + pos, obj->creator, UDIF_SERIAL_NUMBER_SIZE);
@@ -323,7 +331,7 @@ udif_errors udif_object_transfer(udif_object* obj, udif_transfer_record* transfe
 	UDIF_ASSERT(recvsigkey != NULL);
 	UDIF_ASSERT(rng_generate != NULL);
 
-	uint8_t txdigest[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint8_t txdigest[UDIF_TX_ID_SIZE] = { 0U };
 	uint8_t objdigest[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t oldowner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	udif_errors err;
@@ -344,7 +352,7 @@ udif_errors udif_object_transfer(udif_object* obj, udif_transfer_record* transfe
 			qsc_memutils_clear((uint8_t*)transfer, sizeof(udif_transfer_record));
 
 			/* set transfer record fields */
-			qsc_memutils_copy(transfer->serial, obj->serial, UDIF_SERIAL_NUMBER_SIZE);
+			qsc_memutils_copy(transfer->serial, obj->serial, UDIF_OBJECT_SERIAL_SIZE);
 			qsc_memutils_copy(transfer->originator, oldowner, UDIF_SERIAL_NUMBER_SIZE);
 			qsc_memutils_copy(transfer->owner, newowner, UDIF_SERIAL_NUMBER_SIZE);
 			transfer->timestamp = ctime;
@@ -352,7 +360,7 @@ udif_errors udif_object_transfer(udif_object* obj, udif_transfer_record* transfe
 			/* compute transfer digest */
 			udif_object_compute_transfer_digest(txdigest, obj->serial, oldowner, newowner, ctime);
 
-			qsc_memutils_copy(transfer->txid, txdigest, UDIF_CRYPTO_HASH_SIZE);
+			qsc_memutils_copy(transfer->txid, txdigest, UDIF_TX_ID_SIZE);
 			smlen = 0U;
 
 			/* Sender signs transfer */
@@ -393,8 +401,8 @@ udif_errors udif_object_transfer(udif_object* obj, udif_transfer_record* transfe
 								err = udif_error_signature_invalid;
 							}
 
-							/* Clear object digest */
-							qsc_memutils_clear(objdigest, UDIF_CRYPTO_HASH_SIZE);
+							/* clear object digest */
+							qsc_memutils_secure_erase(objdigest, UDIF_CRYPTO_HASH_SIZE);
 						}
 						else
 						{
@@ -421,8 +429,8 @@ udif_errors udif_object_transfer(udif_object* obj, udif_transfer_record* transfe
 			err = udif_error_invalid_state;
 		}
 		
-		qsc_memutils_clear(txdigest, UDIF_CRYPTO_HASH_SIZE);
-		qsc_memutils_clear(oldowner, UDIF_SERIAL_NUMBER_SIZE);
+		qsc_memutils_secure_erase(txdigest, UDIF_TX_ID_SIZE);
+		qsc_memutils_secure_erase(oldowner, UDIF_SERIAL_NUMBER_SIZE);
 	}
 
 	return err;
@@ -471,7 +479,7 @@ udif_errors udif_object_update_attributes(udif_object* obj, const uint8_t* newat
 				err = udif_error_signature_invalid;
 			}
 
-			qsc_memutils_clear(digest, UDIF_CRYPTO_HASH_SIZE);
+			qsc_memutils_secure_erase(digest, UDIF_CRYPTO_HASH_SIZE);
 		}
 		else
 		{
@@ -497,20 +505,27 @@ bool udif_object_verify(const udif_object* obj, const uint8_t* ownerverkey)
 	{
 		size_t mlen;
 
+		mlen = 0U;
+
 		/* compute digest */
-		udif_object_compute_digest(digest1, obj);
-
-		/* verify signature */
-		res = udif_signature_verify(digest2, &mlen, obj->signature, UDIF_SIGNED_HASH_SIZE, ownerverkey);
-
-		if (mlen == UDIF_CRYPTO_HASH_SIZE)
+		if (udif_object_compute_digest(digest1, obj) == udif_error_none)
 		{
-			res = qsc_memutils_are_equal(digest1, digest2, sizeof(digest1));
+			/* verify signature */
+			res = udif_signature_verify(digest2, &mlen, obj->signature, UDIF_SIGNED_HASH_SIZE, ownerverkey);
+
+			if (res == true && mlen == UDIF_CRYPTO_HASH_SIZE)
+			{
+				res = qsc_memutils_are_equal(digest1, digest2, sizeof(digest1));
+			}
+			else
+			{
+				res = false;
+			}
 		}
 
 		/* clear digest */
-		qsc_memutils_clear(digest1, UDIF_CRYPTO_HASH_SIZE);
-		qsc_memutils_clear(digest2, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest1, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest2, UDIF_CRYPTO_HASH_SIZE);
 	}
 
 	return res;
@@ -520,7 +535,7 @@ void udif_transfer_clear(udif_transfer_record* transfer)
 {
 	if (transfer != NULL)
 	{
-		qsc_memutils_clear((uint8_t*)transfer, sizeof(udif_transfer_record));
+		qsc_memutils_secure_erase((uint8_t*)transfer, sizeof(udif_transfer_record));
 	}
 }
 
@@ -535,16 +550,16 @@ udif_errors udif_transfer_deserialize(udif_transfer_record* transfer, const uint
 	err = udif_error_decode_failure;
 	pos = 0U;
 
-	if (transfer != NULL && input != NULL && inlen >= UDIF_TRANSFER_RECORD_ENCODED_SIZE)
+	if (transfer != NULL && input != NULL && inlen == UDIF_TRANSFER_RECORD_ENCODED_SIZE)
 	{
 		qsc_memutils_copy(transfer->sender, input + pos, UDIF_SIGNED_HASH_SIZE);
 		pos += UDIF_SIGNED_HASH_SIZE;
 		qsc_memutils_copy(transfer->receiver, input + pos, UDIF_SIGNED_HASH_SIZE);
 		pos += UDIF_SIGNED_HASH_SIZE;
-		qsc_memutils_copy(transfer->txid, input + pos, UDIF_CRYPTO_HASH_SIZE);
-		pos += UDIF_CRYPTO_HASH_SIZE;
-		qsc_memutils_copy(transfer->serial, input + pos, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_memutils_copy(transfer->txid, input + pos, UDIF_TX_ID_SIZE);
+		pos += UDIF_TX_ID_SIZE;
+		qsc_memutils_copy(transfer->serial, input + pos, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
 		qsc_memutils_copy(transfer->originator, input + pos, UDIF_SERIAL_NUMBER_SIZE);
 		pos += UDIF_SERIAL_NUMBER_SIZE;
 		qsc_memutils_copy(transfer->owner, input + pos, UDIF_SERIAL_NUMBER_SIZE);
@@ -575,10 +590,10 @@ udif_errors udif_transfer_serialize(uint8_t* output, size_t outlen, const udif_t
 		pos += UDIF_SIGNED_HASH_SIZE;
 		qsc_memutils_copy(output + pos, transfer->receiver, UDIF_SIGNED_HASH_SIZE);
 		pos += UDIF_SIGNED_HASH_SIZE;
-		qsc_memutils_copy(output + pos, transfer->txid, UDIF_CRYPTO_HASH_SIZE);
-		pos += UDIF_CRYPTO_HASH_SIZE;
-		qsc_memutils_copy(output + pos, transfer->serial, UDIF_SERIAL_NUMBER_SIZE);
-		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_memutils_copy(output + pos, transfer->txid, UDIF_TX_ID_SIZE);
+		pos += UDIF_TX_ID_SIZE;
+		qsc_memutils_copy(output + pos, transfer->serial, UDIF_OBJECT_SERIAL_SIZE);
+		pos += UDIF_OBJECT_SERIAL_SIZE;
 		qsc_memutils_copy(output + pos, transfer->originator, UDIF_SERIAL_NUMBER_SIZE);
 		pos += UDIF_SERIAL_NUMBER_SIZE;
 		qsc_memutils_copy(output + pos, transfer->owner, UDIF_SERIAL_NUMBER_SIZE);
@@ -586,6 +601,23 @@ udif_errors udif_transfer_serialize(uint8_t* output, size_t outlen, const udif_t
 		qsc_intutils_le64to8(output + pos, transfer->timestamp);
 
 		err = udif_error_none;
+	}
+
+	return err;
+}
+
+udif_errors udif_transfer_compute_txid(uint8_t* digest, const udif_transfer_record* transfer)
+{
+	UDIF_ASSERT(digest != NULL);
+	UDIF_ASSERT(transfer != NULL);
+
+	udif_errors err;
+
+	err = udif_error_invalid_input;
+
+	if (digest != NULL && transfer != NULL)
+	{
+		err = udif_object_compute_transfer_digest(digest, transfer->serial, transfer->originator, transfer->owner, transfer->timestamp);
 	}
 
 	return err;
@@ -607,10 +639,10 @@ bool udif_transfer_verify(const udif_transfer_record* transfer, const uint8_t* s
 	if (transfer != NULL && sendverkey != NULL && recvverkey != NULL)
 	{
 		/* compute transfer digest */
-		udif_object_compute_transfer_digest(digest1, transfer->serial, transfer->originator, transfer->owner, transfer->timestamp);
+		udif_transfer_compute_txid(digest1, transfer);
 
 		/* verify it matches stored txid */
-		if (qsc_memutils_are_equal(digest1, transfer->txid, UDIF_CRYPTO_HASH_SIZE) == true)
+		if (qsc_memutils_are_equal(digest1, transfer->txid, UDIF_TX_ID_SIZE) == true)
 		{
 			size_t mlen;
 
@@ -626,6 +658,7 @@ bool udif_transfer_verify(const udif_transfer_record* transfer, const uint8_t* s
 					if (res == true)
 					{
 						/* verify receiver signature */
+						res = false;
 						mlen = 0U;
 
 						if (udif_signature_verify(digest3, &mlen, transfer->receiver, UDIF_SIGNED_HASH_SIZE, recvverkey) == true)
@@ -636,15 +669,15 @@ bool udif_transfer_verify(const udif_transfer_record* transfer, const uint8_t* s
 							}
 						}
 
-						qsc_memutils_clear(digest3, UDIF_CRYPTO_HASH_SIZE);
+						qsc_memutils_secure_erase(digest3, UDIF_CRYPTO_HASH_SIZE);
 					}
 				}
 			}
 
-			qsc_memutils_clear(digest2, UDIF_CRYPTO_HASH_SIZE);
+			qsc_memutils_secure_erase(digest2, UDIF_CRYPTO_HASH_SIZE);
 		}
 
-		qsc_memutils_clear(digest1, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest1, UDIF_CRYPTO_HASH_SIZE);
 	}
 
 	return res;

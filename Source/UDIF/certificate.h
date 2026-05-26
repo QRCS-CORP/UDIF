@@ -69,7 +69,6 @@
 * - User Agents: Signed by Group Controller
 */
 
-
 ///*!
 // * \def UDIF_CERTIFICATE_PKI_ENABLED
 // * \brief The root certificate is signed by an X.509 implementation
@@ -159,7 +158,7 @@
  * \def UDIF_CERTIFICATE_POLICY_SIZE
  * \brief The certificate policy field length.
  */
-#define UDIF_CERTIFICATE_POLICY_SIZE 4U
+#define UDIF_CERTIFICATE_POLICY_SIZE 8U
 
 /*!
  * \def UDIF_CERTIFICATE_ROLE_SIZE
@@ -217,7 +216,7 @@
 	UDIF_CERTIFICATE_POLICY_SIZE + \
 	UDIF_ROLE_SIZE + UDIF_SUITEID_SIZE)
 
- /** \cond */
+ /** \cond DOXYGEN_IGNORE */
 
 #define UDIF_CERTIFICATE_SEPERATOR_SIZE 1U
 #define UDIF_CHILD_CERTIFICATE_HEADER_SIZE 64U
@@ -235,6 +234,10 @@
 #define UDIF_CHILD_CERTIFICATE_FOOTER_SIZE 64U
 #define UDIF_CHILD_CERTIFICATE_DEFAULT_NAME_SIZE 19U
 
+/** \endcond DOXYGEN_IGNORE */
+
+/** \cond DOXYGEN_IGNORE */
+
 static const char UDIF_CHILD_CERTIFICATE_HEADER[UDIF_CHILD_CERTIFICATE_HEADER_SIZE] = "-----------BEGIN UDIF CHILD PUBLIC CERTIFICATE BLOCK-----------";
 static const char UDIF_CHILD_CERTIFICATE_ROOT_HASH_PREFIX[UDIF_CHILD_CERTIFICATE_ROOT_HASH_PREFIX_SIZE] = "Root Signed Public Key Hash: ";
 static const char UDIF_CHILD_CERTIFICATE_SIGNATURE_KEY_PREFIX[UDIF_CHILD_CERTIFICATE_SIGNATURE_KEY_PREFIX_SIZE] = "Public Signature Key: ";
@@ -250,9 +253,9 @@ static const char UDIF_CHILD_CERTIFICATE_CAPABILITY_MASK_PREFIX[UDIF_CHILD_CERTI
 static const char UDIF_CHILD_CERTIFICATE_FOOTER[UDIF_CHILD_CERTIFICATE_FOOTER_SIZE] = "------------END UDIF CHILD PUBLIC CERTIFICATE BLOCK------------";
 static const char UDIF_CHILD_CERTIFICATE_DEFAULT_NAME[UDIF_CHILD_CERTIFICATE_DEFAULT_NAME_SIZE] = " Child Certificate";
 
-/** \endcond */
+/** \endcond DOXYGEN_IGNORE */
 
- /** \cond */
+/** \cond DOXYGEN_IGNORE */
 
 #define UDIF_ROOT_CERTIFICATE_HEADER_SIZE 64U
 #define UDIF_ROOT_CERTIFICATE_HASH_PREFIX_SIZE 19U
@@ -267,6 +270,10 @@ static const char UDIF_CHILD_CERTIFICATE_DEFAULT_NAME[UDIF_CHILD_CERTIFICATE_DEF
 #define UDIF_ROOT_CERTIFICATE_DEFAULT_NAME_SIZE 18U
 #define UDIF_ACTIVE_VERSION_STRING_SIZE 5U
 
+/** \endcond DOXYGEN_IGNORE */
+
+/** \cond DOXYGEN_IGNORE */
+
 static const char UDIF_ROOT_CERTIFICATE_HEADER[UDIF_ROOT_CERTIFICATE_HEADER_SIZE] = "------------BEGIN UDIF ROOT PUBLIC CERTIFICATE BLOCK-----------";
 static const char UDIF_ROOT_CERTIFICATE_SERIAL_PREFIX[UDIF_ROOT_CERTIFICATE_SERIAL_PREFIX_SIZE] = "Serial: ";
 static const char UDIF_ROOT_CERTIFICATE_VALID_FROM_PREFIX[UDIF_ROOT_CERTIFICATE_VALID_FROM_PREFIX_SIZE] = "Valid From: ";
@@ -279,6 +286,10 @@ static const char UDIF_ROOT_CERTIFICATE_PUBLICKEY_PREFIX[UDIF_ROOT_CERTIFICATE_P
 static const char UDIF_ROOT_CERTIFICATE_FOOTER[UDIF_ROOT_CERTIFICATE_FOOTER_SIZE] = "------------END UDIF ROOT PUBLIC CERTIFICATE BLOCK-------------";
 static const char UDIF_ROOT_CERTIFICATE_DEFAULT_NAME[UDIF_ROOT_CERTIFICATE_DEFAULT_NAME_SIZE] = " Root Certificate";
 
+/** \endcond DOXYGEN_IGNORE */
+
+/** \cond DOXYGEN_IGNORE */
+
 static const char UDIF_ACTIVE_VERSION_STRING[UDIF_ACTIVE_VERSION_STRING_SIZE] = "0x01";
 static const char UDIF_CERTIFICATE_CHILD_EXTENSION[] = ".ccert";
 static const char UDIF_CERTIFICATE_MFCOL_EXTENSION[] = ".mfcol";
@@ -290,9 +301,35 @@ static const char UDIF_CERTIFICATE_STORE_PATH[] = "\\Certificates";
 static const char UDIF_ROOT_CERTIFICATE_PATH[] = "\\Root";
 static const char UDIF_CERTIFICATE_TOPOLOGY_PATH[] = "\\Topology";
 
-/** \endcond */
+/** \endcond DOXYGEN_IGNORE */
+ 
+/*!
+ * \def UDIF_CERTIFICATE_CSR_NONCE_SIZE
+ * \brief The certificate signing request nonce size.
+ */
+#define UDIF_CERTIFICATE_CSR_NONCE_SIZE 32U
 
- /*!
+/*!
+ * \def UDIF_CERTIFICATE_CSR_SIGNING_SIZE
+ * \brief The certificate signing request byte length excluding the signature field.
+ */
+#define UDIF_CERTIFICATE_CSR_SIGNING_SIZE (UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE + \
+	UDIF_SERIAL_NUMBER_SIZE + \
+	UDIF_VALID_TIME_STRUCTURE_SIZE + \
+	UDIF_CAPABILITY_MASK_SIZE + \
+	UDIF_CERTIFICATE_POLICY_SIZE + \
+	UDIF_VALID_TIME_SIZE + \
+	UDIF_CERTIFICATE_CSR_NONCE_SIZE + \
+	UDIF_ROLE_SIZE + \
+	UDIF_SUITEID_SIZE)
+
+/*!
+ * \def UDIF_CERTIFICATE_CSR_SIZE
+ * \brief The serialized certificate signing request byte length.
+ */
+#define UDIF_CERTIFICATE_CSR_SIZE (UDIF_SIGNED_HASH_SIZE + UDIF_CERTIFICATE_CSR_SIGNING_SIZE)
+
+/*!
  * \struct udif_certificate
  * \brief UDIF entity certificate
  *
@@ -306,24 +343,133 @@ UDIF_EXPORT_API typedef struct udif_certificate
 	uint8_t verkey[UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE];	/*!< Public signature key */
 	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE];				/*!< Certificate serial number */
 	uint8_t issuer[UDIF_CERTIFICATE_ISSUER_SIZE];			/*!< Issuer certificate string */
-	uint8_t capability[UDIF_CAPABILITY_BITMAP_SIZE];		/*!< Capability bitmap */
 	udif_valid_time valid;									/*!< Certificate valid time period */
-	uint32_t policy;										/*!< Policy version number */
+	uint64_t capability;									/*!< Capability bitmap */
+	uint64_t policy;										/*!< Policy version number */
 	udif_roles role;										/*!< Entity role */
 	uint8_t suiteid;										/*!< Cryptographic suite identifier */
 } udif_certificate;
+
+
+/*!
+ * \struct udif_certificate_csr
+ * \brief UDIF certificate signing request.
+ *
+ * A CSR is signed by the requesting entity with the requested verification
+ * key. Parent authorities verify this signature as proof of possession before
+ * issuing a subordinate certificate.
+ */
+UDIF_EXPORT_API typedef struct udif_certificate_csr
+{
+	uint8_t signature[UDIF_SIGNED_HASH_SIZE];				/*!< Requestor proof-of-possession signature */
+	uint8_t verkey[UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE];	/*!< Requested public signature key */
+	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE];				/*!< Requested certificate serial number */
+	udif_valid_time valid;									/*!< Requested validity period */
+	uint64_t capability;									/*!< Requested capability bitmap */
+	uint64_t policy;										/*!< Requested policy value */
+	uint64_t timestamp;										/*!< Request creation time */
+	uint8_t nonce[UDIF_CERTIFICATE_CSR_NONCE_SIZE];			/*!< Request nonce */
+	udif_roles role;										/*!< Requested role */
+	uint8_t suiteid;										/*!< Requested suite identifier */
+} udif_certificate_csr;
+
+/*!
+ * \brief Check whether a parent role may issue a child role.
+ *
+ * \param parentrole: The issuing parent role
+ * \param childrole: The requested child role
+ *
+ * \return Returns true if the transition is permitted
+ */
+UDIF_EXPORT_API bool udif_certificate_role_transition_valid(udif_roles parentrole, udif_roles childrole);
+
+/*!
+ * \brief Compute the certificate signing request digest.
+ *
+ * \param digest: The output digest buffer
+ * \param csr: [const] The input certificate signing request
+ *
+ * \return Returns udif_error_none on success
+ */
+UDIF_EXPORT_API udif_errors udif_certificate_csr_compute_digest(uint8_t* digest, const udif_certificate_csr* csr);
+
+/*!
+ * \brief Create and sign a certificate signing request.
+ *
+ * \param csr: The output certificate signing request
+ * \param serial: [const] The requested certificate serial
+ * \param verkey: [const] The requestor verification key
+ * \param sigkey: [const] The requestor signing key
+ * \param role: The requested role
+ * \param valid: [const] The requested validity period
+ * \param capability: The requested capability bitmap
+ * \param policy: The requested policy value
+ * \param timestamp: The request timestamp
+ * \param rng_generate: Random number generator function
+ *
+ * \return Returns udif_error_none on success
+ */
+UDIF_EXPORT_API udif_errors udif_certificate_csr_create(udif_certificate_csr* csr, const uint8_t* serial, const uint8_t* verkey,
+	const uint8_t* sigkey, udif_roles role, const udif_valid_time* valid, uint64_t capability, uint64_t policy, uint64_t timestamp,
+	bool (*rng_generate)(uint8_t*, size_t));
+
+/*!
+ * \brief Deserialize a certificate signing request.
+ *
+ * \param csr: The output certificate signing request
+ * \param input: [const] The serialized CSR
+ * \param inplen: The serialized CSR length
+ *
+ * \return Returns udif_error_none on success
+ */
+UDIF_EXPORT_API udif_errors udif_certificate_csr_deserialize(udif_certificate_csr* csr, const uint8_t* input, size_t inplen);
+
+/*!
+ * \brief Issue a subordinate certificate from a verified CSR.
+ *
+ * \param cert: The output subordinate certificate
+ * \param csr: [const] The certificate signing request
+ * \param parentcert: [const] The issuing parent certificate
+ * \param parentsigkey: [const] The parent signing key
+ * \param curtime: The current UTC time
+ * \param rng_generate: Random number generator function
+ *
+ * \return Returns udif_error_none on success
+ */
+UDIF_EXPORT_API udif_errors udif_certificate_csr_issue(udif_certificate* cert, const udif_certificate_csr* csr,
+	const udif_certificate* parentcert, const uint8_t* parentsigkey, uint64_t curtime, bool (*rng_generate)(uint8_t*, size_t));
+
+/*!
+ * \brief Serialize a certificate signing request.
+ *
+ * \param output: The output buffer
+ * \param outlen: The output buffer length
+ * \param csr: [const] The certificate signing request
+ *
+ * \return Returns udif_error_none on success
+ */
+UDIF_EXPORT_API udif_errors udif_certificate_csr_serialize(uint8_t* output, size_t outlen, const udif_certificate_csr* csr);
+
+/*!
+ * \brief Verify a certificate signing request proof of possession.
+ *
+ * \param csr: [const] The certificate signing request
+ *
+ * \return Returns true if the CSR signature is valid
+ */
+UDIF_EXPORT_API bool udif_certificate_csr_verify(const udif_certificate_csr* csr);
 
 /*!
 * \brief Check capability inheritance
 *
 * Verifies that child capabilities are a subset of parent capabilities.
 *
-* \param childbitmap: [const] The child capability bitmap
-* \param parentbitmap: [const] The parent capability bitmap
+* \param childbitmap: The child capability bitmap
+* \param parentbitmap: The parent capability bitmap
 *
 * \return Returns true if inheritance is valid
 */
-UDIF_EXPORT_API bool udif_certificate_check_capability_inheritance(const uint8_t* childbitmap, const uint8_t* parentbitmap);
+UDIF_EXPORT_API bool udif_certificate_check_capability_inheritance(uint64_t childbitmap, uint64_t parentbitmap);
 
 /*!
 * \brief Serialize a child certificate and compute the digest
@@ -402,7 +548,7 @@ UDIF_EXPORT_API bool udif_certificate_compare(const udif_certificate* a, const u
 * \return Returns udif_error_none on success
 */
 UDIF_EXPORT_API udif_errors udif_certificate_generate(udif_certificate* cert, udif_signature_keypair* keypair, const udif_certificate* parentcert, 
-	const uint8_t* parentsigkey, udif_roles role, const uint8_t* serial, udif_valid_time* valid, const uint8_t* capability, uint32_t policy, bool (*rng_generate)(uint8_t*, size_t));
+	const uint8_t* parentsigkey, udif_roles role, const uint8_t* serial, udif_valid_time* valid, uint64_t capability, uint64_t policy, bool (*rng_generate)(uint8_t*, size_t));
 
 /*!
 * \brief Generate a root certificate
@@ -493,5 +639,72 @@ UDIF_EXPORT_API bool udif_certificate_verify(const udif_certificate* cert, const
 * \return Returns true if chain is valid
 */
 UDIF_EXPORT_API bool udif_certificate_verify_chain(const udif_certificate* cert, const udif_certificate* issuer);
+
+/*!
+* \brief Generate a root (self-signed) certificate — flat parameter variant.
+*
+* This is the variant called by server.c.  It generates a fresh signing
+* keypair internally and stores it in \p state->selfkeypair, then
+* delegates to udif_certificate_root_generate.
+*
+* \param cert: Output certificate
+* \param serial: 16-byte random serial
+* \param validfrom: UTC epoch seconds – start of validity
+* \param validto: UTC epoch seconds – end of validity
+* \param sigkey: Caller-owned signing key (used to self-sign; must have been generated before this call via udif_signature_generate_keypair)
+* \param rng_generate: Entropy source
+*
+* \return udif_error_none on success
+*/
+UDIF_EXPORT_API udif_errors udif_certificate_generate_root(udif_certificate*  cert, const uint8_t* serial, uint64_t validfrom, uint64_t validto,
+    const uint8_t* sigkey, const uint8_t* verkey, bool (*rng_generate)(uint8_t*, size_t));
+
+/*!
+* \brief Generate a subordinate (child) certificate — flat parameter variant.
+*
+* Called by server.c and ua.c.  Differs from udif_certificate_generate in
+* that it accepts the parent's verification key explicitly (so no keypair
+* output is needed) and takes flat time scalars instead of a struct.
+*
+* \param cert: Output certificate
+* \param role: Role for the new certificate
+* \param serial: 16-byte random serial for the new certificate
+* \param validfrom: UTC epoch seconds – start of validity
+* \param validto: UTC epoch seconds – end of validity
+* \param verkey: Subject verification key (already generated by caller)
+*
+* \return udif_error_none on success
+*/
+UDIF_EXPORT_API udif_errors udif_certificate_generate_subordinate(udif_certificate* cert, udif_roles role, uint64_t validfrom, uint64_t validto, const uint8_t* verkey);
+
+/*!
+* \brief Serialize a certificate — returns byte count (2-argument variant).
+*
+* Convenience overload called by ua.c and the first serialize site in
+* server.c: certsz = udif_certificate_serialize(buf, &cert).
+* Internally calls udif_certificate_serialize(buf, UDIF_CERTIFICATE_SIZE, cert).
+*
+* \param output: Output buffer (must be at least UDIF_CERTIFICATE_SIZE bytes)
+* \param cert: [const] Certificate to serialize
+*
+* \return Number of bytes written, or 0 on error
+*/
+UDIF_EXPORT_API size_t udif_certificate_serialize_store(uint8_t* output, const udif_certificate* cert);
+
+/* Macro alias so existing call sites "just work" without source changes.
+ * The preprocessor selects the right overload based on argument count.
+ * _UDIF_CERT_SER_PICK is a count-based dispatcher. */
+#define _UDIF_CERT_SER_2(out, cert) udif_certificate_serialize_store((out), (cert))
+#define _UDIF_CERT_SER_3(out, len, cert) udif_certificate_serialize((out), (len), (cert))
+#define _UDIF_CERT_SER_PICK(_1,_2,_3,NAME,...) NAME
+
+/* Callers that pass 2 args get serialize2 (returns size_t);
+ * callers that pass 3 args get the original (returns udif_errors).
+ * Usage:
+ *   certsz   = UDIF_CERT_SERIALIZE(buf, &cert); // 2-arg → size_t
+ *   signed_sz = UDIF_CERT_SERIALIZE(buf, sizeof(buf), &c); // 3-arg → udif_errors cast to size_t
+ */
+#define UDIF_CERT_SERIALIZE(...) \
+    _UDIF_CERT_SER_PICK(__VA_ARGS__, _UDIF_CERT_SER_3, _UDIF_CERT_SER_2, _)(__VA_ARGS__)
 
 #endif

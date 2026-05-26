@@ -19,7 +19,7 @@ var anchor_8h =
     [ "udif_anchor_encoded_size", "anchor_8h.html#a77f9d9bd6ced0f15eb9665e9aba6abd8", null ],
     [ "udif_anchor_is_fresh", "anchor_8h.html#a3e0a04ed59b9527fc96cca76a08c47bb", null ],
     [ "udif_anchor_serialize", "anchor_8h.html#a849e45fd81fbff9010e0f276df11fa44", null ],
-    [ "udif_anchor_validate_sequence", "anchor_8h.html#ab5d914f77775b4e9f6868ab478925974", null ],
+    [ "udif_anchor_validate_sequence", "anchor_8h.html#a7f46b86eb5189394e547ea5af64d03ef", null ],
     [ "udif_anchor_verify", "anchor_8h.html#a0e132a7ae8e3e5fd571cdcadd3f29e30", null ],
     [ "udif_anchor_verify_chain", "anchor_8h.html#a4fa32d06d62c2b2e5a2a8fc47b1c7776", null ]
 ];

@@ -1,10 +1,14 @@
 #include "treaty_test.h"
 #include "treaty.h"
+#include "treatystore.h"
+#include "query.h"
 #include "udif.h"
 #include "consoleutils.h"
 #include "csp.h"
 #include "memutils.h"
 #include "timestamp.h"
+
+static bool treaty_test_store_enforcement(void);
 
 static bool treaty_test_create_proposal(void)
 {
@@ -791,6 +795,103 @@ static bool treaty_test_validate(void)
 	udif_treaty_clear(&treaty);
 	qsc_memutils_clear((uint8_t*)&kpa, sizeof(udif_signature_keypair));
 
+
+	return res;
+}
+
+
+static bool treaty_test_store_enforcement(void)
+{
+	udif_treatystore* store;
+	udif_treaty treaty = { 0U };
+	udif_signature_keypair kpa = { 0U };
+	udif_signature_keypair kpb = { 0U };
+	uint8_t treatyid[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t domsera[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t domserb[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint64_t nowsecs;
+	udif_errors err;
+	bool res;
+
+	res = true;
+	store = NULL;
+	nowsecs = qsc_timestamp_datetime_utc();
+
+	qsc_csp_generate(treatyid, sizeof(treatyid));
+	qsc_csp_generate(domsera, sizeof(domsera));
+	qsc_csp_generate(domserb, sizeof(domserb));
+	udif_signature_generate_keypair(kpa.verkey, kpa.sigkey, qsc_csp_generate);
+	udif_signature_generate_keypair(kpb.verkey, kpb.sigkey, qsc_csp_generate);
+	store = (udif_treatystore*)qsc_memutils_malloc(sizeof(udif_treatystore));
+
+	if (store != NULL)
+	{
+		udif_treatystore_initialize(store);
+	}
+	else
+	{
+		res = false;
+	}
+
+	err = (store == NULL) ? udif_error_internal : udif_treaty_create_proposal(&treaty, treatyid, domsera, domserb,
+		UDIF_TREATY_SCOPE_QUERY_EXIST, nowsecs, nowsecs + UDIF_TREATY_DEFAULT_DURATION,
+		1U, kpa.sigkey, qsc_csp_generate);
+
+	if (err != udif_error_none)
+	{
+		qsc_consoleutils_print_line("treaty_test_store_enforcement: treaty proposal failed");
+		res = false;
+	}
+	else
+	{
+		err = udif_treaty_accept(&treaty, kpb.sigkey, qsc_csp_generate);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: treaty accept failed");
+			res = false;
+		}
+		else if (udif_treatystore_add(store, &treaty, udif_treatystore_status_active, nowsecs) != udif_error_none)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: treaty store add failed");
+			res = false;
+		}
+		else if (udif_treatystore_find(store, treatyid) == NULL)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: treaty not found");
+			res = false;
+		}
+		else if (udif_treatystore_find_active_for_query(store, domsera, domserb, (uint8_t)udif_query_exist, nowsecs) == NULL)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: permitted predicate rejected");
+			res = false;
+		}
+		else if (udif_treatystore_find_active_for_query(store, domsera, domserb, (uint8_t)udif_query_membership_proof, nowsecs) != NULL)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: out-of-scope predicate permitted");
+			res = false;
+		}
+		else if (udif_treatystore_set_status(store, treatyid, udif_treatystore_status_revoked, nowsecs) != udif_error_none)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: treaty revoke failed");
+			res = false;
+		}
+		else if (udif_treatystore_find_active_for_query(store, domsera, domserb, (uint8_t)udif_query_exist, nowsecs) != NULL)
+		{
+			qsc_consoleutils_print_line("treaty_test_store_enforcement: revoked treaty permitted");
+			res = false;
+		}
+	}
+
+	if (store != NULL)
+	{
+		udif_treatystore_clear(store);
+		qsc_memutils_alloc_free(store);
+	}
+	udif_treaty_clear(&treaty);
+	qsc_memutils_clear((uint8_t*)&kpa, sizeof(kpa));
+	qsc_memutils_clear((uint8_t*)&kpb, sizeof(kpb));
+
 	return res;
 }
 
@@ -897,6 +998,16 @@ bool treaty_test_run(void)
 	else
 	{
 		qsc_consoleutils_print_line("Failure! Treaty validate test has failed.");
+		res = false;
+	}
+
+	if (treaty_test_store_enforcement() == true)
+	{
+		qsc_consoleutils_print_line("Success! Treaty store enforcement test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! Treaty store enforcement test has failed.");
 		res = false;
 	}
 

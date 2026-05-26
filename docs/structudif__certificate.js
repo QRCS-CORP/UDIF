@@ -1,8 +1,8 @@
 var structudif__certificate =
 [
-    [ "capability", "structudif__certificate.html#a030b8c22c3904470b0a263bd6782d926", null ],
+    [ "capability", "structudif__certificate.html#ad571e325ca9fc0c921191c7cb3157c63", null ],
     [ "issuer", "structudif__certificate.html#ab8f95bf5e4d312c83561a82e1ed88955", null ],
-    [ "policy", "structudif__certificate.html#ab10e6f7c8e73b5794c8d1dd787718cc8", null ],
+    [ "policy", "structudif__certificate.html#a2fdfc8ecf641fa6f767646e776cbd3db", null ],
     [ "role", "structudif__certificate.html#ae8c0a97add9a6be1bac1bd1888fefae5", null ],
     [ "serial", "structudif__certificate.html#ae2e492be49d0f32fe9a3893c087ee663", null ],
     [ "signature", "structudif__certificate.html#a7bceb718cab8d86f393f90d566b211ed", null ],

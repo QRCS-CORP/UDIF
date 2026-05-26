@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -61,43 +61,62 @@ $(function(){initNavTree('structudif__server__application__state.html','',''); }
 <p>The UDIF server state.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="server_8h_source.html">server.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_saved_2server_8h_source.html">server.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:adb950ef52950eadf250f2a1c01c63d7b" id="r_adb950ef52950eadf250f2a1c01c63d7b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb950ef52950eadf250f2a1c01c63d7b">cmdprompt</a> [UDIF_STORAGE_PROMPT_MAX]</td></tr>
-<tr class="memitem:afc6872bf817a60aebad09c63ba9e425a" id="r_afc6872bf817a60aebad09c63ba9e425a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc6872bf817a60aebad09c63ba9e425a">domain</a> [UDIF_STORAGE_DOMAINNAME_MAX]</td></tr>
-<tr class="memitem:ab1b417d5b56ee91c509c82dff2c8119f" id="r_ab1b417d5b56ee91c509c82dff2c8119f"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1b417d5b56ee91c509c82dff2c8119f">hostname</a> [UDIF_STORAGE_HOSTNAME_MAX]</td></tr>
+<tr class="memitem:ae33e231835a5dc6ff518cdba63ee5e3b" id="r_ae33e231835a5dc6ff518cdba63ee5e3b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae33e231835a5dc6ff518cdba63ee5e3b">cmdprompt</a> [<a class="el" href="_u_d_i_f_2server_8h.html#aeb497f6149b3a900561917a55f83c2a9">UDIF_STORAGE_PROMPT_MAX</a>]</td></tr>
+<tr class="memitem:a900b501fbf55d5b61826495d200b6d8a" id="r_a900b501fbf55d5b61826495d200b6d8a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a900b501fbf55d5b61826495d200b6d8a">domain</a> [<a class="el" href="_u_d_i_f_2server_8h.html#a46d68d2aa877e77749b5b83baf564a23">UDIF_STORAGE_DOMAINNAME_MAX</a>]</td></tr>
+<tr class="memitem:a4acf972c3e4a30d60e7113b34c9fb0ee" id="r_a4acf972c3e4a30d60e7113b34c9fb0ee"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4acf972c3e4a30d60e7113b34c9fb0ee">hostname</a> [<a class="el" href="_u_d_i_f_2server_8h.html#ab4f55ff4a8450dc1993682e2655cbf23">UDIF_STORAGE_HOSTNAME_MAX</a>]</td></tr>
 <tr class="memitem:aca6eb4941ba53fe75b16a23bf20d8284" id="r_aca6eb4941ba53fe75b16a23bf20d8284"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca6eb4941ba53fe75b16a23bf20d8284">issuer</a> [<a class="el" href="_u_d_i_f_2certificate_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a>]</td></tr>
-<tr class="memitem:ac9d95ce9da6eced7f67964017a1a3461" id="r_ac9d95ce9da6eced7f67964017a1a3461"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9d95ce9da6eced7f67964017a1a3461">localip</a> [UDIF_STORAGE_ADDRESS_MAX]</td></tr>
-<tr class="memitem:a1e6971917063a8ec506862f669752eca" id="r_a1e6971917063a8ec506862f669752eca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e6971917063a8ec506862f669752eca">logpath</a> [UDIF_STORAGE_PATH_MAX]</td></tr>
-<tr class="memitem:a01450b3362af868e8f1dcb01d8e0f1a9" id="r_a01450b3362af868e8f1dcb01d8e0f1a9"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01450b3362af868e8f1dcb01d8e0f1a9">username</a> [UDIF_STORAGE_USERNAME_MAX]</td></tr>
+<tr class="memitem:a8093c2d7895aed02cd42ce37190b5aaf" id="r_a8093c2d7895aed02cd42ce37190b5aaf"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8093c2d7895aed02cd42ce37190b5aaf">localip</a> [<a class="el" href="_u_d_i_f_2server_8h.html#aa586b0ba0d699afaf195b680238823b5">UDIF_STORAGE_ADDRESS_MAX</a>]</td></tr>
+<tr class="memitem:a09b0ffb7980f232119937ca55f4a3c5a" id="r_a09b0ffb7980f232119937ca55f4a3c5a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09b0ffb7980f232119937ca55f4a3c5a">logpath</a> [<a class="el" href="_u_d_i_f_2server_8h.html#a6dfbfcb20e607aa8b9e94a6b6092771a">UDIF_STORAGE_PATH_MAX</a>]</td></tr>
+<tr class="memitem:a3a6c6305be66c70eaa2402faeea9a6ca" id="r_a3a6c6305be66c70eaa2402faeea9a6ca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a6c6305be66c70eaa2402faeea9a6ca">username</a> [<a class="el" href="_u_d_i_f_2server_8h.html#a011161039391cad17140e34d45ff8753">UDIF_STORAGE_USERNAME_MAX</a>]</td></tr>
 <tr class="memitem:a0903c962684139dbd6ed60c6da5cb2bf" id="r_a0903c962684139dbd6ed60c6da5cb2bf"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0903c962684139dbd6ed60c6da5cb2bf">kchain</a></td></tr>
 <tr class="memitem:a8b0604a42baa09cb0ae2dcae3c594643" id="r_a8b0604a42baa09cb0ae2dcae3c594643"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b0604a42baa09cb0ae2dcae3c594643">sigkey</a></td></tr>
-<tr class="memitem:a204ffd1b83be9cc6500b953953e72e66" id="r_a204ffd1b83be9cc6500b953953e72e66"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a204ffd1b83be9cc6500b953953e72e66">aplpath</a></td></tr>
-<tr class="memitem:a82f1b66e7564f5d658b612893a758a6b" id="r_a82f1b66e7564f5d658b612893a758a6b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82f1b66e7564f5d658b612893a758a6b">banner</a></td></tr>
-<tr class="memitem:af6b84696bbb6123de85141d14ade3203" id="r_af6b84696bbb6123de85141d14ade3203"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6b84696bbb6123de85141d14ade3203">cfgname</a></td></tr>
+<tr class="memitem:ade122e7cc3d70946ad607fd639ea554c" id="r_ade122e7cc3d70946ad607fd639ea554c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade122e7cc3d70946ad607fd639ea554c">aplpath</a></td></tr>
+<tr class="memitem:a6c340d380ca46f35004b08db735ab2e3" id="r_a6c340d380ca46f35004b08db735ab2e3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c340d380ca46f35004b08db735ab2e3">banner</a></td></tr>
+<tr class="memitem:a4c2e80532a7beb5e7760b86ebacdfc7a" id="r_a4c2e80532a7beb5e7760b86ebacdfc7a"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c2e80532a7beb5e7760b86ebacdfc7a">cfgname</a></td></tr>
 <tr class="memitem:a5d9b521d8183967bc26b43b52ba5221b" id="r_a5d9b521d8183967bc26b43b52ba5221b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d9b521d8183967bc26b43b52ba5221b">prikeyname</a></td></tr>
-<tr class="memitem:a41e0f135f20e79da100b6d30e3f2da0b" id="r_a41e0f135f20e79da100b6d30e3f2da0b"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41e0f135f20e79da100b6d30e3f2da0b">promptdef</a></td></tr>
+<tr class="memitem:a984b2230ff498d2f3fa9970a62a3ff47" id="r_a984b2230ff498d2f3fa9970a62a3ff47"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a984b2230ff498d2f3fa9970a62a3ff47">promptdef</a></td></tr>
 <tr class="memitem:a2f4e66c3acc16470f2d67659516d7753" id="r_a2f4e66c3acc16470f2d67659516d7753"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4e66c3acc16470f2d67659516d7753">pubkeyname</a></td></tr>
-<tr class="memitem:a30a9f9b7cfc54cd970367494e7246fca" id="r_a30a9f9b7cfc54cd970367494e7246fca"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30a9f9b7cfc54cd970367494e7246fca">srvname</a></td></tr>
+<tr class="memitem:abac04f0c5ab48f980243418fe221c5e5" id="r_abac04f0c5ab48f980243418fe221c5e5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abac04f0c5ab48f980243418fe221c5e5">srvname</a></td></tr>
 <tr class="memitem:a91fec70fd72e1abbaed683dce6c8ca7d" id="r_a91fec70fd72e1abbaed683dce6c8ca7d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91fec70fd72e1abbaed683dce6c8ca7d">topname</a></td></tr>
-<tr class="memitem:aeb524f6d35a613170b835b32fb557660" id="r_aeb524f6d35a613170b835b32fb557660"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb524f6d35a613170b835b32fb557660">wtitle</a></td></tr>
+<tr class="memitem:a4b2cf9650ce5286f2ee17e6bbfb9499a" id="r_a4b2cf9650ce5286f2ee17e6bbfb9499a"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b2cf9650ce5286f2ee17e6bbfb9499a">wtitle</a></td></tr>
 <tr class="memitem:a5f1c246f2f69767e037f9730f0631563" id="r_a5f1c246f2f69767e037f9730f0631563"><td class="memItemLeft" align="right" valign="top">udif_child_certificate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f1c246f2f69767e037f9730f0631563">ads</a></td></tr>
 <tr class="memitem:a90335da8acabf8d080d52130f3eeb4d6" id="r_a90335da8acabf8d080d52130f3eeb4d6"><td class="memItemLeft" align="right" valign="top">udif_root_certificate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90335da8acabf8d080d52130f3eeb4d6">root</a></td></tr>
 <tr class="memitem:a2fca5db9033142c86b4d868e61473c89" id="r_a2fca5db9033142c86b4d868e61473c89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__topology__list__state.html">udif_topology_list_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fca5db9033142c86b4d868e61473c89">tlist</a></td></tr>
-<tr class="memitem:ad81296e512b354c4d37024e17366ea31" id="r_ad81296e512b354c4d37024e17366ea31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commands_8h.html#a2e2a8d27cb716744ed01782a279885e4">udif_command_actions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad81296e512b354c4d37024e17366ea31">action</a></td></tr>
-<tr class="memitem:a4bff4c0d31083d1d6e60b9db82bab8c4" id="r_a4bff4c0d31083d1d6e60b9db82bab8c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commands_8h.html#a92227c9a9d0e30c9d99a54b683e597fa">udif_console_modes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bff4c0d31083d1d6e60b9db82bab8c4">mode</a></td></tr>
+<tr class="memitem:ad81296e512b354c4d37024e17366ea31" id="r_ad81296e512b354c4d37024e17366ea31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_saved_2commands_8h.html#a2e2a8d27cb716744ed01782a279885e4">udif_command_actions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad81296e512b354c4d37024e17366ea31">action</a></td></tr>
+<tr class="memitem:a4bff4c0d31083d1d6e60b9db82bab8c4" id="r_a4bff4c0d31083d1d6e60b9db82bab8c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_saved_2commands_8h.html#a92227c9a9d0e30c9d99a54b683e597fa">udif_console_modes</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bff4c0d31083d1d6e60b9db82bab8c4">mode</a></td></tr>
 <tr class="memitem:a8e0798404bf2cf5dabb84c5ba9a4f236" id="r_a8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e0798404bf2cf5dabb84c5ba9a4f236">port</a></td></tr>
 <tr class="memitem:a9763f15419073734dd5785605801c39a" id="r_a9763f15419073734dd5785605801c39a"><td class="memItemLeft" align="right" valign="top">udif_network_designations&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9763f15419073734dd5785605801c39a">srvtype</a></td></tr>
 <tr class="memitem:a7f1ad43d3bf79b40bc39dbb5a6c3a5ae" id="r_a7f1ad43d3bf79b40bc39dbb5a6c3a5ae"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f1ad43d3bf79b40bc39dbb5a6c3a5ae">timeout</a></td></tr>
 <tr class="memitem:a458ee314eb40ab7e0c913a036333cc0d" id="r_a458ee314eb40ab7e0c913a036333cc0d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458ee314eb40ab7e0c913a036333cc0d">retries</a></td></tr>
 <tr class="memitem:a946ecd7736a57660616885580a02b2ce" id="r_a946ecd7736a57660616885580a02b2ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a946ecd7736a57660616885580a02b2ce">joined</a></td></tr>
 <tr class="memitem:a7d62e0c4b2a565e2d5fd44b45dec49fa" id="r_a7d62e0c4b2a565e2d5fd44b45dec49fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d62e0c4b2a565e2d5fd44b45dec49fa">loghost</a></td></tr>
+<tr class="memitem:a203eea780e90d23472384eeabf460089" id="r_a203eea780e90d23472384eeabf460089"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a203eea780e90d23472384eeabf460089">certname</a></td></tr>
+<tr class="memitem:a87a3f7208ed03a1dff9ead1cf71f21a9" id="r_a87a3f7208ed03a1dff9ead1cf71f21a9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87a3f7208ed03a1dff9ead1cf71f21a9">keynamepri</a></td></tr>
+<tr class="memitem:a7a33b9687babf620f10dd3750aa7a402" id="r_a7a33b9687babf620f10dd3750aa7a402"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a33b9687babf620f10dd3750aa7a402">keynamepub</a></td></tr>
+<tr class="memitem:a37f520b0e4cd79e005663d97a456ab21" id="r_a37f520b0e4cd79e005663d97a456ab21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__certificate.html">udif_certificate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f520b0e4cd79e005663d97a456ab21">selfcert</a></td></tr>
+<tr class="memitem:a720a6bb45f0b1e4dcb3694096d8cff76" id="r_a720a6bb45f0b1e4dcb3694096d8cff76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__certificate.html">udif_certificate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a720a6bb45f0b1e4dcb3694096d8cff76">parentcert</a></td></tr>
+<tr class="memitem:ad902f47a24a0928c8e79b09cfcce5687" id="r_ad902f47a24a0928c8e79b09cfcce5687"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__certificate.html">udif_certificate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad902f47a24a0928c8e79b09cfcce5687">rootcert</a></td></tr>
+<tr class="memitem:ad73e471c2f2de65449c768b0ef9c4c4c" id="r_ad73e471c2f2de65449c768b0ef9c4c4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__signature__keypair.html">udif_signature_keypair</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73e471c2f2de65449c768b0ef9c4c4c">selfkeypair</a></td></tr>
+<tr class="memitem:aef849f9e0c290fc1899a6829b4efadfe" id="r_aef849f9e0c290fc1899a6829b4efadfe"><td class="memItemLeft" align="right" valign="top">qstp_root_certificate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef849f9e0c290fc1899a6829b4efadfe">qstprootcert</a></td></tr>
+<tr class="memitem:ae23f10d6ba3b4839fe4919bfa726e436" id="r_ae23f10d6ba3b4839fe4919bfa726e436"><td class="memItemLeft" align="right" valign="top">qstp_server_signature_key&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae23f10d6ba3b4839fe4919bfa726e436">qstpserverkey</a></td></tr>
+<tr class="memitem:ae7579cf5662954c9bf5009354f14f14b" id="r_ae7579cf5662954c9bf5009354f14f14b"><td class="memItemLeft" align="right" valign="top">qstp_root_signature_key&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7579cf5662954c9bf5009354f14f14b">qstprootkey</a></td></tr>
+<tr class="memitem:a1014f6b9c9e9316c07a8353d90ef2aa4" id="r_a1014f6b9c9e9316c07a8353d90ef2aa4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__mcel__manager.html">udif_mcel_manager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1014f6b9c9e9316c07a8353d90ef2aa4">mcelmgr</a></td></tr>
+<tr class="memitem:a4c0d2555736dd6b5c55263b5abf65eca" id="r_a4c0d2555736dd6b5c55263b5abf65eca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__tunnel__table.html">udif_tunnel_table</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c0d2555736dd6b5c55263b5abf65eca">tunnels</a></td></tr>
+<tr class="memitem:a924703f3a5a4ff32a3b05cb01cc94aee" id="r_a924703f3a5a4ff32a3b05cb01cc94aee"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a924703f3a5a4ff32a3b05cb01cc94aee">nextanchorsecs</a></td></tr>
+<tr class="memitem:ae8c0a97add9a6be1bac1bd1888fefae5" id="r_ae8c0a97add9a6be1bac1bd1888fefae5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8c0a97add9a6be1bac1bd1888fefae5">role</a></td></tr>
+<tr class="memitem:a9c15695f3fa12191c708af42d56df0c6" id="r_a9c15695f3fa12191c708af42d56df0c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_u_d_i_f_2server_8h.html#a6f450334e029407a175115da28e206c9">udif_server_loop_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c15695f3fa12191c708af42d56df0c6">cmdloopstatus</a></td></tr>
+<tr class="memitem:ae90bd7521d5e7da188768857bbb9bafe" id="r_ae90bd7521d5e7da188768857bbb9bafe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_u_d_i_f_2server_8h.html#a6f450334e029407a175115da28e206c9">udif_server_loop_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae90bd7521d5e7da188768857bbb9bafe">srvloopstatus</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The UDIF server state. </p>
-<p>This structure holds all state information used by the UDIF server. It includes the command prompt, network domain and host names, certificate issuer, IP address, log path, username, key chain, signing key, file names and paths for various configuration files, certificate structures, topology list, current action, console mode, network port, server type designation, timeout value, number of retries, and flags indicating whether the server has joined a network or is logging host activity. </p>
+<p>Central application state shared by all UDIF entity types.</p>
+<p>This structure holds all state information used by the UDIF server. It includes the command prompt, network domain and host names, certificate issuer, IP address, log path, username, key chain, signing key, file names and paths for various configuration files, certificate structures, topology list, current action, console mode, network port, server type designation, timeout value, number of retries, and flags indicating whether the server has joined a network or is logging host activity.</p>
+<p>Allocated on the stack inside each server's start_server() function and passed by pointer to all support functions. Never heap-allocated.</p>
+<p>Field groups: Console strings — cmdprompt, hostname, domain, localip, logpath, username Resource pointers — banner, srvname, wtitle, promptdef, aplpath, cfgname, certname, keynamepub, keynamepri (all static, never freed) UDIF identity — selfcert, parentcert, rootcert, selfkeypair QSTP transport — qstprootcert, qstpserverkey (NULL for UA) MCEL ledger — mcelmgr (NULL for UA) Tunnel table — tunnels (shared with entity layer) Anchor cadence — nextanchorsecs Console state — action, mode, role Loop status — cmdloopstatus, srvloopstatus Configuration scalars — port, timeout, retries, joined, loghost </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="ad81296e512b354c4d37024e17366ea31" name="ad81296e512b354c4d37024e17366ea31"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad81296e512b354c4d37024e17366ea31">&#9670;&#160;</a></span>action</h2>
@@ -106,11 +125,12 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="commands_8h.html#a2e2a8d27cb716744ed01782a279885e4">udif_command_actions</a> action</td>
+          <td class="memname"><a class="el" href="_saved_2commands_8h.html#a2e2a8d27cb716744ed01782a279885e4">udif_command_actions</a> action</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current command action. </p>
+<p>The current command action.</p>
+<p>Current parsed command action. </p>
 
 </div>
 </div>
@@ -129,93 +149,129 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a204ffd1b83be9cc6500b953953e72e66" name="a204ffd1b83be9cc6500b953953e72e66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a204ffd1b83be9cc6500b953953e72e66">&#9670;&#160;</a></span>aplpath</h2>
+<a id="ade122e7cc3d70946ad607fd639ea554c" name="ade122e7cc3d70946ad607fd639ea554c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade122e7cc3d70946ad607fd639ea554c">&#9670;&#160;</a></span>aplpath</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* aplpath</td>
+          <td class="memname">const char * aplpath</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The application path. </p>
+<p>The application path.</p>
+<p>Application subdirectory path (e.g. "\\Root"). </p>
 
 </div>
 </div>
-<a id="a82f1b66e7564f5d658b612893a758a6b" name="a82f1b66e7564f5d658b612893a758a6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82f1b66e7564f5d658b612893a758a6b">&#9670;&#160;</a></span>banner</h2>
+<a id="a6c340d380ca46f35004b08db735ab2e3" name="a6c340d380ca46f35004b08db735ab2e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c340d380ca46f35004b08db735ab2e3">&#9670;&#160;</a></span>banner</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* banner</td>
+          <td class="memname">const char * banner</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The application banner text. </p>
+<p>The application banner text.</p>
+<p>Multi-line startup banner text. </p>
 
 </div>
 </div>
-<a id="af6b84696bbb6123de85141d14ade3203" name="af6b84696bbb6123de85141d14ade3203"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6b84696bbb6123de85141d14ade3203">&#9670;&#160;</a></span>cfgname</h2>
+<a id="a203eea780e90d23472384eeabf460089" name="a203eea780e90d23472384eeabf460089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a203eea780e90d23472384eeabf460089">&#9670;&#160;</a></span>certname</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* cfgname</td>
+          <td class="memname">const char* certname</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The configuration file name. </p>
+<p>UDIF certificate file name (e.g. "udif-root.cert"). </p>
 
 </div>
 </div>
-<a id="adb950ef52950eadf250f2a1c01c63d7b" name="adb950ef52950eadf250f2a1c01c63d7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb950ef52950eadf250f2a1c01c63d7b">&#9670;&#160;</a></span>cmdprompt</h2>
+<a id="a4c2e80532a7beb5e7760b86ebacdfc7a" name="a4c2e80532a7beb5e7760b86ebacdfc7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c2e80532a7beb5e7760b86ebacdfc7a">&#9670;&#160;</a></span>cfgname</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char cmdprompt[UDIF_STORAGE_PROMPT_MAX]</td>
+          <td class="memname">const char * cfgname</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current command prompt string. </p>
+<p>The configuration file name.</p>
+<p>Config file name (e.g. "\\userconfig.rtcfg"). </p>
 
 </div>
 </div>
-<a id="afc6872bf817a60aebad09c63ba9e425a" name="afc6872bf817a60aebad09c63ba9e425a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc6872bf817a60aebad09c63ba9e425a">&#9670;&#160;</a></span>domain</h2>
+<a id="a9c15695f3fa12191c708af42d56df0c6" name="a9c15695f3fa12191c708af42d56df0c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c15695f3fa12191c708af42d56df0c6">&#9670;&#160;</a></span>cmdloopstatus</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char domain[UDIF_STORAGE_DOMAINNAME_MAX]</td>
+          <td class="memname"><a class="el" href="_u_d_i_f_2server_8h.html#a6f450334e029407a175115da28e206c9">udif_server_loop_status</a> cmdloopstatus</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The network domain name. </p>
+<p>Command loop status. </p>
 
 </div>
 </div>
-<a id="ab1b417d5b56ee91c509c82dff2c8119f" name="ab1b417d5b56ee91c509c82dff2c8119f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1b417d5b56ee91c509c82dff2c8119f">&#9670;&#160;</a></span>hostname</h2>
+<a id="ae33e231835a5dc6ff518cdba63ee5e3b" name="ae33e231835a5dc6ff518cdba63ee5e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33e231835a5dc6ff518cdba63ee5e3b">&#9670;&#160;</a></span>cmdprompt</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char hostname[UDIF_STORAGE_HOSTNAME_MAX]</td>
+          <td class="memname">char cmdprompt</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The server hostname. </p>
+<p>The current command prompt string.</p>
+<p>Current command prompt string. </p>
+
+</div>
+</div>
+<a id="a900b501fbf55d5b61826495d200b6d8a" name="a900b501fbf55d5b61826495d200b6d8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a900b501fbf55d5b61826495d200b6d8a">&#9670;&#160;</a></span>domain</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char domain</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The network domain name.</p>
+<p>Network domain name. </p>
+
+</div>
+</div>
+<a id="a4acf972c3e4a30d60e7113b34c9fb0ee" name="a4acf972c3e4a30d60e7113b34c9fb0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4acf972c3e4a30d60e7113b34c9fb0ee">&#9670;&#160;</a></span>hostname</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char hostname</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server hostname.</p>
+<p>Server host name. </p>
 
 </div>
 </div>
@@ -245,7 +301,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>True if the server has joined the network. </p>
+<p>True if the server has joined the network.</p>
+<p>True once enrolled with parent. </p>
 
 </div>
 </div>
@@ -264,18 +321,49 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ac9d95ce9da6eced7f67964017a1a3461" name="ac9d95ce9da6eced7f67964017a1a3461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9d95ce9da6eced7f67964017a1a3461">&#9670;&#160;</a></span>localip</h2>
+<a id="a87a3f7208ed03a1dff9ead1cf71f21a9" name="a87a3f7208ed03a1dff9ead1cf71f21a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a3f7208ed03a1dff9ead1cf71f21a9">&#9670;&#160;</a></span>keynamepri</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char localip[UDIF_STORAGE_ADDRESS_MAX]</td>
+          <td class="memname">const char* keynamepri</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The server's local IP address. </p>
+<p>UDIF private key file name (e.g. "udif-root.key"). </p>
+
+</div>
+</div>
+<a id="a7a33b9687babf620f10dd3750aa7a402" name="a7a33b9687babf620f10dd3750aa7a402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a33b9687babf620f10dd3750aa7a402">&#9670;&#160;</a></span>keynamepub</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* keynamepub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSTP server key file name (e.g. "qstp-server.key"). </p>
+
+</div>
+</div>
+<a id="a8093c2d7895aed02cd42ce37190b5aaf" name="a8093c2d7895aed02cd42ce37190b5aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8093c2d7895aed02cd42ce37190b5aaf">&#9670;&#160;</a></span>localip</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char localip</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server's local IP address.</p>
+<p>Bound IPv4 address string. </p>
 
 </div>
 </div>
@@ -290,22 +378,39 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>True if host logging is enabled. </p>
+<p>True if host logging is enabled.</p>
+<p>True when activity logging is enabled. </p>
 
 </div>
 </div>
-<a id="a1e6971917063a8ec506862f669752eca" name="a1e6971917063a8ec506862f669752eca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e6971917063a8ec506862f669752eca">&#9670;&#160;</a></span>logpath</h2>
+<a id="a09b0ffb7980f232119937ca55f4a3c5a" name="a09b0ffb7980f232119937ca55f4a3c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b0ffb7980f232119937ca55f4a3c5a">&#9670;&#160;</a></span>logpath</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char logpath[UDIF_STORAGE_PATH_MAX]</td>
+          <td class="memname">char logpath</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The full path to the log file. </p>
+<p>The full path to the log file.</p>
+<p>Full path to the activity log file. </p>
+
+</div>
+</div>
+<a id="a1014f6b9c9e9316c07a8353d90ef2aa4" name="a1014f6b9c9e9316c07a8353d90ef2aa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1014f6b9c9e9316c07a8353d90ef2aa4">&#9670;&#160;</a></span>mcelmgr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__mcel__manager.html">udif_mcel_manager</a>* mcelmgr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ledger manager; NULL for UA. </p>
 
 </div>
 </div>
@@ -316,11 +421,42 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="commands_8h.html#a92227c9a9d0e30c9d99a54b683e597fa">udif_console_modes</a> mode</td>
+          <td class="memname"><a class="el" href="_saved_2commands_8h.html#a92227c9a9d0e30c9d99a54b683e597fa">udif_console_modes</a> mode</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The current console mode. </p>
+<p>The current console mode.</p>
+<p>Current console mode. </p>
+
+</div>
+</div>
+<a id="a924703f3a5a4ff32a3b05cb01cc94aee" name="a924703f3a5a4ff32a3b05cb01cc94aee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924703f3a5a4ff32a3b05cb01cc94aee">&#9670;&#160;</a></span>nextanchorsecs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t nextanchorsecs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UTC epoch at which to push the next anchor. </p>
+
+</div>
+</div>
+<a id="a720a6bb45f0b1e4dcb3694096d8cff76" name="a720a6bb45f0b1e4dcb3694096d8cff76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a720a6bb45f0b1e4dcb3694096d8cff76">&#9670;&#160;</a></span>parentcert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__certificate.html">udif_certificate</a> parentcert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parent entity's certificate (zeroed for Root). </p>
 
 </div>
 </div>
@@ -335,7 +471,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The network port number. </p>
+<p>The network port number.</p>
+<p>Network listen port. </p>
 
 </div>
 </div>
@@ -354,18 +491,19 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a41e0f135f20e79da100b6d30e3f2da0b" name="a41e0f135f20e79da100b6d30e3f2da0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41e0f135f20e79da100b6d30e3f2da0b">&#9670;&#160;</a></span>promptdef</h2>
+<a id="a984b2230ff498d2f3fa9970a62a3ff47" name="a984b2230ff498d2f3fa9970a62a3ff47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984b2230ff498d2f3fa9970a62a3ff47">&#9670;&#160;</a></span>promptdef</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* promptdef</td>
+          <td class="memname">const char * promptdef</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The default prompt string. </p>
+<p>The default prompt string.</p>
+<p>Default prompt string (e.g. "Root&gt; "). </p>
 
 </div>
 </div>
@@ -384,6 +522,51 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="aef849f9e0c290fc1899a6829b4efadfe" name="aef849f9e0c290fc1899a6829b4efadfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef849f9e0c290fc1899a6829b4efadfe">&#9670;&#160;</a></span>qstprootcert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qstp_root_certificate qstprootcert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSTP root certificate (loaded from file). </p>
+
+</div>
+</div>
+<a id="ae7579cf5662954c9bf5009354f14f14b" name="ae7579cf5662954c9bf5009354f14f14b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7579cf5662954c9bf5009354f14f14b">&#9670;&#160;</a></span>qstprootkey</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qstp_root_signature_key qstprootkey</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSTP root signing key (populated for Root role only). </p>
+
+</div>
+</div>
+<a id="ae23f10d6ba3b4839fe4919bfa726e436" name="ae23f10d6ba3b4839fe4919bfa726e436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae23f10d6ba3b4839fe4919bfa726e436">&#9670;&#160;</a></span>qstpserverkey</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qstp_server_signature_key qstpserverkey</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>QSTP server signing key (populated for listeners). </p>
+
+</div>
+</div>
 <a id="a458ee314eb40ab7e0c913a036333cc0d" name="a458ee314eb40ab7e0c913a036333cc0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a458ee314eb40ab7e0c913a036333cc0d">&#9670;&#160;</a></span>retries</h2>
 
@@ -395,7 +578,23 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The allowed number of password retries. </p>
+<p>The allowed number of password retries.</p>
+<p>Max login retries. </p>
+
+</div>
+</div>
+<a id="ae8c0a97add9a6be1bac1bd1888fefae5" name="ae8c0a97add9a6be1bac1bd1888fefae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c0a97add9a6be1bac1bd1888fefae5">&#9670;&#160;</a></span>role</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Entity role (governs help and cert generation). </p>
 
 </div>
 </div>
@@ -414,6 +613,51 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="ad902f47a24a0928c8e79b09cfcce5687" name="ad902f47a24a0928c8e79b09cfcce5687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad902f47a24a0928c8e79b09cfcce5687">&#9670;&#160;</a></span>rootcert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__certificate.html">udif_certificate</a> rootcert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Root certificate. </p>
+
+</div>
+</div>
+<a id="a37f520b0e4cd79e005663d97a456ab21" name="a37f520b0e4cd79e005663d97a456ab21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f520b0e4cd79e005663d97a456ab21">&#9670;&#160;</a></span>selfcert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__certificate.html">udif_certificate</a> selfcert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This entity's UDIF certificate. </p>
+
+</div>
+</div>
+<a id="ad73e471c2f2de65449c768b0ef9c4c4c" name="ad73e471c2f2de65449c768b0ef9c4c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73e471c2f2de65449c768b0ef9c4c4c">&#9670;&#160;</a></span>selfkeypair</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__signature__keypair.html">udif_signature_keypair</a> selfkeypair</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Long-term signing keypair. </p>
+
+</div>
+</div>
 <a id="a8b0604a42baa09cb0ae2dcae3c594643" name="a8b0604a42baa09cb0ae2dcae3c594643"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b0604a42baa09cb0ae2dcae3c594643">&#9670;&#160;</a></span>sigkey</h2>
 
@@ -429,18 +673,34 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a30a9f9b7cfc54cd970367494e7246fca" name="a30a9f9b7cfc54cd970367494e7246fca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30a9f9b7cfc54cd970367494e7246fca">&#9670;&#160;</a></span>srvname</h2>
+<a id="ae90bd7521d5e7da188768857bbb9bafe" name="ae90bd7521d5e7da188768857bbb9bafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90bd7521d5e7da188768857bbb9bafe">&#9670;&#160;</a></span>srvloopstatus</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* srvname</td>
+          <td class="memname"><a class="el" href="_u_d_i_f_2server_8h.html#a6f450334e029407a175115da28e206c9">udif_server_loop_status</a> srvloopstatus</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The server name. </p>
+<p>Network service loop status. </p>
+
+</div>
+</div>
+<a id="abac04f0c5ab48f980243418fe221c5e5" name="abac04f0c5ab48f980243418fe221c5e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abac04f0c5ab48f980243418fe221c5e5">&#9670;&#160;</a></span>srvname</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * srvname</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server name.</p>
+<p>Short server name (e.g. "Root"). </p>
 
 </div>
 </div>
@@ -470,7 +730,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The console timeout in minutes. </p>
+<p>The console timeout in minutes.</p>
+<p>Console idle timeout in minutes. </p>
 
 </div>
 </div>
@@ -504,38 +765,56 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a01450b3362af868e8f1dcb01d8e0f1a9" name="a01450b3362af868e8f1dcb01d8e0f1a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01450b3362af868e8f1dcb01d8e0f1a9">&#9670;&#160;</a></span>username</h2>
+<a id="a4c0d2555736dd6b5c55263b5abf65eca" name="a4c0d2555736dd6b5c55263b5abf65eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0d2555736dd6b5c55263b5abf65eca">&#9670;&#160;</a></span>tunnels</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char username[UDIF_STORAGE_USERNAME_MAX]</td>
+          <td class="memname"><a class="el" href="structudif__tunnel__table.html">udif_tunnel_table</a> tunnels</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The username used for login. </p>
+<p>Active tunnel table. </p>
 
 </div>
 </div>
-<a id="aeb524f6d35a613170b835b32fb557660" name="aeb524f6d35a613170b835b32fb557660"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb524f6d35a613170b835b32fb557660">&#9670;&#160;</a></span>wtitle</h2>
+<a id="a3a6c6305be66c70eaa2402faeea9a6ca" name="a3a6c6305be66c70eaa2402faeea9a6ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6c6305be66c70eaa2402faeea9a6ca">&#9670;&#160;</a></span>username</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* wtitle</td>
+          <td class="memname">char username</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The window title. </p>
+<p>The username used for login.</p>
+<p>Operator user name (set on first run). </p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/Saved/<a class="el" href="server_8h_source.html">server.h</a></li>
+<a id="a4b2cf9650ce5286f2ee17e6bbfb9499a" name="a4b2cf9650ce5286f2ee17e6bbfb9499a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b2cf9650ce5286f2ee17e6bbfb9499a">&#9670;&#160;</a></span>wtitle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * wtitle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The window title.</p>
+<p>Window title (e.g. "UDIF Root Authority v1.0"). </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/Saved/<a class="el" href="_saved_2server_8h_source.html">server.h</a></li>
+<li>C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/UDIF/<a class="el" href="_u_d_i_f_2server_8h_source.html">server.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

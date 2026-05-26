@@ -13,7 +13,7 @@ var object_8h =
     [ "udif_object_compare", "object_8h.html#a05ec33f565637c2c134785d06d5e6762", null ],
     [ "udif_object_compute_digest", "object_8h.html#a920e3ff88df012bd5aab9eb9c2aa3137", null ],
     [ "udif_object_compute_signature", "object_8h.html#a77c405f92e6db9cf8ada436c8eef505c", null ],
-    [ "udif_object_compute_transfer_digest", "object_8h.html#a515016c6f4aa5c26bb4990fbc6157710", null ],
+    [ "udif_object_compute_transfer_digest", "object_8h.html#a4aee0659d48c22390b41f131a3ceaf01", null ],
     [ "udif_object_create", "object_8h.html#ac4d6092d4cd935d88e9150b94259a57e", null ],
     [ "udif_object_deserialize", "object_8h.html#a045198a7b4eeb74b521484591dd7439b", null ],
     [ "udif_object_destroy", "object_8h.html#a6b1bd99c7fc097c992b1cedb3070ec2d", null ],
@@ -23,6 +23,7 @@ var object_8h =
     [ "udif_object_update_attributes", "object_8h.html#ac5f0943e05ddf4fdc84a447e96ca3865", null ],
     [ "udif_object_verify", "object_8h.html#a7786f0deef203454f505212f79019235", null ],
     [ "udif_transfer_clear", "object_8h.html#a20ff0e1ec1b0150fdbd6a8295a43cde2", null ],
+    [ "udif_transfer_compute_txid", "object_8h.html#a22c4720a616c5529ebf8212821f914e4", null ],
     [ "udif_transfer_deserialize", "object_8h.html#ada1448291aa3512761e4621a0c001ba9", null ],
     [ "udif_transfer_serialize", "object_8h.html#a5ac1711100dd17ea746a4dbe562fef5d", null ],
     [ "udif_transfer_verify", "object_8h.html#a489e3b1f7741c111e1f472208ecbfb3c", null ]

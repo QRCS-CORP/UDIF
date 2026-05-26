@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -101,6 +101,18 @@ Macros</h2></td></tr>
 <tr class="memitem:ac45811124a30ea18ccd3bd9e0a01ad3b" id="r_ac45811124a30ea18ccd3bd9e0a01ad3b"><td class="memItemLeft" align="right" valign="top"><a id="ac45811124a30ea18ccd3bd9e0a01ad3b" name="ac45811124a30ea18ccd3bd9e0a01ad3b"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_SCOPE_MAX</b>&#160;&#160;&#160;256U</td></tr>
 <tr class="memdesc:ac45811124a30ea18ccd3bd9e0a01ad3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum scope setting. <br /></td></tr>
+<tr class="memitem:ad1b61ba554d33713f4a472b6e64030a5" id="r_ad1b61ba554d33713f4a472b6e64030a5"><td class="memItemLeft" align="right" valign="top"><a id="ad1b61ba554d33713f4a472b6e64030a5" name="ad1b61ba554d33713f4a472b6e64030a5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_SCOPE_QUERY_EXIST</b>&#160;&#160;&#160;<a class="el" href="#a37480892b423c5203470cfb66032457f">UDIF_TREATY_SCOPE_QUERY</a></td></tr>
+<tr class="memdesc:ad1b61ba554d33713f4a472b6e64030a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treaty permits existence predicate forwarding. <br /></td></tr>
+<tr class="memitem:a1f9612d56e2e517043529d257d32f4e2" id="r_a1f9612d56e2e517043529d257d32f4e2"><td class="memItemLeft" align="right" valign="top"><a id="a1f9612d56e2e517043529d257d32f4e2" name="a1f9612d56e2e517043529d257d32f4e2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_SCOPE_QUERY_OWNER</b>&#160;&#160;&#160;<a class="el" href="#a4b095f41e0feffeaef560875437a61a1">UDIF_TREATY_SCOPE_INTRA_DOMAIN</a></td></tr>
+<tr class="memdesc:a1f9612d56e2e517043529d257d32f4e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treaty permits owner-binding predicate forwarding. <br /></td></tr>
+<tr class="memitem:a839dff4ad8d5ef11f2909a3f4dc178ce" id="r_a839dff4ad8d5ef11f2909a3f4dc178ce"><td class="memItemLeft" align="right" valign="top"><a id="a839dff4ad8d5ef11f2909a3f4dc178ce" name="a839dff4ad8d5ef11f2909a3f4dc178ce"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_SCOPE_QUERY_ATTR</b>&#160;&#160;&#160;<a class="el" href="#a663df841177cd8c5b2b2c23de48cb974">UDIF_TREATY_SCOPE_LOCAL</a></td></tr>
+<tr class="memdesc:a839dff4ad8d5ef11f2909a3f4dc178ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treaty permits attribute-bucket predicate forwarding. <br /></td></tr>
+<tr class="memitem:a6bc42cf1e50d2689eef7e8091c666479" id="r_a6bc42cf1e50d2689eef7e8091c666479"><td class="memItemLeft" align="right" valign="top"><a id="a6bc42cf1e50d2689eef7e8091c666479" name="a6bc42cf1e50d2689eef7e8091c666479"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_SCOPE_QUERY_PROOF</b>&#160;&#160;&#160;<a class="el" href="#a171b622a33051bd3a78bdc14c21c34b5">UDIF_TREATY_SCOPE_TREATY</a></td></tr>
+<tr class="memdesc:a6bc42cf1e50d2689eef7e8091c666479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treaty permits registry-membership proof forwarding. <br /></td></tr>
 <tr class="memitem:a9811e5a5116eaee091399cd3a3992b72" id="r_a9811e5a5116eaee091399cd3a3992b72"><td class="memItemLeft" align="right" valign="top"><a id="a9811e5a5116eaee091399cd3a3992b72" name="a9811e5a5116eaee091399cd3a3992b72"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TREATY_POLICY_VERSION_SIZE</b>&#160;&#160;&#160;4U</td></tr>
 <tr class="memdesc:a9811e5a5116eaee091399cd3a3992b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The policy version size. <br /></td></tr>
@@ -127,6 +139,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7443856caa72ad106874b2e0152d3cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept a treaty proposal.  <br /></td></tr>
 <tr class="memitem:a16d84a9c3a4546841cc51ee087201f59" id="r_a16d84a9c3a4546841cc51ee087201f59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16d84a9c3a4546841cc51ee087201f59">udif_treaty_allows_scope</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty, uint32_t scope)</td></tr>
 <tr class="memdesc:a16d84a9c3a4546841cc51ee087201f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if treaty allows scope.  <br /></td></tr>
+<tr class="memitem:a2949a165ea03eac6ed6f4f92bc760ee7" id="r_a2949a165ea03eac6ed6f4f92bc760ee7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2949a165ea03eac6ed6f4f92bc760ee7">udif_treaty_allows_query</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty, uint8_t querytype)</td></tr>
+<tr class="memdesc:a2949a165ea03eac6ed6f4f92bc760ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if treaty allows a query predicate family.  <br /></td></tr>
 <tr class="memitem:aa85a41006ce8c07ea641aa474fbf1b30" id="r_aa85a41006ce8c07ea641aa474fbf1b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa85a41006ce8c07ea641aa474fbf1b30">udif_treaty_clear</a> (<a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty)</td></tr>
 <tr class="memdesc:aa85a41006ce8c07ea641aa474fbf1b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a treaty.  <br /></td></tr>
 <tr class="memitem:aeee9b9c1932562805dcc64fe23c923bb" id="r_aeee9b9c1932562805dcc64fe23c923bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeee9b9c1932562805dcc64fe23c923bb">udif_treaty_compare</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *a, const <a class="el" href="structudif__treaty.html">udif_treaty</a> *b)</td></tr>
@@ -153,8 +167,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:adb449867a90cc59e0055bc787ec8cc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a treaty.  <br /></td></tr>
 <tr class="memitem:aa0edee988370c7a37bff01df9bd5055d" id="r_aa0edee988370c7a37bff01df9bd5055d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0edee988370c7a37bff01df9bd5055d">udif_treaty_validate</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty)</td></tr>
 <tr class="memdesc:aa0edee988370c7a37bff01df9bd5055d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate treaty parameters.  <br /></td></tr>
+<tr class="memitem:aa229c350b4c419e6b9c7a606e2eac576" id="r_aa229c350b4c419e6b9c7a606e2eac576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa229c350b4c419e6b9c7a606e2eac576">udif_treaty_verify_proposal</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty, const uint8_t *domverkeya)</td></tr>
+<tr class="memdesc:aa229c350b4c419e6b9c7a606e2eac576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a treaty.  <br /></td></tr>
 <tr class="memitem:a8f1f1740d0b36b05255ce62705ff0359" id="r_a8f1f1740d0b36b05255ce62705ff0359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f1f1740d0b36b05255ce62705ff0359">udif_treaty_verify</a> (const <a class="el" href="structudif__treaty.html">udif_treaty</a> *treaty, const uint8_t *domverkeya, const uint8_t *domverkeyb)</td></tr>
-<tr class="memdesc:a8f1f1740d0b36b05255ce62705ff0359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a treaty.  <br /></td></tr>
+<tr class="memdesc:a8f1f1740d0b36b05255ce62705ff0359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a treaty signatures and properties.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UDIF treaty operations. </p>
@@ -200,10 +216,10 @@ Functions</h2></td></tr>
 <div class="line">    UDIF_VALID_TIME_SIZE + \</div>
 <div class="line">    <a class="code hl_define" href="#a9811e5a5116eaee091399cd3a3992b72">UDIF_TREATY_POLICY_VERSION_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a89460d616af7d8018c7de9f1468c094c">UDIF_TREATY_SCOPE_QUERY_SIZE</a>)</div>
-<div class="ttc" id="atreaty_8h_html_a89460d616af7d8018c7de9f1468c094c"><div class="ttname"><a href="#a89460d616af7d8018c7de9f1468c094c">UDIF_TREATY_SCOPE_QUERY_SIZE</a></div><div class="ttdeci">#define UDIF_TREATY_SCOPE_QUERY_SIZE</div><div class="ttdoc">The query scope integer size.</div><div class="ttdef"><b>Definition</b> treaty.h:156</div></div>
-<div class="ttc" id="atreaty_8h_html_a9811e5a5116eaee091399cd3a3992b72"><div class="ttname"><a href="#a9811e5a5116eaee091399cd3a3992b72">UDIF_TREATY_POLICY_VERSION_SIZE</a></div><div class="ttdeci">#define UDIF_TREATY_POLICY_VERSION_SIZE</div><div class="ttdoc">The policy version size.</div><div class="ttdef"><b>Definition</b> treaty.h:150</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
-<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
+<div class="ttc" id="atreaty_8h_html_a89460d616af7d8018c7de9f1468c094c"><div class="ttname"><a href="#a89460d616af7d8018c7de9f1468c094c">UDIF_TREATY_SCOPE_QUERY_SIZE</a></div><div class="ttdeci">#define UDIF_TREATY_SCOPE_QUERY_SIZE</div><div class="ttdoc">The query scope integer size.</div><div class="ttdef"><b>Definition</b> treaty.h:180</div></div>
+<div class="ttc" id="atreaty_8h_html_a9811e5a5116eaee091399cd3a3992b72"><div class="ttname"><a href="#a9811e5a5116eaee091399cd3a3992b72">UDIF_TREATY_POLICY_VERSION_SIZE</a></div><div class="ttdeci">#define UDIF_TREATY_POLICY_VERSION_SIZE</div><div class="ttdoc">The policy version size.</div><div class="ttdef"><b>Definition</b> treaty.h:174</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
 </div><!-- fragment -->
 <p>The treaty structure byte size. </p>
 
@@ -245,6 +261,38 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a2949a165ea03eac6ed6f4f92bc760ee7" name="a2949a165ea03eac6ed6f4f92bc760ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2949a165ea03eac6ed6f4f92bc760ee7">&#9670;&#160;</a></span>udif_treaty_allows_query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_treaty_allows_query </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__treaty.html">udif_treaty</a> *</td>          <td class="paramname"><span class="paramname"><em>treaty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>querytype</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if treaty allows a query predicate family. </p>
+<p>Tests if a treaty permits forwarding for the requested query type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">treaty</td><td>[const] The treaty </td></tr>
+    <tr><td class="paramname">querytype</td><td>The UDIF query type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the predicate family is permitted </dd></dl>
 
 </div>
 </div>
@@ -754,6 +802,38 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Verify a treaty signatures and properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">treaty</td><td>[const] The pending treaty proposal </td></tr>
+    <tr><td class="paramname">domverkeya</td><td>[const] Domain A's public key </td></tr>
+    <tr><td class="paramname">domverkeyb</td><td>[const] Domain A's public key</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the treaty is valid </dd></dl>
+
+</div>
+</div>
+<a id="aa229c350b4c419e6b9c7a606e2eac576" name="aa229c350b4c419e6b9c7a606e2eac576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa229c350b4c419e6b9c7a606e2eac576">&#9670;&#160;</a></span>udif_treaty_verify_proposal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_treaty_verify_proposal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__treaty.html">udif_treaty</a> *</td>          <td class="paramname"><span class="paramname"><em>treaty</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>domverkeya</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 <p>Verify a treaty. </p>
 <p>Verifies both signatures on a treaty.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -764,7 +844,17 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns true if both signatures are valid </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if both signatures are valid</dd></dl>
+<p>Verify the proposal signature on a pending treaty</p>
+<p>Verifies the Domain A signature before the local party co-signs the treaty.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">treaty</td><td>[const] The pending treaty proposal </td></tr>
+    <tr><td class="paramname">domverkeya</td><td>[const] Domain A's public key</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the proposal signature is valid </dd></dl>
 
 </div>
 </div>

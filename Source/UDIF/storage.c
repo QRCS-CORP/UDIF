@@ -22,6 +22,67 @@ typedef struct mcel_store_callbacks
     bool (*flush)(void*, const uint8_t*, size_t);
 } mcel_store_callbacks;
 
+static bool udif_storage_location_is_canonical(const uint8_t* loc, size_t loclen)
+{
+    bool res;
+
+    res = false;
+
+    if (loc != NULL && loclen > 0U && loclen < UDIF_STORAGE_MAX_PATH)
+    {
+        res = true;
+
+        if (loc[0U] == '/' || loc[0U] == '\\' || loc[loclen - 1U] == '/' || loc[loclen - 1U] == '\\')
+        {
+            res = false;
+        }
+        else
+        {
+            size_t seglen;
+
+            seglen = 0U;
+
+            for (size_t i = 0U; i < loclen; ++i)
+            {
+                const uint8_t ch = loc[i];
+
+                if (ch == 0U || ch == ':')
+                {
+                    res = false;
+                    break;
+                }
+
+                if (ch == '/' || ch == '\\')
+                {
+                    if (seglen == 0U || (seglen == 1U && loc[i - 1U] == '.') ||
+                        (seglen == 2U && loc[i - 2U] == '.' && loc[i - 1U] == '.'))
+                    {
+                        res = false;
+                        break;
+                    }
+
+                    seglen = 0U;
+                }
+                else
+                {
+                    seglen++;
+                }
+            }
+
+            if (res == true)
+            {
+                if (seglen == 0U || (seglen == 1U && loc[loclen - 1U] == '.') ||
+                    (seglen == 2U && loc[loclen - 2U] == '.' && loc[loclen - 1U] == '.'))
+                {
+                    res = false;
+                }
+            }
+        }
+    }
+
+    return res;
+}
+
 bool udif_storage_resolve_path(const udif_storage_context* ctx, const uint8_t* loc, size_t loclen, char* outpath, size_t outpathlen)
 {
     UDIF_ASSERT(ctx != NULL);
@@ -36,9 +97,14 @@ bool udif_storage_resolve_path(const udif_storage_context* ctx, const uint8_t* l
 
     if (ctx != NULL && loc != NULL && outpath != NULL && ctx->initialized)
     {
-        if (loclen > 0U && loclen <= 256U)
+        if (udif_storage_location_is_canonical(loc, loclen) == true)
         {
-            qsc_memutils_copy(locstr, loc, loclen);
+            for (size_t i = 0U; i < loclen; ++i)
+            {
+                locstr[i] = (loc[i] == '/' || loc[i] == '\\') ? QSC_FOLDERUTILS_DELIMITER : (char)loc[i];
+            }
+
+            locstr[loclen] = '\0';
 
             /* build path: base_path/ledger_name/location */
             qsc_stringutils_copy_string(outpath, outpathlen, ctx->basepath);
@@ -84,7 +150,7 @@ bool udif_storage_get_handle(udif_storage_context* ctx, const char* path, qsc_fi
             }
         }
         
-        if (!res)
+        if (res == false)
         {
             /* open new file */
             fp = qsc_fileutils_open(path, mode, true);
@@ -96,8 +162,7 @@ bool udif_storage_get_handle(udif_storage_context* ctx, const char* path, qsc_fi
                 {
                     i = ctx->handlecount;
                     ctx->handles[i].fp = fp;
-                    qsc_memutils_copy(ctx->handles[i].path, path, UDIF_STORAGE_MAX_PATH - 1U);
-                    ctx->handles[i].path[UDIF_STORAGE_MAX_PATH - 1U] = '\0';
+                    qsc_stringutils_copy_string(ctx->handles[i].path, sizeof(ctx->handles[i].path), path);
                     ctx->handles[i].lastaccess = (uint64_t)time(NULL);
                     ctx->handles[i].isopen = true;
                     ctx->handlecount++;
@@ -130,8 +195,7 @@ bool udif_storage_get_handle(udif_storage_context* ctx, const char* path, qsc_fi
 
                     /* replace with new handle */
                     ctx->handles[lruidx].fp = fp;
-                    qsc_memutils_copy(ctx->handles[lruidx].path, path, UDIF_STORAGE_MAX_PATH - 1U);
-                    ctx->handles[lruidx].path[UDIF_STORAGE_MAX_PATH - 1U] = '\0';
+                    qsc_stringutils_copy_string(ctx->handles[lruidx].path, sizeof(ctx->handles[lruidx].path), path);
                     ctx->handles[lruidx].lastaccess = (uint64_t)time(NULL);
                     ctx->handles[lruidx].isopen = true;
                     *outfp = fp;
@@ -230,8 +294,7 @@ udif_errors udif_storage_initialize(udif_storage_context* ctx, const char* basep
         qsc_memutils_clear(ctx, sizeof(udif_storage_context));
 
         /* copy base path */
-        qsc_memutils_copy(ctx->basepath, basepath, UDIF_STORAGE_MAX_PATH - 1U);
-        ctx->basepath[UDIF_STORAGE_MAX_PATH - 1U] = '\0';
+        qsc_stringutils_copy_string(ctx->basepath, sizeof(ctx->basepath), basepath);
 
         /* create base directory */
         ret = qsc_folderutils_create_directory_tree(ctx->basepath);

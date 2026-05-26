@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -66,16 +66,16 @@ $(function(){initNavTree('structudif__registry__state.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a3c8fe95417d2db329b184f019776b32b" id="r_a3c8fe95417d2db329b184f019776b32b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c8fe95417d2db329b184f019776b32b">ownerser</a> [<a class="el" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a>]</td></tr>
+<tr class="memitem:aad0315e4efb810416ae252f1a92ced76" id="r_aad0315e4efb810416ae252f1a92ced76"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad0315e4efb810416ae252f1a92ced76">ownerdigest</a> [<a class="el" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a>]</td></tr>
 <tr class="memitem:a617e3338273e5a48b7523937e0a653fa" id="r_a617e3338273e5a48b7523937e0a653fa"><td class="memItemLeft" align="right" valign="top">qsc_keccak_state&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a617e3338273e5a48b7523937e0a653fa">mstate</a></td></tr>
-<tr class="memitem:a043a36125ee7eb15f8787c42476b1428" id="r_a043a36125ee7eb15f8787c42476b1428"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a043a36125ee7eb15f8787c42476b1428">objdigests</a></td></tr>
-<tr class="memitem:aa535a329bb7559cc0c5f41d12b09ee7a" id="r_aa535a329bb7559cc0c5f41d12b09ee7a"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa535a329bb7559cc0c5f41d12b09ee7a">objserials</a></td></tr>
+<tr class="memitem:aecfbb967d7fcc8bb42faa04762e8d952" id="r_aecfbb967d7fcc8bb42faa04762e8d952"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecfbb967d7fcc8bb42faa04762e8d952">leaves</a></td></tr>
 <tr class="memitem:a7c6f51112d74f45a0313c6fb928de6bc" id="r_a7c6f51112d74f45a0313c6fb928de6bc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c6f51112d74f45a0313c6fb928de6bc">objcount</a></td></tr>
 <tr class="memitem:ad721fc6ca6a3d6ba3bc506576622aab0" id="r_ad721fc6ca6a3d6ba3bc506576622aab0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad721fc6ca6a3d6ba3bc506576622aab0">capacity</a></td></tr>
 <tr class="memitem:aedeffc7d23da25d52b9a50045189fe2b" id="r_aedeffc7d23da25d52b9a50045189fe2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedeffc7d23da25d52b9a50045189fe2b">initialized</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>User Agent object registry. </p>
-<p>Each User Agent maintains a registry of owned objects as a Merkle tree. The registry root is committed periodically to the Group Controller. </p>
+<p>Each User Agent maintains a registry of owned objects as canonical registry leaves. Merkle roots are computed over the canonical leaf encodings sorted lexicographically by object digest. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="ad721fc6ca6a3d6ba3bc506576622aab0" name="ad721fc6ca6a3d6ba3bc506576622aab0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad721fc6ca6a3d6ba3bc506576622aab0">&#9670;&#160;</a></span>capacity</h2>
@@ -107,6 +107,21 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="aecfbb967d7fcc8bb42faa04762e8d952" name="aecfbb967d7fcc8bb42faa04762e8d952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfbb967d7fcc8bb42faa04762e8d952">&#9670;&#160;</a></span>leaves</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a>* leaves</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Canonical registry leaves </p>
+
+</div>
+</div>
 <a id="a617e3338273e5a48b7523937e0a653fa" name="a617e3338273e5a48b7523937e0a653fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a617e3338273e5a48b7523937e0a653fa">&#9670;&#160;</a></span>mstate</h2>
 
@@ -133,37 +148,22 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of objects </p>
+<p>Number of leaves </p>
 
 </div>
 </div>
-<a id="a043a36125ee7eb15f8787c42476b1428" name="a043a36125ee7eb15f8787c42476b1428"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a043a36125ee7eb15f8787c42476b1428">&#9670;&#160;</a></span>objdigests</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t* objdigests</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Object digest array </p>
-
-</div>
-</div>
-<a id="aa535a329bb7559cc0c5f41d12b09ee7a" name="aa535a329bb7559cc0c5f41d12b09ee7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa535a329bb7559cc0c5f41d12b09ee7a">&#9670;&#160;</a></span>objserials</h2>
+<a id="aad0315e4efb810416ae252f1a92ced76" name="aad0315e4efb810416ae252f1a92ced76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0315e4efb810416ae252f1a92ced76">&#9670;&#160;</a></span>ownerdigest</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* objserials</td>
+          <td class="memname">uint8_t ownerdigest[<a class="el" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Object serial array </p>
+<p>Owner certificate digest </p>
 
 </div>
 </div>

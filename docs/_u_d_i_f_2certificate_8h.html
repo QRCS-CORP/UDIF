@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -68,6 +68,8 @@ $(function(){initNavTree('_u_d_i_f_2certificate_8h.html','',''); });
 Data Structures</h2></td></tr>
 <tr class="memitem:udif_5Fcertificate" id="r_udif_5Fcertificate"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__certificate.html">udif_certificate</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UDIF entity certificate.  <a href="structudif__certificate.html#details">More...</a><br /></td></tr>
+<tr class="memitem:udif_5Fcertificate_5Fcsr" id="r_udif_5Fcertificate_5Fcsr"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UDIF certificate signing request.  <a href="structudif__certificate__csr.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -111,7 +113,7 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERTIFICATE_MINIMUM_PERIOD</b>&#160;&#160;&#160;((uint64_t)1U * 24U * 60U * 60U)</td></tr>
 <tr class="memdesc:a31641390475932a1792aebd35007759a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum certificate validity period in seconds. <br /></td></tr>
 <tr class="memitem:a37fc3bc4d5d7bb062f855eb3e11e11af" id="r_a37fc3bc4d5d7bb062f855eb3e11e11af"><td class="memItemLeft" align="right" valign="top"><a id="a37fc3bc4d5d7bb062f855eb3e11e11af" name="a37fc3bc4d5d7bb062f855eb3e11e11af"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERTIFICATE_POLICY_SIZE</b>&#160;&#160;&#160;4U</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERTIFICATE_POLICY_SIZE</b>&#160;&#160;&#160;8U</td></tr>
 <tr class="memdesc:a37fc3bc4d5d7bb062f855eb3e11e11af"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate policy field length. <br /></td></tr>
 <tr class="memitem:a96c505bf58d47f1aec83e9251220eee3" id="r_a96c505bf58d47f1aec83e9251220eee3"><td class="memItemLeft" align="right" valign="top"><a id="a96c505bf58d47f1aec83e9251220eee3" name="a96c505bf58d47f1aec83e9251220eee3"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERTIFICATE_ROLE_SIZE</b>&#160;&#160;&#160;1U</td></tr>
@@ -132,16 +134,43 @@ Macros</h2></td></tr>
 <tr class="memdesc:affd785e47983b7599a588abd9061d48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of a child certificate.  <br /></td></tr>
 <tr class="memitem:a281ae035bc40fd1d050a1fa56302ed3f" id="r_a281ae035bc40fd1d050a1fa56302ed3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a281ae035bc40fd1d050a1fa56302ed3f">UDIF_CERTIFICATE_SIGNING_SIZE</a></td></tr>
 <tr class="memdesc:a281ae035bc40fd1d050a1fa56302ed3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The length of the base child certificate.  <br /></td></tr>
+<tr class="memitem:a73ab60beec158ba7e8317a5470f9a6ab" id="r_a73ab60beec158ba7e8317a5470f9a6ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ab60beec158ba7e8317a5470f9a6ab">UDIF_CERTIFICATE_CSR_NONCE_SIZE</a>&#160;&#160;&#160;32U</td></tr>
+<tr class="memdesc:a73ab60beec158ba7e8317a5470f9a6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate signing request nonce size.  <br /></td></tr>
+<tr class="memitem:a3053f10b3cf814deb4039386da0459ba" id="r_a3053f10b3cf814deb4039386da0459ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3053f10b3cf814deb4039386da0459ba">UDIF_CERTIFICATE_CSR_SIGNING_SIZE</a></td></tr>
+<tr class="memdesc:a3053f10b3cf814deb4039386da0459ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate signing request byte length excluding the signature field.  <br /></td></tr>
+<tr class="memitem:a23ae890d6f0eab80741c4ec7d79cb91d" id="r_a23ae890d6f0eab80741c4ec7d79cb91d"><td class="memItemLeft" align="right" valign="top"><a id="a23ae890d6f0eab80741c4ec7d79cb91d" name="a23ae890d6f0eab80741c4ec7d79cb91d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERTIFICATE_CSR_SIZE</b>&#160;&#160;&#160;(<a class="el" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + <a class="el" href="#a3053f10b3cf814deb4039386da0459ba">UDIF_CERTIFICATE_CSR_SIGNING_SIZE</a>)</td></tr>
+<tr class="memdesc:a23ae890d6f0eab80741c4ec7d79cb91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The serialized certificate signing request byte length. <br /></td></tr>
+<tr class="memitem:a34e5dcd02c5d79af860d611246e2b3c5" id="r_a34e5dcd02c5d79af860d611246e2b3c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34e5dcd02c5d79af860d611246e2b3c5">_UDIF_CERT_SER_2</a>(out,  cert)</td></tr>
+<tr class="memitem:a91af43c8342f04defafdf100c1a2b19c" id="r_a91af43c8342f04defafdf100c1a2b19c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91af43c8342f04defafdf100c1a2b19c">_UDIF_CERT_SER_3</a>(out,  len,  cert)</td></tr>
+<tr class="memitem:a2e09a64224c12bc0e1bee3d4e946917f" id="r_a2e09a64224c12bc0e1bee3d4e946917f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e09a64224c12bc0e1bee3d4e946917f">_UDIF_CERT_SER_PICK</a>(_1,  _2,  _3,  NAME, ...)</td></tr>
+<tr class="memitem:ae936c226e834aaa5218a5b273da40af8" id="r_ae936c226e834aaa5218a5b273da40af8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae936c226e834aaa5218a5b273da40af8">UDIF_CERT_SERIALIZE</a>(...)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a98e54f67bc252db3d4ad147620f0390d" id="r_a98e54f67bc252db3d4ad147620f0390d"><td class="memItemLeft" align="right" valign="top"><a id="a98e54f67bc252db3d4ad147620f0390d" name="a98e54f67bc252db3d4ad147620f0390d"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_certificate&#160;</td><td class="memItemRight" valign="bottom"><b>udif_certificate</b></td></tr>
+<tr class="memitem:a641cbc2f6d7036af5382fd0691b4c896" id="r_a641cbc2f6d7036af5382fd0691b4c896"><td class="memItemLeft" align="right" valign="top"><a id="a641cbc2f6d7036af5382fd0691b4c896" name="a641cbc2f6d7036af5382fd0691b4c896"></a>
+typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_certificate_csr&#160;</td><td class="memItemRight" valign="bottom"><b>udif_certificate_csr</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a771ece225a4c29078e728ff41e7f71b9" id="r_a771ece225a4c29078e728ff41e7f71b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a771ece225a4c29078e728ff41e7f71b9">udif_certificate_check_capability_inheritance</a> (const uint8_t *childbitmap, const uint8_t *parentbitmap)</td></tr>
-<tr class="memdesc:a771ece225a4c29078e728ff41e7f71b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check capability inheritance.  <br /></td></tr>
+<tr class="memitem:ae8433b025cda18929c255c8f48f9d95b" id="r_ae8433b025cda18929c255c8f48f9d95b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8433b025cda18929c255c8f48f9d95b">udif_certificate_role_transition_valid</a> (<a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> parentrole, <a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> childrole)</td></tr>
+<tr class="memdesc:ae8433b025cda18929c255c8f48f9d95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a parent role may issue a child role.  <br /></td></tr>
+<tr class="memitem:a0fbd96c2fa2ba67c4adcce06cc8bf33b" id="r_a0fbd96c2fa2ba67c4adcce06cc8bf33b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fbd96c2fa2ba67c4adcce06cc8bf33b">udif_certificate_csr_compute_digest</a> (uint8_t *digest, const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr)</td></tr>
+<tr class="memdesc:a0fbd96c2fa2ba67c4adcce06cc8bf33b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the certificate signing request digest.  <br /></td></tr>
+<tr class="memitem:a8da021606b9e7276b899871296066e21" id="r_a8da021606b9e7276b899871296066e21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8da021606b9e7276b899871296066e21">udif_certificate_csr_create</a> (<a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr, const uint8_t *serial, const uint8_t *verkey, const uint8_t *sigkey, <a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role, const <a class="el" href="structudif__valid__time.html">udif_valid_time</a> *valid, uint64_t capability, uint64_t policy, uint64_t timestamp, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
+<tr class="memdesc:a8da021606b9e7276b899871296066e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and sign a certificate signing request.  <br /></td></tr>
+<tr class="memitem:ace41cd68ad8ad12d3b5f8ee69efe8cb5" id="r_ace41cd68ad8ad12d3b5f8ee69efe8cb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace41cd68ad8ad12d3b5f8ee69efe8cb5">udif_certificate_csr_deserialize</a> (<a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr, const uint8_t *input, size_t inplen)</td></tr>
+<tr class="memdesc:ace41cd68ad8ad12d3b5f8ee69efe8cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize a certificate signing request.  <br /></td></tr>
+<tr class="memitem:af9122d20fccf6e80c58f99ac25c67987" id="r_af9122d20fccf6e80c58f99ac25c67987"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9122d20fccf6e80c58f99ac25c67987">udif_certificate_csr_issue</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *parentcert, const uint8_t *parentsigkey, uint64_t curtime, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
+<tr class="memdesc:af9122d20fccf6e80c58f99ac25c67987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Issue a subordinate certificate from a verified CSR.  <br /></td></tr>
+<tr class="memitem:a712cc25e5ea9e2fc7da7bcf92814696d" id="r_a712cc25e5ea9e2fc7da7bcf92814696d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712cc25e5ea9e2fc7da7bcf92814696d">udif_certificate_csr_serialize</a> (uint8_t *output, size_t outlen, const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr)</td></tr>
+<tr class="memdesc:a712cc25e5ea9e2fc7da7bcf92814696d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a certificate signing request.  <br /></td></tr>
+<tr class="memitem:aa92a26d19e8f6f81801e2d119609955c" id="r_aa92a26d19e8f6f81801e2d119609955c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92a26d19e8f6f81801e2d119609955c">udif_certificate_csr_verify</a> (const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *csr)</td></tr>
+<tr class="memdesc:aa92a26d19e8f6f81801e2d119609955c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a certificate signing request proof of possession.  <br /></td></tr>
+<tr class="memitem:aa7b1c4c980e0585e1d21d5361f126671" id="r_aa7b1c4c980e0585e1d21d5361f126671"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7b1c4c980e0585e1d21d5361f126671">udif_certificate_check_capability_inheritance</a> (uint64_t childbitmap, uint64_t parentbitmap)</td></tr>
+<tr class="memdesc:aa7b1c4c980e0585e1d21d5361f126671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check capability inheritance.  <br /></td></tr>
 <tr class="memitem:a6d62e37391f9a7e31d8f6d6cdacb0e35" id="r_a6d62e37391f9a7e31d8f6d6cdacb0e35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d62e37391f9a7e31d8f6d6cdacb0e35">udif_certificate_compute_digest</a> (uint8_t *digest, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *cert)</td></tr>
 <tr class="memdesc:a6d62e37391f9a7e31d8f6d6cdacb0e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a child certificate and compute the digest.  <br /></td></tr>
 <tr class="memitem:ada72887255243a5ba172cf1c07abeed6" id="r_ada72887255243a5ba172cf1c07abeed6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada72887255243a5ba172cf1c07abeed6">udif_certificate_deserialize</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, const uint8_t *input, size_t inplen)</td></tr>
@@ -152,8 +181,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a50a05fc80e5caa2cfd636c0535b43ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a certificate.  <br /></td></tr>
 <tr class="memitem:a8f758d7a039e8e404a7265efd8204fb2" id="r_a8f758d7a039e8e404a7265efd8204fb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f758d7a039e8e404a7265efd8204fb2">udif_certificate_compare</a> (const <a class="el" href="structudif__certificate.html">udif_certificate</a> *a, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *b)</td></tr>
 <tr class="memdesc:a8f758d7a039e8e404a7265efd8204fb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two certificates.  <br /></td></tr>
-<tr class="memitem:aaccf995b5321c40af93c43250cea6b46" id="r_aaccf995b5321c40af93c43250cea6b46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaccf995b5321c40af93c43250cea6b46">udif_certificate_generate</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, <a class="el" href="structudif__signature__keypair.html">udif_signature_keypair</a> *keypair, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *parentcert, const uint8_t *parentsigkey, <a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role, const uint8_t *serial, <a class="el" href="structudif__valid__time.html">udif_valid_time</a> *valid, const uint8_t *capability, uint32_t policy, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
-<tr class="memdesc:aaccf995b5321c40af93c43250cea6b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a subordinate certificate.  <br /></td></tr>
+<tr class="memitem:af77bd6f0553dd0411bb4a6256ba602e7" id="r_af77bd6f0553dd0411bb4a6256ba602e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af77bd6f0553dd0411bb4a6256ba602e7">udif_certificate_generate</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, <a class="el" href="structudif__signature__keypair.html">udif_signature_keypair</a> *keypair, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *parentcert, const uint8_t *parentsigkey, <a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role, const uint8_t *serial, <a class="el" href="structudif__valid__time.html">udif_valid_time</a> *valid, uint64_t capability, uint64_t policy, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
+<tr class="memdesc:af77bd6f0553dd0411bb4a6256ba602e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a subordinate certificate.  <br /></td></tr>
 <tr class="memitem:a54475746db2c74ff1ff5e84431ac6436" id="r_a54475746db2c74ff1ff5e84431ac6436"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54475746db2c74ff1ff5e84431ac6436">udif_certificate_root_generate</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, <a class="el" href="structudif__signature__keypair.html">udif_signature_keypair</a> *keypair, const uint8_t *serial, <a class="el" href="structudif__valid__time.html">udif_valid_time</a> *valid, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
 <tr class="memdesc:a54475746db2c74ff1ff5e84431ac6436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a root certificate.  <br /></td></tr>
 <tr class="memitem:a018360afcacbc374d4b00327762c3eaf" id="r_a018360afcacbc374d4b00327762c3eaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a018360afcacbc374d4b00327762c3eaf">udif_certificate_is_expired</a> (const <a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, uint64_t curtime)</td></tr>
@@ -168,6 +197,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab65948a9914383801737cfef544806dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a certificate signature.  <br /></td></tr>
 <tr class="memitem:aa7520aff06dfc8acd8d7720e0b748225" id="r_aa7520aff06dfc8acd8d7720e0b748225"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7520aff06dfc8acd8d7720e0b748225">udif_certificate_verify_chain</a> (const <a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *issuer)</td></tr>
 <tr class="memdesc:aa7520aff06dfc8acd8d7720e0b748225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a certificate chain.  <br /></td></tr>
+<tr class="memitem:a05686d71adf5d51360d0f4752dd651a8" id="r_a05686d71adf5d51360d0f4752dd651a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05686d71adf5d51360d0f4752dd651a8">udif_certificate_generate_root</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, const uint8_t *serial, uint64_t validfrom, uint64_t validto, const uint8_t *sigkey, const uint8_t *verkey, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
+<tr class="memdesc:a05686d71adf5d51360d0f4752dd651a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a root (self-signed) certificate — flat parameter variant.  <br /></td></tr>
+<tr class="memitem:a1955bbc33ef24b2fa3664d5daa398dfe" id="r_a1955bbc33ef24b2fa3664d5daa398dfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1955bbc33ef24b2fa3664d5daa398dfe">udif_certificate_generate_subordinate</a> (<a class="el" href="structudif__certificate.html">udif_certificate</a> *cert, <a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role, uint64_t validfrom, uint64_t validto, const uint8_t *verkey)</td></tr>
+<tr class="memdesc:a1955bbc33ef24b2fa3664d5daa398dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a subordinate (child) certificate — flat parameter variant.  <br /></td></tr>
+<tr class="memitem:aa1b3452e496d68f813c4b25e5b11bffe" id="r_aa1b3452e496d68f813c4b25e5b11bffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1b3452e496d68f813c4b25e5b11bffe">udif_certificate_serialize_store</a> (uint8_t *output, const <a class="el" href="structudif__certificate.html">udif_certificate</a> *cert)</td></tr>
+<tr class="memdesc:aa1b3452e496d68f813c4b25e5b11bffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a certificate — returns byte count (2-argument variant).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UDIF certificate operations. </p>
@@ -179,6 +214,160 @@ Functions</h2></td></tr>
 <li>User Agents: Signed by Group Controller </li>
 </ul>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a34e5dcd02c5d79af860d611246e2b3c5" name="a34e5dcd02c5d79af860d611246e2b3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e5dcd02c5d79af860d611246e2b3c5">&#9670;&#160;</a></span>_UDIF_CERT_SER_2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _UDIF_CERT_SER_2</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cert</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">udif_certificate_serialize_store((out), (cert))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a91af43c8342f04defafdf100c1a2b19c" name="a91af43c8342f04defafdf100c1a2b19c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91af43c8342f04defafdf100c1a2b19c">&#9670;&#160;</a></span>_UDIF_CERT_SER_3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _UDIF_CERT_SER_3</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>len</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cert</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">udif_certificate_serialize((out), (len), (cert))</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2e09a64224c12bc0e1bee3d4e946917f" name="a2e09a64224c12bc0e1bee3d4e946917f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e09a64224c12bc0e1bee3d4e946917f">&#9670;&#160;</a></span>_UDIF_CERT_SER_PICK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _UDIF_CERT_SER_PICK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>_3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>NAME</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">NAME</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae936c226e834aaa5218a5b273da40af8" name="ae936c226e834aaa5218a5b273da40af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae936c226e834aaa5218a5b273da40af8">&#9670;&#160;</a></span>UDIF_CERT_SERIALIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CERT_SERIALIZE</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    _UDIF_CERT_SER_PICK(__VA_ARGS__, _UDIF_CERT_SER_3, _UDIF_CERT_SER_2, _)(__VA_ARGS__)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a73ab60beec158ba7e8317a5470f9a6ab" name="a73ab60beec158ba7e8317a5470f9a6ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ab60beec158ba7e8317a5470f9a6ab">&#9670;&#160;</a></span>UDIF_CERTIFICATE_CSR_NONCE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CERTIFICATE_CSR_NONCE_SIZE&#160;&#160;&#160;32U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The certificate signing request nonce size. </p>
+<p>DOXYGEN_IGNORE DOXYGEN_IGNORE DOXYGEN_IGNORE DOXYGEN_IGNORE DOXYGEN_IGNORE </p>
+
+</div>
+</div>
+<a id="a3053f10b3cf814deb4039386da0459ba" name="a3053f10b3cf814deb4039386da0459ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3053f10b3cf814deb4039386da0459ba">&#9670;&#160;</a></span>UDIF_CERTIFICATE_CSR_SIGNING_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CERTIFICATE_CSR_SIGNING_SIZE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#ac3ceda27cd471b41a2daaf30cc6a08ac">UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a51914757bc049238aba954b9f37c51ff">UDIF_VALID_TIME_STRUCTURE_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a8899a64dd6726662c35ebade441de60c">UDIF_CAPABILITY_MASK_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="#a37fc3bc4d5d7bb062f855eb3e11e11af">UDIF_CERTIFICATE_POLICY_SIZE</a> + \</div>
+<div class="line">    UDIF_VALID_TIME_SIZE + \</div>
+<div class="line">    <a class="code hl_define" href="#a73ab60beec158ba7e8317a5470f9a6ab">UDIF_CERTIFICATE_CSR_NONCE_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a2c4aaddbbf930d82c8261bc95bf46208">UDIF_ROLE_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a183b5321f6d2fbea990afc3818caf5e9">UDIF_SUITEID_SIZE</a>)</div>
+<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_a37fc3bc4d5d7bb062f855eb3e11e11af"><div class="ttname"><a href="#a37fc3bc4d5d7bb062f855eb3e11e11af">UDIF_CERTIFICATE_POLICY_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_POLICY_SIZE</div><div class="ttdoc">The certificate policy field length.</div><div class="ttdef"><b>Definition</b> certificate.h:161</div></div>
+<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_a73ab60beec158ba7e8317a5470f9a6ab"><div class="ttname"><a href="#a73ab60beec158ba7e8317a5470f9a6ab">UDIF_CERTIFICATE_CSR_NONCE_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_CSR_NONCE_SIZE</div><div class="ttdoc">The certificate signing request nonce size.</div><div class="ttdef"><b>Definition</b> certificate.h:310</div></div>
+<div class="ttc" id="audif_8h_html_a183b5321f6d2fbea990afc3818caf5e9"><div class="ttname"><a href="udif_8h.html#a183b5321f6d2fbea990afc3818caf5e9">UDIF_SUITEID_SIZE</a></div><div class="ttdeci">#define UDIF_SUITEID_SIZE</div><div class="ttdoc">The UDIF suite id parameter size.</div><div class="ttdef"><b>Definition</b> udif.h:574</div></div>
+<div class="ttc" id="audif_8h_html_a2c4aaddbbf930d82c8261bc95bf46208"><div class="ttname"><a href="udif_8h.html#a2c4aaddbbf930d82c8261bc95bf46208">UDIF_ROLE_SIZE</a></div><div class="ttdeci">#define UDIF_ROLE_SIZE</div><div class="ttdoc">The UDIF role parameter size.</div><div class="ttdef"><b>Definition</b> udif.h:513</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a51914757bc049238aba954b9f37c51ff"><div class="ttname"><a href="udif_8h.html#a51914757bc049238aba954b9f37c51ff">UDIF_VALID_TIME_STRUCTURE_SIZE</a></div><div class="ttdeci">#define UDIF_VALID_TIME_STRUCTURE_SIZE</div><div class="ttdoc">The certificate expiration date length.</div><div class="ttdef"><b>Definition</b> udif.h:592</div></div>
+<div class="ttc" id="audif_8h_html_a8899a64dd6726662c35ebade441de60c"><div class="ttname"><a href="udif_8h.html#a8899a64dd6726662c35ebade441de60c">UDIF_CAPABILITY_MASK_SIZE</a></div><div class="ttdeci">#define UDIF_CAPABILITY_MASK_SIZE</div><div class="ttdoc">The size of a capability mask in hex characters.</div><div class="ttdef"><b>Definition</b> udif.h:421</div></div>
+<div class="ttc" id="audif_8h_html_ac3ceda27cd471b41a2daaf30cc6a08ac"><div class="ttname"><a href="udif_8h.html#ac3ceda27cd471b41a2daaf30cc6a08ac">UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</a></div><div class="ttdeci">#define UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</div><div class="ttdoc">The byte size of the asymmetric signature verification-key array.</div><div class="ttdef"><b>Definition</b> udif.h:264</div></div>
+</div><!-- fragment -->
+<p>The certificate signing request byte length excluding the signature field. </p>
+
+</div>
+</div>
 <a id="a281ae035bc40fd1d050a1fa56302ed3f" name="a281ae035bc40fd1d050a1fa56302ed3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a281ae035bc40fd1d050a1fa56302ed3f">&#9670;&#160;</a></span>UDIF_CERTIFICATE_SIGNING_SIZE</h2>
 
@@ -197,14 +386,7 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a8899a64dd6726662c35ebade441de60c">UDIF_CAPABILITY_MASK_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a37fc3bc4d5d7bb062f855eb3e11e11af">UDIF_CERTIFICATE_POLICY_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a2c4aaddbbf930d82c8261bc95bf46208">UDIF_ROLE_SIZE</a> + <a class="code hl_define" href="udif_8h.html#a183b5321f6d2fbea990afc3818caf5e9">UDIF_SUITEID_SIZE</a>)</div>
-<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_a37fc3bc4d5d7bb062f855eb3e11e11af"><div class="ttname"><a href="#a37fc3bc4d5d7bb062f855eb3e11e11af">UDIF_CERTIFICATE_POLICY_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_POLICY_SIZE</div><div class="ttdoc">The certificate policy field length.</div><div class="ttdef"><b>Definition</b> certificate.h:162</div></div>
-<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_ac79eeb0997a293f4b539f69daadc13e9"><div class="ttname"><a href="#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_ISSUER_SIZE</div><div class="ttdoc">The maximum certificate issuer string length. The last character must be a string terminator.</div><div class="ttdef"><b>Definition</b> certificate.h:138</div></div>
-<div class="ttc" id="audif_8h_html_a183b5321f6d2fbea990afc3818caf5e9"><div class="ttname"><a href="udif_8h.html#a183b5321f6d2fbea990afc3818caf5e9">UDIF_SUITEID_SIZE</a></div><div class="ttdeci">#define UDIF_SUITEID_SIZE</div><div class="ttdoc">The UDIF suite id parameter size.</div><div class="ttdef"><b>Definition</b> udif.h:531</div></div>
-<div class="ttc" id="audif_8h_html_a2c4aaddbbf930d82c8261bc95bf46208"><div class="ttname"><a href="udif_8h.html#a2c4aaddbbf930d82c8261bc95bf46208">UDIF_ROLE_SIZE</a></div><div class="ttdeci">#define UDIF_ROLE_SIZE</div><div class="ttdoc">The UDIF role parameter size.</div><div class="ttdef"><b>Definition</b> udif.h:513</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
-<div class="ttc" id="audif_8h_html_a51914757bc049238aba954b9f37c51ff"><div class="ttname"><a href="udif_8h.html#a51914757bc049238aba954b9f37c51ff">UDIF_VALID_TIME_STRUCTURE_SIZE</a></div><div class="ttdeci">#define UDIF_VALID_TIME_STRUCTURE_SIZE</div><div class="ttdoc">The certificate expiration date length.</div><div class="ttdef"><b>Definition</b> udif.h:549</div></div>
-<div class="ttc" id="audif_8h_html_a8899a64dd6726662c35ebade441de60c"><div class="ttname"><a href="udif_8h.html#a8899a64dd6726662c35ebade441de60c">UDIF_CAPABILITY_MASK_SIZE</a></div><div class="ttdeci">#define UDIF_CAPABILITY_MASK_SIZE</div><div class="ttdoc">The size of a capability mask in hex characters.</div><div class="ttdef"><b>Definition</b> udif.h:421</div></div>
-<div class="ttc" id="audif_8h_html_ac3ceda27cd471b41a2daaf30cc6a08ac"><div class="ttname"><a href="udif_8h.html#ac3ceda27cd471b41a2daaf30cc6a08ac">UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</a></div><div class="ttdeci">#define UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</div><div class="ttdoc">The byte size of the asymmetric signature verification-key array.</div><div class="ttdef"><b>Definition</b> udif.h:264</div></div>
+<div class="ttc" id="a_u_d_i_f_2certificate_8h_html_ac79eeb0997a293f4b539f69daadc13e9"><div class="ttname"><a href="#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a></div><div class="ttdeci">#define UDIF_CERTIFICATE_ISSUER_SIZE</div><div class="ttdoc">The maximum certificate issuer string length. The last character must be a string terminator.</div><div class="ttdef"><b>Definition</b> certificate.h:137</div></div>
 </div><!-- fragment -->
 <p>The length of the base child certificate. </p>
 
@@ -231,15 +413,15 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a2c4aaddbbf930d82c8261bc95bf46208">UDIF_ROLE_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a183b5321f6d2fbea990afc3818caf5e9">UDIF_SUITEID_SIZE</a>)</div>
 <div class="ttc" id="audif_8h_html_a2f9c98b3a8f704a1e5cf414f2662ce9c"><div class="ttname"><a href="udif_8h.html#a2f9c98b3a8f704a1e5cf414f2662ce9c">UDIF_CAPABILITY_BITMAP_SIZE</a></div><div class="ttdeci">#define UDIF_CAPABILITY_BITMAP_SIZE</div><div class="ttdoc">Capability bitmap size in bytes (64-bit)</div><div class="ttdef"><b>Definition</b> udif.h:415</div></div>
-<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
 </div><!-- fragment -->
 <p>The length of a child certificate. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a771ece225a4c29078e728ff41e7f71b9" name="a771ece225a4c29078e728ff41e7f71b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a771ece225a4c29078e728ff41e7f71b9">&#9670;&#160;</a></span>udif_certificate_check_capability_inheritance()</h2>
+<a id="aa7b1c4c980e0585e1d21d5361f126671" name="aa7b1c4c980e0585e1d21d5361f126671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b1c4c980e0585e1d21d5361f126671">&#9670;&#160;</a></span>udif_certificate_check_capability_inheritance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,12 +429,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_certificate_check_capability_inheritance </td>
           <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>childbitmap</em></span>, </td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>childbitmap</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>parentbitmap</em></span>&#160;)</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>parentbitmap</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -261,8 +443,8 @@ Functions</h2></td></tr>
 <p>Verifies that child capabilities are a subset of parent capabilities.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">childbitmap</td><td>[const] The child capability bitmap </td></tr>
-    <tr><td class="paramname">parentbitmap</td><td>[const] The parent capability bitmap</td></tr>
+    <tr><td class="paramname">childbitmap</td><td>The child capability bitmap </td></tr>
+    <tr><td class="paramname">parentbitmap</td><td>The parent capability bitmap</td></tr>
   </table>
   </dd>
 </dl>
@@ -360,6 +542,271 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0fbd96c2fa2ba67c4adcce06cc8bf33b" name="a0fbd96c2fa2ba67c4adcce06cc8bf33b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fbd96c2fa2ba67c4adcce06cc8bf33b">&#9670;&#160;</a></span>udif_certificate_csr_compute_digest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_csr_compute_digest </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the certificate signing request digest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">digest</td><td>The output digest buffer </td></tr>
+    <tr><td class="paramname">csr</td><td>[const] The input certificate signing request</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a8da021606b9e7276b899871296066e21" name="a8da021606b9e7276b899871296066e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da021606b9e7276b899871296066e21">&#9670;&#160;</a></span>udif_certificate_csr_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_csr_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>serial</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>verkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>sigkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__valid__time.html">udif_valid_time</a> *</td>          <td class="paramname"><span class="paramname"><em>valid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>capability</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>policy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>timestamp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*</td>          <td class="paramname"><span class="paramname"><em>rng_generate&#160;</em></span>)(uint8_t *, size_t)&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create and sign a certificate signing request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">csr</td><td>The output certificate signing request </td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The requested certificate serial </td></tr>
+    <tr><td class="paramname">verkey</td><td>[const] The requestor verification key </td></tr>
+    <tr><td class="paramname">sigkey</td><td>[const] The requestor signing key </td></tr>
+    <tr><td class="paramname">role</td><td>The requested role </td></tr>
+    <tr><td class="paramname">valid</td><td>[const] The requested validity period </td></tr>
+    <tr><td class="paramname">capability</td><td>The requested capability bitmap </td></tr>
+    <tr><td class="paramname">policy</td><td>The requested policy value </td></tr>
+    <tr><td class="paramname">timestamp</td><td>The request timestamp </td></tr>
+    <tr><td class="paramname">rng_generate</td><td>Random number generator function</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="ace41cd68ad8ad12d3b5f8ee69efe8cb5" name="ace41cd68ad8ad12d3b5f8ee69efe8cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace41cd68ad8ad12d3b5f8ee69efe8cb5">&#9670;&#160;</a></span>udif_certificate_csr_deserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_csr_deserialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>inplen</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deserialize a certificate signing request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">csr</td><td>The output certificate signing request </td></tr>
+    <tr><td class="paramname">input</td><td>[const] The serialized CSR </td></tr>
+    <tr><td class="paramname">inplen</td><td>The serialized CSR length</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="af9122d20fccf6e80c58f99ac25c67987" name="af9122d20fccf6e80c58f99ac25c67987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9122d20fccf6e80c58f99ac25c67987">&#9670;&#160;</a></span>udif_certificate_csr_issue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_csr_issue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__certificate.html">udif_certificate</a> *</td>          <td class="paramname"><span class="paramname"><em>cert</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate.html">udif_certificate</a> *</td>          <td class="paramname"><span class="paramname"><em>parentcert</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>parentsigkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>curtime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*</td>          <td class="paramname"><span class="paramname"><em>rng_generate&#160;</em></span>)(uint8_t *, size_t)&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Issue a subordinate certificate from a verified CSR. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cert</td><td>The output subordinate certificate </td></tr>
+    <tr><td class="paramname">csr</td><td>[const] The certificate signing request </td></tr>
+    <tr><td class="paramname">parentcert</td><td>[const] The issuing parent certificate </td></tr>
+    <tr><td class="paramname">parentsigkey</td><td>[const] The parent signing key </td></tr>
+    <tr><td class="paramname">curtime</td><td>The current UTC time </td></tr>
+    <tr><td class="paramname">rng_generate</td><td>Random number generator function</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a712cc25e5ea9e2fc7da7bcf92814696d" name="a712cc25e5ea9e2fc7da7bcf92814696d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712cc25e5ea9e2fc7da7bcf92814696d">&#9670;&#160;</a></span>udif_certificate_csr_serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_csr_serialize </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>outlen</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serialize a certificate signing request. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>The output buffer </td></tr>
+    <tr><td class="paramname">outlen</td><td>The output buffer length </td></tr>
+    <tr><td class="paramname">csr</td><td>[const] The certificate signing request</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="aa92a26d19e8f6f81801e2d119609955c" name="aa92a26d19e8f6f81801e2d119609955c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92a26d19e8f6f81801e2d119609955c">&#9670;&#160;</a></span>udif_certificate_csr_verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_certificate_csr_verify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate__csr.html">udif_certificate_csr</a> *</td>          <td class="paramname"><span class="paramname"><em>csr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verify a certificate signing request proof of possession. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">csr</td><td>[const] The certificate signing request</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the CSR signature is valid </dd></dl>
+
+</div>
+</div>
 <a id="ada72887255243a5ba172cf1c07abeed6" name="ada72887255243a5ba172cf1c07abeed6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada72887255243a5ba172cf1c07abeed6">&#9670;&#160;</a></span>udif_certificate_deserialize()</h2>
 
@@ -398,8 +845,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaccf995b5321c40af93c43250cea6b46" name="aaccf995b5321c40af93c43250cea6b46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaccf995b5321c40af93c43250cea6b46">&#9670;&#160;</a></span>udif_certificate_generate()</h2>
+<a id="af77bd6f0553dd0411bb4a6256ba602e7" name="af77bd6f0553dd0411bb4a6256ba602e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77bd6f0553dd0411bb4a6256ba602e7">&#9670;&#160;</a></span>udif_certificate_generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -442,12 +889,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>capability</em></span>, </td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>capability</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>policy</em></span>, </td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>policy</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -475,6 +922,118 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a05686d71adf5d51360d0f4752dd651a8" name="a05686d71adf5d51360d0f4752dd651a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05686d71adf5d51360d0f4752dd651a8">&#9670;&#160;</a></span>udif_certificate_generate_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_generate_root </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__certificate.html">udif_certificate</a> *</td>          <td class="paramname"><span class="paramname"><em>cert</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>serial</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>validfrom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>validto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>sigkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>verkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*</td>          <td class="paramname"><span class="paramname"><em>rng_generate&#160;</em></span>)(uint8_t *, size_t)&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a root (self-signed) certificate — flat parameter variant. </p>
+<p>This is the variant called by server.c. It generates a fresh signing keypair internally and stores it in <code class="param">state-&gt;selfkeypair</code>, then delegates to udif_certificate_root_generate.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cert</td><td>Output certificate </td></tr>
+    <tr><td class="paramname">serial</td><td>16-byte random serial </td></tr>
+    <tr><td class="paramname">validfrom</td><td>UTC epoch seconds – start of validity </td></tr>
+    <tr><td class="paramname">validto</td><td>UTC epoch seconds – end of validity </td></tr>
+    <tr><td class="paramname">sigkey</td><td>Caller-owned signing key (used to self-sign; must have been generated before this call via udif_signature_generate_keypair) </td></tr>
+    <tr><td class="paramname">rng_generate</td><td>Entropy source</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a1955bbc33ef24b2fa3664d5daa398dfe" name="a1955bbc33ef24b2fa3664d5daa398dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1955bbc33ef24b2fa3664d5daa398dfe">&#9670;&#160;</a></span>udif_certificate_generate_subordinate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_certificate_generate_subordinate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__certificate.html">udif_certificate</a> *</td>          <td class="paramname"><span class="paramname"><em>cert</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>validfrom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>validto</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>verkey</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a subordinate (child) certificate — flat parameter variant. </p>
+<p>Called by server.c and ua.c. Differs from udif_certificate_generate in that it accepts the parent's verification key explicitly (so no keypair output is needed) and takes flat time scalars instead of a struct.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cert</td><td>Output certificate </td></tr>
+    <tr><td class="paramname">role</td><td>Role for the new certificate </td></tr>
+    <tr><td class="paramname">serial</td><td>16-byte random serial for the new certificate </td></tr>
+    <tr><td class="paramname">validfrom</td><td>UTC epoch seconds – start of validity </td></tr>
+    <tr><td class="paramname">validto</td><td>UTC epoch seconds – end of validity </td></tr>
+    <tr><td class="paramname">verkey</td><td>Subject verification key (already generated by caller)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>udif_error_none on success </dd></dl>
 
 </div>
 </div>
@@ -574,6 +1133,37 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae8433b025cda18929c255c8f48f9d95b" name="ae8433b025cda18929c255c8f48f9d95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8433b025cda18929c255c8f48f9d95b">&#9670;&#160;</a></span>udif_certificate_role_transition_valid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_certificate_role_transition_valid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a></td>          <td class="paramname"><span class="paramname"><em>parentrole</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a></td>          <td class="paramname"><span class="paramname"><em>childrole</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether a parent role may issue a child role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentrole</td><td>The issuing parent role </td></tr>
+    <tr><td class="paramname">childrole</td><td>The requested child role</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the transition is permitted </dd></dl>
+
+</div>
+</div>
 <a id="a54475746db2c74ff1ff5e84431ac6436" name="a54475746db2c74ff1ff5e84431ac6436"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54475746db2c74ff1ff5e84431ac6436">&#9670;&#160;</a></span>udif_certificate_root_generate()</h2>
 
@@ -659,6 +1249,38 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="aa1b3452e496d68f813c4b25e5b11bffe" name="aa1b3452e496d68f813c4b25e5b11bffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b3452e496d68f813c4b25e5b11bffe">&#9670;&#160;</a></span>udif_certificate_serialize_store()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> size_t udif_certificate_serialize_store </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__certificate.html">udif_certificate</a> *</td>          <td class="paramname"><span class="paramname"><em>cert</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serialize a certificate — returns byte count (2-argument variant). </p>
+<p>Convenience overload called by ua.c and the first serialize site in server.c: certsz = udif_certificate_serialize(buf, &amp;cert). Internally calls udif_certificate_serialize(buf, UDIF_CERTIFICATE_SIZE, cert).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>Output buffer (must be at least UDIF_CERTIFICATE_SIZE bytes) </td></tr>
+    <tr><td class="paramname">cert</td><td>[const] Certificate to serialize</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, or 0 on error </dd></dl>
 
 </div>
 </div>

@@ -17,7 +17,6 @@ var storage_8h =
     [ "udif_storage_get_callbacks", "storage_8h.html#a55018d902800b65fae234366bf93ed26", null ],
     [ "udif_storage_get_handle", "storage_8h.html#af221e83e94b8a9e116fc21d55949ec08", null ],
     [ "udif_storage_initialize", "storage_8h.html#abba718f102d7d6be452d062a921fec1c", null ],
-    [ "udif_storage_mkdir_recursive", "storage_8h.html#a9e451b1ea40546804209625fa054b29c", null ],
     [ "udif_storage_read", "storage_8h.html#aedba25fbe1ff5c4d58c11698bb117477", null ],
     [ "udif_storage_resolve_path", "storage_8h.html#a82a09103e0160c3749067adb5f7ed4d2", null ],
     [ "udif_storage_set_ledger", "storage_8h.html#a180b9de4ddc6ca1d5015329f76c0e627", null ],

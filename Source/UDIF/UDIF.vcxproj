@@ -144,27 +144,67 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="anchor.h" />
+    <ClInclude Include="bc.h" />
     <ClInclude Include="capability.h" />
+    <ClInclude Include="treatystore.h" />
+    <ClInclude Include="policy.h" />
+    <ClInclude Include="certstore.h" />
+    <ClInclude Include="capstore.h" />
     <ClInclude Include="certificate.h" />
+    <ClInclude Include="commands.h" />
+    <ClInclude Include="dispatch.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="gc.h" />
+    <ClInclude Include="handler.h" />
+    <ClInclude Include="help.h" />
+    <ClInclude Include="logger.h" />
     <ClInclude Include="mcelmanager.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="message.h" />
     <ClInclude Include="object.h" />
+    <ClInclude Include="qstpkeys.h" />
     <ClInclude Include="query.h" />
     <ClInclude Include="registry.h" />
     <ClInclude Include="doxymain.h" />
+    <ClInclude Include="resources.h" />
+    <ClInclude Include="root.h" />
+    <ClInclude Include="server.h" />
     <ClInclude Include="storage.h" />
+    <ClInclude Include="tunnel.h" />
+    <ClInclude Include="ua.h" />
     <ClInclude Include="udif.h" />
     <ClInclude Include="udifcommon.h" />
     <ClInclude Include="treaty.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="anchor.c" />
+    <ClCompile Include="bc.c" />
     <ClCompile Include="capability.c" />
+    <ClCompile Include="caphandler.c" />
+    <ClCompile Include="treatystore.c" />
+    <ClCompile Include="policy.c" />
+    <ClCompile Include="certstore.c" />
+    <ClCompile Include="capstore.c" />
     <ClCompile Include="certificate.c" />
+    <ClCompile Include="dispatch.c" />
+    <ClCompile Include="handler.c" />
+    <ClCompile Include="entity.c" />
+    <ClCompile Include="event.c" />
+    <ClCompile Include="gc.c" />
+    <ClCompile Include="help.c" />
+    <ClCompile Include="logger.c" />
     <ClCompile Include="mcelmanager.c" />
+    <ClCompile Include="menu.c" />
+    <ClCompile Include="message.c" />
     <ClCompile Include="object.c" />
     <ClCompile Include="query.c" />
     <ClCompile Include="registry.c" />
+    <ClCompile Include="root.c" />
+    <ClCompile Include="server.c" />
     <ClCompile Include="storage.c" />
+    <ClCompile Include="tunnel.c" />
+    <ClCompile Include="ua.c" />
     <ClCompile Include="udif.c" />
     <ClCompile Include="treaty.c" />
   </ItemGroup>
@@ -175,7 +215,7 @@
     <ProjectReference Include="..\..\QSC\QSC\QSC.vcxproj">
       <Project>{7b7f8e47-0f7c-4273-a229-a7ab2a452ea9}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\QSTP\QSTP\MPTP.vcxproj">
+    <ProjectReference Include="..\..\QSTP\QSTP\QSTP.vcxproj">
       <Project>{7044c00f-cf2f-49af-b1e9-4affc903ea41}</Project>
     </ProjectReference>
   </ItemGroup>

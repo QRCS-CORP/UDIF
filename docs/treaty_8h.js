@@ -9,6 +9,10 @@ var treaty_8h =
     [ "UDIF_TREATY_SCOPE_LOCAL", "treaty_8h.html#a663df841177cd8c5b2b2c23de48cb974", null ],
     [ "UDIF_TREATY_SCOPE_MAX", "treaty_8h.html#ac45811124a30ea18ccd3bd9e0a01ad3b", null ],
     [ "UDIF_TREATY_SCOPE_QUERY", "treaty_8h.html#a37480892b423c5203470cfb66032457f", null ],
+    [ "UDIF_TREATY_SCOPE_QUERY_ATTR", "treaty_8h.html#a839dff4ad8d5ef11f2909a3f4dc178ce", null ],
+    [ "UDIF_TREATY_SCOPE_QUERY_EXIST", "treaty_8h.html#ad1b61ba554d33713f4a472b6e64030a5", null ],
+    [ "UDIF_TREATY_SCOPE_QUERY_OWNER", "treaty_8h.html#a1f9612d56e2e517043529d257d32f4e2", null ],
+    [ "UDIF_TREATY_SCOPE_QUERY_PROOF", "treaty_8h.html#a6bc42cf1e50d2689eef7e8091c666479", null ],
     [ "UDIF_TREATY_SCOPE_QUERY_SIZE", "treaty_8h.html#a89460d616af7d8018c7de9f1468c094c", null ],
     [ "UDIF_TREATY_SCOPE_RESERVED1", "treaty_8h.html#a0c7af04845e202bad14e21a4bb54199f", null ],
     [ "UDIF_TREATY_SCOPE_RESERVED2", "treaty_8h.html#a24fee3d62f3d505c4a301b5cc7c0f366", null ],
@@ -17,6 +21,7 @@ var treaty_8h =
     [ "UDIF_TREATY_SCOPE_TREATY", "treaty_8h.html#a171b622a33051bd3a78bdc14c21c34b5", null ],
     [ "UDIF_TREATY_STRUCTURE_SIZE", "treaty_8h.html#afce42eca7c8d06ba86a7051b24e25d92", null ],
     [ "udif_treaty_accept", "treaty_8h.html#a7443856caa72ad106874b2e0152d3cc6", null ],
+    [ "udif_treaty_allows_query", "treaty_8h.html#a2949a165ea03eac6ed6f4f92bc760ee7", null ],
     [ "udif_treaty_allows_scope", "treaty_8h.html#a16d84a9c3a4546841cc51ee087201f59", null ],
     [ "udif_treaty_clear", "treaty_8h.html#aa85a41006ce8c07ea641aa474fbf1b30", null ],
     [ "udif_treaty_compare", "treaty_8h.html#aeee9b9c1932562805dcc64fe23c923bb", null ],
@@ -31,5 +36,6 @@ var treaty_8h =
     [ "udif_treaty_is_pending", "treaty_8h.html#aaeff6cc2a27593b2147f63bfb184bbea", null ],
     [ "udif_treaty_serialize", "treaty_8h.html#adb449867a90cc59e0055bc787ec8cc4e", null ],
     [ "udif_treaty_validate", "treaty_8h.html#aa0edee988370c7a37bff01df9bd5055d", null ],
-    [ "udif_treaty_verify", "treaty_8h.html#a8f1f1740d0b36b05255ce62705ff0359", null ]
+    [ "udif_treaty_verify", "treaty_8h.html#a8f1f1740d0b36b05255ce62705ff0359", null ],
+    [ "udif_treaty_verify_proposal", "treaty_8h.html#aa229c350b4c419e6b9c7a606e2eac576", null ]
 ];

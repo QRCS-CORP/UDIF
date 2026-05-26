@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -69,9 +69,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:afbf34647912513138b7521ad635d0145" id="r_afbf34647912513138b7521ad635d0145"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbf34647912513138b7521ad635d0145">verkey</a> [<a class="el" href="udif_8h.html#ac3ceda27cd471b41a2daaf30cc6a08ac">UDIF_ASYMMETRIC_VERIFICATION_KEY_SIZE</a>]</td></tr>
 <tr class="memitem:ae2e492be49d0f32fe9a3893c087ee663" id="r_ae2e492be49d0f32fe9a3893c087ee663"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2e492be49d0f32fe9a3893c087ee663">serial</a> [<a class="el" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a>]</td></tr>
 <tr class="memitem:ab8f95bf5e4d312c83561a82e1ed88955" id="r_ab8f95bf5e4d312c83561a82e1ed88955"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8f95bf5e4d312c83561a82e1ed88955">issuer</a> [<a class="el" href="_u_d_i_f_2certificate_8h.html#ac79eeb0997a293f4b539f69daadc13e9">UDIF_CERTIFICATE_ISSUER_SIZE</a>]</td></tr>
-<tr class="memitem:a030b8c22c3904470b0a263bd6782d926" id="r_a030b8c22c3904470b0a263bd6782d926"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a030b8c22c3904470b0a263bd6782d926">capability</a> [<a class="el" href="udif_8h.html#a2f9c98b3a8f704a1e5cf414f2662ce9c">UDIF_CAPABILITY_BITMAP_SIZE</a>]</td></tr>
 <tr class="memitem:a84411022f1995b943ee61196ae24fb9a" id="r_a84411022f1995b943ee61196ae24fb9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structudif__valid__time.html">udif_valid_time</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84411022f1995b943ee61196ae24fb9a">valid</a></td></tr>
-<tr class="memitem:ab10e6f7c8e73b5794c8d1dd787718cc8" id="r_ab10e6f7c8e73b5794c8d1dd787718cc8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab10e6f7c8e73b5794c8d1dd787718cc8">policy</a></td></tr>
+<tr class="memitem:ad571e325ca9fc0c921191c7cb3157c63" id="r_ad571e325ca9fc0c921191c7cb3157c63"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad571e325ca9fc0c921191c7cb3157c63">capability</a></td></tr>
+<tr class="memitem:a2fdfc8ecf641fa6f767646e776cbd3db" id="r_a2fdfc8ecf641fa6f767646e776cbd3db"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2fdfc8ecf641fa6f767646e776cbd3db">policy</a></td></tr>
 <tr class="memitem:ae8c0a97add9a6be1bac1bd1888fefae5" id="r_ae8c0a97add9a6be1bac1bd1888fefae5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udif_8h.html#a052bda99a26d79e00915b214e254b12f">udif_roles</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8c0a97add9a6be1bac1bd1888fefae5">role</a></td></tr>
 <tr class="memitem:a68e7f81fb7ceb24df1be636eed58d9bc" id="r_a68e7f81fb7ceb24df1be636eed58d9bc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68e7f81fb7ceb24df1be636eed58d9bc">suiteid</a></td></tr>
 </table>
@@ -79,14 +79,14 @@ Data Fields</h2></td></tr>
 <div class="textblock"><p>UDIF entity certificate. </p>
 <p>A certificate binds an entity to its public key and defines its capabilities within the UDIF hierarchy. Certificates are signed by their issuer and form a trust chain from the root authority. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="a030b8c22c3904470b0a263bd6782d926" name="a030b8c22c3904470b0a263bd6782d926"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a030b8c22c3904470b0a263bd6782d926">&#9670;&#160;</a></span>capability</h2>
+<a id="ad571e325ca9fc0c921191c7cb3157c63" name="ad571e325ca9fc0c921191c7cb3157c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad571e325ca9fc0c921191c7cb3157c63">&#9670;&#160;</a></span>capability</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t capability[<a class="el" href="udif_8h.html#a2f9c98b3a8f704a1e5cf414f2662ce9c">UDIF_CAPABILITY_BITMAP_SIZE</a>]</td>
+          <td class="memname">uint64_t capability</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -109,14 +109,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ab10e6f7c8e73b5794c8d1dd787718cc8" name="ab10e6f7c8e73b5794c8d1dd787718cc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab10e6f7c8e73b5794c8d1dd787718cc8">&#9670;&#160;</a></span>policy</h2>
+<a id="a2fdfc8ecf641fa6f767646e776cbd3db" name="a2fdfc8ecf641fa6f767646e776cbd3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fdfc8ecf641fa6f767646e776cbd3db">&#9670;&#160;</a></span>policy</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t policy</td>
+          <td class="memname">uint64_t policy</td>
         </tr>
       </table>
 </div><div class="memdoc">

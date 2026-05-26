@@ -5,6 +5,23 @@
 #include "sha3.h"
 #include "stringutils.h"
 
+static bool capability_bitmaps_are_valid(uint64_t verbsbitmap, uint64_t scopebitmap)
+{
+	const uint64_t scopemask = ((UINT64_C(1) << udif_scope_local) |
+		(UINT64_C(1) << udif_scope_intra_domain) |
+		(UINT64_C(1) << udif_scope_treaty));
+	bool res;
+
+	res = false;
+
+	if ((verbsbitmap & UDIF_CAP_RESERVED_FUTURE_CORE_MASK) == 0U && (scopebitmap & ~scopemask) == 0U)
+	{
+		res = true;
+	}
+
+	return res;
+}
+
 bool udif_capability_allows_scope(const udif_capability* capability, uint32_t scope)
 {
 	UDIF_ASSERT(capability != NULL);
@@ -61,21 +78,24 @@ udif_errors udif_capability_create(udif_capability* capability, uint32_t verbsbi
 	{
 		qsc_memutils_clear((uint8_t*)capability, sizeof(udif_capability));
 
-		capability->verbsbitmap = verbsbitmap;
-		capability->scopebitmap = scopebitmap;
-		qsc_memutils_copy(capability->issuedto, issuedto, UDIF_SERIAL_NUMBER_SIZE);
-		qsc_memutils_copy(capability->issuedby, issuedby, UDIF_SERIAL_NUMBER_SIZE);
-		capability->validto = validto;
-		capability->policy = policy;
-
-		/* compute digest */
-		err = udif_capability_compute_digest(capability->digest, capability);
-
-		if (err == udif_error_none)
+		if (capability_bitmaps_are_valid(verbsbitmap, scopebitmap) == true)
 		{
-			/* generate KMAC tag */
-			qsc_kmac256_compute(capability->tag, UDIF_CRYPTO_MAC_SIZE, capability->digest, UDIF_CRYPTO_HASH_SIZE, issuerkey, UDIF_CRYPTO_KEY_SIZE,
-				(const uint8_t*)UDIF_LABEL_CAP_DIGEST, sizeof(UDIF_LABEL_CAP_DIGEST) - 1U);
+			capability->verbsbitmap = verbsbitmap;
+			capability->scopebitmap = scopebitmap;
+			qsc_memutils_copy(capability->issuedto, issuedto, UDIF_SERIAL_NUMBER_SIZE);
+			qsc_memutils_copy(capability->issuedby, issuedby, UDIF_SERIAL_NUMBER_SIZE);
+			capability->validto = validto;
+			capability->policy = policy;
+
+			/* compute digest */
+			err = udif_capability_compute_digest(capability->digest, capability);
+
+			if (err == udif_error_none)
+			{
+				/* generate KMAC tag */
+				qsc_kmac256_compute(capability->tag, UDIF_CRYPTO_MAC_SIZE, capability->digest, UDIF_CRYPTO_HASH_SIZE, issuerkey, UDIF_CRYPTO_KEY_SIZE,
+					(const uint8_t*)UDIF_LABEL_CAP_DIGEST, sizeof(UDIF_LABEL_CAP_DIGEST) - 1U);
+			}
 		}
 	}
 
@@ -103,7 +123,7 @@ udif_errors udif_capability_compute_digest(uint8_t* digest, const udif_capabilit
 		pos += UDIF_VALID_TIME_SIZE;
 		qsc_intutils_le64to8(buf + pos, capability->verbsbitmap);
 		pos += UDIF_CAPABILITY_BITMAP_SIZE;
-		qsc_intutils_le32to8(buf + pos, capability->policy);
+		qsc_intutils_le64to8(buf + pos, capability->policy);
 
 		/* compute digest */
 		qsc_cshake256_compute(digest, UDIF_CRYPTO_HASH_SIZE, buf, sizeof(buf), (const uint8_t*)UDIF_LABEL_CAP_DIGEST, sizeof(UDIF_LABEL_CAP_DIGEST) - 1U, NULL, 0U);
@@ -123,7 +143,7 @@ udif_errors udif_capability_deserialize(udif_capability* capability, const uint8
 
 	err = udif_error_decode_failure;
 
-	if (input != NULL && capability != NULL && inplen >= UDIF_CAPABILITY_ENCODED_SIZE)
+	if (input != NULL && capability != NULL && inplen == UDIF_CAPABILITY_ENCODED_SIZE)
 	{
 		pos = 0U;
 
@@ -141,7 +161,7 @@ udif_errors udif_capability_deserialize(udif_capability* capability, const uint8
 		pos += UDIF_VALID_TIME_SIZE;
 		capability->verbsbitmap = qsc_intutils_le8to64(input + pos);
 		pos += UDIF_CAPABILITY_BITMAP_SIZE;
-		capability->policy = qsc_intutils_le8to32(input + pos);
+		capability->policy = qsc_intutils_le8to64(input + pos);
 		pos += UDIF_CAPABILITY_POLICY_SIZE;
 
 		err = udif_error_none;
@@ -219,7 +239,7 @@ udif_errors udif_capability_serialize(uint8_t* output, size_t outlen, const udif
 		pos += UDIF_VALID_TIME_SIZE;
 		qsc_intutils_le64to8(output + pos, capability->verbsbitmap);
 		pos += UDIF_CAPABILITY_BITMAP_SIZE;
-		qsc_intutils_le32to8(output + pos, capability->policy);
+		qsc_intutils_le64to8(output + pos, capability->policy);
 		pos += UDIF_CAPABILITY_POLICY_SIZE;
 
 		err = udif_error_none;
@@ -240,7 +260,8 @@ bool udif_capability_verify(const udif_capability* capability, const uint8_t* is
 
 	res = false;
 
-	if (capability != NULL && issuerkey != NULL)
+	if (capability != NULL && issuerkey != NULL &&
+		capability_bitmaps_are_valid(capability->verbsbitmap, capability->scopebitmap) == true)
 	{
 		/* make a copy to recompute digest */
 		qsc_memutils_copy((uint8_t*)&tcap, (const uint8_t*)capability, sizeof(udif_capability));

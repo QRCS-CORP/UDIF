@@ -53,6 +53,7 @@
 #define UDIF_MCEL_MANAGER_H
 
 #include "storage.h"
+#include "anchor.h"
 #include "mcel.h"
 
  /**
@@ -248,7 +249,7 @@ bool udif_mcel_read_record(udif_mcel_manager* mgr, uint64_t sequence, uint8_t* d
  */
 bool udif_mcel_get_ledger_size(const udif_mcel_manager* mgr, uint64_t* outcount);
 
-/* === Block & Checkpoint Operations === */
+/* Block and Checkpoint Operations */
 
 /*!
  * \brief Flush pending records to block
@@ -286,6 +287,25 @@ bool udif_mcel_create_checkpoint(udif_mcel_manager* mgr);
  * \return true on success
  */
 bool udif_mcel_create_checkpoint_group(udif_mcel_manager* mgr, udif_checkpoint_group* outgroup);
+
+/*!
+ * \brief Create a signed UDIF Anchor Record from coordinated MCEL checkpoints.
+ *
+ * This function seals a checkpoint group across the membership, registry, and
+ * transaction ledgers, then maps the checkpoint commitments into a UDIF anchor
+ * record. The caller supplies the child entity serial, the exact anchor
+ * sequence, and the child signing key.
+ *
+ * \param mgr: MCEL manager context.
+ * \param anchor: The output signed anchor record.
+ * \param childser: [const] The child entity certificate serial.
+ * \param sequence: The exact 0-indexed anchor sequence.
+ * \param sigkey: [const] The child signing key.
+ * \param rng_generate: Random number generator function.
+ *
+ * \return Returns true on success.
+ */
+bool udif_mcel_create_anchor(udif_mcel_manager* mgr, udif_anchor_record* anchor, const uint8_t* childser, uint64_t sequence, const uint8_t* sigkey, bool (*rng_generate)(uint8_t*, size_t));
 
 /*!
  * \brief Get default checkpoint configuration

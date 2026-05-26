@@ -76,7 +76,6 @@
 * creating a hierarchical chain of trust and accountability.
 */
 
-
 /*!
  * \def UDIF_ANCHOR_INTERVAL_SEC
  * \brief Default anchor interval (1 hour).
@@ -142,10 +141,10 @@
 	UDIF_CRYPTO_HASH_SIZE + \
 	UDIF_CRYPTO_HASH_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
+	UDIF_ANCHOR_SEQUENCE_SIZE + \
 	UDIF_VALID_TIME_SIZE + \
 	UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER + \
 	UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER + \
-	UDIF_ANCHOR_SEQUENCE_SIZE + \
 	UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER)
 
 /*!
@@ -158,9 +157,9 @@
 UDIF_EXPORT_API typedef struct udif_anchor_record
 {
 	uint8_t signature[UDIF_SIGNED_HASH_SIZE];		/*!< Child signature */
-	uint8_t mroot[UDIF_CRYPTO_HASH_SIZE];					/*!< Membership log root */
-	uint8_t regroot[UDIF_CRYPTO_HASH_SIZE];				/*!< Registry Merkle root */
-	uint8_t txroot[UDIF_CRYPTO_HASH_SIZE];					/*!< Transaction log root */
+	uint8_t mroot[UDIF_CRYPTO_HASH_SIZE];			/*!< Membership log root */
+	uint8_t regroot[UDIF_CRYPTO_HASH_SIZE];			/*!< Registry Merkle root */
+	uint8_t txroot[UDIF_CRYPTO_HASH_SIZE];			/*!< Transaction log root */
 	uint8_t childser[UDIF_SERIAL_NUMBER_SIZE];		/*!< Child entity serial */
 	uint64_t sequence;								/*!< Sequence number */
 	uint64_t timestamp;								/*!< Anchor timestamp */
@@ -290,16 +289,18 @@ UDIF_EXPORT_API bool udif_anchor_is_fresh(const udif_anchor_record* anchor, uint
 UDIF_EXPORT_API udif_errors udif_anchor_serialize(uint8_t* output, size_t outlen, const udif_anchor_record* anchor);
 
 /*!
-* \brief Validate anchor sequence
+* \brief Validate an anchor sequence against the expected value.
 *
-* Checks that sequence number is valid (non-zero, monotonic).
+* UDIF anchor sequences are 0-indexed and exact. The first accepted anchor
+* from a child MUST have sequence 0. Each subsequent anchor MUST have the
+* next expected sequence value.
 *
-* \param anchor: [const] The anchor record
-* \param prevseq: The previous sequence number (0 = first anchor)
+* \param anchor: [const] The anchor record.
+* \param expseq: The exact expected sequence number.
 *
-* \return Returns true if valid
+* \return Returns true if the anchor sequence equals expseq.
 */
-UDIF_EXPORT_API bool udif_anchor_validate_sequence(const udif_anchor_record* anchor, uint64_t prevseq);
+UDIF_EXPORT_API bool udif_anchor_validate_sequence(const udif_anchor_record* anchor, uint64_t expseq);
 
 /*!
 * \brief Verify an anchor record
@@ -307,8 +308,8 @@ UDIF_EXPORT_API bool udif_anchor_validate_sequence(const udif_anchor_record* anc
 * Verifies the signature and sequence on an anchor record.
 *
 * \param anchor: [const] The anchor record
-* \param pubkey: [const] The child's public key
-* \param expseq: The expected sequence number (0 = don't check)
+* \param childverkey: [const] The child's public verification key
+* \param expseq: The exact expected 0-indexed sequence number
 *
 * \return Returns true if valid
 */

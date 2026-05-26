@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -67,8 +67,12 @@ $(function(){initNavTree('registry_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:udif_5Fregistry_5Fcommit" id="r_udif_5Fregistry_5Fcommit"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__registry__commit.html">udif_registry_commit</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed canonical registry root commitment.  <a href="structudif__registry__commit.html#details">More...</a><br /></td></tr>
 <tr class="memitem:udif_5Fmerkle_5Fnode" id="r_udif_5Fmerkle_5Fnode"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__merkle__node.html">udif_merkle_node</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merkle proof node structure.  <a href="structudif__merkle__node.html#details">More...</a><br /></td></tr>
+<tr class="memitem:udif_5Fregistry_5Fleaf" id="r_udif_5Fregistry_5Fleaf"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canonical UDIF registry leaf.  <a href="structudif__registry__leaf.html#details">More...</a><br /></td></tr>
 <tr class="memitem:udif_5Fregistry_5Fstate" id="r_udif_5Fregistry_5Fstate"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structudif__registry__state.html">udif_registry_state</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">User Agent object registry.  <a href="structudif__registry__state.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
@@ -80,18 +84,45 @@ Macros</h2></td></tr>
 <tr class="memitem:aac1844025886d8a5bf86a5a853a25270" id="r_aac1844025886d8a5bf86a5a853a25270"><td class="memItemLeft" align="right" valign="top"><a id="aac1844025886d8a5bf86a5a853a25270" name="aac1844025886d8a5bf86a5a853a25270"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_REGISTRY_MAX_CAPACITY</b>&#160;&#160;&#160;1048576U</td></tr>
 <tr class="memdesc:aac1844025886d8a5bf86a5a853a25270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum registry capacity. <br /></td></tr>
+<tr class="memitem:ac1f6920f1d81c0adbd760fdd79cc9da2" id="r_ac1f6920f1d81c0adbd760fdd79cc9da2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1f6920f1d81c0adbd760fdd79cc9da2">UDIF_REGISTRY_COMMIT_STRUCTURE_SIZE</a></td></tr>
+<tr class="memdesc:ac1f6920f1d81c0adbd760fdd79cc9da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialized size of a signed registry commitment record.  <br /></td></tr>
+<tr class="memitem:a529d27c3279d2c34df1256db664bea52" id="r_a529d27c3279d2c34df1256db664bea52"><td class="memItemLeft" align="right" valign="top"><a id="a529d27c3279d2c34df1256db664bea52" name="a529d27c3279d2c34df1256db664bea52"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_REGISTRY_FLAG_ACTIVE</b>&#160;&#160;&#160;0x00000001UL</td></tr>
+<tr class="memdesc:a529d27c3279d2c34df1256db664bea52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry leaf active-state flag. <br /></td></tr>
+<tr class="memitem:a3904f83869702d95421b99325dcd23df" id="r_a3904f83869702d95421b99325dcd23df"><td class="memItemLeft" align="right" valign="top"><a id="a3904f83869702d95421b99325dcd23df" name="a3904f83869702d95421b99325dcd23df"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_REGISTRY_FLAG_DESTROYED</b>&#160;&#160;&#160;0x00000002UL</td></tr>
+<tr class="memdesc:a3904f83869702d95421b99325dcd23df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry leaf destroyed-state flag. <br /></td></tr>
+<tr class="memitem:adeed2154759d200882cd5de76ae544c9" id="r_adeed2154759d200882cd5de76ae544c9"><td class="memItemLeft" align="right" valign="top"><a id="adeed2154759d200882cd5de76ae544c9" name="adeed2154759d200882cd5de76ae544c9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_REGISTRY_FLAG_TRANSFERRED</b>&#160;&#160;&#160;0x00000004UL</td></tr>
+<tr class="memdesc:adeed2154759d200882cd5de76ae544c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry leaf transferred-state flag. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ae46547259b6fb7e41e98e9cd0966a2ff" id="r_ae46547259b6fb7e41e98e9cd0966a2ff"><td class="memItemLeft" align="right" valign="top"><a id="ae46547259b6fb7e41e98e9cd0966a2ff" name="ae46547259b6fb7e41e98e9cd0966a2ff"></a>
+typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_registry_commit&#160;</td><td class="memItemRight" valign="bottom"><b>udif_registry_commit</b></td></tr>
 <tr class="memitem:adf605ada728676007c277097792c475a" id="r_adf605ada728676007c277097792c475a"><td class="memItemLeft" align="right" valign="top"><a id="adf605ada728676007c277097792c475a" name="adf605ada728676007c277097792c475a"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_merkle_node&#160;</td><td class="memItemRight" valign="bottom"><b>udif_merkle_node</b></td></tr>
+<tr class="memitem:a627b4217a2a83caff15acd8da7ff005e" id="r_a627b4217a2a83caff15acd8da7ff005e"><td class="memItemLeft" align="right" valign="top"><a id="a627b4217a2a83caff15acd8da7ff005e" name="a627b4217a2a83caff15acd8da7ff005e"></a>
+typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_registry_leaf&#160;</td><td class="memItemRight" valign="bottom"><b>udif_registry_leaf</b></td></tr>
 <tr class="memitem:af1252c145a8705ae1eef8d71051ee2aa" id="r_af1252c145a8705ae1eef8d71051ee2aa"><td class="memItemLeft" align="right" valign="top"><a id="af1252c145a8705ae1eef8d71051ee2aa" name="af1252c145a8705ae1eef8d71051ee2aa"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_registry_state&#160;</td><td class="memItemRight" valign="bottom"><b>udif_registry_state</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a4402d8d64e9899cb414fa9ff5f6e9f33" id="r_a4402d8d64e9899cb414fa9ff5f6e9f33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4402d8d64e9899cb414fa9ff5f6e9f33">udif_registry_leaf_encode</a> (uint8_t *output, const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *leaf)</td></tr>
+<tr class="memdesc:a4402d8d64e9899cb414fa9ff5f6e9f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode a registry leaf in canonical UDIF order.  <br /></td></tr>
+<tr class="memitem:a31d52c261a40f782362fcab7691f4dcc" id="r_a31d52c261a40f782362fcab7691f4dcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31d52c261a40f782362fcab7691f4dcc">udif_registry_leaf_digest</a> (uint8_t *digest, const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *leaf)</td></tr>
+<tr class="memdesc:a31d52c261a40f782362fcab7691f4dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a registry leaf digest.  <br /></td></tr>
 <tr class="memitem:ad1205f24c338644a81f6cefb91405d52" id="r_ad1205f24c338644a81f6cefb91405d52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1205f24c338644a81f6cefb91405d52">udif_registry_add_object</a> (<a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, const <a class="el" href="structudif__object.html">udif_object</a> *obj)</td></tr>
 <tr class="memdesc:ad1205f24c338644a81f6cefb91405d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an object to the registry.  <br /></td></tr>
+<tr class="memitem:a46141ba520f10d54d45b8f6d0cd64004" id="r_a46141ba520f10d54d45b8f6d0cd64004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46141ba520f10d54d45b8f6d0cd64004">udif_registry_add_leaf</a> (<a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *leaf)</td></tr>
+<tr class="memdesc:a46141ba520f10d54d45b8f6d0cd64004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a canonical registry leaf.  <br /></td></tr>
+<tr class="memitem:a4a507840fcb295b7f7bf06c389f05e62" id="r_a4a507840fcb295b7f7bf06c389f05e62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a507840fcb295b7f7bf06c389f05e62">udif_registry_get_leaf</a> (<a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *leaf, const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, const uint8_t *serial)</td></tr>
+<tr class="memdesc:a4a507840fcb295b7f7bf06c389f05e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a registry leaf by object serial.  <br /></td></tr>
+<tr class="memitem:a09499b2d81e2e05a86169594d928cb54" id="r_a09499b2d81e2e05a86169594d928cb54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09499b2d81e2e05a86169594d928cb54">udif_registry_object_is_active</a> (const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, const uint8_t *serial)</td></tr>
+<tr class="memdesc:a09499b2d81e2e05a86169594d928cb54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether a registry leaf is active.  <br /></td></tr>
+<tr class="memitem:accf0c2273a9e620ab771b091086aeb97" id="r_accf0c2273a9e620ab771b091086aeb97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accf0c2273a9e620ab771b091086aeb97">udif_registry_transfer_object</a> (<a class="el" href="structudif__registry__state.html">udif_registry_state</a> *origin, <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *dest, const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *transfer)</td></tr>
+<tr class="memdesc:accf0c2273a9e620ab771b091086aeb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move an object leaf from one owner registry to another.  <br /></td></tr>
 <tr class="memitem:ab2474e291385c5d6484b61afc19d71bf" id="r_ab2474e291385c5d6484b61afc19d71bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2474e291385c5d6484b61afc19d71bf">udif_registry_get_capacity</a> (const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg)</td></tr>
 <tr class="memdesc:ab2474e291385c5d6484b61afc19d71bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get registry capacity.  <br /></td></tr>
 <tr class="memitem:a135bb95b5e77d76cf3ec52359bda125b" id="r_a135bb95b5e77d76cf3ec52359bda125b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a135bb95b5e77d76cf3ec52359bda125b">udif_registry_clear</a> (<a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg)</td></tr>
@@ -107,7 +138,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a7e4d524611b3fe9443fd0042bf3f7d57" id="r_a7e4d524611b3fe9443fd0042bf3f7d57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e4d524611b3fe9443fd0042bf3f7d57">udif_registry_get_count</a> (const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg)</td></tr>
 <tr class="memdesc:a7e4d524611b3fe9443fd0042bf3f7d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object count.  <br /></td></tr>
 <tr class="memitem:ad797b169f9b17892dc8c32a1d1604389" id="r_ad797b169f9b17892dc8c32a1d1604389"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad797b169f9b17892dc8c32a1d1604389">udif_registry_get_digest_at</a> (uint8_t *digest, const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, size_t index)</td></tr>
-<tr class="memdesc:ad797b169f9b17892dc8c32a1d1604389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get object digest at index.  <br /></td></tr>
+<tr class="memdesc:ad797b169f9b17892dc8c32a1d1604389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get registry leaf digest at index.  <br /></td></tr>
 <tr class="memitem:a081a8a7f053c079d57b64d12f6d21b81" id="r_a081a8a7f053c079d57b64d12f6d21b81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081a8a7f053c079d57b64d12f6d21b81">udif_registry_initialize</a> (<a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg, const uint8_t *ownerser, size_t capacity)</td></tr>
 <tr class="memdesc:a081a8a7f053c079d57b64d12f6d21b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a registry.  <br /></td></tr>
 <tr class="memitem:a5bdbd96216b949d6866d58348ef519d8" id="r_a5bdbd96216b949d6866d58348ef519d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdbd96216b949d6866d58348ef519d8">udif_registry_is_full</a> (const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *reg)</td></tr>
@@ -120,6 +151,18 @@ Functions</h2></td></tr>
 <tr class="memdesc:a1242a92a294d009364ee7edba89d2e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update an object in the registry.  <br /></td></tr>
 <tr class="memitem:aefd8d3be1546cf2bb251a5dbe98f0f3e" id="r_aefd8d3be1546cf2bb251a5dbe98f0f3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefd8d3be1546cf2bb251a5dbe98f0f3e">udif_registry_verify_proof</a> (const uint8_t *proof, size_t prooflen, const uint8_t *root, const uint8_t *objdigest)</td></tr>
 <tr class="memdesc:aefd8d3be1546cf2bb251a5dbe98f0f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify membership proof.  <br /></td></tr>
+<tr class="memitem:abbfb761d92878961b9e0e95889968f70" id="r_abbfb761d92878961b9e0e95889968f70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbfb761d92878961b9e0e95889968f70">udif_registry_commit_clear</a> (<a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit)</td></tr>
+<tr class="memdesc:abbfb761d92878961b9e0e95889968f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear a registry commitment record.  <br /></td></tr>
+<tr class="memitem:a6320cdf60b588b797c78d47e453230e4" id="r_a6320cdf60b588b797c78d47e453230e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6320cdf60b588b797c78d47e453230e4">udif_registry_commit_digest</a> (uint8_t *digest, const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit)</td></tr>
+<tr class="memdesc:a6320cdf60b588b797c78d47e453230e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the canonical digest of a registry commitment.  <br /></td></tr>
+<tr class="memitem:ab566ea12685d2db95b4f9092e25d09fa" id="r_ab566ea12685d2db95b4f9092e25d09fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab566ea12685d2db95b4f9092e25d09fa">udif_registry_commit_deserialize</a> (<a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit, const uint8_t *input, size_t inlen)</td></tr>
+<tr class="memdesc:ab566ea12685d2db95b4f9092e25d09fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserialize a signed registry commitment.  <br /></td></tr>
+<tr class="memitem:a0778e3d43ecde202444751e2515d1433" id="r_a0778e3d43ecde202444751e2515d1433"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0778e3d43ecde202444751e2515d1433">udif_registry_commit_serialize</a> (uint8_t *output, size_t outlen, const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit)</td></tr>
+<tr class="memdesc:a0778e3d43ecde202444751e2515d1433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize a signed registry commitment.  <br /></td></tr>
+<tr class="memitem:a6ef5ab7ed9e6183374b2202e21a5b3d1" id="r_a6ef5ab7ed9e6183374b2202e21a5b3d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ef5ab7ed9e6183374b2202e21a5b3d1">udif_registry_commit_sign</a> (<a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit, const uint8_t *sigkey, bool(*rng_generate)(uint8_t *, size_t))</td></tr>
+<tr class="memdesc:a6ef5ab7ed9e6183374b2202e21a5b3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sign a registry commitment.  <br /></td></tr>
+<tr class="memitem:ae174d06e48f9dcc65ff1ff952f5293ed" id="r_ae174d06e48f9dcc65ff1ff952f5293ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae174d06e48f9dcc65ff1ff952f5293ed">udif_registry_commit_verify</a> (const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *commit, const uint8_t *verkey)</td></tr>
+<tr class="memdesc:ae174d06e48f9dcc65ff1ff952f5293ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify a registry commitment signature.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UDIF object registry management. </p>
@@ -134,7 +177,64 @@ Functions</h2></td></tr>
 <li>Verify: Verify membership proof</li>
 </ul>
 <p>The registry uses SHA3-256 for Merkle tree hashing with domain separation to prevent cross-context attacks. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="ac1f6920f1d81c0adbd760fdd79cc9da2" name="ac1f6920f1d81c0adbd760fdd79cc9da2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1f6920f1d81c0adbd760fdd79cc9da2">&#9670;&#160;</a></span>UDIF_REGISTRY_COMMIT_STRUCTURE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_REGISTRY_COMMIT_STRUCTURE_SIZE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
+<div class="line">    sizeof(uint64_t) + \</div>
+<div class="line">    sizeof(uint64_t))</div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
+<div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
+</div><!-- fragment -->
+<p>Serialized size of a signed registry commitment record. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a46141ba520f10d54d45b8f6d0cd64004" name="a46141ba520f10d54d45b8f6d0cd64004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46141ba520f10d54d45b8f6d0cd64004">&#9670;&#160;</a></span>udif_registry_add_leaf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_add_leaf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *</td>          <td class="paramname"><span class="paramname"><em>leaf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a canonical registry leaf. </p>
+<p>Adds a canonical leaf to the registry or updates the existing leaf with the same object serial. The registry remains sorted by object digest.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>The registry state structure. </td></tr>
+    <tr><td class="paramname">leaf</td><td>[const] The canonical leaf to store.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
+
+</div>
+</div>
 <a id="ad1205f24c338644a81f6cefb91405d52" name="ad1205f24c338644a81f6cefb91405d52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad1205f24c338644a81f6cefb91405d52">&#9670;&#160;</a></span>udif_registry_add_object()</h2>
 
@@ -190,6 +290,204 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="abbfb761d92878961b9e0e95889968f70" name="abbfb761d92878961b9e0e95889968f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbfb761d92878961b9e0e95889968f70">&#9670;&#160;</a></span>udif_registry_commit_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> void udif_registry_commit_clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear a registry commitment record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commit</td><td>The registry commitment record. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab566ea12685d2db95b4f9092e25d09fa" name="ab566ea12685d2db95b4f9092e25d09fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab566ea12685d2db95b4f9092e25d09fa">&#9670;&#160;</a></span>udif_registry_commit_deserialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_commit_deserialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>inlen</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deserialize a signed registry commitment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commit</td><td>The output commitment. </td></tr>
+    <tr><td class="paramname">input</td><td>[const] The encoded commitment. </td></tr>
+    <tr><td class="paramname">inlen</td><td>The encoded commitment length.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
+
+</div>
+</div>
+<a id="a6320cdf60b588b797c78d47e453230e4" name="a6320cdf60b588b797c78d47e453230e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6320cdf60b588b797c78d47e453230e4">&#9670;&#160;</a></span>udif_registry_commit_digest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_commit_digest </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the canonical digest of a registry commitment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">digest</td><td>The output digest. </td></tr>
+    <tr><td class="paramname">commit</td><td>[const] The registry commitment.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
+
+</div>
+</div>
+<a id="a0778e3d43ecde202444751e2515d1433" name="a0778e3d43ecde202444751e2515d1433"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0778e3d43ecde202444751e2515d1433">&#9670;&#160;</a></span>udif_registry_commit_serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_commit_serialize </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>outlen</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serialize a signed registry commitment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>The output buffer. </td></tr>
+    <tr><td class="paramname">outlen</td><td>The output buffer size. </td></tr>
+    <tr><td class="paramname">commit</td><td>[const] The commitment to serialize.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
+
+</div>
+</div>
+<a id="a6ef5ab7ed9e6183374b2202e21a5b3d1" name="a6ef5ab7ed9e6183374b2202e21a5b3d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef5ab7ed9e6183374b2202e21a5b3d1">&#9670;&#160;</a></span>udif_registry_commit_sign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_commit_sign </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>sigkey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool(*</td>          <td class="paramname"><span class="paramname"><em>rng_generate&#160;</em></span>)(uint8_t *, size_t)&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sign a registry commitment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commit</td><td>The registry commitment. </td></tr>
+    <tr><td class="paramname">sigkey</td><td>[const] The signing key. </td></tr>
+    <tr><td class="paramname">rng_generate</td><td>The random generator.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
+
+</div>
+</div>
+<a id="ae174d06e48f9dcc65ff1ff952f5293ed" name="ae174d06e48f9dcc65ff1ff952f5293ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae174d06e48f9dcc65ff1ff952f5293ed">&#9670;&#160;</a></span>udif_registry_commit_verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_registry_commit_verify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__commit.html">udif_registry_commit</a> *</td>          <td class="paramname"><span class="paramname"><em>commit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>verkey</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verify a registry commitment signature. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commit</td><td>[const] The registry commitment. </td></tr>
+    <tr><td class="paramname">verkey</td><td>[const] The signer verification key.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the signature is valid. </dd></dl>
 
 </div>
 </div>
@@ -280,7 +578,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td>[const] The registry state structure </td></tr>
-    <tr><td class="paramname">serial</td><td>[const] The object serial (16 bytes) </td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The object serial (32 bytes) </td></tr>
     <tr><td class="paramname">index</td><td>Pointer to receive the object index</td></tr>
   </table>
   </dd>
@@ -325,7 +623,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">proof</td><td>The output proof buffer </td></tr>
     <tr><td class="paramname">prooflen</td><td>Pointer to proof length (in: buffer size, out: bytes written) </td></tr>
     <tr><td class="paramname">reg</td><td>[const] The registry state structure </td></tr>
-    <tr><td class="paramname">serial</td><td>[const] The object serial (16 bytes)</td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The object serial (32 bytes)</td></tr>
   </table>
   </dd>
 </dl>
@@ -411,17 +709,54 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get object digest at index. </p>
-<p>Retrieves the digest of an object at a specific index.</p>
+<p>Get registry leaf digest at index. </p>
+<p>Retrieves the canonical registry leaf digest at a specific index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">digest</td><td>The output digest (32 bytes) </td></tr>
+    <tr><td class="paramname">digest</td><td>The output leaf digest (32 bytes) </td></tr>
     <tr><td class="paramname">reg</td><td>[const] The registry state structure </td></tr>
     <tr><td class="paramname">index</td><td>The object index</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="a4a507840fcb295b7f7bf06c389f05e62" name="a4a507840fcb295b7f7bf06c389f05e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a507840fcb295b7f7bf06c389f05e62">&#9670;&#160;</a></span>udif_registry_get_leaf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_get_leaf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *</td>          <td class="paramname"><span class="paramname"><em>leaf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>serial</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy a registry leaf by object serial. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaf</td><td>The output leaf. </td></tr>
+    <tr><td class="paramname">reg</td><td>[const] The registry state structure. </td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The object serial (32 bytes).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
 
 </div>
 </div>
@@ -490,6 +825,99 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a31d52c261a40f782362fcab7691f4dcc" name="a31d52c261a40f782362fcab7691f4dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31d52c261a40f782362fcab7691f4dcc">&#9670;&#160;</a></span>udif_registry_leaf_digest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_leaf_digest </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *</td>          <td class="paramname"><span class="paramname"><em>leaf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute a registry leaf digest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">digest</td><td>The output leaf digest. </td></tr>
+    <tr><td class="paramname">leaf</td><td>[const] The registry leaf.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>eturn Returns udif_error_none on success. </p>
+
+</div>
+</div>
+<a id="a4402d8d64e9899cb414fa9ff5f6e9f33" name="a4402d8d64e9899cb414fa9ff5f6e9f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4402d8d64e9899cb414fa9ff5f6e9f33">&#9670;&#160;</a></span>udif_registry_leaf_encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_leaf_encode </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__leaf.html">udif_registry_leaf</a> *</td>          <td class="paramname"><span class="paramname"><em>leaf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encode a registry leaf in canonical UDIF order. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>The output buffer. </td></tr>
+    <tr><td class="paramname">leaf</td><td>[const] The registry leaf.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>eturn Returns udif_error_none on success. </p>
+
+</div>
+</div>
+<a id="a09499b2d81e2e05a86169594d928cb54" name="a09499b2d81e2e05a86169594d928cb54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09499b2d81e2e05a86169594d928cb54">&#9670;&#160;</a></span>udif_registry_object_is_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool udif_registry_object_is_active </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>serial</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test whether a registry leaf is active. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>[const] The registry state structure. </td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The object serial (32 bytes).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the object is present and active. </dd></dl>
+
+</div>
+</div>
 <a id="a3bf9684e30b6ce868e5953b96014c183" name="a3bf9684e30b6ce868e5953b96014c183"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3bf9684e30b6ce868e5953b96014c183">&#9670;&#160;</a></span>udif_registry_remove_object()</h2>
 
@@ -510,11 +938,11 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Remove an object from the registry. </p>
-<p>Removes an object's digest from the registry.</p>
+<p>Marks an object leaf as destroyed without removing the audit leaf.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td>The registry state structure </td></tr>
-    <tr><td class="paramname">serial</td><td>[const] The object serial</td></tr>
+    <tr><td class="paramname">serial</td><td>[const] The object serial (32 bytes)</td></tr>
   </table>
   </dd>
 </dl>
@@ -551,6 +979,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success </dd></dl>
+
+</div>
+</div>
+<a id="accf0c2273a9e620ab771b091086aeb97" name="accf0c2273a9e620ab771b091086aeb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf0c2273a9e620ab771b091086aeb97">&#9670;&#160;</a></span>udif_registry_transfer_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> udif_registry_transfer_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structudif__registry__state.html">udif_registry_state</a> *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structudif__transfer__record.html">udif_transfer_record</a> *</td>          <td class="paramname"><span class="paramname"><em>transfer</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move an object leaf from one owner registry to another. </p>
+<p>Marks the origin registry leaf as transferred and inactive, then creates or updates the destination registry leaf as active under the destination owner digest.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origin</td><td>The origin owner registry. </td></tr>
+    <tr><td class="paramname">dest</td><td>The destination owner registry. </td></tr>
+    <tr><td class="paramname">transfer</td><td>[const] The verified transfer record.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns udif_error_none on success. </dd></dl>
 
 </div>
 </div>
@@ -616,13 +1082,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Verify membership proof. </p>
-<p>Verifies a Merkle inclusion proof against a registry root.</p>
+<p>Verifies a Merkle inclusion proof against a registry root using the canonical left/right proof orientation emitted by udif_registry_get_proof.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">proof</td><td>[const] The proof data </td></tr>
     <tr><td class="paramname">prooflen</td><td>The proof length </td></tr>
     <tr><td class="paramname">root</td><td>[const] The registry Merkle root (32 bytes) </td></tr>
-    <tr><td class="paramname">object_digest</td><td>[const] The object digest (32 bytes)</td></tr>
+    <tr><td class="paramname">objdigest</td><td>[const] The object digest (32 bytes)</td></tr>
   </table>
   </dd>
 </dl>

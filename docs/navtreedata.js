@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "UDIF: Universal Digital Identification Framework", "index.html", [
-    [ "Authenticated Encrypted Relay Network (UDIF)", "index.html", "index" ],
+    [ "Universal Digital Identification Framework (UDIF)", "index.html", "index" ],
     [ "Test List", "test.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
@@ -40,9 +40,10 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", "globals_func" ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", "globals_eval" ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -51,11 +52,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_saved_2certificate_8h.html",
-"commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7a057ab4a6343189293e58b16808e3c0da",
-"globals_l.html",
-"storage_8h.html",
-"structudif__storage__context.html#a9c74b9fc9c5e30688da904705650de31",
-"udif_8h.html#a8aae39fe7aede2040c460995adbe988b"
+"_saved_2commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7ac2bff0f00900f7d500b2c0e786b3e9e3",
+"_u_d_i_f_2commands_8h.html#ae73fb79b9a8f17c3fc84ff3a9d0d9fe7a2a258dc824ee82300c0c0c5efaf0c89e",
+"capability_8h.html#a7c25f0637e43e19d5dc4450626f120bc",
+"functions_vars_v.html",
+"registry_8h.html#a9a70b247225fe649cbc1eed0897bd69d",
+"structudif__mcel__manager.html#a1d74524863e4134153f0c9163999c1d2",
+"topology_8h.html#a494c131ac7e29bce6501400b68b827fa",
+"udif_8h.html#a56e40392ca326bbd07dbd1df539be049"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

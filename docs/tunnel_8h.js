@@ -1,0 +1,46 @@
+var tunnel_8h =
+[
+    [ "udif_tunnel_record_header", "structudif__tunnel__record__header.html", "structudif__tunnel__record__header" ],
+    [ "udif_tunnel", "structudif__tunnel.html", "structudif__tunnel" ],
+    [ "UDIF_IDLE_TEARDOWN_MULTIPLIER", "tunnel_8h.html#a764ef36b8fdb5d10a34c54de376fc5f9", null ],
+    [ "UDIF_IDLE_TEARDOWN_SECONDS", "tunnel_8h.html#afccb10545d3b1dd30708fadb3e3db250", null ],
+    [ "UDIF_KEEPALIVE_INTERVAL_A_SECONDS", "tunnel_8h.html#ac1b7bc279246a1e9442bfaf88e6b3f07", null ],
+    [ "UDIF_KEEPALIVE_INTERVAL_E_SECONDS", "tunnel_8h.html#a266c92fd7dc46d43cfbb8af32a8d7c96", null ],
+    [ "UDIF_KEEPALIVE_INTERVAL_SECONDS", "tunnel_8h.html#aa35d8d6d177977b3ede4aa305d4c99d6", null ],
+    [ "UDIF_KEEPALIVE_INTERVAL_U_SECONDS", "tunnel_8h.html#a65f5c9419811e84a36eb0e0aa5ff4712", null ],
+    [ "UDIF_RATCHET_INTERVAL_SECONDS", "tunnel_8h.html#ab33c370372136e9bcb8f4fad0ef8e15a", null ],
+    [ "UDIF_RATCHET_JITTER_SECONDS", "tunnel_8h.html#ab9d0f716b2a60fdc19f660557387de25", null ],
+    [ "UDIF_TRANSPORT_HEADER_EXTERNAL_AAD", "tunnel_8h.html#a99fe8a6b802b09023d0808ef65a38982", null ],
+    [ "UDIF_TRANSPORT_PROFILE_QSTP_INNER_HEADER", "tunnel_8h.html#a545cc44583ea784dc891e45e4cfbf665", null ],
+    [ "UDIF_TRANSPORT_RATCHET_DELEGATED_TO_QSTP", "tunnel_8h.html#a44b7ac44d881e296511d956e13c6353b", null ],
+    [ "UDIF_TUNNEL_FLAG_CLOSE", "tunnel_8h.html#ada3c983fb87776c6f6b6863938b8047e", null ],
+    [ "UDIF_TUNNEL_FLAG_CONTROL", "tunnel_8h.html#aae387951487482e988421a940d4dd3a1", null ],
+    [ "UDIF_TUNNEL_FLAG_DATA", "tunnel_8h.html#a1c5927d6bc19c5b44b9197d09e73e152", null ],
+    [ "UDIF_TUNNEL_FLAG_KEEPALIVE", "tunnel_8h.html#a8eb4088fa2cdbedc4e28aea328ae6ace", null ],
+    [ "UDIF_TUNNEL_RECORD_HEADER_SIZE", "tunnel_8h.html#a08ff2750dad5bc093515064dd013f911", null ],
+    [ "UDIF_TUNNEL_TIME_WINDOW_SECONDS", "tunnel_8h.html#a1e6d8c7da869cdae0fba1bc3378fb461", null ],
+    [ "udif_rolepair", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727", [
+      [ "udif_rolepair_none", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727a73a7a9606661ffd55d7141221924dadc", null ],
+      [ "udif_rolepair_ua_gc", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727a9a2d1d83176cc2d22f7b368f6bdee28a", null ],
+      [ "udif_rolepair_gc_bc", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727ae39cfdd4a84b517ff05ba98f6961d419", null ],
+      [ "udif_rolepair_bc_bc", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727a462cd7f8c0a3924d0068858476cbc67f", null ],
+      [ "udif_rolepair_bc_root", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727a8729599426baca4af238def002305c5a", null ],
+      [ "udif_rolepair_treaty", "tunnel_8h.html#a1522f5f8607974079a832fdddf85f727a8176104a885f74ebdbde551a715302b2", null ]
+    ] ],
+    [ "udif_tunnel_side", "tunnel_8h.html#ab69461b85b90000c15a8c9339a17686f", [
+      [ "udif_tunnel_side_client", "tunnel_8h.html#ab69461b85b90000c15a8c9339a17686fa2190057ea7c2c472a339e165b36f164a", null ],
+      [ "udif_tunnel_side_server", "tunnel_8h.html#ab69461b85b90000c15a8c9339a17686fab5e8f2479c5db50bef6352ed1328b0da", null ]
+    ] ],
+    [ "udif_tunnel_close", "tunnel_8h.html#ab50da8f7f02258bfe03153af271da047", null ],
+    [ "udif_tunnel_init", "tunnel_8h.html#a61b9692d7f087d386b76da3902afd7c8", null ],
+    [ "udif_tunnel_is_open", "tunnel_8h.html#a7ec08a70986721ea3e04705fcae194b0", null ],
+    [ "udif_tunnel_on_receive", "tunnel_8h.html#a50101f47f0c88e56a762325f02d0bbf7", null ],
+    [ "udif_tunnel_record_flag", "tunnel_8h.html#a5fcde731282bd78d745c9f60599055d5", null ],
+    [ "udif_tunnel_record_header_deserialize", "tunnel_8h.html#a48c8661bbe6b4c1ae3fb09e7e3f974d9", null ],
+    [ "udif_tunnel_record_header_serialize", "tunnel_8h.html#a631f6ff1973d2acacbaf40346d326624", null ],
+    [ "udif_tunnel_record_header_validate", "tunnel_8h.html#ac6b04d78bacb4e21deb2fb2e7e303d78", null ],
+    [ "udif_tunnel_send", "tunnel_8h.html#a2dd114952b7c0cdd800ae95bf574490d", null ],
+    [ "udif_tunnel_send_keepalive", "tunnel_8h.html#a4de8123cb7a906a54c81bf3353021eac", null ],
+    [ "udif_tunnel_tick", "tunnel_8h.html#aede81810a3540aec23f97e3fbe3b694d", null ],
+    [ "udif_tunnel_trigger_ratchet", "tunnel_8h.html#a07d4a2b14a4f8070c12aeeca343e9da1", null ]
+];

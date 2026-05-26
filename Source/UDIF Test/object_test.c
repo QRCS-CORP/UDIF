@@ -9,7 +9,7 @@ static bool object_test_create(void)
 {
 	udif_object obj = { 0U };
 	udif_signature_keypair kp = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -20,7 +20,7 @@ static bool object_test_create(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(attrroot, UDIF_CRYPTO_HASH_SIZE);
@@ -39,7 +39,7 @@ static bool object_test_create(void)
 	}
 	else
 	{
-		if (qsc_memutils_are_equal(obj.serial, serial, UDIF_SERIAL_NUMBER_SIZE) == false)
+		if (qsc_memutils_are_equal(obj.serial, serial, UDIF_OBJECT_SERIAL_SIZE) == false)
 		{
 			qsc_consoleutils_print_line("object_test_create: serial number mismatch");
 			res = false;
@@ -95,7 +95,7 @@ static bool object_test_update_attributes(void)
 {
 	udif_object obj = { 0U };
 	udif_signature_keypair kp = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t attrroot1[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -108,7 +108,7 @@ static bool object_test_update_attributes(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(attrroot1, UDIF_CRYPTO_HASH_SIZE);
@@ -188,7 +188,7 @@ static bool object_test_transfer(void)
 	udif_transfer_record transfer = { 0U };
 	udif_signature_keypair kp1 = { 0U };
 	udif_signature_keypair kp2 = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner1[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner2[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
@@ -200,7 +200,7 @@ static bool object_test_transfer(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner1, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner2, UDIF_SERIAL_NUMBER_SIZE);
@@ -256,7 +256,7 @@ static bool object_test_transfer(void)
 				qsc_consoleutils_print_line("object_test_transfer: transfer originator mismatch");
 				res = false;
 			}
-			else if (qsc_memutils_are_equal(transfer.serial, serial, UDIF_SERIAL_NUMBER_SIZE) == false)
+			else if (qsc_memutils_are_equal(transfer.serial, serial, UDIF_OBJECT_SERIAL_SIZE) == false)
 			{
 				qsc_consoleutils_print_line("object_test_transfer: transfer serial mismatch");
 				res = false;
@@ -286,7 +286,7 @@ static bool object_test_destroy(void)
 {
 	udif_object obj = { 0U };
 	udif_signature_keypair kp = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -297,7 +297,7 @@ static bool object_test_destroy(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(attrroot, UDIF_CRYPTO_HASH_SIZE);
@@ -341,7 +341,7 @@ static bool object_test_destroy(void)
 				qsc_consoleutils_print_line("object_test_destroy: destroyed object signature should still be valid");
 				res = false;
 			}
-			else if (qsc_memutils_are_equal(obj.serial, serial, UDIF_SERIAL_NUMBER_SIZE) == false)
+			else if (qsc_memutils_are_equal(obj.serial, serial, UDIF_OBJECT_SERIAL_SIZE) == false)
 			{
 				qsc_consoleutils_print_line("object_test_destroy: serial should remain after destruction");
 				res = false;
@@ -365,7 +365,7 @@ static bool object_test_serialize(void)
 	udif_object obj1 = { 0U };
 	udif_object obj2 = { 0U };
 	udif_signature_keypair kp = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -377,7 +377,7 @@ static bool object_test_serialize(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(attrroot, UDIF_CRYPTO_HASH_SIZE);
@@ -419,7 +419,7 @@ static bool object_test_serialize(void)
 				qsc_consoleutils_print_line("object_test_serialize: deserialized object does not match original");
 				res = false;
 			}
-			else if (qsc_memutils_are_equal(obj2.serial, serial, UDIF_SERIAL_NUMBER_SIZE) == false)
+			else if (qsc_memutils_are_equal(obj2.serial, serial, UDIF_OBJECT_SERIAL_SIZE) == false)
 			{
 				qsc_consoleutils_print_line("object_test_serialize: deserialized serial mismatch");
 				res = false;
@@ -471,7 +471,7 @@ static bool object_test_transfer_record(void)
 	udif_transfer_record transfer2 = { 0U };
 	udif_signature_keypair kp1 = { 0U };
 	udif_signature_keypair kp2 = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner1[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner2[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
@@ -484,7 +484,7 @@ static bool object_test_transfer_record(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner1, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner2, UDIF_SERIAL_NUMBER_SIZE);
@@ -542,7 +542,7 @@ static bool object_test_transfer_record(void)
 					qsc_consoleutils_print_line("object_test_transfer_record: receiver signature mismatch");
 					res = false;
 				}
-				else if (qsc_memutils_are_equal(transfer1.serial, transfer2.serial, UDIF_SERIAL_NUMBER_SIZE) == false)
+				else if (qsc_memutils_are_equal(transfer1.serial, transfer2.serial, UDIF_OBJECT_SERIAL_SIZE) == false)
 				{
 					qsc_consoleutils_print_line("object_test_transfer_record: transfer serial mismatch");
 					res = false;
@@ -585,7 +585,7 @@ static bool object_test_compare_digest(void)
 	udif_object obj1 = { 0U };
 	udif_object obj2 = { 0U };
 	udif_signature_keypair kp = { 0U };
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -598,7 +598,7 @@ static bool object_test_compare_digest(void)
 	res = true;
 
 	/* generate test data */
-	qsc_csp_generate(serial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(owner, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(attrroot, UDIF_CRYPTO_HASH_SIZE);
@@ -670,6 +670,70 @@ static bool object_test_compare_digest(void)
 	return res;
 }
 
+
+static bool object_test_transfer_reject_tamper(void)
+{
+	udif_object obj = { 0U };
+	udif_transfer_record transfer = { 0U };
+	udif_signature_keypair kp1 = { 0U };
+	udif_signature_keypair kp2 = { 0U };
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
+	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t owner1[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t owner2[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint64_t ctime;
+	udif_errors err;
+	bool res;
+
+	res = true;
+
+	qsc_csp_generate(serial, UDIF_OBJECT_SERIAL_SIZE);
+	qsc_csp_generate(creator, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(owner1, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(owner2, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(attrroot, UDIF_CRYPTO_HASH_SIZE);
+	ctime = qsc_timestamp_datetime_utc();
+
+	udif_signature_generate_keypair(kp1.verkey, kp1.sigkey, qsc_csp_generate);
+	udif_signature_generate_keypair(kp2.verkey, kp2.sigkey, qsc_csp_generate);
+
+	err = udif_object_create(&obj, serial, 0x00000001, creator, attrroot, owner1, kp1.sigkey, ctime, qsc_csp_generate);
+
+	if (err != udif_error_none)
+	{
+		qsc_consoleutils_print_line("object_test_transfer_reject_tamper: object creation failed");
+		res = false;
+	}
+	else
+	{
+		err = udif_object_transfer(&obj, &transfer, owner2, kp1.sigkey, kp2.sigkey, ctime, qsc_csp_generate);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("object_test_transfer_reject_tamper: transfer failed");
+			res = false;
+		}
+		else
+		{
+			transfer.owner[0U] ^= 0x01U;
+
+			if (udif_transfer_verify(&transfer, kp1.verkey, kp2.verkey) == true)
+			{
+				qsc_consoleutils_print_line("object_test_transfer_reject_tamper: tampered transfer verified");
+				res = false;
+			}
+		}
+	}
+
+	udif_object_clear(&obj);
+	udif_transfer_clear(&transfer);
+	qsc_memutils_clear((uint8_t*)&kp1, sizeof(udif_signature_keypair));
+	qsc_memutils_clear((uint8_t*)&kp2, sizeof(udif_signature_keypair));
+
+	return res;
+}
+
 bool object_test_run(void)
 {
 	bool res;
@@ -733,6 +797,16 @@ bool object_test_run(void)
 	else
 	{
 		qsc_consoleutils_print_line("Failure! Object record transfer test has failed.");
+		res = false;
+	}
+
+	if (object_test_transfer_reject_tamper() == true)
+	{
+		qsc_consoleutils_print_line("Success! Object transfer tamper rejection test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! Object transfer tamper rejection test has failed.");
 		res = false;
 	}
 

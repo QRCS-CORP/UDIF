@@ -1,0 +1,38 @@
+var message_8h =
+[
+    [ "udif_message", "structudif__message.html", "structudif__message" ],
+    [ "UDIF_MESSAGE_HEADER_SIZE", "message_8h.html#a07a313e97d2f7e1cea9a795f2e1ffc19", null ],
+    [ "UDIF_MESSAGE_PAYLOAD_MAX", "message_8h.html#ab2eeec909a442f741b85d0fcfbc1b1f3", null ],
+    [ "UDIF_MESSAGE_VERSION", "message_8h.html#aea5f1efa2c88ac98f584b6c857fcf5b0", null ],
+    [ "udif_message_type", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8", [
+      [ "udif_msg_none", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a2eac8be6debaf708363065e4b0477f1d", null ],
+      [ "udif_msg_keepalive", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8ab0bd961cda51e3dca461b136e7e30dcb", null ],
+      [ "udif_msg_cert_enroll_req", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a1420d5bd3c78ab1431019227f064745d", null ],
+      [ "udif_msg_cert_enroll_resp", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a9eaa8f63ae2508ad9b788c434ae716ff", null ],
+      [ "udif_msg_cert_revoke", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a9440f8e1f1ac60420d5dcca7bc5855e6", null ],
+      [ "udif_msg_cert_suspend", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a39caa7bf8a2459871d18df58a21a715a", null ],
+      [ "udif_msg_cert_resume", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a816191ee5ba18cf2490b45d318bcf408", null ],
+      [ "udif_msg_cap_grant", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a45d6705b0649338d812ab1712aeffe40", null ],
+      [ "udif_msg_cap_revoke", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a4c123d48c8eba311a1e6f847f5b5cd11", null ],
+      [ "udif_msg_query_req", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a693fc7f778de2173b7b76281e27dee6d", null ],
+      [ "udif_msg_query_resp", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8af26daceae1fcfbd1a272f609dc1fde02", null ],
+      [ "udif_msg_object_create", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a5bc2baf5bf6095bc895218d7ad65934f", null ],
+      [ "udif_msg_object_transfer_req", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8af6375a5e590820b98929ce4fdf8f8b95", null ],
+      [ "udif_msg_object_transfer_confirm", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a32bce01f10cea8d9aef3aed463224d3a", null ],
+      [ "udif_msg_registry_commit", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8ab4520ef85a11461ef9c7469fe53fc971", null ],
+      [ "udif_msg_anchor_push", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8ae614e1adc597e09b24df30391ad0376d", null ],
+      [ "udif_msg_anchor_ack", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a4a3feee1d7b444aad956a858f984b656", null ],
+      [ "udif_msg_treaty_propose", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8aa201f5361f72b0a6e4c4eeb1141aeaf8", null ],
+      [ "udif_msg_treaty_cosign", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a137ad32c74fb8e95a5873c473a811bbc", null ],
+      [ "udif_msg_treaty_revoke", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a25a721eaf44ec7684b8977559572ecad", null ],
+      [ "udif_msg_treaty_query_fwd", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a4efaff8fdbed5fc74fc79219fd35ef5a", null ],
+      [ "udif_msg_treaty_query_resp", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8a93aa0ba6d25dc931d776c53d203fc12b", null ],
+      [ "udif_msg_error_report", "message_8h.html#a25e3419bd5fe48ea75d75aa72cc97dc8ab66d5bca5393c93b10c5355910ce7981", null ]
+    ] ],
+    [ "udif_message_decode", "message_8h.html#ac2a8549226eb3483cd7e4221ce678838", null ],
+    [ "udif_message_dispose", "message_8h.html#a6affe3f26c39c31f689d49e3a8d8416b", null ],
+    [ "udif_message_encode", "message_8h.html#a49f16b260dbecd784727cacf18163b9d", null ],
+    [ "udif_message_encoded_size", "message_8h.html#a5162d7515725587e035b998aeec1f42a", null ],
+    [ "udif_message_init", "message_8h.html#a0a504d9c3cc6fe4c8d987bf731aefec6", null ],
+    [ "udif_message_type_name", "message_8h.html#afc3094283b01a369dccc42bda1e66b8a", null ]
+];

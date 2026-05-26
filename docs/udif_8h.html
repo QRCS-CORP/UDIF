@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -208,9 +208,25 @@ Macros</h2></td></tr>
 <tr class="memitem:a2c4aaddbbf930d82c8261bc95bf46208" id="r_a2c4aaddbbf930d82c8261bc95bf46208"><td class="memItemLeft" align="right" valign="top"><a id="a2c4aaddbbf930d82c8261bc95bf46208" name="a2c4aaddbbf930d82c8261bc95bf46208"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_ROLE_SIZE</b>&#160;&#160;&#160;1U</td></tr>
 <tr class="memdesc:a2c4aaddbbf930d82c8261bc95bf46208"><td class="mdescLeft">&#160;</td><td class="mdescRight">The UDIF role parameter size. <br /></td></tr>
-<tr class="memitem:a30bd7447b384602d7900c280d156539b" id="r_a30bd7447b384602d7900c280d156539b"><td class="memItemLeft" align="right" valign="top"><a id="a30bd7447b384602d7900c280d156539b" name="a30bd7447b384602d7900c280d156539b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_SERIAL_NUMBER_SIZE</b>&#160;&#160;&#160;16U</td></tr>
-<tr class="memdesc:a30bd7447b384602d7900c280d156539b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The serial number field length. <br /></td></tr>
+<tr class="memitem:ae6fb57c083d4cfdbb1818467d3d29d50" id="r_ae6fb57c083d4cfdbb1818467d3d29d50"><td class="memItemLeft" align="right" valign="top"><a id="ae6fb57c083d4cfdbb1818467d3d29d50" name="ae6fb57c083d4cfdbb1818467d3d29d50"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_CERT_SERIAL_SIZE</b>&#160;&#160;&#160;16U</td></tr>
+<tr class="memdesc:ae6fb57c083d4cfdbb1818467d3d29d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate serial number field length in bytes. <br /></td></tr>
+<tr class="memitem:a7ba12b3dc631fc8e3fd139e8caf33600" id="r_a7ba12b3dc631fc8e3fd139e8caf33600"><td class="memItemLeft" align="right" valign="top"><a id="a7ba12b3dc631fc8e3fd139e8caf33600" name="a7ba12b3dc631fc8e3fd139e8caf33600"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_OBJECT_SERIAL_SIZE</b>&#160;&#160;&#160;32U</td></tr>
+<tr class="memdesc:a7ba12b3dc631fc8e3fd139e8caf33600"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object serial number field length in bytes. <br /></td></tr>
+<tr class="memitem:ae12b8b28cc1c3cb476621b8d877e780d" id="r_ae12b8b28cc1c3cb476621b8d877e780d"><td class="memItemLeft" align="right" valign="top"><a id="ae12b8b28cc1c3cb476621b8d877e780d" name="ae12b8b28cc1c3cb476621b8d877e780d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_QUERY_ID_SIZE</b>&#160;&#160;&#160;16U</td></tr>
+<tr class="memdesc:ae12b8b28cc1c3cb476621b8d877e780d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The query identifier field length in bytes. <br /></td></tr>
+<tr class="memitem:ae135bb229247a41b3ddc5e0dff304828" id="r_ae135bb229247a41b3ddc5e0dff304828"><td class="memItemLeft" align="right" valign="top"><a id="ae135bb229247a41b3ddc5e0dff304828" name="ae135bb229247a41b3ddc5e0dff304828"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_TX_ID_SIZE</b>&#160;&#160;&#160;<a class="el" href="#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></td></tr>
+<tr class="memdesc:ae135bb229247a41b3ddc5e0dff304828"><td class="mdescLeft">&#160;</td><td class="mdescRight">The transaction identifier field length in bytes. <br /></td></tr>
+<tr class="memitem:a30bd7447b384602d7900c280d156539b" id="r_a30bd7447b384602d7900c280d156539b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a>&#160;&#160;&#160;<a class="el" href="#ae6fb57c083d4cfdbb1818467d3d29d50">UDIF_CERT_SERIAL_SIZE</a></td></tr>
+<tr class="memdesc:a30bd7447b384602d7900c280d156539b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate serial number field length.  <br /></td></tr>
+<tr class="memitem:ac9eb14623e37e964c2135bac0ae794c0" id="r_ac9eb14623e37e964c2135bac0ae794c0"><td class="memItemLeft" align="right" valign="top"><a id="ac9eb14623e37e964c2135bac0ae794c0" name="ac9eb14623e37e964c2135bac0ae794c0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_REGISTRY_LEAF_FLAGS_SIZE</b>&#160;&#160;&#160;4U</td></tr>
+<tr class="memdesc:ac9eb14623e37e964c2135bac0ae794c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The registry leaf flags field length in bytes. <br /></td></tr>
+<tr class="memitem:a078bfbe417fae4be2cccabf1cf804bb9" id="r_a078bfbe417fae4be2cccabf1cf804bb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a078bfbe417fae4be2cccabf1cf804bb9">UDIF_REGISTRY_LEAF_ENCODED_SIZE</a></td></tr>
+<tr class="memdesc:a078bfbe417fae4be2cccabf1cf804bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The canonical registry leaf encoding length in bytes.  <br /></td></tr>
 <tr class="memitem:a36c7b312f38b56d1ea660e501f664b6e" id="r_a36c7b312f38b56d1ea660e501f664b6e"><td class="memItemLeft" align="right" valign="top"><a id="a36c7b312f38b56d1ea660e501f664b6e" name="a36c7b312f38b56d1ea660e501f664b6e"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_SIGNED_HASH_SIZE</b>&#160;&#160;&#160;(<a class="el" href="#a9f43eecae4147d94d972443c5720b0cb">UDIF_ASYMMETRIC_SIGNATURE_SIZE</a> + <a class="el" href="#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a>)</td></tr>
 <tr class="memdesc:a36c7b312f38b56d1ea660e501f664b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The combined size of a signature and hash. <br /></td></tr>
@@ -225,43 +241,137 @@ Macros</h2></td></tr>
 <tr class="memitem:a51914757bc049238aba954b9f37c51ff" id="r_a51914757bc049238aba954b9f37c51ff"><td class="memItemLeft" align="right" valign="top"><a id="a51914757bc049238aba954b9f37c51ff" name="a51914757bc049238aba954b9f37c51ff"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>UDIF_VALID_TIME_STRUCTURE_SIZE</b>&#160;&#160;&#160;16U</td></tr>
 <tr class="memdesc:a51914757bc049238aba954b9f37c51ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">The certificate expiration date length. <br /></td></tr>
+<tr class="memitem:a56e40392ca326bbd07dbd1df539be049" id="r_a56e40392ca326bbd07dbd1df539be049"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e40392ca326bbd07dbd1df539be049">UDIF_POLICY_NONE</a>&#160;&#160;&#160;(UINT64_C(0))</td></tr>
+<tr class="memdesc:a56e40392ca326bbd07dbd1df539be049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty UDIF policy mask.  <br /></td></tr>
+<tr class="memitem:a6112fa77a01ac021ba1d78b865a1d8a6" id="r_a6112fa77a01ac021ba1d78b865a1d8a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6112fa77a01ac021ba1d78b865a1d8a6">UDIF_POLICY_DEFAULT_DENY</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 0)</td></tr>
+<tr class="memdesc:a6112fa77a01ac021ba1d78b865a1d8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enforces default-deny authorization semantics.  <br /></td></tr>
+<tr class="memitem:add797b0379a4456ef2bff31a240878cd" id="r_add797b0379a4456ef2bff31a240878cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add797b0379a4456ef2bff31a240878cd">UDIF_POLICY_REQUIRE_SUITE_MATCH</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 1)</td></tr>
+<tr class="memdesc:add797b0379a4456ef2bff31a240878cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires all communicating parties to use the same UDIF suite.  <br /></td></tr>
+<tr class="memitem:a90380f05526a1777652da5e65ee2222e" id="r_a90380f05526a1777652da5e65ee2222e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90380f05526a1777652da5e65ee2222e">UDIF_POLICY_REQUIRE_CANONICAL_ENCODING</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 2)</td></tr>
+<tr class="memdesc:a90380f05526a1777652da5e65ee2222e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires strict UDIF canonical binary encoding.  <br /></td></tr>
+<tr class="memitem:aa7335c55668841e25b4eee8107d1dcb7" id="r_aa7335c55668841e25b4eee8107d1dcb7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7335c55668841e25b4eee8107d1dcb7">UDIF_POLICY_REQUIRE_PARENT_SIGNATURE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 3)</td></tr>
+<tr class="memdesc:aa7335c55668841e25b4eee8107d1dcb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires non-root certificates to verify against the issuer key.  <br /></td></tr>
+<tr class="memitem:a130908c8a1b021339c2ca5f729c989ae" id="r_a130908c8a1b021339c2ca5f729c989ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a130908c8a1b021339c2ca5f729c989ae">UDIF_POLICY_REQUIRE_REVOCATION_CHECK</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 4)</td></tr>
+<tr class="memdesc:a130908c8a1b021339c2ca5f729c989ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires revocation and suspension state checking.  <br /></td></tr>
+<tr class="memitem:aabf0f06ee7275fb6a49a6e1f90170cac" id="r_aabf0f06ee7275fb6a49a6e1f90170cac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabf0f06ee7275fb6a49a6e1f90170cac">UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 5)</td></tr>
+<tr class="memdesc:aabf0f06ee7275fb6a49a6e1f90170cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires capability intersection before authorization.  <br /></td></tr>
+<tr class="memitem:a02c2e6d27ff22483faa93a152997971d" id="r_a02c2e6d27ff22483faa93a152997971d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02c2e6d27ff22483faa93a152997971d">UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 6)</td></tr>
+<tr class="memdesc:a02c2e6d27ff22483faa93a152997971d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires policy epoch consistency during validation.  <br /></td></tr>
+<tr class="memitem:a04db4f37401e5bad9cd7be36db36da41" id="r_a04db4f37401e5bad9cd7be36db36da41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04db4f37401e5bad9cd7be36db36da41">UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 7)</td></tr>
+<tr class="memdesc:a04db4f37401e5bad9cd7be36db36da41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires membership events to be logged.  <br /></td></tr>
+<tr class="memitem:a01330dbc654cb22d303154ecebdab151" id="r_a01330dbc654cb22d303154ecebdab151"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01330dbc654cb22d303154ecebdab151">UDIF_POLICY_REQUIRE_TRANSACTION_LOG</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 8)</td></tr>
+<tr class="memdesc:a01330dbc654cb22d303154ecebdab151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires object and transfer events to be logged.  <br /></td></tr>
+<tr class="memitem:aa9b8594da36268f3bfd2458b728ba39c" id="r_aa9b8594da36268f3bfd2458b728ba39c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9b8594da36268f3bfd2458b728ba39c">UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 9)</td></tr>
+<tr class="memdesc:aa9b8594da36268f3bfd2458b728ba39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires registry roots to be committed.  <br /></td></tr>
+<tr class="memitem:aea05458d2957d487f2bfb97cfb20be6a" id="r_aea05458d2957d487f2bfb97cfb20be6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea05458d2957d487f2bfb97cfb20be6a">UDIF_POLICY_REQUIRE_ANCHORING</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 10)</td></tr>
+<tr class="memdesc:aea05458d2957d487f2bfb97cfb20be6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires periodic upstream Anchor Records.  <br /></td></tr>
+<tr class="memitem:ad51fdb8d3638329ebceb5778182268c8" id="r_ad51fdb8d3638329ebceb5778182268c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad51fdb8d3638329ebceb5778182268c8">UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 11)</td></tr>
+<tr class="memdesc:ad51fdb8d3638329ebceb5778182268c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires monotonic Anchor Record sequencing.  <br /></td></tr>
+<tr class="memitem:a00c049e4c1b3f34479595a3f2f4dc742" id="r_a00c049e4c1b3f34479595a3f2f4dc742"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00c049e4c1b3f34479595a3f2f4dc742">UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 12)</td></tr>
+<tr class="memdesc:a00c049e4c1b3f34479595a3f2f4dc742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires minimal-disclosure query responses.  <br /></td></tr>
+<tr class="memitem:ac4948645cfa9d379f116e62bc415759e" id="r_ac4948645cfa9d379f116e62bc415759e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4948645cfa9d379f116e62bc415759e">UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 13)</td></tr>
+<tr class="memdesc:ac4948645cfa9d379f116e62bc415759e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires auditable operational counters where applicable.  <br /></td></tr>
+<tr class="memitem:a687ee655b1c5726269559d09f1210383" id="r_a687ee655b1c5726269559d09f1210383"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a687ee655b1c5726269559d09f1210383">UDIF_POLICY_REQUIRE_TIME_WINDOW</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 14)</td></tr>
+<tr class="memdesc:a687ee655b1c5726269559d09f1210383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires protocol timestamp acceptance windows.  <br /></td></tr>
+<tr class="memitem:a1df37e0fb666865d63eb505c06ea9999" id="r_a1df37e0fb666865d63eb505c06ea9999"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1df37e0fb666865d63eb505c06ea9999">UDIF_POLICY_REQUIRE_SEQUENCE_CHECK</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 15)</td></tr>
+<tr class="memdesc:a1df37e0fb666865d63eb505c06ea9999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires strict transport sequence checking.  <br /></td></tr>
+<tr class="memitem:ad97fd52a2bc2cc0cb016b4794f30e9b0" id="r_ad97fd52a2bc2cc0cb016b4794f30e9b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad97fd52a2bc2cc0cb016b4794f30e9b0">UDIF_POLICY_REQUIRE_EPOCH_CHECK</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 16)</td></tr>
+<tr class="memdesc:ad97fd52a2bc2cc0cb016b4794f30e9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires session and policy epoch validation.  <br /></td></tr>
+<tr class="memitem:a7f6e6d56ee30b7433271df995263e0d2" id="r_a7f6e6d56ee30b7433271df995263e0d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f6e6d56ee30b7433271df995263e0d2">UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 17)</td></tr>
+<tr class="memdesc:a7f6e6d56ee30b7433271df995263e0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires authenticated transport headers.  <br /></td></tr>
+<tr class="memitem:a07705965fb7d0fdf329a7f9ba5c43a0a" id="r_a07705965fb7d0fdf329a7f9ba5c43a0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07705965fb7d0fdf329a7f9ba5c43a0a">UDIF_POLICY_REQUIRE_RATCHET_REKEY</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 18)</td></tr>
+<tr class="memdesc:a07705965fb7d0fdf329a7f9ba5c43a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires periodic ratchet rekeying where applicable.  <br /></td></tr>
+<tr class="memitem:af3214859f0a3065e02d3bcbbf9453f13" id="r_af3214859f0a3065e02d3bcbbf9453f13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3214859f0a3065e02d3bcbbf9453f13">UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 19)</td></tr>
+<tr class="memdesc:af3214859f0a3065e02d3bcbbf9453f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forbids runtime cryptographic suite negotiation.  <br /></td></tr>
+<tr class="memitem:aa86085e5ab122d535606000c2abf6a7d" id="r_aa86085e5ab122d535606000c2abf6a7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa86085e5ab122d535606000c2abf6a7d">UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 20)</td></tr>
+<tr class="memdesc:aa86085e5ab122d535606000c2abf6a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forbids Roots, BCs, and GCs from owning objects.  <br /></td></tr>
+<tr class="memitem:ad4f18860c8c945e4b64f9657865b1f18" id="r_ad4f18860c8c945e4b64f9657865b1f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4f18860c8c945e4b64f9657865b1f18">UDIF_POLICY_FORBID_CLIENT_ADMIN</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 21)</td></tr>
+<tr class="memdesc:ad4f18860c8c945e4b64f9657865b1f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forbids User Agents from administrative authority.  <br /></td></tr>
+<tr class="memitem:a7f0dd200f6fbfd69c0f47992f6b1356c" id="r_a7f0dd200f6fbfd69c0f47992f6b1356c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f0dd200f6fbfd69c0f47992f6b1356c">UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 22)</td></tr>
+<tr class="memdesc:a7f0dd200f6fbfd69c0f47992f6b1356c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forbids direct lateral User Agent interaction.  <br /></td></tr>
+<tr class="memitem:ae384ceff213b36f689c2f8e2fb83b646" id="r_ae384ceff213b36f689c2f8e2fb83b646"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae384ceff213b36f689c2f8e2fb83b646">UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 23)</td></tr>
+<tr class="memdesc:ae384ceff213b36f689c2f8e2fb83b646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forbids implicit cross-domain treaty authority.  <br /></td></tr>
+<tr class="memitem:aae714c16e63d63cefb7dcd88a11567ca" id="r_aae714c16e63d63cefb7dcd88a11567ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae714c16e63d63cefb7dcd88a11567ca">UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 24)</td></tr>
+<tr class="memdesc:aae714c16e63d63cefb7dcd88a11567ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires treaty-scope validation.  <br /></td></tr>
+<tr class="memitem:a65500c8a41e255c3c62184bddad05f27" id="r_a65500c8a41e255c3c62184bddad05f27"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65500c8a41e255c3c62184bddad05f27">UDIF_POLICY_ALLOW_TREATY_NEGOTIATION</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 25)</td></tr>
+<tr class="memdesc:a65500c8a41e255c3c62184bddad05f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows authorized treaty negotiation.  <br /></td></tr>
+<tr class="memitem:a623ab91db07db0448e31140d016e83ef" id="r_a623ab91db07db0448e31140d016e83ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a623ab91db07db0448e31140d016e83ef">UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 26)</td></tr>
+<tr class="memdesc:a623ab91db07db0448e31140d016e83ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows treaty-scoped query origination.  <br /></td></tr>
+<tr class="memitem:a8f5a08bc6e12dfdf2073224c8576847c" id="r_a8f5a08bc6e12dfdf2073224c8576847c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f5a08bc6e12dfdf2073224c8576847c">UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 27)</td></tr>
+<tr class="memdesc:a8f5a08bc6e12dfdf2073224c8576847c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows execution of incoming treaty-scoped queries.  <br /></td></tr>
+<tr class="memitem:aa088fa2bd978ed845a018a623fc2eca7" id="r_aa088fa2bd978ed845a018a623fc2eca7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 28)</td></tr>
+<tr class="memdesc:aa088fa2bd978ed845a018a623fc2eca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows export of bounded operational telemetry.  <br /></td></tr>
+<tr class="memitem:ac289f40ea3f51763ef94411d42efaf7a" id="r_ac289f40ea3f51763ef94411d42efaf7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 29)</td></tr>
+<tr class="memdesc:ac289f40ea3f51763ef94411d42efaf7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows signed operational error reporting.  <br /></td></tr>
+<tr class="memitem:a8229d770d97d2a0df034adcfa9742ee7" id="r_a8229d770d97d2a0df034adcfa9742ee7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8229d770d97d2a0df034adcfa9742ee7">UDIF_POLICY_ALLOW_PROFILE_HOOKS</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 30)</td></tr>
+<tr class="memdesc:a8229d770d97d2a0df034adcfa9742ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows non-canonical profile policy hooks.  <br /></td></tr>
+<tr class="memitem:a8de6c5198e3d0428740089a9d9d5b586" id="r_a8de6c5198e3d0428740089a9d9d5b586"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8de6c5198e3d0428740089a9d9d5b586">UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT</a>&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 31)</td></tr>
+<tr class="memdesc:a8de6c5198e3d0428740089a9d9d5b586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requires audit records for profile hook decisions.  <br /></td></tr>
+<tr class="memitem:adbb304871058a80bc6efd138911b3dce" id="r_adbb304871058a80bc6efd138911b3dce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbb304871058a80bc6efd138911b3dce">UDIF_POLICY_RESERVED_CORE_MASK</a>&#160;&#160;&#160;(UINT64_C(0x0000FFFF00000000))</td></tr>
+<tr class="memdesc:adbb304871058a80bc6efd138911b3dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved policy bits for future UDIF core policy assignments.  <br /></td></tr>
+<tr class="memitem:a6654cf510d2be2e070e9f0e89ae19935" id="r_a6654cf510d2be2e070e9f0e89ae19935"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6654cf510d2be2e070e9f0e89ae19935">UDIF_POLICY_RESERVED_PROFILE_MASK</a>&#160;&#160;&#160;(UINT64_C(0xFFFF000000000000))</td></tr>
+<tr class="memdesc:a6654cf510d2be2e070e9f0e89ae19935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved policy bits for implementation or deployment profiles.  <br /></td></tr>
+<tr class="memitem:a5c0c1bd22c2ed99c6b1b5f9bf620e91d" id="r_a5c0c1bd22c2ed99c6b1b5f9bf620e91d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a></td></tr>
+<tr class="memdesc:a5c0c1bd22c2ed99c6b1b5f9bf620e91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mandatory baseline policy bits for all UDIF certificates.  <br /></td></tr>
+<tr class="memitem:a2b740b99512d5494054e088bcaef4bbb" id="r_a2b740b99512d5494054e088bcaef4bbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a></td></tr>
+<tr class="memdesc:a2b740b99512d5494054e088bcaef4bbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mandatory transport-session policy bits.  <br /></td></tr>
+<tr class="memitem:a676ad16632a3761ab8b0794da7385395" id="r_a676ad16632a3761ab8b0794da7385395"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a676ad16632a3761ab8b0794da7385395">UDIF_POLICY_LOGGING_MASK</a></td></tr>
+<tr class="memdesc:a676ad16632a3761ab8b0794da7385395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mandatory logging and audit policy bits.  <br /></td></tr>
+<tr class="memitem:ab0260deb8ef664f44688ca6e037da056" id="r_ab0260deb8ef664f44688ca6e037da056"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0260deb8ef664f44688ca6e037da056">UDIF_POLICY_ADMIN_SEPARATION_MASK</a></td></tr>
+<tr class="memdesc:ab0260deb8ef664f44688ca6e037da056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Policy bits enforcing administrative role separation.  <br /></td></tr>
+<tr class="memitem:a824f5053690a2578e9078ac21ac6fa12" id="r_a824f5053690a2578e9078ac21ac6fa12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a824f5053690a2578e9078ac21ac6fa12">UDIF_POLICY_TREATY_BASE_MASK</a></td></tr>
+<tr class="memdesc:a824f5053690a2578e9078ac21ac6fa12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Policy bits enforcing treaty containment.  <br /></td></tr>
+<tr class="memitem:ae28fbff863d9359f24b7aff51137dfaf" id="r_ae28fbff863d9359f24b7aff51137dfaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae28fbff863d9359f24b7aff51137dfaf">UDIF_POLICY_TREATY_ENABLE_MASK</a></td></tr>
+<tr class="memdesc:ae28fbff863d9359f24b7aff51137dfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional treaty enablement policy bits.  <br /></td></tr>
+<tr class="memitem:a0f0d4e46c081e08970ba06dc0316bf4c" id="r_a0f0d4e46c081e08970ba06dc0316bf4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f0d4e46c081e08970ba06dc0316bf4c">UDIF_POLICY_PROFILE_HOOK_MASK</a></td></tr>
+<tr class="memdesc:a0f0d4e46c081e08970ba06dc0316bf4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional profile hook policy bits.  <br /></td></tr>
+<tr class="memitem:ac10a40e04f5a80e9c95143971255d652" id="r_ac10a40e04f5a80e9c95143971255d652"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac10a40e04f5a80e9c95143971255d652">UDIF_POLICY_DEFINED_CORE_MASK</a></td></tr>
+<tr class="memdesc:ac10a40e04f5a80e9c95143971255d652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of all UDIF implementation-defined core policy bits.  <br /></td></tr>
+<tr class="memitem:a262b80701dcb0dffe7665b41a4750f8a" id="r_a262b80701dcb0dffe7665b41a4750f8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a262b80701dcb0dffe7665b41a4750f8a">UDIF_ROOT_POLICY_DEFAULT</a></td></tr>
+<tr class="memdesc:a262b80701dcb0dffe7665b41a4750f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default policy mask for a UDIF Root certificate.  <br /></td></tr>
+<tr class="memitem:a74cd1eacd3379e040acb297fd572e728" id="r_a74cd1eacd3379e040acb297fd572e728"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74cd1eacd3379e040acb297fd572e728">UDIF_BC_POLICY_DEFAULT</a></td></tr>
+<tr class="memdesc:a74cd1eacd3379e040acb297fd572e728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default policy mask for a UDIF Branch Controller certificate.  <br /></td></tr>
+<tr class="memitem:a34a353f2ae1d5bafad0e979f33ccc7bc" id="r_a34a353f2ae1d5bafad0e979f33ccc7bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34a353f2ae1d5bafad0e979f33ccc7bc">UDIF_GC_POLICY_DEFAULT</a></td></tr>
+<tr class="memdesc:a34a353f2ae1d5bafad0e979f33ccc7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default policy mask for a UDIF Group Controller certificate.  <br /></td></tr>
+<tr class="memitem:a14b7278694998dfacdd4d3f3e21148f6" id="r_a14b7278694998dfacdd4d3f3e21148f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14b7278694998dfacdd4d3f3e21148f6">UDIF_CLIENT_POLICY_DEFAULT</a></td></tr>
+<tr class="memdesc:a14b7278694998dfacdd4d3f3e21148f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default policy mask for a UDIF client or User Agent certificate.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab3d9b1868adb4d2d12d39ce4be3762d2" id="r_ab3d9b1868adb4d2d12d39ce4be3762d2"><td class="memItemLeft" align="right" valign="top"><a id="ab3d9b1868adb4d2d12d39ce4be3762d2" name="ab3d9b1868adb4d2d12d39ce4be3762d2"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a0b1b1681822db86cc3573d69c757327b">udif_claim_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_claim_type</b></td></tr>
-<tr class="memitem:ae1f2cd7fc4ca7b71e0c71e83fcd623aa" id="r_ae1f2cd7fc4ca7b71e0c71e83fcd623aa"><td class="memItemLeft" align="right" valign="top"><a id="ae1f2cd7fc4ca7b71e0c71e83fcd623aa" name="ae1f2cd7fc4ca7b71e0c71e83fcd623aa"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#aada30412b7efe0cb5439b7b879c8b72c">udif_configuration_sets</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_configuration_sets</b></td></tr>
-<tr class="memitem:a1e94dcf3b7cf6c830a7b17fd11e2a8dc" id="r_a1e94dcf3b7cf6c830a7b17fd11e2a8dc"><td class="memItemLeft" align="right" valign="top"><a id="a1e94dcf3b7cf6c830a7b17fd11e2a8dc" name="a1e94dcf3b7cf6c830a7b17fd11e2a8dc"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_errors</b></td></tr>
-<tr class="memitem:aea7ee0542569ef7a77d7d958401af97d" id="r_aea7ee0542569ef7a77d7d958401af97d"><td class="memItemLeft" align="right" valign="top"><a id="aea7ee0542569ef7a77d7d958401af97d" name="aea7ee0542569ef7a77d7d958401af97d"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#acc0844140ad18cee11f94cf986017223">udif_error_capability</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_capability</b></td></tr>
-<tr class="memitem:aac78486d38f7c8564178c97f012a757c" id="r_aac78486d38f7c8564178c97f012a757c"><td class="memItemLeft" align="right" valign="top"><a id="aac78486d38f7c8564178c97f012a757c" name="aac78486d38f7c8564178c97f012a757c"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#acf62ef8219d69859aa6a9ef5c170c04f">udif_error_claims</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_claims</b></td></tr>
-<tr class="memitem:a107963d93dc69500822cf4d6446f77f3" id="r_a107963d93dc69500822cf4d6446f77f3"><td class="memItemLeft" align="right" valign="top"><a id="a107963d93dc69500822cf4d6446f77f3" name="a107963d93dc69500822cf4d6446f77f3"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a78357088f31c5ed383bfdc7a90f985e7">udif_error_encoding</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_encoding</b></td></tr>
-<tr class="memitem:aeb9aaf9e72f75de6cbfb120dd74b1145" id="r_aeb9aaf9e72f75de6cbfb120dd74b1145"><td class="memItemLeft" align="right" valign="top"><a id="aeb9aaf9e72f75de6cbfb120dd74b1145" name="aeb9aaf9e72f75de6cbfb120dd74b1145"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a3f481e1e9be6f4431534ddb67bf76884">udif_error_identity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_identity</b></td></tr>
-<tr class="memitem:a71bc00f047b884c1968cc5dae5e4b639" id="r_a71bc00f047b884c1968cc5dae5e4b639"><td class="memItemLeft" align="right" valign="top"><a id="a71bc00f047b884c1968cc5dae5e4b639" name="a71bc00f047b884c1968cc5dae5e4b639"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a31bc388fcc1a97e1fbe4178ed66b0248">udif_error_policy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_policy</b></td></tr>
-<tr class="memitem:aad0703527974cfd44dab20ca76dacb69" id="r_aad0703527974cfd44dab20ca76dacb69"><td class="memItemLeft" align="right" valign="top"><a id="aad0703527974cfd44dab20ca76dacb69" name="aad0703527974cfd44dab20ca76dacb69"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a31bd55d9ad516e7ccc61e81e7b624cb4">udif_logging_event_codes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_logging_event_codes</b></td></tr>
-<tr class="memitem:a905296a6a222d347363f157ca85c4d9f" id="r_a905296a6a222d347363f157ca85c4d9f"><td class="memItemLeft" align="right" valign="top"><a id="a905296a6a222d347363f157ca85c4d9f" name="a905296a6a222d347363f157ca85c4d9f"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a8f50e4a0b00cb29279a44fba0a17c57d">udif_permission_class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_permission_class</b></td></tr>
-<tr class="memitem:a48ae175ade9381beaa73156384e8936f" id="r_a48ae175ade9381beaa73156384e8936f"><td class="memItemLeft" align="right" valign="top"><a id="a48ae175ade9381beaa73156384e8936f" name="a48ae175ade9381beaa73156384e8936f"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a95f6f61d01921ffee31ec9b8f814a58d">udif_policy_decision</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_policy_decision</b></td></tr>
-<tr class="memitem:a2f9cc51c4b4aa8c0be319ed254e75462" id="r_a2f9cc51c4b4aa8c0be319ed254e75462"><td class="memItemLeft" align="right" valign="top"><a id="a2f9cc51c4b4aa8c0be319ed254e75462" name="a2f9cc51c4b4aa8c0be319ed254e75462"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a052bda99a26d79e00915b214e254b12f">udif_roles</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_roles</b></td></tr>
-<tr class="memitem:ab7ae86fd303f73b737c2577df56d60a1" id="r_ab7ae86fd303f73b737c2577df56d60a1"><td class="memItemLeft" align="right" valign="top"><a id="ab7ae86fd303f73b737c2577df56d60a1" name="ab7ae86fd303f73b737c2577df56d60a1"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a92d4b7f1225bf27fd77ba424ee46665c">udif_time_validation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_time_validation</b></td></tr>
-<tr class="memitem:a9fdab9a2e1c52909da6775847d980c3a" id="r_a9fdab9a2e1c52909da6775847d980c3a"><td class="memItemLeft" align="right" valign="top"><a id="a9fdab9a2e1c52909da6775847d980c3a" name="a9fdab9a2e1c52909da6775847d980c3a"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a77a170a1f994f785e4ab41ed78f1a872">udif_token_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_token_type</b></td></tr>
-<tr class="memitem:ae80f015f6d5554316395a532e1185efa" id="r_ae80f015f6d5554316395a532e1185efa"><td class="memItemLeft" align="right" valign="top"><a id="ae80f015f6d5554316395a532e1185efa" name="ae80f015f6d5554316395a532e1185efa"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a9afda5a988d65c9cda5b2fd0d20f5aae">udif_status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_status</b></td></tr>
-<tr class="memitem:a40f9e7926139b6f1c81d7903f67a0e2c" id="r_a40f9e7926139b6f1c81d7903f67a0e2c"><td class="memItemLeft" align="right" valign="top"><a id="a40f9e7926139b6f1c81d7903f67a0e2c" name="a40f9e7926139b6f1c81d7903f67a0e2c"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#a89f0e9d0f59631fd7581423faf24170d">udif_verify_policy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_verify_policy</b></td></tr>
-<tr class="memitem:a9887ec1852b985abf36111e4af0b4015" id="r_a9887ec1852b985abf36111e4af0b4015"><td class="memItemLeft" align="right" valign="top"><a id="a9887ec1852b985abf36111e4af0b4015" name="a9887ec1852b985abf36111e4af0b4015"></a>
-typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> enum <a class="el" href="#ae314281ba90afbae742b84a038807cf0">udif_version_sets</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_version_sets</b></td></tr>
+<tr class="memitem:a416868b82cfca2dc53b2e924a20ada6b" id="r_a416868b82cfca2dc53b2e924a20ada6b"><td class="memItemLeft" align="right" valign="top"><a id="a416868b82cfca2dc53b2e924a20ada6b" name="a416868b82cfca2dc53b2e924a20ada6b"></a>
+typedef enum <a class="el" href="#a0b1b1681822db86cc3573d69c757327b">udif_claim_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_claim_type</b></td></tr>
+<tr class="memitem:a07dbe12b59966e6cea3a42f4ac8764e5" id="r_a07dbe12b59966e6cea3a42f4ac8764e5"><td class="memItemLeft" align="right" valign="top"><a id="a07dbe12b59966e6cea3a42f4ac8764e5" name="a07dbe12b59966e6cea3a42f4ac8764e5"></a>
+typedef enum <a class="el" href="#aada30412b7efe0cb5439b7b879c8b72c">udif_configuration_sets</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_configuration_sets</b></td></tr>
+<tr class="memitem:af36488149b865f6ddab609cb24ae1b23" id="r_af36488149b865f6ddab609cb24ae1b23"><td class="memItemLeft" align="right" valign="top"><a id="af36488149b865f6ddab609cb24ae1b23" name="af36488149b865f6ddab609cb24ae1b23"></a>
+typedef enum <a class="el" href="#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_errors</b></td></tr>
+<tr class="memitem:a689647f89f62123a96cde8feee97b362" id="r_a689647f89f62123a96cde8feee97b362"><td class="memItemLeft" align="right" valign="top"><a id="a689647f89f62123a96cde8feee97b362" name="a689647f89f62123a96cde8feee97b362"></a>
+typedef enum <a class="el" href="#acc0844140ad18cee11f94cf986017223">udif_error_capability</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_capability</b></td></tr>
+<tr class="memitem:aada08e3bdc49e7bc68dbf97fb6a63139" id="r_aada08e3bdc49e7bc68dbf97fb6a63139"><td class="memItemLeft" align="right" valign="top"><a id="aada08e3bdc49e7bc68dbf97fb6a63139" name="aada08e3bdc49e7bc68dbf97fb6a63139"></a>
+typedef enum <a class="el" href="#acf62ef8219d69859aa6a9ef5c170c04f">udif_error_claims</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_claims</b></td></tr>
+<tr class="memitem:a2a827cfb987868a6239e5a5263f47bb8" id="r_a2a827cfb987868a6239e5a5263f47bb8"><td class="memItemLeft" align="right" valign="top"><a id="a2a827cfb987868a6239e5a5263f47bb8" name="a2a827cfb987868a6239e5a5263f47bb8"></a>
+typedef enum <a class="el" href="#a78357088f31c5ed383bfdc7a90f985e7">udif_error_encoding</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_encoding</b></td></tr>
+<tr class="memitem:ad05f6c2562fa394d6a855ccaa70ed7a3" id="r_ad05f6c2562fa394d6a855ccaa70ed7a3"><td class="memItemLeft" align="right" valign="top"><a id="ad05f6c2562fa394d6a855ccaa70ed7a3" name="ad05f6c2562fa394d6a855ccaa70ed7a3"></a>
+typedef enum <a class="el" href="#a3f481e1e9be6f4431534ddb67bf76884">udif_error_identity</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_identity</b></td></tr>
+<tr class="memitem:af54711e7746d65884c06203fdee96507" id="r_af54711e7746d65884c06203fdee96507"><td class="memItemLeft" align="right" valign="top"><a id="af54711e7746d65884c06203fdee96507" name="af54711e7746d65884c06203fdee96507"></a>
+typedef enum <a class="el" href="#a31bc388fcc1a97e1fbe4178ed66b0248">udif_error_policy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_error_policy</b></td></tr>
+<tr class="memitem:a07f0d7b4bfb06534e354580119fe997d" id="r_a07f0d7b4bfb06534e354580119fe997d"><td class="memItemLeft" align="right" valign="top"><a id="a07f0d7b4bfb06534e354580119fe997d" name="a07f0d7b4bfb06534e354580119fe997d"></a>
+typedef enum <a class="el" href="#a31bd55d9ad516e7ccc61e81e7b624cb4">udif_logging_event_codes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_logging_event_codes</b></td></tr>
+<tr class="memitem:ae2b1aee0a9687359d1ff67be3803c1e2" id="r_ae2b1aee0a9687359d1ff67be3803c1e2"><td class="memItemLeft" align="right" valign="top"><a id="ae2b1aee0a9687359d1ff67be3803c1e2" name="ae2b1aee0a9687359d1ff67be3803c1e2"></a>
+typedef enum <a class="el" href="#a8f50e4a0b00cb29279a44fba0a17c57d">udif_permission_class</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_permission_class</b></td></tr>
+<tr class="memitem:a094a2e55dee01898d0527de3a84bbd02" id="r_a094a2e55dee01898d0527de3a84bbd02"><td class="memItemLeft" align="right" valign="top"><a id="a094a2e55dee01898d0527de3a84bbd02" name="a094a2e55dee01898d0527de3a84bbd02"></a>
+typedef enum <a class="el" href="#a95f6f61d01921ffee31ec9b8f814a58d">udif_policy_decision</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_policy_decision</b></td></tr>
+<tr class="memitem:ade32e8b1f5dadec4bb254b99e007c0a6" id="r_ade32e8b1f5dadec4bb254b99e007c0a6"><td class="memItemLeft" align="right" valign="top"><a id="ade32e8b1f5dadec4bb254b99e007c0a6" name="ade32e8b1f5dadec4bb254b99e007c0a6"></a>
+typedef enum <a class="el" href="#a052bda99a26d79e00915b214e254b12f">udif_roles</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_roles</b></td></tr>
+<tr class="memitem:a72d7c1bdfa9c9fda29c3851b6ffe0dd0" id="r_a72d7c1bdfa9c9fda29c3851b6ffe0dd0"><td class="memItemLeft" align="right" valign="top"><a id="a72d7c1bdfa9c9fda29c3851b6ffe0dd0" name="a72d7c1bdfa9c9fda29c3851b6ffe0dd0"></a>
+typedef enum <a class="el" href="#a92d4b7f1225bf27fd77ba424ee46665c">udif_time_validation</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_time_validation</b></td></tr>
+<tr class="memitem:ad277c4fb14d763526b9fd16f85f9b4f9" id="r_ad277c4fb14d763526b9fd16f85f9b4f9"><td class="memItemLeft" align="right" valign="top"><a id="ad277c4fb14d763526b9fd16f85f9b4f9" name="ad277c4fb14d763526b9fd16f85f9b4f9"></a>
+typedef enum <a class="el" href="#a77a170a1f994f785e4ab41ed78f1a872">udif_token_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_token_type</b></td></tr>
+<tr class="memitem:aec09c89c103200ca9363ef6d487e9f6e" id="r_aec09c89c103200ca9363ef6d487e9f6e"><td class="memItemLeft" align="right" valign="top"><a id="aec09c89c103200ca9363ef6d487e9f6e" name="aec09c89c103200ca9363ef6d487e9f6e"></a>
+typedef enum <a class="el" href="#a9afda5a988d65c9cda5b2fd0d20f5aae">udif_status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_status</b></td></tr>
+<tr class="memitem:a666b48f0bb9a67de95a1479567f1e965" id="r_a666b48f0bb9a67de95a1479567f1e965"><td class="memItemLeft" align="right" valign="top"><a id="a666b48f0bb9a67de95a1479567f1e965" name="a666b48f0bb9a67de95a1479567f1e965"></a>
+typedef enum <a class="el" href="#a89f0e9d0f59631fd7581423faf24170d">udif_verify_policy</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_verify_policy</b></td></tr>
+<tr class="memitem:afeaed7646ffa97e084ef00479647538d" id="r_afeaed7646ffa97e084ef00479647538d"><td class="memItemLeft" align="right" valign="top"><a id="afeaed7646ffa97e084ef00479647538d" name="afeaed7646ffa97e084ef00479647538d"></a>
+typedef enum <a class="el" href="#ae314281ba90afbae742b84a038807cf0">udif_version_sets</a>&#160;</td><td class="memItemRight" valign="bottom"><b>udif_version_sets</b></td></tr>
 <tr class="memitem:a754b5d9f37ad204d0121fc90b452b167" id="r_a754b5d9f37ad204d0121fc90b452b167"><td class="memItemLeft" align="right" valign="top"><a id="a754b5d9f37ad204d0121fc90b452b167" name="a754b5d9f37ad204d0121fc90b452b167"></a>
 typedef <a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> struct udif_capability_mask&#160;</td><td class="memItemRight" valign="bottom"><b>udif_capability_mask</b></td></tr>
 <tr class="memitem:a3f4a74850883303f602cc0630aba279d" id="r_a3f4a74850883303f602cc0630aba279d"><td class="memItemLeft" align="right" valign="top"><a id="a3f4a74850883303f602cc0630aba279d" name="a3f4a74850883303f602cc0630aba279d"></a>
@@ -464,10 +574,10 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a052bda99a26d79e00915b214e254b12f" id="r_a052bda99a26d79e00915b214e254b12f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a052bda99a26d79e00915b214e254b12f">udif_roles</a> { <br />
 &#160;&#160;<a class="el" href="#a052bda99a26d79e00915b214e254b12fa456875697fa11e207a8489811c360efc">udif_role_none</a> = 0U
 , <a class="el" href="#a052bda99a26d79e00915b214e254b12fa014ea192478fdc9c1bca972a6a43dc60">udif_role_root</a> = 1U
-, <a class="el" href="#a052bda99a26d79e00915b214e254b12fa34d3bdede760e33b446c72c14f1cd8af">udif_role_udc</a> = 2U
-, <a class="el" href="#a052bda99a26d79e00915b214e254b12faa3d3071d435cc56d9d788a45e54a1fc9">udif_role_uip</a> = 3U
+, <a class="el" href="#a052bda99a26d79e00915b214e254b12fac5c247df9741a6d1dda7f2c7e2e963c9">udif_role_ugc</a> = 2U
+, <a class="el" href="#a052bda99a26d79e00915b214e254b12fa088981e335595938e607bfb186299ebb">udif_role_ubc</a> = 3U
 , <br />
-&#160;&#160;<a class="el" href="#a052bda99a26d79e00915b214e254b12fa96651916474059ffb594e8e58a465d22">udif_role_uis</a> = 4U
+&#160;&#160;<a class="el" href="#a052bda99a26d79e00915b214e254b12fa8c94f413283e9fed186634f5525c561d">udif_role_uor</a> = 4U
 , <a class="el" href="#a052bda99a26d79e00915b214e254b12fa8ad0dbe2bda0df8526b1afc2e66db6a8">udif_role_client</a> = 5U
 , <a class="el" href="#a052bda99a26d79e00915b214e254b12fae4b9f55e382415d50ff8f0ad500f446b">udif_role_audit</a> = 6U
 , <a class="el" href="#a052bda99a26d79e00915b214e254b12faf095f00eb06e77e382f56d389e0b7209">udif_role_revoked</a> = 7U
@@ -516,6 +626,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac449d155885421abc29a1398d66214ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the suite id valid.  <br /></td></tr>
 <tr class="memitem:ae0deef3c853b5d3501f25f8fb40e883d" id="r_ae0deef3c853b5d3501f25f8fb40e883d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0deef3c853b5d3501f25f8fb40e883d">udif_error_to_string</a> (<a class="el" href="#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a> error)</td></tr>
 <tr class="memdesc:ae0deef3c853b5d3501f25f8fb40e883d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an error to a string.  <br /></td></tr>
+<tr class="memitem:a5be2643b3a3f83b852aa8332b59497f4" id="r_a5be2643b3a3f83b852aa8332b59497f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5be2643b3a3f83b852aa8332b59497f4">udif_role_to_string</a> (<a class="el" href="#a052bda99a26d79e00915b214e254b12f">udif_roles</a> role)</td></tr>
+<tr class="memdesc:a5be2643b3a3f83b852aa8332b59497f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a role to its string name.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>UDIF Common Definitions and Protocol Configuration. </p>
@@ -540,6 +652,46 @@ Functions</h2></td></tr>
 </dd></dl>
 <p>These tests collectively ensure the robustness, consistency, and security of the UDIF protocol configuration. </p>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a74cd1eacd3379e040acb297fd572e728" name="a74cd1eacd3379e040acb297fd572e728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74cd1eacd3379e040acb297fd572e728">&#9670;&#160;</a></span>UDIF_BC_POLICY_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_BC_POLICY_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a07705965fb7d0fdf329a7f9ba5c43a0a">UDIF_POLICY_REQUIRE_RATCHET_REKEY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a04db4f37401e5bad9cd7be36db36da41">UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aea05458d2957d487f2bfb97cfb20be6a">UDIF_POLICY_REQUIRE_ANCHORING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad51fdb8d3638329ebceb5778182268c8">UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac4948645cfa9d379f116e62bc415759e">UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ab0260deb8ef664f44688ca6e037da056">UDIF_POLICY_ADMIN_SEPARATION_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a824f5053690a2578e9078ac21ac6fa12">UDIF_POLICY_TREATY_BASE_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a>)</div>
+<div class="ttc" id="audif_8h_html_a04db4f37401e5bad9cd7be36db36da41"><div class="ttname"><a href="#a04db4f37401e5bad9cd7be36db36da41">UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</div><div class="ttdoc">Requires membership events to be logged.</div><div class="ttdef"><b>Definition</b> udif.h:682</div></div>
+<div class="ttc" id="audif_8h_html_a07705965fb7d0fdf329a7f9ba5c43a0a"><div class="ttname"><a href="#a07705965fb7d0fdf329a7f9ba5c43a0a">UDIF_POLICY_REQUIRE_RATCHET_REKEY</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_RATCHET_REKEY</div><div class="ttdoc">Requires periodic ratchet rekeying where applicable.</div><div class="ttdef"><b>Definition</b> udif.h:782</div></div>
+<div class="ttc" id="audif_8h_html_a2b740b99512d5494054e088bcaef4bbb"><div class="ttname"><a href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_TRANSPORT_SECURITY_MASK</div><div class="ttdoc">Mandatory transport-session policy bits.</div><div class="ttdef"><b>Definition</b> udif.h:952</div></div>
+<div class="ttc" id="audif_8h_html_a5c0c1bd22c2ed99c6b1b5f9bf620e91d"><div class="ttname"><a href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_BASELINE_SECURITY_MASK</div><div class="ttdoc">Mandatory baseline policy bits for all UDIF certificates.</div><div class="ttdef"><b>Definition</b> udif.h:934</div></div>
+<div class="ttc" id="audif_8h_html_a824f5053690a2578e9078ac21ac6fa12"><div class="ttname"><a href="#a824f5053690a2578e9078ac21ac6fa12">UDIF_POLICY_TREATY_BASE_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_TREATY_BASE_MASK</div><div class="ttdoc">Policy bits enforcing treaty containment.</div><div class="ttdef"><b>Definition</b> udif.h:992</div></div>
+<div class="ttc" id="audif_8h_html_aa088fa2bd978ed845a018a623fc2eca7"><div class="ttname"><a href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</div><div class="ttdoc">Allows export of bounded operational telemetry.</div><div class="ttdef"><b>Definition</b> udif.h:876</div></div>
+<div class="ttc" id="audif_8h_html_ab0260deb8ef664f44688ca6e037da056"><div class="ttname"><a href="#ab0260deb8ef664f44688ca6e037da056">UDIF_POLICY_ADMIN_SEPARATION_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_ADMIN_SEPARATION_MASK</div><div class="ttdoc">Policy bits enforcing administrative role separation.</div><div class="ttdef"><b>Definition</b> udif.h:980</div></div>
+<div class="ttc" id="audif_8h_html_ac289f40ea3f51763ef94411d42efaf7a"><div class="ttname"><a href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_ERROR_REPORTING</div><div class="ttdoc">Allows signed operational error reporting.</div><div class="ttdef"><b>Definition</b> udif.h:885</div></div>
+<div class="ttc" id="audif_8h_html_ac4948645cfa9d379f116e62bc415759e"><div class="ttname"><a href="#ac4948645cfa9d379f116e62bc415759e">UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</div><div class="ttdoc">Requires auditable operational counters where applicable.</div><div class="ttdef"><b>Definition</b> udif.h:737</div></div>
+<div class="ttc" id="audif_8h_html_ad51fdb8d3638329ebceb5778182268c8"><div class="ttname"><a href="#ad51fdb8d3638329ebceb5778182268c8">UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</div><div class="ttdoc">Requires monotonic Anchor Record sequencing.</div><div class="ttdef"><b>Definition</b> udif.h:718</div></div>
+<div class="ttc" id="audif_8h_html_aea05458d2957d487f2bfb97cfb20be6a"><div class="ttname"><a href="#aea05458d2957d487f2bfb97cfb20be6a">UDIF_POLICY_REQUIRE_ANCHORING</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_ANCHORING</div><div class="ttdoc">Requires periodic upstream Anchor Records.</div><div class="ttdef"><b>Definition</b> udif.h:709</div></div>
+</div><!-- fragment -->
+<p>Default policy mask for a UDIF Branch Controller certificate. </p>
+<p>The Branch Controller policy enforces default-deny authorization, parent signature validation, revocation checking, canonical encoding, capability intersection, membership logging, anchoring, anchor sequence validation, transport security, administrative separation, and treaty containment.</p>
+<p>This default is suitable for a Branch Controller operating in branch-admin mode. Treaty enablement remains excluded unless explicitly granted. </p>
+
+</div>
+</div>
 <a id="a255973029d1641df60054989125b1c7f" name="a255973029d1641df60054989125b1c7f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a255973029d1641df60054989125b1c7f">&#9670;&#160;</a></span>udif_cipher_generate_keypair</h2>
 
@@ -555,6 +707,924 @@ Functions</h2></td></tr>
 <p>UDIF function mapping macros. </p>
 <p>These macros alias the high-level UDIF cryptographic operations to the corresponding QSC library functions. The mapping depends on the selected parameter set. For instance, if UDIF_CONFIG_SPHINCS_MCELIECE is defined, then the UDIF cipher and signature functions map to the McEliece/SPHINCS+ routines. Alternatively, if UDIF_CONFIG_DILITHIUM_KYBER is defined, the corresponding Dilithium/Kyber routines are used.</p>
 <p>Generate an asymmetric cipher key-pair </p>
+
+</div>
+</div>
+<a id="a14b7278694998dfacdd4d3f3e21148f6" name="a14b7278694998dfacdd4d3f3e21148f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b7278694998dfacdd4d3f3e21148f6">&#9670;&#160;</a></span>UDIF_CLIENT_POLICY_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_CLIENT_POLICY_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a01330dbc654cb22d303154ecebdab151">UDIF_POLICY_REQUIRE_TRANSACTION_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa9b8594da36268f3bfd2458b728ba39c">UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad4f18860c8c945e4b64f9657865b1f18">UDIF_POLICY_FORBID_CLIENT_ADMIN</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7f0dd200f6fbfd69c0f47992f6b1356c">UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a>)</div>
+<div class="ttc" id="audif_8h_html_a01330dbc654cb22d303154ecebdab151"><div class="ttname"><a href="#a01330dbc654cb22d303154ecebdab151">UDIF_POLICY_REQUIRE_TRANSACTION_LOG</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_TRANSACTION_LOG</div><div class="ttdoc">Requires object and transfer events to be logged.</div><div class="ttdef"><b>Definition</b> udif.h:691</div></div>
+<div class="ttc" id="audif_8h_html_a7f0dd200f6fbfd69c0f47992f6b1356c"><div class="ttname"><a href="#a7f0dd200f6fbfd69c0f47992f6b1356c">UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</a></div><div class="ttdeci">#define UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</div><div class="ttdoc">Forbids direct lateral User Agent interaction.</div><div class="ttdef"><b>Definition</b> udif.h:818</div></div>
+<div class="ttc" id="audif_8h_html_aa9b8594da36268f3bfd2458b728ba39c"><div class="ttname"><a href="#aa9b8594da36268f3bfd2458b728ba39c">UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</div><div class="ttdoc">Requires registry roots to be committed.</div><div class="ttdef"><b>Definition</b> udif.h:700</div></div>
+<div class="ttc" id="audif_8h_html_ad4f18860c8c945e4b64f9657865b1f18"><div class="ttname"><a href="#ad4f18860c8c945e4b64f9657865b1f18">UDIF_POLICY_FORBID_CLIENT_ADMIN</a></div><div class="ttdeci">#define UDIF_POLICY_FORBID_CLIENT_ADMIN</div><div class="ttdoc">Forbids User Agents from administrative authority.</div><div class="ttdef"><b>Definition</b> udif.h:809</div></div>
+</div><!-- fragment -->
+<p>Default policy mask for a UDIF client or User Agent certificate. </p>
+<p>The client policy enforces end-entity constraints. It requires default-deny authorization, canonical encoding, revocation checking, capability intersection, minimal disclosure, registry commitment, transaction logging, transport validation, and prohibition of administrative and lateral interaction.</p>
+<p>A client may own objects and initiate or accept transactions subject to capability and registry checks, but it must not enroll, suspend, revoke, forward, or administer other entities. </p>
+
+</div>
+</div>
+<a id="a34a353f2ae1d5bafad0e979f33ccc7bc" name="a34a353f2ae1d5bafad0e979f33ccc7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a353f2ae1d5bafad0e979f33ccc7bc">&#9670;&#160;</a></span>UDIF_GC_POLICY_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_GC_POLICY_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a04db4f37401e5bad9cd7be36db36da41">UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a01330dbc654cb22d303154ecebdab151">UDIF_POLICY_REQUIRE_TRANSACTION_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa9b8594da36268f3bfd2458b728ba39c">UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aea05458d2957d487f2bfb97cfb20be6a">UDIF_POLICY_REQUIRE_ANCHORING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad51fdb8d3638329ebceb5778182268c8">UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac4948645cfa9d379f116e62bc415759e">UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa86085e5ab122d535606000c2abf6a7d">UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ae384ceff213b36f689c2f8e2fb83b646">UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aae714c16e63d63cefb7dcd88a11567ca">UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a>)</div>
+<div class="ttc" id="audif_8h_html_aa86085e5ab122d535606000c2abf6a7d"><div class="ttname"><a href="#aa86085e5ab122d535606000c2abf6a7d">UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</a></div><div class="ttdeci">#define UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</div><div class="ttdoc">Forbids Roots, BCs, and GCs from owning objects.</div><div class="ttdef"><b>Definition</b> udif.h:800</div></div>
+<div class="ttc" id="audif_8h_html_aae714c16e63d63cefb7dcd88a11567ca"><div class="ttname"><a href="#aae714c16e63d63cefb7dcd88a11567ca">UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</div><div class="ttdoc">Requires treaty-scope validation.</div><div class="ttdef"><b>Definition</b> udif.h:837</div></div>
+<div class="ttc" id="audif_8h_html_ae384ceff213b36f689c2f8e2fb83b646"><div class="ttname"><a href="#ae384ceff213b36f689c2f8e2fb83b646">UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</a></div><div class="ttdeci">#define UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</div><div class="ttdoc">Forbids implicit cross-domain treaty authority.</div><div class="ttdef"><b>Definition</b> udif.h:828</div></div>
+</div><!-- fragment -->
+<p>Default policy mask for a UDIF Group Controller certificate. </p>
+<p>The Group Controller policy enforces user lifecycle logging, registry commitment, transaction logging, upstream anchoring, capability intersection, minimal disclosure, transport validation, treaty containment, and the rule that administrative controllers do not own objects.</p>
+<p>The Group Controller is the primary enforcement point for User Agent operations, but it must not receive branch-creation policy unless acting under a separate branch-admin certificate. </p>
+
+</div>
+</div>
+<a id="ab0260deb8ef664f44688ca6e037da056" name="ab0260deb8ef664f44688ca6e037da056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0260deb8ef664f44688ca6e037da056">&#9670;&#160;</a></span>UDIF_POLICY_ADMIN_SEPARATION_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ADMIN_SEPARATION_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#aa86085e5ab122d535606000c2abf6a7d">UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad4f18860c8c945e4b64f9657865b1f18">UDIF_POLICY_FORBID_CLIENT_ADMIN</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7f0dd200f6fbfd69c0f47992f6b1356c">UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</a>)</div>
+</div><!-- fragment -->
+<p>Policy bits enforcing administrative role separation. </p>
+<p>This mask prevents administrative controllers from owning objects and prevents clients from acting as administrative authorities. </p>
+
+</div>
+</div>
+<a id="ac289f40ea3f51763ef94411d42efaf7a" name="ac289f40ea3f51763ef94411d42efaf7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac289f40ea3f51763ef94411d42efaf7a">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_ERROR_REPORTING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_ERROR_REPORTING&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 29)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows signed operational error reporting. </p>
+<p>Permits nodes to create signed error reports and append them to the relevant operational, membership, or audit log. </p>
+
+</div>
+</div>
+<a id="a8229d770d97d2a0df034adcfa9742ee7" name="a8229d770d97d2a0df034adcfa9742ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8229d770d97d2a0df034adcfa9742ee7">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_PROFILE_HOOKS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_PROFILE_HOOKS&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 30)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows non-canonical profile policy hooks. </p>
+<p>Permits deployment-specific policy hooks for predicates, retention, jurisdictional restrictions, consent, delegation, or profile-defined checks. Hooks must not change canonical encodings or weaken default-deny behavior. </p>
+
+</div>
+</div>
+<a id="aa088fa2bd978ed845a018a623fc2eca7" name="aa088fa2bd978ed845a018a623fc2eca7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa088fa2bd978ed845a018a623fc2eca7">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_TELEMETRY_EXPORT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 28)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows export of bounded operational telemetry. </p>
+<p>Permits export of non-identifying counters and operational status values. This policy must not permit raw identifiers, attributes, registry entries, or transaction contents to be exported. </p>
+
+</div>
+</div>
+<a id="a65500c8a41e255c3c62184bddad05f27" name="a65500c8a41e255c3c62184bddad05f27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65500c8a41e255c3c62184bddad05f27">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_TREATY_NEGOTIATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_TREATY_NEGOTIATION&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 25)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows authorized treaty negotiation. </p>
+<p>Permits a suitably authorized Branch Controller or designated controller to negotiate and sign treaty records. This policy bit does not by itself grant treaty capability bits. </p>
+
+</div>
+</div>
+<a id="a8f5a08bc6e12dfdf2073224c8576847c" name="a8f5a08bc6e12dfdf2073224c8576847c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f5a08bc6e12dfdf2073224c8576847c">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 27)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows execution of incoming treaty-scoped queries. </p>
+<p>Permits processing of treaty queries received from a peer domain when the holder also has the required treaty capability and the treaty permits the predicate. </p>
+
+</div>
+</div>
+<a id="a623ab91db07db0448e31140d016e83ef" name="a623ab91db07db0448e31140d016e83ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623ab91db07db0448e31140d016e83ef">&#9670;&#160;</a></span>UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 26)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allows treaty-scoped query origination. </p>
+<p>Permits treaty query origination when the holder also has the required treaty capability and a valid treaty permits the requested predicate. </p>
+
+</div>
+</div>
+<a id="a5c0c1bd22c2ed99c6b1b5f9bf620e91d" name="a5c0c1bd22c2ed99c6b1b5f9bf620e91d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">&#9670;&#160;</a></span>UDIF_POLICY_BASELINE_SECURITY_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_BASELINE_SECURITY_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a6112fa77a01ac021ba1d78b865a1d8a6">UDIF_POLICY_DEFAULT_DENY</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#add797b0379a4456ef2bff31a240878cd">UDIF_POLICY_REQUIRE_SUITE_MATCH</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a90380f05526a1777652da5e65ee2222e">UDIF_POLICY_REQUIRE_CANONICAL_ENCODING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa7335c55668841e25b4eee8107d1dcb7">UDIF_POLICY_REQUIRE_PARENT_SIGNATURE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a130908c8a1b021339c2ca5f729c989ae">UDIF_POLICY_REQUIRE_REVOCATION_CHECK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aabf0f06ee7275fb6a49a6e1f90170cac">UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a02c2e6d27ff22483faa93a152997971d">UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a00c049e4c1b3f34479595a3f2f4dc742">UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#af3214859f0a3065e02d3bcbbf9453f13">UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION</a>)</div>
+<div class="ttc" id="audif_8h_html_a00c049e4c1b3f34479595a3f2f4dc742"><div class="ttname"><a href="#a00c049e4c1b3f34479595a3f2f4dc742">UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE</div><div class="ttdoc">Requires minimal-disclosure query responses.</div><div class="ttdef"><b>Definition</b> udif.h:728</div></div>
+<div class="ttc" id="audif_8h_html_a02c2e6d27ff22483faa93a152997971d"><div class="ttname"><a href="#a02c2e6d27ff22483faa93a152997971d">UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH</div><div class="ttdoc">Requires policy epoch consistency during validation.</div><div class="ttdef"><b>Definition</b> udif.h:672</div></div>
+<div class="ttc" id="audif_8h_html_a130908c8a1b021339c2ca5f729c989ae"><div class="ttname"><a href="#a130908c8a1b021339c2ca5f729c989ae">UDIF_POLICY_REQUIRE_REVOCATION_CHECK</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_REVOCATION_CHECK</div><div class="ttdoc">Requires revocation and suspension state checking.</div><div class="ttdef"><b>Definition</b> udif.h:652</div></div>
+<div class="ttc" id="audif_8h_html_a6112fa77a01ac021ba1d78b865a1d8a6"><div class="ttname"><a href="#a6112fa77a01ac021ba1d78b865a1d8a6">UDIF_POLICY_DEFAULT_DENY</a></div><div class="ttdeci">#define UDIF_POLICY_DEFAULT_DENY</div><div class="ttdoc">Enforces default-deny authorization semantics.</div><div class="ttdef"><b>Definition</b> udif.h:614</div></div>
+<div class="ttc" id="audif_8h_html_a90380f05526a1777652da5e65ee2222e"><div class="ttname"><a href="#a90380f05526a1777652da5e65ee2222e">UDIF_POLICY_REQUIRE_CANONICAL_ENCODING</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_CANONICAL_ENCODING</div><div class="ttdoc">Requires strict UDIF canonical binary encoding.</div><div class="ttdef"><b>Definition</b> udif.h:633</div></div>
+<div class="ttc" id="audif_8h_html_aa7335c55668841e25b4eee8107d1dcb7"><div class="ttname"><a href="#aa7335c55668841e25b4eee8107d1dcb7">UDIF_POLICY_REQUIRE_PARENT_SIGNATURE</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_PARENT_SIGNATURE</div><div class="ttdoc">Requires non-root certificates to verify against the issuer key.</div><div class="ttdef"><b>Definition</b> udif.h:643</div></div>
+<div class="ttc" id="audif_8h_html_aabf0f06ee7275fb6a49a6e1f90170cac"><div class="ttname"><a href="#aabf0f06ee7275fb6a49a6e1f90170cac">UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT</div><div class="ttdoc">Requires capability intersection before authorization.</div><div class="ttdef"><b>Definition</b> udif.h:662</div></div>
+<div class="ttc" id="audif_8h_html_add797b0379a4456ef2bff31a240878cd"><div class="ttname"><a href="#add797b0379a4456ef2bff31a240878cd">UDIF_POLICY_REQUIRE_SUITE_MATCH</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_SUITE_MATCH</div><div class="ttdoc">Requires all communicating parties to use the same UDIF suite.</div><div class="ttdef"><b>Definition</b> udif.h:623</div></div>
+<div class="ttc" id="audif_8h_html_af3214859f0a3065e02d3bcbbf9453f13"><div class="ttname"><a href="#af3214859f0a3065e02d3bcbbf9453f13">UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION</a></div><div class="ttdeci">#define UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION</div><div class="ttdoc">Forbids runtime cryptographic suite negotiation.</div><div class="ttdef"><b>Definition</b> udif.h:791</div></div>
+</div><!-- fragment -->
+<p>Mandatory baseline policy bits for all UDIF certificates. </p>
+<p>This mask covers default denial, suite matching, canonical encoding, signature verification, revocation checking, capability intersection, policy epoch validation, minimal disclosure, and runtime negotiation prohibition. </p>
+
+</div>
+</div>
+<a id="a6112fa77a01ac021ba1d78b865a1d8a6" name="a6112fa77a01ac021ba1d78b865a1d8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6112fa77a01ac021ba1d78b865a1d8a6">&#9670;&#160;</a></span>UDIF_POLICY_DEFAULT_DENY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_DEFAULT_DENY&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enforces default-deny authorization semantics. </p>
+<p>Requires all operations to be denied unless explicitly permitted by the intersection of the caller certificate, capability bitmap, local policy, and any applicable treaty or profile rule. </p>
+
+</div>
+</div>
+<a id="ac10a40e04f5a80e9c95143971255d652" name="ac10a40e04f5a80e9c95143971255d652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10a40e04f5a80e9c95143971255d652">&#9670;&#160;</a></span>UDIF_POLICY_DEFINED_CORE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_DEFINED_CORE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a2b740b99512d5494054e088bcaef4bbb">UDIF_POLICY_TRANSPORT_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a676ad16632a3761ab8b0794da7385395">UDIF_POLICY_LOGGING_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ab0260deb8ef664f44688ca6e037da056">UDIF_POLICY_ADMIN_SEPARATION_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a824f5053690a2578e9078ac21ac6fa12">UDIF_POLICY_TREATY_BASE_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ae28fbff863d9359f24b7aff51137dfaf">UDIF_POLICY_TREATY_ENABLE_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a0f0d4e46c081e08970ba06dc0316bf4c">UDIF_POLICY_PROFILE_HOOK_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a07705965fb7d0fdf329a7f9ba5c43a0a">UDIF_POLICY_REQUIRE_RATCHET_REKEY</a>)</div>
+<div class="ttc" id="audif_8h_html_a0f0d4e46c081e08970ba06dc0316bf4c"><div class="ttname"><a href="#a0f0d4e46c081e08970ba06dc0316bf4c">UDIF_POLICY_PROFILE_HOOK_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_PROFILE_HOOK_MASK</div><div class="ttdoc">Optional profile hook policy bits.</div><div class="ttdef"><b>Definition</b> udif.h:1016</div></div>
+<div class="ttc" id="audif_8h_html_a676ad16632a3761ab8b0794da7385395"><div class="ttname"><a href="#a676ad16632a3761ab8b0794da7385395">UDIF_POLICY_LOGGING_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_LOGGING_MASK</div><div class="ttdoc">Mandatory logging and audit policy bits.</div><div class="ttdef"><b>Definition</b> udif.h:965</div></div>
+<div class="ttc" id="audif_8h_html_ae28fbff863d9359f24b7aff51137dfaf"><div class="ttname"><a href="#ae28fbff863d9359f24b7aff51137dfaf">UDIF_POLICY_TREATY_ENABLE_MASK</a></div><div class="ttdeci">#define UDIF_POLICY_TREATY_ENABLE_MASK</div><div class="ttdoc">Optional treaty enablement policy bits.</div><div class="ttdef"><b>Definition</b> udif.h:1004</div></div>
+</div><!-- fragment -->
+<p>Mask of all UDIF implementation-defined core policy bits. </p>
+
+</div>
+</div>
+<a id="aa86085e5ab122d535606000c2abf6a7d" name="aa86085e5ab122d535606000c2abf6a7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86085e5ab122d535606000c2abf6a7d">&#9670;&#160;</a></span>UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 20)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forbids Roots, BCs, and GCs from owning objects. </p>
+<p>Enforces the UDIF separation between administration and ownership. Objects must be owned by User Agents, not by administrative controllers. </p>
+
+</div>
+</div>
+<a id="ad4f18860c8c945e4b64f9657865b1f18" name="ad4f18860c8c945e4b64f9657865b1f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4f18860c8c945e4b64f9657865b1f18">&#9670;&#160;</a></span>UDIF_POLICY_FORBID_CLIENT_ADMIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_FORBID_CLIENT_ADMIN&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 21)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forbids User Agents from administrative authority. </p>
+<p>Prevents clients and User Agents from enrolling, suspending, resuming, revoking, or creating subordinate certificates or branches. </p>
+
+</div>
+</div>
+<a id="a7f0dd200f6fbfd69c0f47992f6b1356c" name="a7f0dd200f6fbfd69c0f47992f6b1356c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0dd200f6fbfd69c0f47992f6b1356c">&#9670;&#160;</a></span>UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 22)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forbids direct lateral User Agent interaction. </p>
+<p>Requires User Agent interaction with other users, registries, or domains to be mediated by the assigned Group Controller. </p>
+
+</div>
+</div>
+<a id="ae384ceff213b36f689c2f8e2fb83b646" name="ae384ceff213b36f689c2f8e2fb83b646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae384ceff213b36f689c2f8e2fb83b646">&#9670;&#160;</a></span>UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 23)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forbids implicit cross-domain treaty authority. </p>
+<p>Requires treaty rights to be explicitly granted by certificate capability, local policy, and a valid treaty record. No domain may infer treaty rights from ordinary branch or group status. </p>
+
+</div>
+</div>
+<a id="af3214859f0a3065e02d3bcbbf9453f13" name="af3214859f0a3065e02d3bcbbf9453f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3214859f0a3065e02d3bcbbf9453f13">&#9670;&#160;</a></span>UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 19)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forbids runtime cryptographic suite negotiation. </p>
+<p>Requires all cryptographic algorithms and suite identifiers to be fixed by the compiled UDIF domain profile. </p>
+
+</div>
+</div>
+<a id="a676ad16632a3761ab8b0794da7385395" name="a676ad16632a3761ab8b0794da7385395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a676ad16632a3761ab8b0794da7385395">&#9670;&#160;</a></span>UDIF_POLICY_LOGGING_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_LOGGING_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a04db4f37401e5bad9cd7be36db36da41">UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a01330dbc654cb22d303154ecebdab151">UDIF_POLICY_REQUIRE_TRANSACTION_LOG</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa9b8594da36268f3bfd2458b728ba39c">UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aea05458d2957d487f2bfb97cfb20be6a">UDIF_POLICY_REQUIRE_ANCHORING</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad51fdb8d3638329ebceb5778182268c8">UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac4948645cfa9d379f116e62bc415759e">UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</a>)</div>
+</div><!-- fragment -->
+<p>Mandatory logging and audit policy bits. </p>
+<p>This mask covers membership logs, transaction logs, registry commits, anchoring, anchor sequencing, and audit counters. </p>
+
+</div>
+</div>
+<a id="a56e40392ca326bbd07dbd1df539be049" name="a56e40392ca326bbd07dbd1df539be049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e40392ca326bbd07dbd1df539be049">&#9670;&#160;</a></span>UDIF_POLICY_NONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_NONE&#160;&#160;&#160;(UINT64_C(0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Empty UDIF policy mask. </p>
+<p>Represents the absence of policy permissions or constraints. In UDIF this value is not permissive; it is interpreted together with default-deny semantics and therefore grants no policy relaxation. </p>
+
+</div>
+</div>
+<a id="a0f0d4e46c081e08970ba06dc0316bf4c" name="a0f0d4e46c081e08970ba06dc0316bf4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0d4e46c081e08970ba06dc0316bf4c">&#9670;&#160;</a></span>UDIF_POLICY_PROFILE_HOOK_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_PROFILE_HOOK_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a8229d770d97d2a0df034adcfa9742ee7">UDIF_POLICY_ALLOW_PROFILE_HOOKS</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a8de6c5198e3d0428740089a9d9d5b586">UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT</a>)</div>
+<div class="ttc" id="audif_8h_html_a8229d770d97d2a0df034adcfa9742ee7"><div class="ttname"><a href="#a8229d770d97d2a0df034adcfa9742ee7">UDIF_POLICY_ALLOW_PROFILE_HOOKS</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_PROFILE_HOOKS</div><div class="ttdoc">Allows non-canonical profile policy hooks.</div><div class="ttdef"><b>Definition</b> udif.h:895</div></div>
+<div class="ttc" id="audif_8h_html_a8de6c5198e3d0428740089a9d9d5b586"><div class="ttname"><a href="#a8de6c5198e3d0428740089a9d9d5b586">UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT</div><div class="ttdoc">Requires audit records for profile hook decisions.</div><div class="ttdef"><b>Definition</b> udif.h:905</div></div>
+</div><!-- fragment -->
+<p>Optional profile hook policy bits. </p>
+<p>This mask enables non-canonical policy hooks and requires their decisions to be auditable under the active policy epoch. </p>
+
+</div>
+</div>
+<a id="a7f6e6d56ee30b7433271df995263e0d2" name="a7f6e6d56ee30b7433271df995263e0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f6e6d56ee30b7433271df995263e0d2">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 17)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires authenticated transport headers. </p>
+<p>Requires UDIF transport headers to be authenticated as AEAD associated data, including flags, sequence, timestamp, epoch, and suite identifier. </p>
+
+</div>
+</div>
+<a id="ad51fdb8d3638329ebceb5778182268c8" name="ad51fdb8d3638329ebceb5778182268c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51fdb8d3638329ebceb5778182268c8">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 11)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires monotonic Anchor Record sequencing. </p>
+<p>Requires each child Anchor Record sequence to start at zero and increment monotonically by one, rejecting rollback, replay, or skipped anchor states. </p>
+
+</div>
+</div>
+<a id="aea05458d2957d487f2bfb97cfb20be6a" name="aea05458d2957d487f2bfb97cfb20be6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea05458d2957d487f2bfb97cfb20be6a">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_ANCHORING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_ANCHORING&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires periodic upstream Anchor Records. </p>
+<p>Requires Branch Controllers and Group Controllers to periodically submit signed Anchor Records to their parent authority. </p>
+
+</div>
+</div>
+<a id="ac4948645cfa9d379f116e62bc415759e" name="ac4948645cfa9d379f116e62bc415759e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4948645cfa9d379f116e62bc415759e">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_AUDIT_COUNTERS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_AUDIT_COUNTERS&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 13)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires auditable operational counters where applicable. </p>
+<p>Requires anchor, membership, transaction, registry, and treaty operations to maintain counters sufficient for audit and rollback detection. </p>
+
+</div>
+</div>
+<a id="a90380f05526a1777652da5e65ee2222e" name="a90380f05526a1777652da5e65ee2222e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90380f05526a1777652da5e65ee2222e">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_CANONICAL_ENCODING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_CANONICAL_ENCODING&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires strict UDIF canonical binary encoding. </p>
+<p>Requires fixed field order, little-endian integer encoding, exact structure sizes, and rejection of malformed, truncated, overlong, or ambiguously encoded records. </p>
+
+</div>
+</div>
+<a id="aabf0f06ee7275fb6a49a6e1f90170cac" name="aabf0f06ee7275fb6a49a6e1f90170cac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf0f06ee7275fb6a49a6e1f90170cac">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 5)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires capability intersection before authorization. </p>
+<p>Requires authorization to be computed by intersecting requested operation rights with the holder certificate bitmap, issued capability tokens, parent constraints, local policy, and treaty scope where applicable. </p>
+
+</div>
+</div>
+<a id="ad97fd52a2bc2cc0cb016b4794f30e9b0" name="ad97fd52a2bc2cc0cb016b4794f30e9b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97fd52a2bc2cc0cb016b4794f30e9b0">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_EPOCH_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_EPOCH_CHECK&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 16)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires session and policy epoch validation. </p>
+<p>Requires protocol messages, ratchet states, and policy-governed records to be evaluated under the expected epoch value. </p>
+
+</div>
+</div>
+<a id="a04db4f37401e5bad9cd7be36db36da41" name="a04db4f37401e5bad9cd7be36db36da41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04db4f37401e5bad9cd7be36db36da41">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 7)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires membership events to be logged. </p>
+<p>Requires enrollment, suspension, resumption, revocation, capability grants, capability revocations, registry commits, and branch lifecycle events to be written to the membership log. </p>
+
+</div>
+</div>
+<a id="a00c049e4c1b3f34479595a3f2f4dc742" name="a00c049e4c1b3f34479595a3f2f4dc742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c049e4c1b3f34479595a3f2f4dc742">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 12)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires minimal-disclosure query responses. </p>
+<p>Requires query processing to return only authorized predicate results, digest proofs, or Boolean responses, and forbids disclosure of unrelated raw identifiers, attributes, registry contents, or object data. </p>
+
+</div>
+</div>
+<a id="aa7335c55668841e25b4eee8107d1dcb7" name="aa7335c55668841e25b4eee8107d1dcb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7335c55668841e25b4eee8107d1dcb7">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_PARENT_SIGNATURE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_PARENT_SIGNATURE&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires non-root certificates to verify against the issuer key. </p>
+<p>Enforces parent-signed certificate issuance. The only exception is the Root trust anchor, where issuer_serial equals serial and trust is established out of band. </p>
+
+</div>
+</div>
+<a id="a02c2e6d27ff22483faa93a152997971d" name="a02c2e6d27ff22483faa93a152997971d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c2e6d27ff22483faa93a152997971d">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires policy epoch consistency during validation. </p>
+<p>Requires certificate, capability, anchor, and profile decisions to be evaluated under the active policy_epoch. Epoch changes must be explicit and auditable. </p>
+
+</div>
+</div>
+<a id="a8de6c5198e3d0428740089a9d9d5b586" name="a8de6c5198e3d0428740089a9d9d5b586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de6c5198e3d0428740089a9d9d5b586">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 31)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires audit records for profile hook decisions. </p>
+<p>Requires profile hook decisions affecting authorization, query execution, treaty forwarding, or disclosure to be logged or accounted for under the active policy_epoch. </p>
+
+</div>
+</div>
+<a id="a07705965fb7d0fdf329a7f9ba5c43a0a" name="a07705965fb7d0fdf329a7f9ba5c43a0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07705965fb7d0fdf329a7f9ba5c43a0a">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_RATCHET_REKEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_RATCHET_REKEY&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 18)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires periodic ratchet rekeying where applicable. </p>
+<p>Requires long-lived controller-to-controller tunnels to perform configured asymmetric rekeying and epoch transition. </p>
+
+</div>
+</div>
+<a id="aa9b8594da36268f3bfd2458b728ba39c" name="aa9b8594da36268f3bfd2458b728ba39c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b8594da36268f3bfd2458b728ba39c">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_REGISTRY_COMMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_REGISTRY_COMMIT&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 9)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires registry roots to be committed. </p>
+<p>Requires User Agent registry roots, or group-level aggregates of registry roots, to be committed through the applicable membership or registry ledger. </p>
+
+</div>
+</div>
+<a id="a130908c8a1b021339c2ca5f729c989ae" name="a130908c8a1b021339c2ca5f729c989ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a130908c8a1b021339c2ca5f729c989ae">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_REVOCATION_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_REVOCATION_CHECK&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 4)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires revocation and suspension state checking. </p>
+<p>Requires certificates and capabilities to be checked against local and upstream revocation or suspension state before use. </p>
+
+</div>
+</div>
+<a id="a1df37e0fb666865d63eb505c06ea9999" name="a1df37e0fb666865d63eb505c06ea9999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df37e0fb666865d63eb505c06ea9999">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_SEQUENCE_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_SEQUENCE_CHECK&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 15)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires strict transport sequence checking. </p>
+<p>Requires message sequence numbers to be strictly monotonic within each session epoch. Missing, repeated, or reordered records must fail validation. </p>
+
+</div>
+</div>
+<a id="add797b0379a4456ef2bff31a240878cd" name="add797b0379a4456ef2bff31a240878cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add797b0379a4456ef2bff31a240878cd">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_SUITE_MATCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_SUITE_MATCH&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires all communicating parties to use the same UDIF suite. </p>
+<p>Enforces the compile-time suite model. Certificates, sessions, anchors, and protocol messages using a mismatched suite identifier must be rejected. </p>
+
+</div>
+</div>
+<a id="a687ee655b1c5726269559d09f1210383" name="a687ee655b1c5726269559d09f1210383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687ee655b1c5726269559d09f1210383">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_TIME_WINDOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_TIME_WINDOW&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 14)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires protocol timestamp acceptance windows. </p>
+<p>Requires transport and control messages to be rejected when their timestamp falls outside the configured acceptance window. </p>
+
+</div>
+</div>
+<a id="a01330dbc654cb22d303154ecebdab151" name="a01330dbc654cb22d303154ecebdab151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01330dbc654cb22d303154ecebdab151">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_TRANSACTION_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_TRANSACTION_LOG&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 8)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires object and transfer events to be logged. </p>
+<p>Requires object creation, update, transfer, suspension, destruction, and treaty-scoped transaction evidence to be written to the transaction log. </p>
+
+</div>
+</div>
+<a id="aae714c16e63d63cefb7dcd88a11567ca" name="aae714c16e63d63cefb7dcd88a11567ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae714c16e63d63cefb7dcd88a11567ca">&#9670;&#160;</a></span>UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK&#160;&#160;&#160;(UINT64_C(1) &lt;&lt; 24)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Requires treaty-scope validation. </p>
+<p>Requires treaty queries and proofs to be constrained by peer identity, predicate family, allowed scope, policy epoch, and capability intersection. </p>
+
+</div>
+</div>
+<a id="adbb304871058a80bc6efd138911b3dce" name="adbb304871058a80bc6efd138911b3dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb304871058a80bc6efd138911b3dce">&#9670;&#160;</a></span>UDIF_POLICY_RESERVED_CORE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_RESERVED_CORE_MASK&#160;&#160;&#160;(UINT64_C(0x0000FFFF00000000))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reserved policy bits for future UDIF core policy assignments. </p>
+<p>Bits 32 through 47 are reserved for future core policy definitions. They must be zero unless assigned by a later UDIF core revision. </p>
+
+</div>
+</div>
+<a id="a6654cf510d2be2e070e9f0e89ae19935" name="a6654cf510d2be2e070e9f0e89ae19935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6654cf510d2be2e070e9f0e89ae19935">&#9670;&#160;</a></span>UDIF_POLICY_RESERVED_PROFILE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_RESERVED_PROFILE_MASK&#160;&#160;&#160;(UINT64_C(0xFFFF000000000000))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reserved policy bits for implementation or deployment profiles. </p>
+<p>Bits 48 through 63 are reserved for jurisdictional, institutional, regulatory, or application-specific policy profiles. </p>
+
+</div>
+</div>
+<a id="a2b740b99512d5494054e088bcaef4bbb" name="a2b740b99512d5494054e088bcaef4bbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b740b99512d5494054e088bcaef4bbb">&#9670;&#160;</a></span>UDIF_POLICY_TRANSPORT_SECURITY_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_TRANSPORT_SECURITY_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a687ee655b1c5726269559d09f1210383">UDIF_POLICY_REQUIRE_TIME_WINDOW</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a1df37e0fb666865d63eb505c06ea9999">UDIF_POLICY_REQUIRE_SEQUENCE_CHECK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ad97fd52a2bc2cc0cb016b4794f30e9b0">UDIF_POLICY_REQUIRE_EPOCH_CHECK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a7f6e6d56ee30b7433271df995263e0d2">UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER</a>)</div>
+<div class="ttc" id="audif_8h_html_a1df37e0fb666865d63eb505c06ea9999"><div class="ttname"><a href="#a1df37e0fb666865d63eb505c06ea9999">UDIF_POLICY_REQUIRE_SEQUENCE_CHECK</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_SEQUENCE_CHECK</div><div class="ttdoc">Requires strict transport sequence checking.</div><div class="ttdef"><b>Definition</b> udif.h:755</div></div>
+<div class="ttc" id="audif_8h_html_a687ee655b1c5726269559d09f1210383"><div class="ttname"><a href="#a687ee655b1c5726269559d09f1210383">UDIF_POLICY_REQUIRE_TIME_WINDOW</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_TIME_WINDOW</div><div class="ttdoc">Requires protocol timestamp acceptance windows.</div><div class="ttdef"><b>Definition</b> udif.h:746</div></div>
+<div class="ttc" id="audif_8h_html_a7f6e6d56ee30b7433271df995263e0d2"><div class="ttname"><a href="#a7f6e6d56ee30b7433271df995263e0d2">UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER</div><div class="ttdoc">Requires authenticated transport headers.</div><div class="ttdef"><b>Definition</b> udif.h:773</div></div>
+<div class="ttc" id="audif_8h_html_ad97fd52a2bc2cc0cb016b4794f30e9b0"><div class="ttname"><a href="#ad97fd52a2bc2cc0cb016b4794f30e9b0">UDIF_POLICY_REQUIRE_EPOCH_CHECK</a></div><div class="ttdeci">#define UDIF_POLICY_REQUIRE_EPOCH_CHECK</div><div class="ttdoc">Requires session and policy epoch validation.</div><div class="ttdef"><b>Definition</b> udif.h:764</div></div>
+</div><!-- fragment -->
+<p>Mandatory transport-session policy bits. </p>
+<p>This mask covers timestamp windows, sequence validation, epoch validation, authenticated headers, and ratchet rekeying where applicable. </p>
+
+</div>
+</div>
+<a id="a824f5053690a2578e9078ac21ac6fa12" name="a824f5053690a2578e9078ac21ac6fa12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a824f5053690a2578e9078ac21ac6fa12">&#9670;&#160;</a></span>UDIF_POLICY_TREATY_BASE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_TREATY_BASE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#ae384ceff213b36f689c2f8e2fb83b646">UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aae714c16e63d63cefb7dcd88a11567ca">UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK</a>)</div>
+</div><!-- fragment -->
+<p>Policy bits enforcing treaty containment. </p>
+<p>This mask forbids implicit treaty authority and requires explicit treaty scope checks before cross-domain operation. </p>
+
+</div>
+</div>
+<a id="ae28fbff863d9359f24b7aff51137dfaf" name="ae28fbff863d9359f24b7aff51137dfaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28fbff863d9359f24b7aff51137dfaf">&#9670;&#160;</a></span>UDIF_POLICY_TREATY_ENABLE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_POLICY_TREATY_ENABLE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a65500c8a41e255c3c62184bddad05f27">UDIF_POLICY_ALLOW_TREATY_NEGOTIATION</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a623ab91db07db0448e31140d016e83ef">UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a8f5a08bc6e12dfdf2073224c8576847c">UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC</a>)</div>
+<div class="ttc" id="audif_8h_html_a623ab91db07db0448e31140d016e83ef"><div class="ttname"><a href="#a623ab91db07db0448e31140d016e83ef">UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN</div><div class="ttdoc">Allows treaty-scoped query origination.</div><div class="ttdef"><b>Definition</b> udif.h:856</div></div>
+<div class="ttc" id="audif_8h_html_a65500c8a41e255c3c62184bddad05f27"><div class="ttname"><a href="#a65500c8a41e255c3c62184bddad05f27">UDIF_POLICY_ALLOW_TREATY_NEGOTIATION</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_TREATY_NEGOTIATION</div><div class="ttdoc">Allows authorized treaty negotiation.</div><div class="ttdef"><b>Definition</b> udif.h:847</div></div>
+<div class="ttc" id="audif_8h_html_a8f5a08bc6e12dfdf2073224c8576847c"><div class="ttname"><a href="#a8f5a08bc6e12dfdf2073224c8576847c">UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC</a></div><div class="ttdeci">#define UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC</div><div class="ttdoc">Allows execution of incoming treaty-scoped queries.</div><div class="ttdef"><b>Definition</b> udif.h:866</div></div>
+</div><!-- fragment -->
+<p>Optional treaty enablement policy bits. </p>
+<p>This mask enables treaty negotiation, treaty query origination, and treaty query execution. It must be applied only where parent policy and certificate capabilities explicitly allow cross-domain operation. </p>
+
+</div>
+</div>
+<a id="a078bfbe417fae4be2cccabf1cf804bb9" name="a078bfbe417fae4be2cccabf1cf804bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078bfbe417fae4be2cccabf1cf804bb9">&#9670;&#160;</a></span>UDIF_REGISTRY_LEAF_ENCODED_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_REGISTRY_LEAF_ENCODED_SIZE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="#ac9eb14623e37e964c2135bac0ae794c0">UDIF_REGISTRY_LEAF_FLAGS_SIZE</a> + \</div>
+<div class="line">    UDIF_VALID_TIME_SIZE)</div>
+<div class="ttc" id="audif_8h_html_a7ba12b3dc631fc8e3fd139e8caf33600"><div class="ttname"><a href="#a7ba12b3dc631fc8e3fd139e8caf33600">UDIF_OBJECT_SERIAL_SIZE</a></div><div class="ttdeci">#define UDIF_OBJECT_SERIAL_SIZE</div><div class="ttdoc">The object serial number field length in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
+<div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
+<div class="ttc" id="audif_8h_html_ac9eb14623e37e964c2135bac0ae794c0"><div class="ttname"><a href="#ac9eb14623e37e964c2135bac0ae794c0">UDIF_REGISTRY_LEAF_FLAGS_SIZE</a></div><div class="ttdeci">#define UDIF_REGISTRY_LEAF_FLAGS_SIZE</div><div class="ttdoc">The registry leaf flags field length in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:552</div></div>
+</div><!-- fragment -->
+<p>The canonical registry leaf encoding length in bytes. </p>
+
+</div>
+</div>
+<a id="a262b80701dcb0dffe7665b41a4750f8a" name="a262b80701dcb0dffe7665b41a4750f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262b80701dcb0dffe7665b41a4750f8a">&#9670;&#160;</a></span>UDIF_ROOT_POLICY_DEFAULT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_ROOT_POLICY_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    (<a class="code hl_define" href="#a5c0c1bd22c2ed99c6b1b5f9bf620e91d">UDIF_POLICY_BASELINE_SECURITY_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a676ad16632a3761ab8b0794da7385395">UDIF_POLICY_LOGGING_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ab0260deb8ef664f44688ca6e037da056">UDIF_POLICY_ADMIN_SEPARATION_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#a824f5053690a2578e9078ac21ac6fa12">UDIF_POLICY_TREATY_BASE_MASK</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#aa088fa2bd978ed845a018a623fc2eca7">UDIF_POLICY_ALLOW_TELEMETRY_EXPORT</a> | \</div>
+<div class="line">     <a class="code hl_define" href="#ac289f40ea3f51763ef94411d42efaf7a">UDIF_POLICY_ALLOW_ERROR_REPORTING</a>)</div>
+</div><!-- fragment -->
+<p>Default policy mask for a UDIF Root certificate. </p>
+<p>The Root policy defines the baseline rules for the domain. It enforces the canonical suite, canonical encoding, revocation model, policy epoch model, default-deny authorization, strict administrative separation, and anchoring requirements for subordinate controllers.</p>
+<p>The Root default excludes ordinary treaty execution by default. Treaty enablement should be added explicitly through deployment policy if the Root is intended to authorize treaty-capable controllers. </p>
+
+</div>
+</div>
+<a id="a30bd7447b384602d7900c280d156539b" name="a30bd7447b384602d7900c280d156539b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30bd7447b384602d7900c280d156539b">&#9670;&#160;</a></span>UDIF_SERIAL_NUMBER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDIF_SERIAL_NUMBER_SIZE&#160;&#160;&#160;<a class="el" href="#ae6fb57c083d4cfdbb1818467d3d29d50">UDIF_CERT_SERIAL_SIZE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The certificate serial number field length. </p>
+<p>This compatibility alias is retained for certificate and entity serials. Object serials MUST use UDIF_OBJECT_SERIAL_SIZE. </p>
 
 </div>
 </div>
@@ -983,11 +2053,11 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa014ea192478fdc9c1bca972a6a43dc60" name="a052bda99a26d79e00915b214e254b12fa014ea192478fdc9c1bca972a6a43dc60"></a>udif_role_root&#160;</td><td class="fielddoc"><p>Root authority </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa34d3bdede760e33b446c72c14f1cd8af" name="a052bda99a26d79e00915b214e254b12fa34d3bdede760e33b446c72c14f1cd8af"></a>udif_role_udc&#160;</td><td class="fielddoc"><p>Domain controller </p>
+<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fac5c247df9741a6d1dda7f2c7e2e963c9" name="a052bda99a26d79e00915b214e254b12fac5c247df9741a6d1dda7f2c7e2e963c9"></a>udif_role_ugc&#160;</td><td class="fielddoc"><p>Group controller </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12faa3d3071d435cc56d9d788a45e54a1fc9" name="a052bda99a26d79e00915b214e254b12faa3d3071d435cc56d9d788a45e54a1fc9"></a>udif_role_uip&#160;</td><td class="fielddoc"><p>Identity provider role </p>
+<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa088981e335595938e607bfb186299ebb" name="a052bda99a26d79e00915b214e254b12fa088981e335595938e607bfb186299ebb"></a>udif_role_ubc&#160;</td><td class="fielddoc"><p>Branch controller </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa96651916474059ffb594e8e58a465d22" name="a052bda99a26d79e00915b214e254b12fa96651916474059ffb594e8e58a465d22"></a>udif_role_uis&#160;</td><td class="fielddoc"><p>Identity server role </p>
+<tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa8c94f413283e9fed186634f5525c561d" name="a052bda99a26d79e00915b214e254b12fa8c94f413283e9fed186634f5525c561d"></a>udif_role_uor&#160;</td><td class="fielddoc"><p>Object registry </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a052bda99a26d79e00915b214e254b12fa8ad0dbe2bda0df8526b1afc2e66db6a8" name="a052bda99a26d79e00915b214e254b12fa8ad0dbe2bda0df8526b1afc2e66db6a8"></a>udif_role_client&#160;</td><td class="fielddoc"><p>Client role </p>
 </td></tr>
@@ -1155,6 +2225,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the errors string representation. </dd></dl>
+
+</div>
+</div>
+<a id="a5be2643b3a3f83b852aa8332b59497f4" name="a5be2643b3a3f83b852aa8332b59497f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5be2643b3a3f83b852aa8332b59497f4">&#9670;&#160;</a></span>udif_role_to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> const char * udif_role_to_string </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a052bda99a26d79e00915b214e254b12f">udif_roles</a></td>          <td class="paramname"><span class="paramname"><em>role</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a role to its string name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The role enumerator.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a constant string naming the role, or NULL if unknown. </dd></dl>
 
 </div>
 </div>

@@ -1,4 +1,5 @@
 #include "treaty.h"
+#include "query.h"
 #include "intutils.h"
 #include "memutils.h"
 #include "sha3.h"
@@ -9,7 +10,7 @@ udif_errors udif_treaty_accept(udif_treaty* treaty, const uint8_t* domsigkeyb, b
 	UDIF_ASSERT(domsigkeyb != NULL);
 	UDIF_ASSERT(rng_generate != NULL);
 
-	uint8_t digest[UDIF_CRYPTO_HASH_SIZE];
+	uint8_t digest[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	udif_errors err;
 
 	err = udif_error_invalid_input;
@@ -48,7 +49,7 @@ udif_errors udif_treaty_accept(udif_treaty* treaty, const uint8_t* domsigkeyb, b
 			err = udif_error_invalid_state;
 		}
 
-		qsc_memutils_clear(digest, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest, UDIF_CRYPTO_HASH_SIZE);
 	}
 
 	return err;
@@ -70,11 +71,64 @@ bool udif_treaty_allows_scope(const udif_treaty* treaty, uint32_t scope)
 	return res;
 }
 
-void udif_treaty_clear(udif_treaty* treaty)
+
+bool udif_treaty_allows_query(const udif_treaty* treaty, uint8_t querytype)
 {
+	UDIF_ASSERT(treaty != NULL);
+
+	uint32_t scope;
+	bool res;
+
+	res = false;
+	scope = 0U;
+
 	if (treaty != NULL)
 	{
-		qsc_memutils_clear((uint8_t*)treaty, sizeof(udif_treaty));
+		switch (querytype)
+		{
+			case (uint8_t)udif_query_exist:
+			{
+				scope = UDIF_TREATY_SCOPE_QUERY_EXIST;
+				break;
+			}
+			case (uint8_t)udif_query_owner_binding:
+			{
+				scope = UDIF_TREATY_SCOPE_QUERY_OWNER;
+				break;
+			}
+			case (uint8_t)udif_query_attr_bucket:
+			{
+				scope = UDIF_TREATY_SCOPE_QUERY_ATTR;
+				break;
+			}
+			case (uint8_t)udif_query_membership_proof:
+			{
+				scope = UDIF_TREATY_SCOPE_QUERY_PROOF;
+				break;
+			}
+			default:
+			{
+				scope = 0U;
+				break;
+			}
+		}
+
+		if (scope != 0U)
+		{
+			res = udif_treaty_allows_scope(treaty, scope);
+		}
+	}
+
+	return res;
+}
+
+void udif_treaty_clear(udif_treaty* treaty)
+{
+	UDIF_ASSERT(treaty != NULL);
+
+	if (treaty != NULL)
+	{
+		qsc_memutils_secure_erase((uint8_t*)treaty, sizeof(udif_treaty));
 	}
 }
 
@@ -123,7 +177,7 @@ udif_errors udif_treaty_create_proposal(udif_treaty* treaty, const uint8_t* trea
 				if (qsc_memutils_are_equal(domsera, domserb, UDIF_SERIAL_NUMBER_SIZE) == false)
 				{
 					qsc_memutils_clear((uint8_t*)treaty, sizeof(udif_treaty));
-					qsc_memutils_copy(treaty->treatyid, treatyid, UDIF_CRYPTO_HASH_SIZE);
+					qsc_memutils_copy(treaty->treatyid, treatyid, UDIF_SERIAL_NUMBER_SIZE);
 					qsc_memutils_copy(treaty->domsera, domsera, UDIF_SERIAL_NUMBER_SIZE);
 					qsc_memutils_copy(treaty->domserb, domserb, UDIF_SERIAL_NUMBER_SIZE);
 					treaty->scopebitmap = scopebitmap;
@@ -161,7 +215,7 @@ udif_errors udif_treaty_create_proposal(udif_treaty* treaty, const uint8_t* trea
 					err = udif_error_invalid_input;
 				}
 
-				qsc_memutils_clear(digest, UDIF_CRYPTO_HASH_SIZE);
+				qsc_memutils_secure_erase(digest, UDIF_CRYPTO_HASH_SIZE);
 			}
 			else
 			{
@@ -192,18 +246,17 @@ udif_errors udif_treaty_compute_digest(uint8_t* digest, const udif_treaty* treat
 	{
 		qsc_sha3_initialize(&kstate);
 
-		/* hash all fields except signatures */
-		qsc_keccak_update(&kstate, qsc_keccak_rate_256, treaty->treatyid, UDIF_CRYPTO_HASH_SIZE, QSC_KECCAK_PERMUTATION_ROUNDS);
+		/* hash the canonical serialized treaty body, excluding both signature fields */
 		qsc_keccak_update(&kstate, qsc_keccak_rate_256, treaty->domsera, UDIF_SERIAL_NUMBER_SIZE, QSC_KECCAK_PERMUTATION_ROUNDS);
 		qsc_keccak_update(&kstate, qsc_keccak_rate_256, treaty->domserb, UDIF_SERIAL_NUMBER_SIZE, QSC_KECCAK_PERMUTATION_ROUNDS);
-
-		qsc_intutils_le32to8(buf, treaty->scopebitmap);
-		qsc_keccak_update(&kstate, qsc_keccak_rate_256, buf, sizeof(uint32_t), QSC_KECCAK_PERMUTATION_ROUNDS);
+		qsc_keccak_update(&kstate, qsc_keccak_rate_256, treaty->treatyid, UDIF_SERIAL_NUMBER_SIZE, QSC_KECCAK_PERMUTATION_ROUNDS);
 		qsc_intutils_le64to8(buf, treaty->validfrom);
 		qsc_keccak_update(&kstate, qsc_keccak_rate_256, buf, sizeof(uint64_t), QSC_KECCAK_PERMUTATION_ROUNDS);
 		qsc_intutils_le64to8(buf, treaty->validto);
 		qsc_keccak_update(&kstate, qsc_keccak_rate_256, buf, sizeof(uint64_t), QSC_KECCAK_PERMUTATION_ROUNDS);
 		qsc_intutils_le32to8(buf, treaty->policy);
+		qsc_keccak_update(&kstate, qsc_keccak_rate_256, buf, sizeof(uint32_t), QSC_KECCAK_PERMUTATION_ROUNDS);
+		qsc_intutils_le32to8(buf, treaty->scopebitmap);
 		qsc_keccak_update(&kstate, qsc_keccak_rate_256, buf, sizeof(uint32_t), QSC_KECCAK_PERMUTATION_ROUNDS);
 
 		qsc_sha3_finalize(&kstate, qsc_keccak_rate_256, digest);
@@ -221,9 +274,9 @@ udif_errors udif_treaty_deserialize(udif_treaty* treaty, const uint8_t* input, s
 	size_t pos;
 	udif_errors err;
 
-	err = udif_error_invalid_input;
+	err = udif_error_decode_failure;
 
-	if (input != NULL && treaty != NULL && inplen >= UDIF_TREATY_STRUCTURE_SIZE)
+	if (input != NULL && treaty != NULL && inplen == UDIF_TREATY_STRUCTURE_SIZE)
 	{
 		pos = 0U;
 
@@ -379,7 +432,7 @@ udif_errors udif_treaty_serialize(uint8_t* output, size_t outlen, const udif_tre
 
 	err = udif_error_invalid_input;
 
-	if (output != NULL && treaty != NULL && outlen >= UDIF_TREATY_STRUCTURE_SIZE)
+	if (output != NULL && treaty != NULL && outlen == UDIF_TREATY_STRUCTURE_SIZE)
 	{
 		pos = 0U;
 
@@ -440,6 +493,45 @@ udif_errors udif_treaty_validate(const udif_treaty* treaty)
 	return err;
 }
 
+
+bool udif_treaty_verify_proposal(const udif_treaty* treaty, const uint8_t* domverkeya)
+{
+	UDIF_ASSERT(treaty != NULL);
+	UDIF_ASSERT(domverkeya != NULL);
+
+	uint8_t digest1[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint8_t digest2[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	bool res;
+
+	res = false;
+
+	if (treaty != NULL && domverkeya != NULL)
+	{
+		size_t mlen;
+
+		if (udif_treaty_is_pending(treaty) == true)
+		{
+			if (udif_treaty_compute_digest(digest1, treaty) == udif_error_none)
+			{
+				mlen = 0U;
+
+				if (udif_signature_verify(digest2, &mlen, treaty->domsiga, UDIF_SIGNED_HASH_SIZE, domverkeya) == true)
+				{
+					if (mlen == UDIF_CRYPTO_HASH_SIZE)
+					{
+						res = qsc_memutils_are_equal(digest1, digest2, UDIF_CRYPTO_HASH_SIZE);
+					}
+				}
+			}
+		}
+
+		qsc_memutils_secure_erase(digest1, sizeof(digest1));
+		qsc_memutils_secure_erase(digest2, sizeof(digest2));
+	}
+
+	return res;
+}
+
 bool udif_treaty_verify(const udif_treaty* treaty, const uint8_t* domverkeya, const uint8_t* domverkeyb)
 {
 	UDIF_ASSERT(treaty != NULL);
@@ -479,15 +571,15 @@ bool udif_treaty_verify(const udif_treaty* treaty, const uint8_t* domverkeya, co
 								res = qsc_memutils_are_equal(digest1, digest3, sizeof(digest1));
 							}
 
-							qsc_memutils_clear(digest3, UDIF_CRYPTO_HASH_SIZE);
+							qsc_memutils_secure_erase(digest3, UDIF_CRYPTO_HASH_SIZE);
 						}
 					}
 				}
 
-				qsc_memutils_clear(digest2, UDIF_CRYPTO_HASH_SIZE);
+				qsc_memutils_secure_erase(digest2, UDIF_CRYPTO_HASH_SIZE);
 			}
 
-			qsc_memutils_clear(digest1, UDIF_CRYPTO_HASH_SIZE);
+			qsc_memutils_secure_erase(digest1, UDIF_CRYPTO_HASH_SIZE);
 		}
 	}
 

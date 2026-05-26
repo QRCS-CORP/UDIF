@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -24,6 +24,9 @@
     <ClCompile Include="certificate_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="conformance_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="anchor_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,13 +36,40 @@
     <ClCompile Include="query_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="query_mechanism_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="registry_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="treaty_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tunnel_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="mcelmgr_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mcel_hierarchy_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="virtual_network_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="control_plane_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="handler_conformance_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inter_domain_treaty_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="load_endurance_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="object_registry_transaction_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +89,13 @@
     <ClInclude Include="certificate_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="conformance_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="mcelmgr_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcel_hierarchy_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="object_test.h">
@@ -68,10 +104,34 @@
     <ClInclude Include="query_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="query_mechanism_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="registry_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="treaty_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tunnel_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="virtual_network_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="control_plane_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="handler_conformance_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inter_domain_treaty_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="load_endurance_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="object_registry_transaction_test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

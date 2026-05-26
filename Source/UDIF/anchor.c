@@ -19,7 +19,7 @@ udif_errors udif_anchor_create( udif_anchor_record* anchor, const uint8_t* child
 
 	err = udif_error_invalid_input;
 
-	if (anchor != NULL && childser != NULL && regroot != NULL && txroot != NULL && mroot != NULL && sigkey != NULL && rng_generate != NULL && sequence > 0U)
+	if (anchor != NULL && childser != NULL && regroot != NULL && txroot != NULL && mroot != NULL && sigkey != NULL && rng_generate != NULL)
 	{
 		/* clear structure */
 		qsc_memutils_clear((uint8_t*)anchor, sizeof(udif_anchor_record));
@@ -62,7 +62,7 @@ udif_errors udif_anchor_deserialize(udif_anchor_record* anchor, const uint8_t* i
 
 	err = udif_error_decode_failure;
 
-	if (input != NULL && anchor != NULL && inplen >= UDIF_ANCHOR_RECORD_SIZE)
+	if (input != NULL && anchor != NULL && inplen == UDIF_ANCHOR_RECORD_SIZE)
 	{
 		pos = 0U;
 
@@ -111,14 +111,14 @@ udif_errors udif_anchor_compute_digest(uint8_t* digest, const udif_anchor_record
 		pos += UDIF_CRYPTO_HASH_SIZE;
 		qsc_memutils_copy(buf + pos, anchor->childser, UDIF_SERIAL_NUMBER_SIZE);
 		pos += UDIF_SERIAL_NUMBER_SIZE;
+		qsc_intutils_le64to8(buf + pos, anchor->sequence);
+		pos += UDIF_ANCHOR_SEQUENCE_SIZE;
 		qsc_intutils_le64to8(buf + pos, anchor->timestamp);
 		pos += UDIF_VALID_TIME_SIZE;
 		qsc_intutils_le32to8(buf + pos, anchor->memcount);
 		pos += UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER;
 		qsc_intutils_le32to8(buf + pos, anchor->regcount);
 		pos += UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER;
-		qsc_intutils_le64to8(buf + pos, anchor->sequence);
-		pos += UDIF_ANCHOR_SEQUENCE_SIZE;
 		qsc_intutils_le32to8(buf + pos, anchor->txcount);
 
 		/* compute digest and sign with parent key */
@@ -269,7 +269,7 @@ udif_errors udif_anchor_serialize(uint8_t* output, size_t outlen, const udif_anc
 	return err;
 }
 
-bool udif_anchor_validate_sequence(const udif_anchor_record* anchor, uint64_t prevseq)
+bool udif_anchor_validate_sequence(const udif_anchor_record* anchor, uint64_t expseq)
 {
 	UDIF_ASSERT(anchor != NULL);
 
@@ -279,16 +279,8 @@ bool udif_anchor_validate_sequence(const udif_anchor_record* anchor, uint64_t pr
 
 	if (anchor != NULL)
 	{
-		/* if this is the first anchor, prev_seq should be 0 */
-		if (prevseq == 0)
-		{
-			res = true;
-		}
-		else
-		{
-			/* sequence must be strictly increasing */
-			res = (anchor->sequence > prevseq);
-		}
+		/* UDIF anchor sequences are exact and 0-indexed. */
+		res = (anchor->sequence == expseq);
 	}
 
 	return res;
@@ -309,26 +301,31 @@ bool udif_anchor_verify(const udif_anchor_record* anchor, const uint8_t* childve
 	{
 		size_t mlen;
 
-		/* check sequence if specified */
-		if (expseq == 0U || anchor->sequence == expseq)
+		/* check the exact expected 0-indexed sequence. */
+		if (udif_anchor_validate_sequence(anchor, expseq) == true)
 		{
 			/* compute digest */
-			udif_anchor_compute_digest(digest1, anchor);
-
-			/* verify signature */
-			mlen = 0U;
-
-			res = udif_signature_verify(digest2, &mlen, anchor->signature, UDIF_SIGNED_HASH_SIZE, childverkey);
-
-			if (mlen == UDIF_CRYPTO_HASH_SIZE)
+			if (udif_anchor_compute_digest(digest1, anchor) == udif_error_none)
 			{
-				res = qsc_memutils_are_equal(digest1, digest2, sizeof(digest1));
-			}
+				/* verify signature */
+				mlen = 0U;
 
-			/* clear digests */
-			qsc_memutils_clear(digest1, UDIF_CRYPTO_HASH_SIZE);
-			qsc_memutils_clear(digest2, UDIF_CRYPTO_HASH_SIZE);
+				res = udif_signature_verify(digest2, &mlen, anchor->signature, UDIF_SIGNED_HASH_SIZE, childverkey);
+
+				if (res == true && mlen == UDIF_CRYPTO_HASH_SIZE)
+				{
+					res = qsc_memutils_are_equal(digest1, digest2, sizeof(digest1));
+				}
+				else
+				{
+					res = false;
+				}
+			}
 		}
+
+		/* clear digests */
+		qsc_memutils_secure_erase(digest1, UDIF_CRYPTO_HASH_SIZE);
+		qsc_memutils_secure_erase(digest2, UDIF_CRYPTO_HASH_SIZE);
 	}
 
 	return res;
@@ -347,15 +344,15 @@ bool udif_anchor_verify_chain(const udif_anchor_record* prevanchor, const udif_a
 	if (prevanchor != NULL && nextanchor != NULL && childverkey != NULL)
 	{
 		/* verify both anchors individually */
-		if (udif_anchor_verify(prevanchor, childverkey, 0U) == true)
+		if (udif_anchor_verify(prevanchor, childverkey, prevanchor->sequence) == true)
 		{
-			if (udif_anchor_verify(nextanchor, childverkey, 0U) == true)
+			if (udif_anchor_verify(nextanchor, childverkey, nextanchor->sequence) == true)
 			{
 				/* verify child serial matches */
 				if (qsc_memutils_are_equal(prevanchor->childser, nextanchor->childser, UDIF_SERIAL_NUMBER_SIZE) == true)
 				{
 					/* verify sequence is monotonically increasing */
-					if (nextanchor->sequence > prevanchor->sequence)
+					if (nextanchor->sequence == (prevanchor->sequence + 1U))
 					{
 						/* verify timestamp is monotonically increasing */
 						res = (nextanchor->timestamp > prevanchor->timestamp);

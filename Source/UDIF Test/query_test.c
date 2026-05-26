@@ -11,7 +11,7 @@ static bool query_test_create_existence(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint64_t timeanchor;
 	udif_errors err;
@@ -22,7 +22,7 @@ static bool query_test_create_existence(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 
@@ -73,7 +73,7 @@ static bool query_test_create_owner_binding(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t ownerser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint64_t timeanchor;
@@ -85,7 +85,7 @@ static bool query_test_create_owner_binding(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(ownerser, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
@@ -137,7 +137,7 @@ static bool query_test_create_attr_bucket(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint64_t attrmin;
 	uint64_t attrmax;
@@ -150,7 +150,7 @@ static bool query_test_create_attr_bucket(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	attrmin = 1000U;
 	attrmax = 5000U;
@@ -203,7 +203,7 @@ static bool query_test_create_membership_proof(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint64_t timeanchor;
 	udif_errors err;
@@ -214,7 +214,7 @@ static bool query_test_create_membership_proof(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 
@@ -268,7 +268,7 @@ static bool query_test_response(void)
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t respser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t proofdata[256] = { 0U };
 	uint64_t timeanchor;
@@ -282,7 +282,7 @@ static bool query_test_response(void)
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(respser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	qsc_csp_generate(proofdata, sizeof(proofdata));
 	timeanchor = qsc_timestamp_datetime_utc();
@@ -352,13 +352,154 @@ static bool query_test_response(void)
 	return res;
 }
 
+
+static bool query_test_response_rejects_same_id_different_predicate(void)
+{
+	udif_query query1 = { 0U };
+	udif_query query2 = { 0U };
+	udif_query_response response = { 0U };
+	udif_signature_keypair kp = { 0U };
+	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
+	uint8_t targser1[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t targser2[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t respser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial1[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
+	uint8_t objserial2[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
+	uint8_t capref1[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint8_t capref2[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint64_t nowsecs;
+	udif_errors err;
+	bool res;
+
+	res = true;
+	qsc_csp_generate(queryid, sizeof(queryid));
+	qsc_csp_generate(targser1, sizeof(targser1));
+	qsc_csp_generate(targser2, sizeof(targser2));
+	qsc_csp_generate(respser, sizeof(respser));
+	qsc_csp_generate(objserial1, sizeof(objserial1));
+	qsc_csp_generate(objserial2, sizeof(objserial2));
+	qsc_csp_generate(capref1, sizeof(capref1));
+	qsc_csp_generate(capref2, sizeof(capref2));
+	udif_signature_generate_keypair(kp.verkey, kp.sigkey, qsc_csp_generate);
+	nowsecs = qsc_timestamp_datetime_utc();
+
+	err = udif_query_create_existence(&query1, queryid, targser1, objserial1, nowsecs, capref1);
+
+	if (err != udif_error_none)
+	{
+		qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_predicate: first query creation failed");
+		res = false;
+	}
+	else
+	{
+		err = udif_query_create_existence(&query2, queryid, targser2, objserial2, nowsecs, capref2);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_predicate: second query creation failed");
+			res = false;
+		}
+	}
+
+	if (res == true)
+	{
+		err = udif_query_create_response(&response, &query1, udif_verdict_yes, NULL, 0U, respser, kp.sigkey, nowsecs, qsc_csp_generate);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_predicate: response creation failed");
+			res = false;
+		}
+		else if (udif_query_verify_response(&response, &query2, kp.verkey) == true)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_predicate: response accepted for different target/predicate");
+			res = false;
+		}
+	}
+
+	udif_query_clear(&query1);
+	udif_query_clear(&query2);
+	udif_query_response_clear(&response);
+	qsc_memutils_clear((uint8_t*)&kp, sizeof(kp));
+
+	return res;
+}
+
+static bool query_test_response_rejects_same_id_different_type(void)
+{
+	udif_query query1 = { 0U };
+	udif_query query2 = { 0U };
+	udif_query_response response = { 0U };
+	udif_signature_keypair kp = { 0U };
+	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
+	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t respser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
+	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
+	uint64_t nowsecs;
+	udif_errors err;
+	bool res;
+
+	res = true;
+	qsc_csp_generate(queryid, sizeof(queryid));
+	qsc_csp_generate(targser, sizeof(targser));
+	qsc_csp_generate(owner, sizeof(owner));
+	qsc_csp_generate(respser, sizeof(respser));
+	qsc_csp_generate(objserial, sizeof(objserial));
+	qsc_csp_generate(capref, sizeof(capref));
+	udif_signature_generate_keypair(kp.verkey, kp.sigkey, qsc_csp_generate);
+	nowsecs = qsc_timestamp_datetime_utc();
+
+	err = udif_query_create_existence(&query1, queryid, targser, objserial, nowsecs, capref);
+
+	if (err != udif_error_none)
+	{
+		qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_type: first query creation failed");
+		res = false;
+	}
+	else
+	{
+		err = udif_query_create_owner_binding(&query2, queryid, targser, objserial, owner, nowsecs, capref);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_type: second query creation failed");
+			res = false;
+		}
+	}
+
+	if (res == true)
+	{
+		err = udif_query_create_response(&response, &query1, udif_verdict_yes, NULL, 0U, respser, kp.sigkey, nowsecs, qsc_csp_generate);
+
+		if (err != udif_error_none)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_type: response creation failed");
+			res = false;
+		}
+		else if (udif_query_verify_response(&response, &query2, kp.verkey) == true)
+		{
+			qsc_consoleutils_print_line("query_test_response_rejects_same_id_different_type: response accepted for different query type");
+			res = false;
+		}
+	}
+
+	udif_query_clear(&query1);
+	udif_query_clear(&query2);
+	udif_query_response_clear(&response);
+	qsc_memutils_clear((uint8_t*)&kp, sizeof(kp));
+
+	return res;
+}
+
 static bool query_test_serialize(void)
 {
 	udif_query query1 = { 0U };
 	udif_query query2 = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t buffer[UDIF_QUERY_MAX_PREDICATE_SIZE] = { 0U };
 	uint64_t timeanchor;
@@ -371,7 +512,7 @@ static bool query_test_serialize(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 
@@ -447,9 +588,9 @@ static bool query_test_response_serialize(void)
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint8_t respser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
-	uint8_t buffer[UDIF_QUERY_MAX_PROOF_SIZE] = { 0U };
+	uint8_t* buffer;
 	uint64_t timeanchor;
 	uint64_t ctime;
 	size_t buflen;
@@ -457,21 +598,30 @@ static bool query_test_response_serialize(void)
 	bool res;
 
 	res = true;
+	buffer = NULL;
 
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
 	qsc_csp_generate(respser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 	ctime = qsc_timestamp_datetime_utc();
+
+	buffer = (uint8_t*)qsc_memutils_malloc(UDIF_QUERY_MAX_PROOF_SIZE);
+
+	if (buffer == NULL)
+	{
+		res = false;
+	}
 
 	/* generate keypair */
 	udif_signature_generate_keypair(kp.verkey, kp.sigkey, qsc_csp_generate);
 
 	/* create query and response */
-	err = udif_query_create_existence(&query, queryid, targser, objserial, timeanchor, capref);
+	err = (buffer == NULL) ? udif_error_internal :
+		udif_query_create_existence(&query, queryid, targser, objserial, timeanchor, capref);
 
 	if (err != udif_error_none)
 	{
@@ -490,7 +640,7 @@ static bool query_test_response_serialize(void)
 		else
 		{
 			/* serialize */
-			buflen = sizeof(buffer);
+			buflen = UDIF_QUERY_MAX_PROOF_SIZE;
 			err = udif_query_response_serialize(buffer, &buflen, &response1);
 
 			if (err != udif_error_none)
@@ -544,6 +694,11 @@ static bool query_test_response_serialize(void)
 	udif_query_clear(&query);
 	udif_query_response_clear(&response1);
 	udif_query_response_clear(&response2);
+	if (buffer != NULL)
+	{
+		qsc_memutils_alloc_free(buffer);
+	}
+
 	qsc_memutils_clear((uint8_t*)&kp, sizeof(udif_signature_keypair));
 
 	return res;
@@ -554,7 +709,7 @@ static bool query_test_freshness(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint64_t timeanchor;
 	uint64_t ctime;
@@ -566,7 +721,7 @@ static bool query_test_freshness(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	ctime = qsc_timestamp_datetime_utc();
 	timeanchor = ctime;
@@ -609,7 +764,7 @@ static bool query_test_authorization(void)
 	udif_capability cap = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t badtargser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
 	uint64_t timeanchor;
@@ -621,7 +776,7 @@ static bool query_test_authorization(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 
 	/* setup capability first */
@@ -681,7 +836,7 @@ static bool query_test_digest(void)
 	udif_query query = { 0U };
 	uint8_t queryid[UDIF_QUERY_ID_SIZE] = { 0U };
 	uint8_t targser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
-	uint8_t objserial[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t objserial[UDIF_OBJECT_SERIAL_SIZE] = { 0U };
 	uint8_t capref[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t digest1[UDIF_CRYPTO_HASH_SIZE] = { 0U };
 	uint8_t digest2[UDIF_CRYPTO_HASH_SIZE] = { 0U };
@@ -695,7 +850,7 @@ static bool query_test_digest(void)
 	/* generate test data */
 	qsc_csp_generate(queryid, UDIF_QUERY_ID_SIZE);
 	qsc_csp_generate(targser, UDIF_SERIAL_NUMBER_SIZE);
-	qsc_csp_generate(objserial, UDIF_SERIAL_NUMBER_SIZE);
+	qsc_csp_generate(objserial, UDIF_OBJECT_SERIAL_SIZE);
 	qsc_csp_generate(capref, UDIF_CRYPTO_HASH_SIZE);
 	timeanchor = qsc_timestamp_datetime_utc();
 
@@ -791,6 +946,26 @@ bool query_test_run(void)
 	else
 	{
 		qsc_consoleutils_print_line("Failure! Query response test has failed.");
+		res = false;
+	}
+
+	if (query_test_response_rejects_same_id_different_predicate() == true)
+	{
+		qsc_consoleutils_print_line("Success! Query response rejects different predicate test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! Query response rejects different predicate test has failed.");
+		res = false;
+	}
+
+	if (query_test_response_rejects_same_id_different_type() == true)
+	{
+		qsc_consoleutils_print_line("Success! Query response rejects different query type test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! Query response rejects different query type test has failed.");
 		res = false;
 	}
 

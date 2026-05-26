@@ -54,6 +54,7 @@
 
 #include "udif.h"
 #include "capability.h"
+#include "registry.h"
 
 /**
 * \file query.h
@@ -76,12 +77,6 @@
 *
 * All queries require capability tokens for authorization.
 */
-
-/*!
- * \def UDIF_QUERY_ID_SIZE
- * \brief The query id size.
- */
-#define UDIF_QUERY_ID_SIZE 16U
 
 /*!
  * \def UDIF_QUERY_MAX_PREDICATE_SIZE
@@ -136,6 +131,7 @@
  */
 #define UDIF_QUERY_RESPONSE_STRUCTURE_SIZE (UDIF_SIGNED_HASH_SIZE + \
 	UDIF_QUERY_ID_SIZE + \
+	UDIF_CRYPTO_HASH_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
 	UDIF_QUERY_VERDICT_SIZE + \
 	UDIF_VALID_TIME_SIZE + \
@@ -192,6 +188,7 @@ UDIF_EXPORT_API typedef struct udif_query_response
 {
 	uint8_t signature[UDIF_SIGNED_HASH_SIZE];		/*!< Response signature */
 	uint8_t queryid[UDIF_QUERY_ID_SIZE];			/*!< Query identifier */
+	uint8_t querydigest[UDIF_CRYPTO_HASH_SIZE];		/*!< Canonical query digest */
 	uint8_t respser[UDIF_SERIAL_NUMBER_SIZE];		/*!< Responder serial */
 	uint8_t verdict;								/*!< Verdict (yes/no/deny) */
 	uint64_t timestamp;								/*!< Reply timestamp */
@@ -365,7 +362,17 @@ UDIF_EXPORT_API void udif_query_response_clear(udif_query_response* response);
 * \param response: [const] The response
 * \param queryid: [const] The query identifier (32 bytes)
 */
-UDIF_EXPORT_API void udif_query_response_compute_digest(uint8_t* digest, const udif_query_response* response, const uint8_t* queryid);
+UDIF_EXPORT_API void udif_query_response_compute_digest(uint8_t* digest, const udif_query_response* response, const udif_query* query);
+
+/*!
+* \brief Verify a query response signature over the embedded query digest.
+*
+* \param response: [const] The response to verify.
+* \param respverkey: [const] The responder verification key.
+*
+* \return Returns true if the signature verifies.
+*/
+UDIF_EXPORT_API bool udif_query_verify_response_signature(const udif_query_response* response, const uint8_t* respverkey);
 
 /*!
 * \brief Deserialize a query response
@@ -405,6 +412,42 @@ UDIF_EXPORT_API udif_errors udif_query_response_serialize(uint8_t* output, size_
 * \return Returns true if authorized
 */
 UDIF_EXPORT_API bool udif_query_validate_authorization(const udif_query* query, const udif_capability* capability, const uint8_t* targser);
+
+
+/*!
+* \brief Validate the canonical predicate size for a query type.
+*
+* Checks that the query type is one of the core UDIF predicate families and
+* that the predicate buffer has the exact canonical size required for that
+* family.
+*
+* \param query: [const] The query to validate.
+*
+* \return Returns true if the query predicate form is canonical.
+*/
+UDIF_EXPORT_API bool udif_query_predicate_is_canonical(const udif_query* query);
+
+/*!
+* \brief Evaluate a query against a UA registry.
+*
+* Applies capability authorization and evaluates the query predicate against
+* the supplied registry. Unauthorized queries return a DENY verdict without
+* leaking target state. Membership-proof queries write the proof to the
+* supplied proof buffer when authorized and true.
+*
+* \param verdict: The output verdict.
+* \param proof: The output proof buffer, or NULL when no proof is requested.
+* \param prooflen: The proof length, in/out, or NULL when no proof is requested.
+* \param query: [const] The query to evaluate.
+* \param registry: [const] The registry to evaluate against.
+* \param capability: [const] The caller capability token.
+* \param subjectser: [const] The caller certificate serial.
+* \param ctime: The current UTC time.
+*
+* \return Returns udif_error_none on a completed evaluation.
+*/
+UDIF_EXPORT_API udif_errors udif_query_evaluate_registry(uint8_t* verdict, uint8_t* proof, size_t* prooflen, const udif_query* query,
+	const udif_registry_state* registry, const udif_capability* capability, const uint8_t* subjectser, uint64_t ctime);
 
 /*!
 * \brief Verify a query response

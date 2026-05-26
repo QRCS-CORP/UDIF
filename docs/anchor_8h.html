@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -122,8 +122,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3e0a04ed59b9527fc96cca76a08c47bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check anchor freshness.  <br /></td></tr>
 <tr class="memitem:a849e45fd81fbff9010e0f276df11fa44" id="r_a849e45fd81fbff9010e0f276df11fa44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <a class="el" href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a849e45fd81fbff9010e0f276df11fa44">udif_anchor_serialize</a> (uint8_t *output, size_t outlen, const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *anchor)</td></tr>
 <tr class="memdesc:a849e45fd81fbff9010e0f276df11fa44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serialize an anchor record.  <br /></td></tr>
-<tr class="memitem:ab5d914f77775b4e9f6868ab478925974" id="r_ab5d914f77775b4e9f6868ab478925974"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d914f77775b4e9f6868ab478925974">udif_anchor_validate_sequence</a> (const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *anchor, uint64_t prevseq)</td></tr>
-<tr class="memdesc:ab5d914f77775b4e9f6868ab478925974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate anchor sequence.  <br /></td></tr>
+<tr class="memitem:a7f46b86eb5189394e547ea5af64d03ef" id="r_a7f46b86eb5189394e547ea5af64d03ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f46b86eb5189394e547ea5af64d03ef">udif_anchor_validate_sequence</a> (const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *anchor, uint64_t expseq)</td></tr>
+<tr class="memdesc:a7f46b86eb5189394e547ea5af64d03ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate an anchor sequence against the expected value.  <br /></td></tr>
 <tr class="memitem:a0e132a7ae8e3e5fd571cdcadd3f29e30" id="r_a0e132a7ae8e3e5fd571cdcadd3f29e30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e132a7ae8e3e5fd571cdcadd3f29e30">udif_anchor_verify</a> (const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *anchor, const uint8_t *childverkey, uint64_t expseq)</td></tr>
 <tr class="memdesc:a0e132a7ae8e3e5fd571cdcadd3f29e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify an anchor record.  <br /></td></tr>
 <tr class="memitem:a4fa32d06d62c2b2e5a2a8fc47b1c7776" id="r_a4fa32d06d62c2b2e5a2a8fc47b1c7776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fa32d06d62c2b2e5a2a8fc47b1c7776">udif_anchor_verify_chain</a> (const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *prevanchor, const <a class="el" href="structudif__anchor__record.html">udif_anchor_record</a> *nextanchor, const uint8_t *childverkey)</td></tr>
@@ -165,12 +165,12 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="#a99d50364a773cc567ab0bdc8f81017ce">UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a56ced7d4902b59d23465d3bba9bd9c89">UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#afcb23c2c62078d7424b8a9822b64ca2a">UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</a>)</div>
-<div class="ttc" id="aanchor_8h_html_a068e8e8b63cc5ce0b22dfccbbfaa4968"><div class="ttname"><a href="#a068e8e8b63cc5ce0b22dfccbbfaa4968">UDIF_ANCHOR_SEQUENCE_SIZE</a></div><div class="ttdeci">#define UDIF_ANCHOR_SEQUENCE_SIZE</div><div class="ttdoc">The anchor sequence number size.</div><div class="ttdef"><b>Definition</b> anchor.h:120</div></div>
-<div class="ttc" id="aanchor_8h_html_a56ced7d4902b59d23465d3bba9bd9c89"><div class="ttname"><a href="#a56ced7d4902b59d23465d3bba9bd9c89">UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</div><div class="ttdoc">The anchor registry object counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:108</div></div>
-<div class="ttc" id="aanchor_8h_html_a99d50364a773cc567ab0bdc8f81017ce"><div class="ttname"><a href="#a99d50364a773cc567ab0bdc8f81017ce">UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</div><div class="ttdoc">The anchor membership event counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:102</div></div>
-<div class="ttc" id="aanchor_8h_html_afcb23c2c62078d7424b8a9822b64ca2a"><div class="ttname"><a href="#afcb23c2c62078d7424b8a9822b64ca2a">UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</div><div class="ttdoc">The anchor registry transaction counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:114</div></div>
-<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:519</div></div>
-<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:525</div></div>
+<div class="ttc" id="aanchor_8h_html_a068e8e8b63cc5ce0b22dfccbbfaa4968"><div class="ttname"><a href="#a068e8e8b63cc5ce0b22dfccbbfaa4968">UDIF_ANCHOR_SEQUENCE_SIZE</a></div><div class="ttdeci">#define UDIF_ANCHOR_SEQUENCE_SIZE</div><div class="ttdoc">The anchor sequence number size.</div><div class="ttdef"><b>Definition</b> anchor.h:119</div></div>
+<div class="ttc" id="aanchor_8h_html_a56ced7d4902b59d23465d3bba9bd9c89"><div class="ttname"><a href="#a56ced7d4902b59d23465d3bba9bd9c89">UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</div><div class="ttdoc">The anchor registry object counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:107</div></div>
+<div class="ttc" id="aanchor_8h_html_a99d50364a773cc567ab0bdc8f81017ce"><div class="ttname"><a href="#a99d50364a773cc567ab0bdc8f81017ce">UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</div><div class="ttdoc">The anchor membership event counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:101</div></div>
+<div class="ttc" id="aanchor_8h_html_afcb23c2c62078d7424b8a9822b64ca2a"><div class="ttname"><a href="#afcb23c2c62078d7424b8a9822b64ca2a">UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</a></div><div class="ttdeci">#define UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</div><div class="ttdoc">The anchor registry transaction counter size.</div><div class="ttdef"><b>Definition</b> anchor.h:113</div></div>
+<div class="ttc" id="audif_8h_html_a30bd7447b384602d7900c280d156539b"><div class="ttname"><a href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a></div><div class="ttdeci">#define UDIF_SERIAL_NUMBER_SIZE</div><div class="ttdoc">The certificate serial number field length.</div><div class="ttdef"><b>Definition</b> udif.h:546</div></div>
+<div class="ttc" id="audif_8h_html_a36c7b312f38b56d1ea660e501f664b6e"><div class="ttname"><a href="udif_8h.html#a36c7b312f38b56d1ea660e501f664b6e">UDIF_SIGNED_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_SIGNED_HASH_SIZE</div><div class="ttdoc">The combined size of a signature and hash.</div><div class="ttdef"><b>Definition</b> udif.h:568</div></div>
 <div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
 </div><!-- fragment -->
 <p>The byte size of an anchor record. </p>
@@ -192,10 +192,10 @@ Functions</h2></td></tr>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="udif_8h.html#a30bd7447b384602d7900c280d156539b">UDIF_SERIAL_NUMBER_SIZE</a> + \</div>
+<div class="line">    <a class="code hl_define" href="#a068e8e8b63cc5ce0b22dfccbbfaa4968">UDIF_ANCHOR_SEQUENCE_SIZE</a> + \</div>
 <div class="line">    UDIF_VALID_TIME_SIZE + \</div>
 <div class="line">    <a class="code hl_define" href="#a99d50364a773cc567ab0bdc8f81017ce">UDIF_ANCHOR_MEMBERSHIP_EVENT_COUNTER</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#a56ced7d4902b59d23465d3bba9bd9c89">UDIF_ANCHOR_REGISTRY_OBJECT_COUNTER</a> + \</div>
-<div class="line">    <a class="code hl_define" href="#a068e8e8b63cc5ce0b22dfccbbfaa4968">UDIF_ANCHOR_SEQUENCE_SIZE</a> + \</div>
 <div class="line">    <a class="code hl_define" href="#afcb23c2c62078d7424b8a9822b64ca2a">UDIF_ANCHOR_REGISTRY_TRANSACTION_COUNTER</a>)</div>
 </div><!-- fragment -->
 <p>The anchor recordsigning size. </p>
@@ -564,8 +564,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab5d914f77775b4e9f6868ab478925974" name="ab5d914f77775b4e9f6868ab478925974"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5d914f77775b4e9f6868ab478925974">&#9670;&#160;</a></span>udif_anchor_validate_sequence()</h2>
+<a id="a7f46b86eb5189394e547ea5af64d03ef" name="a7f46b86eb5189394e547ea5af64d03ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f46b86eb5189394e547ea5af64d03ef">&#9670;&#160;</a></span>udif_anchor_validate_sequence()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -578,21 +578,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>prevseq</em></span>&#160;)</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>expseq</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Validate anchor sequence. </p>
-<p>Checks that sequence number is valid (non-zero, monotonic).</p>
+<p>Validate an anchor sequence against the expected value. </p>
+<p>UDIF anchor sequences are 0-indexed and exact. The first accepted anchor from a child MUST have sequence 0. Each subsequent anchor MUST have the next expected sequence value.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">anchor</td><td>[const] The anchor record </td></tr>
-    <tr><td class="paramname">prevseq</td><td>The previous sequence number (0 = first anchor)</td></tr>
+    <tr><td class="paramname">anchor</td><td>[const] The anchor record. </td></tr>
+    <tr><td class="paramname">expseq</td><td>The exact expected sequence number.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns true if valid </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the anchor sequence equals expseq. </dd></dl>
 
 </div>
 </div>
@@ -625,8 +625,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">anchor</td><td>[const] The anchor record </td></tr>
-    <tr><td class="paramname">pubkey</td><td>[const] The child's public key </td></tr>
-    <tr><td class="paramname">expseq</td><td>The expected sequence number (0 = don't check)</td></tr>
+    <tr><td class="paramname">childverkey</td><td>[const] The child's public verification key </td></tr>
+    <tr><td class="paramname">expseq</td><td>The exact expected 0-indexed sequence number</td></tr>
   </table>
   </dd>
 </dl>

@@ -513,10 +513,53 @@
 #define UDIF_ROLE_SIZE 1U
 
 /*!
- * \def UDIF_SERIAL_NUMBER_SIZE
- * \brief The serial number field length.
+ * \def UDIF_CERT_SERIAL_SIZE
+ * \brief The certificate serial number field length in bytes.
  */
-#define UDIF_SERIAL_NUMBER_SIZE 16U
+#define UDIF_CERT_SERIAL_SIZE 16U
+
+/*!
+ * \def UDIF_OBJECT_SERIAL_SIZE
+ * \brief The object serial number field length in bytes.
+ */
+#define UDIF_OBJECT_SERIAL_SIZE 32U
+
+/*!
+ * \def UDIF_QUERY_ID_SIZE
+ * \brief The query identifier field length in bytes.
+ */
+#define UDIF_QUERY_ID_SIZE 16U
+
+/*!
+ * \def UDIF_TX_ID_SIZE
+ * \brief The transaction identifier field length in bytes.
+ */
+#define UDIF_TX_ID_SIZE UDIF_CRYPTO_HASH_SIZE
+
+/*!
+ * \def UDIF_SERIAL_NUMBER_SIZE
+ * \brief The certificate serial number field length.
+ *
+ * This compatibility alias is retained for certificate and entity serials.
+ * Object serials MUST use UDIF_OBJECT_SERIAL_SIZE.
+ */
+#define UDIF_SERIAL_NUMBER_SIZE UDIF_CERT_SERIAL_SIZE
+
+/*!
+ * \def UDIF_REGISTRY_LEAF_FLAGS_SIZE
+ * \brief The registry leaf flags field length in bytes.
+ */
+#define UDIF_REGISTRY_LEAF_FLAGS_SIZE 4U
+
+/*!
+ * \def UDIF_REGISTRY_LEAF_ENCODED_SIZE
+ * \brief The canonical registry leaf encoding length in bytes.
+ */
+#define UDIF_REGISTRY_LEAF_ENCODED_SIZE (UDIF_CRYPTO_HASH_SIZE + \
+    UDIF_CRYPTO_HASH_SIZE + \
+    UDIF_OBJECT_SERIAL_SIZE + \
+    UDIF_REGISTRY_LEAF_FLAGS_SIZE + \
+    UDIF_VALID_TIME_SIZE)
 
 /*!
  * \def UDIF_SIGNED_HASH_SIZE
@@ -547,6 +590,545 @@
  * \brief The certificate expiration date length.
  */
 #define UDIF_VALID_TIME_STRUCTURE_SIZE 16U
+
+/* Policy Macros */
+
+/*!
+ * \def UDIF_POLICY_NONE
+ * \brief Empty UDIF policy mask.
+ *
+ * Represents the absence of policy permissions or constraints. In UDIF this
+ * value is not permissive; it is interpreted together with default-deny
+ * semantics and therefore grants no policy relaxation.
+ */
+#define UDIF_POLICY_NONE (UINT64_C(0))
+
+/*!
+ * \def UDIF_POLICY_DEFAULT_DENY
+ * \brief Enforces default-deny authorization semantics.
+ *
+ * Requires all operations to be denied unless explicitly permitted by the
+ * intersection of the caller certificate, capability bitmap, local policy,
+ * and any applicable treaty or profile rule.
+ */
+#define UDIF_POLICY_DEFAULT_DENY (UINT64_C(1) << 0)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_SUITE_MATCH
+ * \brief Requires all communicating parties to use the same UDIF suite.
+ *
+ * Enforces the compile-time suite model. Certificates, sessions, anchors,
+ * and protocol messages using a mismatched suite identifier must be rejected.
+ */
+#define UDIF_POLICY_REQUIRE_SUITE_MATCH (UINT64_C(1) << 1)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_CANONICAL_ENCODING
+ * \brief Requires strict UDIF canonical binary encoding.
+ *
+ * Requires fixed field order, little-endian integer encoding, exact structure
+ * sizes, and rejection of malformed, truncated, overlong, or ambiguously
+ * encoded records.
+ */
+#define UDIF_POLICY_REQUIRE_CANONICAL_ENCODING (UINT64_C(1) << 2)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_PARENT_SIGNATURE
+ * \brief Requires non-root certificates to verify against the issuer key.
+ *
+ * Enforces parent-signed certificate issuance. The only exception is the Root
+ * trust anchor, where issuer_serial equals serial and trust is established
+ * out of band.
+ */
+#define UDIF_POLICY_REQUIRE_PARENT_SIGNATURE (UINT64_C(1) << 3)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_REVOCATION_CHECK
+ * \brief Requires revocation and suspension state checking.
+ *
+ * Requires certificates and capabilities to be checked against local and
+ * upstream revocation or suspension state before use.
+ */
+#define UDIF_POLICY_REQUIRE_REVOCATION_CHECK (UINT64_C(1) << 4)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT
+ * \brief Requires capability intersection before authorization.
+ *
+ * Requires authorization to be computed by intersecting requested operation
+ * rights with the holder certificate bitmap, issued capability tokens, parent
+ * constraints, local policy, and treaty scope where applicable.
+ */
+#define UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT (UINT64_C(1) << 5)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH
+ * \brief Requires policy epoch consistency during validation.
+ *
+ * Requires certificate, capability, anchor, and profile decisions to be
+ * evaluated under the active policy_epoch. Epoch changes must be explicit and
+ * auditable.
+ */
+#define UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH (UINT64_C(1) << 6)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG
+ * \brief Requires membership events to be logged.
+ *
+ * Requires enrollment, suspension, resumption, revocation, capability grants,
+ * capability revocations, registry commits, and branch lifecycle events to be
+ * written to the membership log.
+ */
+#define UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG (UINT64_C(1) << 7)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_TRANSACTION_LOG
+ * \brief Requires object and transfer events to be logged.
+ *
+ * Requires object creation, update, transfer, suspension, destruction, and
+ * treaty-scoped transaction evidence to be written to the transaction log.
+ */
+#define UDIF_POLICY_REQUIRE_TRANSACTION_LOG (UINT64_C(1) << 8)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_REGISTRY_COMMIT
+ * \brief Requires registry roots to be committed.
+ *
+ * Requires User Agent registry roots, or group-level aggregates of registry
+ * roots, to be committed through the applicable membership or registry ledger.
+ */
+#define UDIF_POLICY_REQUIRE_REGISTRY_COMMIT (UINT64_C(1) << 9)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_ANCHORING
+ * \brief Requires periodic upstream Anchor Records.
+ *
+ * Requires Branch Controllers and Group Controllers to periodically submit
+ * signed Anchor Records to their parent authority.
+ */
+#define UDIF_POLICY_REQUIRE_ANCHORING (UINT64_C(1) << 10)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE
+ * \brief Requires monotonic Anchor Record sequencing.
+ *
+ * Requires each child Anchor Record sequence to start at zero and increment
+ * monotonically by one, rejecting rollback, replay, or skipped anchor states.
+ */
+#define UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE (UINT64_C(1) << 11)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE
+ * \brief Requires minimal-disclosure query responses.
+ *
+ * Requires query processing to return only authorized predicate results,
+ * digest proofs, or Boolean responses, and forbids disclosure of unrelated raw
+ * identifiers, attributes, registry contents, or object data.
+ */
+#define UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE (UINT64_C(1) << 12)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_AUDIT_COUNTERS
+ * \brief Requires auditable operational counters where applicable.
+ *
+ * Requires anchor, membership, transaction, registry, and treaty operations to
+ * maintain counters sufficient for audit and rollback detection.
+ */
+#define UDIF_POLICY_REQUIRE_AUDIT_COUNTERS (UINT64_C(1) << 13)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_TIME_WINDOW
+ * \brief Requires protocol timestamp acceptance windows.
+ *
+ * Requires transport and control messages to be rejected when their timestamp
+ * falls outside the configured acceptance window.
+ */
+#define UDIF_POLICY_REQUIRE_TIME_WINDOW (UINT64_C(1) << 14)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_SEQUENCE_CHECK
+ * \brief Requires strict transport sequence checking.
+ *
+ * Requires message sequence numbers to be strictly monotonic within each
+ * session epoch. Missing, repeated, or reordered records must fail validation.
+ */
+#define UDIF_POLICY_REQUIRE_SEQUENCE_CHECK (UINT64_C(1) << 15)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_EPOCH_CHECK
+ * \brief Requires session and policy epoch validation.
+ *
+ * Requires protocol messages, ratchet states, and policy-governed records to
+ * be evaluated under the expected epoch value.
+ */
+#define UDIF_POLICY_REQUIRE_EPOCH_CHECK (UINT64_C(1) << 16)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER
+ * \brief Requires authenticated transport headers.
+ *
+ * Requires UDIF transport headers to be authenticated as AEAD associated data,
+ * including flags, sequence, timestamp, epoch, and suite identifier.
+ */
+#define UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER (UINT64_C(1) << 17)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_RATCHET_REKEY
+ * \brief Requires periodic ratchet rekeying where applicable.
+ *
+ * Requires long-lived controller-to-controller tunnels to perform configured
+ * asymmetric rekeying and epoch transition.
+ */
+#define UDIF_POLICY_REQUIRE_RATCHET_REKEY (UINT64_C(1) << 18)
+
+/*!
+ * \def UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION
+ * \brief Forbids runtime cryptographic suite negotiation.
+ *
+ * Requires all cryptographic algorithms and suite identifiers to be fixed by
+ * the compiled UDIF domain profile.
+ */
+#define UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION (UINT64_C(1) << 19)
+
+/*!
+ * \def UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP
+ * \brief Forbids Roots, BCs, and GCs from owning objects.
+ *
+ * Enforces the UDIF separation between administration and ownership. Objects
+ * must be owned by User Agents, not by administrative controllers.
+ */
+#define UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP (UINT64_C(1) << 20)
+
+/*!
+ * \def UDIF_POLICY_FORBID_CLIENT_ADMIN
+ * \brief Forbids User Agents from administrative authority.
+ *
+ * Prevents clients and User Agents from enrolling, suspending, resuming,
+ * revoking, or creating subordinate certificates or branches.
+ */
+#define UDIF_POLICY_FORBID_CLIENT_ADMIN (UINT64_C(1) << 21)
+
+/*!
+ * \def UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY
+ * \brief Forbids direct lateral User Agent interaction.
+ *
+ * Requires User Agent interaction with other users, registries, or domains to
+ * be mediated by the assigned Group Controller.
+ */
+#define UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY (UINT64_C(1) << 22)
+
+/*!
+ * \def UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS
+ * \brief Forbids implicit cross-domain treaty authority.
+ *
+ * Requires treaty rights to be explicitly granted by certificate capability,
+ * local policy, and a valid treaty record. No domain may infer treaty rights
+ * from ordinary branch or group status.
+ */
+#define UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS (UINT64_C(1) << 23)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK
+ * \brief Requires treaty-scope validation.
+ *
+ * Requires treaty queries and proofs to be constrained by peer identity,
+ * predicate family, allowed scope, policy epoch, and capability intersection.
+ */
+#define UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK (UINT64_C(1) << 24)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_TREATY_NEGOTIATION
+ * \brief Allows authorized treaty negotiation.
+ *
+ * Permits a suitably authorized Branch Controller or designated controller to
+ * negotiate and sign treaty records. This policy bit does not by itself grant
+ * treaty capability bits.
+ */
+#define UDIF_POLICY_ALLOW_TREATY_NEGOTIATION (UINT64_C(1) << 25)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN
+ * \brief Allows treaty-scoped query origination.
+ *
+ * Permits treaty query origination when the holder also has the required
+ * treaty capability and a valid treaty permits the requested predicate.
+ */
+#define UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN (UINT64_C(1) << 26)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC
+ * \brief Allows execution of incoming treaty-scoped queries.
+ *
+ * Permits processing of treaty queries received from a peer domain when the
+ * holder also has the required treaty capability and the treaty permits the
+ * predicate.
+ */
+#define UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC (UINT64_C(1) << 27)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_TELEMETRY_EXPORT
+ * \brief Allows export of bounded operational telemetry.
+ *
+ * Permits export of non-identifying counters and operational status values.
+ * This policy must not permit raw identifiers, attributes, registry entries,
+ * or transaction contents to be exported.
+ */
+#define UDIF_POLICY_ALLOW_TELEMETRY_EXPORT (UINT64_C(1) << 28)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_ERROR_REPORTING
+ * \brief Allows signed operational error reporting.
+ *
+ * Permits nodes to create signed error reports and append them to the relevant
+ * operational, membership, or audit log.
+ */
+#define UDIF_POLICY_ALLOW_ERROR_REPORTING (UINT64_C(1) << 29)
+
+/*!
+ * \def UDIF_POLICY_ALLOW_PROFILE_HOOKS
+ * \brief Allows non-canonical profile policy hooks.
+ *
+ * Permits deployment-specific policy hooks for predicates, retention,
+ * jurisdictional restrictions, consent, delegation, or profile-defined checks.
+ * Hooks must not change canonical encodings or weaken default-deny behavior.
+ */
+#define UDIF_POLICY_ALLOW_PROFILE_HOOKS (UINT64_C(1) << 30)
+
+/*!
+ * \def UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT
+ * \brief Requires audit records for profile hook decisions.
+ *
+ * Requires profile hook decisions affecting authorization, query execution,
+ * treaty forwarding, or disclosure to be logged or accounted for under the
+ * active policy_epoch.
+ */
+#define UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT (UINT64_C(1) << 31)
+
+/*!
+ * \def UDIF_POLICY_RESERVED_CORE_MASK
+ * \brief Reserved policy bits for future UDIF core policy assignments.
+ *
+ * Bits 32 through 47 are reserved for future core policy definitions. They
+ * must be zero unless assigned by a later UDIF core revision.
+ */
+#define UDIF_POLICY_RESERVED_CORE_MASK (UINT64_C(0x0000FFFF00000000))
+
+/*!
+ * \def UDIF_POLICY_RESERVED_PROFILE_MASK
+ * \brief Reserved policy bits for implementation or deployment profiles.
+ *
+ * Bits 48 through 63 are reserved for jurisdictional, institutional,
+ * regulatory, or application-specific policy profiles.
+ */
+#define UDIF_POLICY_RESERVED_PROFILE_MASK (UINT64_C(0xFFFF000000000000))
+
+/*!
+ * \def UDIF_POLICY_BASELINE_SECURITY_MASK
+ * \brief Mandatory baseline policy bits for all UDIF certificates.
+ *
+ * This mask covers default denial, suite matching, canonical encoding,
+ * signature verification, revocation checking, capability intersection,
+ * policy epoch validation, minimal disclosure, and runtime negotiation
+ * prohibition.
+ */
+#define UDIF_POLICY_BASELINE_SECURITY_MASK \
+    (UDIF_POLICY_DEFAULT_DENY | \
+     UDIF_POLICY_REQUIRE_SUITE_MATCH | \
+     UDIF_POLICY_REQUIRE_CANONICAL_ENCODING | \
+     UDIF_POLICY_REQUIRE_PARENT_SIGNATURE | \
+     UDIF_POLICY_REQUIRE_REVOCATION_CHECK | \
+     UDIF_POLICY_REQUIRE_CAPABILITY_INTERSECT | \
+     UDIF_POLICY_REQUIRE_POLICY_EPOCH_MATCH | \
+     UDIF_POLICY_REQUIRE_MINIMAL_DISCLOSURE | \
+     UDIF_POLICY_FORBID_RUNTIME_NEGOTIATION)
+
+/*!
+ * \def UDIF_POLICY_TRANSPORT_SECURITY_MASK
+ * \brief Mandatory transport-session policy bits.
+ *
+ * This mask covers timestamp windows, sequence validation, epoch validation,
+ * authenticated headers, and ratchet rekeying where applicable.
+ */
+#define UDIF_POLICY_TRANSPORT_SECURITY_MASK \
+    (UDIF_POLICY_REQUIRE_TIME_WINDOW | \
+     UDIF_POLICY_REQUIRE_SEQUENCE_CHECK | \
+     UDIF_POLICY_REQUIRE_EPOCH_CHECK | \
+     UDIF_POLICY_REQUIRE_AEAD_AAD_HEADER)
+
+/*!
+ * \def UDIF_POLICY_LOGGING_MASK
+ * \brief Mandatory logging and audit policy bits.
+ *
+ * This mask covers membership logs, transaction logs, registry commits,
+ * anchoring, anchor sequencing, and audit counters.
+ */
+#define UDIF_POLICY_LOGGING_MASK \
+    (UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG | \
+     UDIF_POLICY_REQUIRE_TRANSACTION_LOG | \
+     UDIF_POLICY_REQUIRE_REGISTRY_COMMIT | \
+     UDIF_POLICY_REQUIRE_ANCHORING | \
+     UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE | \
+     UDIF_POLICY_REQUIRE_AUDIT_COUNTERS)
+
+/*!
+ * \def UDIF_POLICY_ADMIN_SEPARATION_MASK
+ * \brief Policy bits enforcing administrative role separation.
+ *
+ * This mask prevents administrative controllers from owning objects and
+ * prevents clients from acting as administrative authorities.
+ */
+#define UDIF_POLICY_ADMIN_SEPARATION_MASK \
+    (UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP | \
+     UDIF_POLICY_FORBID_CLIENT_ADMIN | \
+     UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY)
+
+/*!
+ * \def UDIF_POLICY_TREATY_BASE_MASK
+ * \brief Policy bits enforcing treaty containment.
+ *
+ * This mask forbids implicit treaty authority and requires explicit treaty
+ * scope checks before cross-domain operation.
+ */
+#define UDIF_POLICY_TREATY_BASE_MASK \
+    (UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS | \
+     UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK)
+
+/*!
+ * \def UDIF_POLICY_TREATY_ENABLE_MASK
+ * \brief Optional treaty enablement policy bits.
+ *
+ * This mask enables treaty negotiation, treaty query origination, and treaty
+ * query execution. It must be applied only where parent policy and certificate
+ * capabilities explicitly allow cross-domain operation.
+ */
+#define UDIF_POLICY_TREATY_ENABLE_MASK \
+    (UDIF_POLICY_ALLOW_TREATY_NEGOTIATION | \
+     UDIF_POLICY_ALLOW_TREATY_QUERY_ORIGIN | \
+     UDIF_POLICY_ALLOW_TREATY_QUERY_EXEC)
+
+/*!
+ * \def UDIF_POLICY_PROFILE_HOOK_MASK
+ * \brief Optional profile hook policy bits.
+ *
+ * This mask enables non-canonical policy hooks and requires their decisions to
+ * be auditable under the active policy epoch.
+ */
+#define UDIF_POLICY_PROFILE_HOOK_MASK \
+    (UDIF_POLICY_ALLOW_PROFILE_HOOKS | \
+     UDIF_POLICY_REQUIRE_PROFILE_HOOK_AUDIT)
+
+/*!
+ * \def UDIF_POLICY_DEFINED_CORE_MASK
+ * \brief Mask of all UDIF implementation-defined core policy bits.
+ */
+#define UDIF_POLICY_DEFINED_CORE_MASK \
+    (UDIF_POLICY_BASELINE_SECURITY_MASK | \
+     UDIF_POLICY_TRANSPORT_SECURITY_MASK | \
+     UDIF_POLICY_LOGGING_MASK | \
+     UDIF_POLICY_ADMIN_SEPARATION_MASK | \
+     UDIF_POLICY_TREATY_BASE_MASK | \
+     UDIF_POLICY_TREATY_ENABLE_MASK | \
+     UDIF_POLICY_ALLOW_TELEMETRY_EXPORT | \
+     UDIF_POLICY_ALLOW_ERROR_REPORTING | \
+     UDIF_POLICY_PROFILE_HOOK_MASK | \
+     UDIF_POLICY_REQUIRE_RATCHET_REKEY)
+
+/*!
+ * \def UDIF_ROOT_POLICY_DEFAULT
+ * \brief Default policy mask for a UDIF Root certificate.
+ *
+ * The Root policy defines the baseline rules for the domain. It enforces the
+ * canonical suite, canonical encoding, revocation model, policy epoch model,
+ * default-deny authorization, strict administrative separation, and anchoring
+ * requirements for subordinate controllers.
+ *
+ * The Root default excludes ordinary treaty execution by default. Treaty
+ * enablement should be added explicitly through deployment policy if the Root
+ * is intended to authorize treaty-capable controllers.
+ */
+#define UDIF_ROOT_POLICY_DEFAULT \
+    (UDIF_POLICY_BASELINE_SECURITY_MASK | \
+     UDIF_POLICY_LOGGING_MASK | \
+     UDIF_POLICY_ADMIN_SEPARATION_MASK | \
+     UDIF_POLICY_TREATY_BASE_MASK | \
+     UDIF_POLICY_ALLOW_TELEMETRY_EXPORT | \
+     UDIF_POLICY_ALLOW_ERROR_REPORTING)
+
+/*!
+ * \def UDIF_BC_POLICY_DEFAULT
+ * \brief Default policy mask for a UDIF Branch Controller certificate.
+ *
+ * The Branch Controller policy enforces default-deny authorization, parent
+ * signature validation, revocation checking, canonical encoding, capability
+ * intersection, membership logging, anchoring, anchor sequence validation,
+ * transport security, administrative separation, and treaty containment.
+ *
+ * This default is suitable for a Branch Controller operating in branch-admin
+ * mode. Treaty enablement remains excluded unless explicitly granted.
+ */
+#define UDIF_BC_POLICY_DEFAULT \
+    (UDIF_POLICY_BASELINE_SECURITY_MASK | \
+     UDIF_POLICY_TRANSPORT_SECURITY_MASK | \
+     UDIF_POLICY_REQUIRE_RATCHET_REKEY | \
+     UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG | \
+     UDIF_POLICY_REQUIRE_ANCHORING | \
+     UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE | \
+     UDIF_POLICY_REQUIRE_AUDIT_COUNTERS | \
+     UDIF_POLICY_ADMIN_SEPARATION_MASK | \
+     UDIF_POLICY_TREATY_BASE_MASK | \
+     UDIF_POLICY_ALLOW_TELEMETRY_EXPORT | \
+     UDIF_POLICY_ALLOW_ERROR_REPORTING)
+
+/*!
+ * \def UDIF_GC_POLICY_DEFAULT
+ * \brief Default policy mask for a UDIF Group Controller certificate.
+ *
+ * The Group Controller policy enforces user lifecycle logging, registry
+ * commitment, transaction logging, upstream anchoring, capability intersection,
+ * minimal disclosure, transport validation, treaty containment, and the rule
+ * that administrative controllers do not own objects.
+ *
+ * The Group Controller is the primary enforcement point for User Agent
+ * operations, but it must not receive branch-creation policy unless acting
+ * under a separate branch-admin certificate.
+ */
+#define UDIF_GC_POLICY_DEFAULT \
+    (UDIF_POLICY_BASELINE_SECURITY_MASK | \
+     UDIF_POLICY_TRANSPORT_SECURITY_MASK | \
+     UDIF_POLICY_REQUIRE_MEMBERSHIP_LOG | \
+     UDIF_POLICY_REQUIRE_TRANSACTION_LOG | \
+     UDIF_POLICY_REQUIRE_REGISTRY_COMMIT | \
+     UDIF_POLICY_REQUIRE_ANCHORING | \
+     UDIF_POLICY_REQUIRE_ANCHOR_SEQUENCE | \
+     UDIF_POLICY_REQUIRE_AUDIT_COUNTERS | \
+     UDIF_POLICY_FORBID_ADMIN_OBJECT_OWNERSHIP | \
+     UDIF_POLICY_FORBID_IMPLICIT_TREATY_RIGHTS | \
+     UDIF_POLICY_REQUIRE_TREATY_SCOPE_CHECK | \
+     UDIF_POLICY_ALLOW_TELEMETRY_EXPORT | \
+     UDIF_POLICY_ALLOW_ERROR_REPORTING)
+
+/*!
+ * \def UDIF_CLIENT_POLICY_DEFAULT
+ * \brief Default policy mask for a UDIF client or User Agent certificate.
+ *
+ * The client policy enforces end-entity constraints. It requires default-deny
+ * authorization, canonical encoding, revocation checking, capability
+ * intersection, minimal disclosure, registry commitment, transaction logging,
+ * transport validation, and prohibition of administrative and lateral
+ * interaction.
+ *
+ * A client may own objects and initiate or accept transactions subject to
+ * capability and registry checks, but it must not enroll, suspend, revoke,
+ * forward, or administer other entities.
+ */
+#define UDIF_CLIENT_POLICY_DEFAULT \
+    (UDIF_POLICY_BASELINE_SECURITY_MASK | \
+     UDIF_POLICY_TRANSPORT_SECURITY_MASK | \
+     UDIF_POLICY_REQUIRE_TRANSACTION_LOG | \
+     UDIF_POLICY_REQUIRE_REGISTRY_COMMIT | \
+     UDIF_POLICY_FORBID_CLIENT_ADMIN | \
+     UDIF_POLICY_FORBID_CLIENT_LATERAL_QUERY | \
+     UDIF_POLICY_ALLOW_ERROR_REPORTING)
 
 /* UDIF Enumerations */
 
@@ -781,9 +1363,9 @@ typedef enum udif_roles
 {
 	udif_role_none = 0U,						/*!< No role specified */
 	udif_role_root = 1U,						/*!< Root authority */
-	udif_role_udc = 2U,							/*!< Domain controller */
-	udif_role_uip = 3U,							/*!< Identity provider role */
-	udif_role_uis = 4U,							/*!< Identity server role */
+	udif_role_ugc = 2U,							/*!< Group controller */
+	udif_role_ubc = 3U,							/*!< Branch controller */
+	udif_role_uor = 4U,							/*!< Object registry */
 	udif_role_client = 5U,						/*!< Client role */
 	udif_role_audit = 6U,						/*!< Auditor role */
 	udif_role_revoked = 7U,						/*!< Authority revoked for this entity */
@@ -994,9 +1576,9 @@ static const char UDIF_POLICY_ERROR_STRINGS[][UDIF_ERROR_STRING_SIZE] =
 static const char UDIF_ROLE_STRINGS[][UDIF_ROLE_STRING_SIZE] =
 {
 	"udif_role_none",
-	"udif_role_udc",
-	"udif_role_uip",
-	"udif_role_uis",
+	"udif_role_ugc",
+	"udif_role_ubc",
+	"udif_role_uor",
 	"udif_role_client",
 	"udif_role_audit",
 	"udif_role_revoked",
@@ -1224,5 +1806,14 @@ UDIF_EXPORT_API bool udif_suite_is_valid(uint8_t suiteid);
 * \return Returns the errors string representation.
 */
 UDIF_EXPORT_API const char* udif_error_to_string(udif_errors error);
+
+/**
+* \brief Convert a role to its string name.
+*
+* \param role The role enumerator.
+*
+* \return Returns a constant string naming the role, or NULL if unknown.
+*/
+UDIF_EXPORT_API const char* udif_role_to_string(udif_roles role);
 
 #endif

@@ -1,52 +1,48 @@
 #include "mcelmgr_test.h"
 #include "mcelmanager.h"
+#include "storage.h"
 #include "folderutils.h"
 #include "memutils.h"
+#include "csp.h"
 #include "udif.h"
+#include "stringutils.h"
+#include "timestamp.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 #define TEST_BLOCK_SIZE 10U
 #define SMALL_BATCH 5U
 #define LARGE_BATCH 100U
 
-#if defined(QSC_SYSTEM_OS_WINDOWS)
-#	define TEST_BASE_PATH "\\UDIF"
-#else
-#	define TEST_BASE_PATH "/UDIF"
-#endif
+#define TEST_BASE_PATH "UDIF"
+#define TEST_DIRECTORY_PREFIX "mcelmgr_"
+
+static uint64_t m_test_directory_counter = 0U;
 
 static bool delete_directory(const char dir[QSC_SYSTEM_MAX_PATH])
 {
-	char command[4096] = { 0U };
-	int32_t res;
+	bool res;
 
-	res = -1;
+	res = false;
 
 	if (dir != NULL && qsc_stringutils_string_size(dir) > 0U)
 	{
-#if defined(QSC_SYSTEM_OS_WINDOWS)
-		/* Windows: rd /s /q "path" */
-		/* /s = remove subdirectories, /q = quiet (no confirmation) */
-		snprintf(command, sizeof(command), "rd /s /q \"%s\" 2>nul", dir);
-#else
-		/* Linux/macOS: rm -rf path */
-		/* -r = recursive, -f = force (no prompts) */
-		snprintf(command, sizeof(command), "rm -rf \"%s\"", dir);
-#endif
-
-		res = system(command);
+		res = qsc_folderutils_delete_directory(dir);
 	}
 
-	return (res == 0);
+	return res;
 }
 
 static void cleanup_test_directory(void)
 {
 	char dir[QSC_SYSTEM_MAX_PATH] = { 0U };
 
+#if defined(QSC_SYSTEM_OS_WINDOWS)
+	qsc_folderutils_get_directory(qsc_folderutils_directories_user_app_data, dir);
+#else
 	qsc_folderutils_get_directory(qsc_folderutils_directories_user_documents, dir);
+#endif
+	qsc_folderutils_append_delimiter(dir);
 	qsc_stringutils_concat_strings(dir, sizeof(dir), TEST_BASE_PATH);
 
 	if (qsc_folderutils_directory_exists(dir) == true)
@@ -57,13 +53,35 @@ static void cleanup_test_directory(void)
 
 static void setup_test_directory(char dir[QSC_SYSTEM_MAX_PATH])
 {
+	char num[32U] = { 0U };
+	uint64_t nonce;
+
+#if defined(QSC_SYSTEM_OS_WINDOWS)
+	qsc_folderutils_get_directory(qsc_folderutils_directories_user_app_data, dir);
+#else
 	qsc_folderutils_get_directory(qsc_folderutils_directories_user_documents, dir);
+#endif
+	qsc_folderutils_append_delimiter(dir);
 	qsc_stringutils_concat_strings(dir, QSC_SYSTEM_MAX_PATH, TEST_BASE_PATH);
 
 	if (qsc_folderutils_directory_exists(dir) == false)
 	{
-		qsc_folderutils_create_directory(dir);
+		qsc_folderutils_create_directory_tree(dir);
 	}
+
+	qsc_folderutils_append_delimiter(dir);
+	qsc_stringutils_concat_strings(dir, QSC_SYSTEM_MAX_PATH, TEST_DIRECTORY_PREFIX);
+	nonce = qsc_timestamp_epochtime_milliseconds() + m_test_directory_counter;
+	++m_test_directory_counter;
+	qsc_stringutils_uint64_to_string(nonce, num, sizeof(num));
+	qsc_stringutils_concat_strings(dir, QSC_SYSTEM_MAX_PATH, num);
+
+	if (qsc_folderutils_directory_exists(dir) == true)
+	{
+		delete_directory(dir);
+	}
+
+	qsc_folderutils_create_directory_tree(dir);
 }
 
 static void generate_test_data(uint8_t* buffer, size_t len, uint8_t seed)
@@ -72,6 +90,190 @@ static void generate_test_data(uint8_t* buffer, size_t len, uint8_t seed)
 	{
 		buffer[i] = (uint8_t)((seed + i) % 256U);
 	}
+}
+
+
+static bool mcelmanager_test_storage_rejects_path_traversal(void)
+{
+	udif_storage_context ctx = { 0U };
+	const uint8_t data[4U] = { 0x01U, 0x02U, 0x03U, 0x04U };
+	const uint8_t nullloc[9U] = { 'm', 'c', 'e', 'l', '/', 'x', 0U, 'y', 'z' };
+	uint8_t longloc[UDIF_STORAGE_MAX_PATH] = { 0U };
+	char dir[QSC_SYSTEM_MAX_PATH] = { 0U };
+	char path[UDIF_STORAGE_MAX_PATH] = { 0U };
+	uint64_t outpos;
+	bool ret;
+	bool res;
+
+	static const char* const invalidlocs[] =
+	{
+		"../escape",
+		"mcel/../escape",
+		"mcel/./records",
+		"/absolute/path",
+		"\\absolute\\path",
+		"mcel/records/",
+		"mcel//records",
+		"C:drive/path",
+		".",
+		"..",
+		""
+	};
+
+	res = true;
+	setup_test_directory(dir);
+
+	ret = (udif_storage_initialize(&ctx, dir) == udif_error_none);
+
+	if (ret == false)
+	{
+		qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: storage initialization failed");
+		res = false;
+	}
+	else
+	{
+		for (size_t i = 0U; i < sizeof(invalidlocs) / sizeof(invalidlocs[0U]); ++i)
+		{
+			const uint8_t* loc;
+			size_t loclen;
+
+			loc = (const uint8_t*)invalidlocs[i];
+			loclen = qsc_stringutils_string_size(invalidlocs[i]);
+
+			if (udif_storage_resolve_path(&ctx, loc, loclen, path, sizeof(path)) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: invalid location resolved");
+				res = false;
+				break;
+			}
+
+			if (udif_storage_write(&ctx, loc, loclen, data, sizeof(data)) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: invalid location write succeeded");
+				res = false;
+				break;
+			}
+
+			outpos = 0U;
+
+			if (udif_storage_append(&ctx, loc, loclen, data, sizeof(data), &outpos) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: invalid location append succeeded");
+				res = false;
+				break;
+			}
+		}
+
+		if (res == true)
+		{
+			if (udif_storage_resolve_path(&ctx, nullloc, sizeof(nullloc), path, sizeof(path)) == true ||
+				udif_storage_write(&ctx, nullloc, sizeof(nullloc), data, sizeof(data)) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: embedded NUL location accepted");
+				res = false;
+			}
+		}
+
+		if (res == true)
+		{
+			for (size_t i = 0U; i < sizeof(longloc); ++i)
+			{
+				longloc[i] = 'a';
+			}
+
+			if (udif_storage_resolve_path(&ctx, longloc, sizeof(longloc), path, sizeof(path)) == true ||
+				udif_storage_write(&ctx, longloc, sizeof(longloc), data, sizeof(data)) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_rejects_path_traversal: overlong location accepted");
+				res = false;
+			}
+		}
+
+		udif_storage_dispose(&ctx);
+	}
+
+	cleanup_test_directory();
+	return res;
+}
+
+static bool mcelmanager_test_storage_ledger_isolation(void)
+{
+	udif_storage_context ctx = { 0U };
+	const uint8_t loc[] = { 'm', 'c', 'e', 'l', '/', 'r', 'e', 'c', 'o', 'r', 'd', 's' };
+	const uint8_t data[8U] = { 0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U };
+	uint8_t out[8U] = { 0U };
+	char dir[QSC_SYSTEM_MAX_PATH] = { 0U };
+	char membpath[UDIF_STORAGE_MAX_PATH] = { 0U };
+	char regpath[UDIF_STORAGE_MAX_PATH] = { 0U };
+	size_t outread;
+	bool ret;
+	bool res;
+
+	res = true;
+	setup_test_directory(dir);
+
+	ret = (udif_storage_initialize(&ctx, dir) == udif_error_none);
+
+	if (ret == false)
+	{
+		qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: storage initialization failed");
+		res = false;
+	}
+	else
+	{
+		udif_storage_set_ledger(&ctx, UDIF_LEDGER_MEMBERSHIP);
+		ret = udif_storage_resolve_path(&ctx, loc, sizeof(loc), membpath, sizeof(membpath));
+
+		if (ret == false || qsc_stringutils_find_string(membpath, "membership") < 0)
+		{
+			qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: membership path invalid");
+			res = false;
+		}
+
+		if (res == true)
+		{
+			ret = udif_storage_write(&ctx, loc, sizeof(loc), data, sizeof(data));
+
+			if (ret == false)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: membership write failed");
+				res = false;
+			}
+		}
+
+		if (res == true)
+		{
+			udif_storage_set_ledger(&ctx, UDIF_LEDGER_REGISTRY);
+			ret = udif_storage_resolve_path(&ctx, loc, sizeof(loc), regpath, sizeof(regpath));
+
+			if (ret == false || qsc_stringutils_find_string(regpath, "registry") < 0)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: registry path invalid");
+				res = false;
+			}
+			else if (qsc_stringutils_compare_strings(membpath, regpath, qsc_stringutils_string_size(membpath)) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: ledger paths are not isolated");
+				res = false;
+			}
+		}
+
+		if (res == true)
+		{
+			outread = 0U;
+
+			if (udif_storage_read(&ctx, loc, sizeof(loc), out, sizeof(out), &outread) == true)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_storage_ledger_isolation: registry read crossed into membership ledger");
+				res = false;
+			}
+		}
+
+		udif_storage_dispose(&ctx);
+	}
+
+	cleanup_test_directory();
+	return res;
 }
 
 static bool mcelmanager_test_initialize_default(void)
@@ -133,7 +335,11 @@ static bool mcelmanager_test_initialize_custom(void)
 	/* initialize with custom config */
 	mgr = udif_mcel_initialize(dir, &config);
 
-	if (mgr == NULL)
+	if (mgr != NULL)
+	{
+		udif_mcel_dispose(mgr);
+	}
+	else
 	{
 		qsc_consoleutils_print_line("mcelmanager_test_initialize_custom: initialization with custom config failed");
 		res = false;
@@ -1158,6 +1364,79 @@ static bool mcelmanager_test_checkpoint_group(void)
 	return res;
 }
 
+
+static bool mcelmanager_test_create_anchor(void)
+{
+	udif_mcel_manager* mgr;
+	udif_anchor_record anchor = { 0U };
+	udif_signature_keypair kp = { 0U };
+	uint8_t childser[UDIF_SERIAL_NUMBER_SIZE] = { 0U };
+	uint8_t data[64U] = { 0U };
+	char dir[QSC_SYSTEM_MAX_PATH] = { 0U };
+	uint64_t seq;
+	size_t i;
+	bool ret;
+	bool res;
+
+	res = true;
+
+	setup_test_directory(dir);
+	qsc_csp_generate(childser, sizeof(childser));
+	udif_signature_generate_keypair(kp.verkey, kp.sigkey, qsc_csp_generate);
+
+	mgr = udif_mcel_initialize(dir, NULL);
+
+	if (mgr == NULL)
+	{
+		qsc_consoleutils_print_line("mcelmanager_test_create_anchor: initialization failed");
+		res = false;
+	}
+	else
+	{
+		for (i = 0U; i < SMALL_BATCH; ++i)
+		{
+			generate_test_data(data, sizeof(data), (uint8_t)(i + 20U));
+			ret = udif_mcel_add_record(mgr, data, sizeof(data), false, &seq);
+
+			if (ret == false)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_create_anchor: add membership record failed");
+				res = false;
+				break;
+			}
+		}
+
+		if (res == true)
+		{
+			ret = udif_mcel_create_anchor(mgr, &anchor, childser, 0U, kp.sigkey, qsc_csp_generate);
+
+			if (ret == false)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_create_anchor: anchor creation failed");
+				res = false;
+			}
+			else if (anchor.sequence != 0U)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_create_anchor: sequence mismatch");
+				res = false;
+			}
+			else if (udif_anchor_verify(&anchor, kp.verkey, 0U) == false)
+			{
+				qsc_consoleutils_print_line("mcelmanager_test_create_anchor: anchor verification failed");
+				res = false;
+			}
+		}
+
+		udif_mcel_dispose(mgr);
+	}
+
+	udif_anchor_clear(&anchor);
+	qsc_memutils_clear((uint8_t*)&kp, sizeof(udif_signature_keypair));
+	cleanup_test_directory();
+
+	return res;
+}
+
 static bool mcelmanager_test_readonly_write_fails(void)
 {
 	udif_mcel_manager* mgr1;
@@ -1289,7 +1568,7 @@ static bool mcelmanager_test_large_record(void)
 	{
 		/* allocate large record */
 		datalen = 1024U * 64U;  /* 64KB */
-		data = (uint8_t*)malloc(datalen);
+		data = (uint8_t*)qsc_memutils_malloc(datalen);
 
 		if (data == NULL)
 		{
@@ -1308,7 +1587,7 @@ static bool mcelmanager_test_large_record(void)
 				res = false;
 			}
 
-			free(data);
+			qsc_memutils_alloc_free(data);
 		}
 
 		udif_mcel_dispose(mgr);
@@ -1324,6 +1603,26 @@ bool mcelmgr_test_run(void)
 	bool res;
 
 	res = true;
+
+	if (mcelmanager_test_storage_rejects_path_traversal() == true)
+	{
+		qsc_consoleutils_print_line("Success! MCEL storage path traversal rejection test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! MCEL storage path traversal rejection test has failed.");
+		res = false;
+	}
+
+	if (mcelmanager_test_storage_ledger_isolation() == true)
+	{
+		qsc_consoleutils_print_line("Success! MCEL storage ledger isolation test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! MCEL storage ledger isolation test has failed.");
+		res = false;
+	}
 
 	if (mcelmanager_test_initialize_default() == true)
 	{
@@ -1465,6 +1764,16 @@ bool mcelmgr_test_run(void)
 		res = false;
 	}
 
+	if (mcelmanager_test_open_existing() == true)
+	{
+		qsc_consoleutils_print_line("Success! MCEL open existing test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! MCEL open existing test has failed.");
+		res = false;
+	}
+
 	if (mcelmanager_test_manual_checkpoint() == true)
 	{
 		qsc_consoleutils_print_line("Success! MCEL manual checkpoint test has passed.");
@@ -1492,6 +1801,16 @@ bool mcelmgr_test_run(void)
 	else
 	{
 		qsc_consoleutils_print_line("Failure! MCEL checkpoint group test has failed.");
+		res = false;
+	}
+
+	if (mcelmanager_test_create_anchor() == true)
+	{
+		qsc_consoleutils_print_line("Success! MCEL anchor creation test has passed.");
+	}
+	else
+	{
+		qsc_consoleutils_print_line("Failure! MCEL anchor creation test has failed.");
 		res = false;
 	}
 

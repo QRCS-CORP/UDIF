@@ -33,6 +33,18 @@
     <ClInclude Include="capability.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="treatystore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="policy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="certstore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="capstore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="query.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,9 +63,75 @@
     <ClInclude Include="mcelmanager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="dispatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tunnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="help.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="root.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ua.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qstpkeys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="capability.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="caphandler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="treatystore.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="policy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="certstore.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="capstore.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="object.c">
@@ -81,6 +159,48 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mcelmanager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="handler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="event.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="message.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tunnel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="server.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="help.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="root.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ua.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

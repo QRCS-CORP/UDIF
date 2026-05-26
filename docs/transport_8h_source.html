@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>UDIF: Universal Digital Identification Framework: C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/UDIF/Saved/transport.h Source File</title>
+<title>UDIF: Universal Digital Identification Framework: C:/Users/stepp/Documents/Visual Studio 2022/Projects/C/UDIF/Saved/transport.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.0.0.0a (A1)</span>
+   <div id="projectname">UDIF: Universal Digital Identification Framework<span id="projectnumber">&#160;1.1.0.0a (A1)</span>
    </div>
    <div id="projectbrief">A quantum-secure cryptographic identification</div>
   </td>
@@ -112,7 +112,7 @@ $(function(){initNavTree('transport_8h_source.html','',''); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define UDIF_TRANSPORT_H</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &quot;<a class="code" href="udif_8h.html">udif.h</a>&quot;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &quot;certificate.h&quot;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &quot;<a class="code" href="_saved_2certificate_8h.html">certificate.h</a>&quot;</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> UDIF_TRANSPORT_CUSTOM[] = <span class="stringliteral">&quot;UDIF:HS-MAC:V1&quot;</span>;</div>
@@ -198,6 +198,7 @@ $(function(){initNavTree('transport_8h_source.html','',''); });
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><a class="code hl_define" href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a> <span class="keywordtype">void</span> <a class="code hl_function" href="transport_8h.html#a53ffdfdf24b005d4777193e9ab60287c">udif_packet_clear</a>(udif_network_packet* packet);</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_saved_2certificate_8h_html"><div class="ttname"><a href="_saved_2certificate_8h.html">certificate.h</a></div><div class="ttdoc">UDIF Certificate Handling Functions.</div></div>
 <div class="ttc" id="astructudif__session__state_html"><div class="ttname"><a href="structudif__session__state.html">udif_session_state</a></div><div class="ttdoc">Secure session state.</div><div class="ttdef"><b>Definition</b> transport.h:79</div></div>
 <div class="ttc" id="astructudif__session__state_html_a1b9dac0a156c3747fc39192a04f01aa0"><div class="ttname"><a href="structudif__session__state.html#a1b9dac0a156c3747fc39192a04f01aa0">udif_session_state::txseq</a></div><div class="ttdeci">uint64_t txseq</div><div class="ttdef"><b>Definition</b> transport.h:82</div></div>
 <div class="ttc" id="astructudif__session__state_html_a34eb93816abc35882f34a1ac31a525b4"><div class="ttname"><a href="structudif__session__state.html#a34eb93816abc35882f34a1ac31a525b4">udif_session_state::session_id</a></div><div class="ttdeci">uint8_t session_id[UDIF_CRYPTO_HASH_SIZE]</div><div class="ttdef"><b>Definition</b> transport.h:88</div></div>
@@ -240,15 +241,15 @@ $(function(){initNavTree('transport_8h_source.html','',''); });
 <div class="ttc" id="audif_8h_html"><div class="ttname"><a href="udif_8h.html">udif.h</a></div><div class="ttdoc">UDIF Common Definitions and Protocol Configuration.</div></div>
 <div class="ttc" id="audif_8h_html_a063205c071485a302e0899ab8287b5ea"><div class="ttname"><a href="udif_8h.html#a063205c071485a302e0899ab8287b5ea">UDIF_ASYMMETRIC_SIGNING_KEY_SIZE</a></div><div class="ttdeci">#define UDIF_ASYMMETRIC_SIGNING_KEY_SIZE</div><div class="ttdoc">The byte size of the asymmetric signature signing-key array.</div><div class="ttdef"><b>Definition</b> udif.h:258</div></div>
 <div class="ttc" id="audif_8h_html_aa44d06cf035e43ffd82b92609e424fa5"><div class="ttname"><a href="udif_8h.html#aa44d06cf035e43ffd82b92609e424fa5">UDIF_CRYPTO_HASH_SIZE</a></div><div class="ttdeci">#define UDIF_CRYPTO_HASH_SIZE</div><div class="ttdoc">The size of the certificate hash in bytes.</div><div class="ttdef"><b>Definition</b> udif.h:439</div></div>
-<div class="ttc" id="audif_8h_html_ac569e8bb8bc866905a1be276a6c108cf"><div class="ttname"><a href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a></div><div class="ttdeci">udif_errors</div><div class="ttdoc">UDIF error codes.</div><div class="ttdef"><b>Definition</b> udif.h:628</div></div>
-<div class="ttc" id="audifcommon_8h_html_a7133d97836e4d6a3856499913bf58812"><div class="ttname"><a href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a></div><div class="ttdeci">#define UDIF_EXPORT_API</div><div class="ttdoc">The api export prefix.</div><div class="ttdef"><b>Definition</b> udifcommon.h:103</div></div>
+<div class="ttc" id="audif_8h_html_ac569e8bb8bc866905a1be276a6c108cf"><div class="ttname"><a href="udif_8h.html#ac569e8bb8bc866905a1be276a6c108cf">udif_errors</a></div><div class="ttdeci">udif_errors</div><div class="ttdoc">UDIF error codes.</div><div class="ttdef"><b>Definition</b> udif.h:1210</div></div>
+<div class="ttc" id="audifcommon_8h_html_a7133d97836e4d6a3856499913bf58812"><div class="ttname"><a href="udifcommon_8h.html#a7133d97836e4d6a3856499913bf58812">UDIF_EXPORT_API</a></div><div class="ttdeci">#define UDIF_EXPORT_API</div><div class="ttdoc">The api export prefix.</div><div class="ttdef"><b>Definition</b> udifcommon.h:101</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_26cd59994238c2dc562ea2212e9609f3.html">UDIF</a></li><li class="navelem"><a href="dir_fc9d8b104a29d847c89dcbcd72c1f139.html">Saved</a></li><li class="navelem"><a href="transport_8h.html">transport.h</a></li>
+    <li class="navelem"><a href="dir_042c7fb8a04bd297428756c8f8047b93.html">Saved</a></li><li class="navelem"><a href="transport_8h.html">transport.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

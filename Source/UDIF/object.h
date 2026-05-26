@@ -97,7 +97,7 @@
  * \brief The encoded object record size
  */
 #define UDIF_OBJECT_ENCODED_SIZE (UDIF_SIGNED_HASH_SIZE + \
-	UDIF_SERIAL_NUMBER_SIZE + \
+	UDIF_OBJECT_SERIAL_SIZE + \
 	UDIF_CRYPTO_HASH_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
@@ -108,7 +108,7 @@
 /*! \def UDIF_OBJECT_SIGNING_SIZE
  * \brief The encoded object record signing size
  */
-#define UDIF_OBJECT_SIGNING_SIZE (UDIF_SERIAL_NUMBER_SIZE + \
+#define UDIF_OBJECT_SIGNING_SIZE (UDIF_OBJECT_SERIAL_SIZE + \
 	UDIF_CRYPTO_HASH_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
@@ -119,7 +119,7 @@
 /*! \def UDIF_OBJECT_TRANSFER_SIZE
  * \brief The object transfer buffer size
  */
-#define UDIF_OBJECT_TRANSFER_SIZE (UDIF_SERIAL_NUMBER_SIZE + \
+#define UDIF_OBJECT_TRANSFER_SIZE (UDIF_OBJECT_SERIAL_SIZE + \
     UDIF_SERIAL_NUMBER_SIZE + \
     UDIF_SERIAL_NUMBER_SIZE + \
     UDIF_VALID_TIME_SIZE)
@@ -129,12 +129,11 @@
  */
 #define UDIF_TRANSFER_RECORD_ENCODED_SIZE (UDIF_SIGNED_HASH_SIZE + \
 	UDIF_SIGNED_HASH_SIZE + \
-	UDIF_CRYPTO_HASH_SIZE + \
-	UDIF_SERIAL_NUMBER_SIZE + \
+	UDIF_TX_ID_SIZE + \
+	UDIF_OBJECT_SERIAL_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
 	UDIF_SERIAL_NUMBER_SIZE + \
 	UDIF_VALID_TIME_SIZE)
-
 
  /*!
  * \struct udif_object
@@ -148,7 +147,7 @@ UDIF_EXPORT_API typedef struct udif_object
 {
 	uint8_t signature[UDIF_SIGNED_HASH_SIZE];	/*!< Owner signature */
 	uint8_t attrroot[UDIF_CRYPTO_HASH_SIZE];	/*!< Attribute Merkle root */
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE];	/*!< Object serial number */
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE];	/*!< Object serial number */
 	uint8_t creator[UDIF_SERIAL_NUMBER_SIZE];	/*!< Creator certificate serial */
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE];		/*!< Current owner serial */
 	uint64_t created;							/*!< Creation timestamp */
@@ -167,8 +166,8 @@ UDIF_EXPORT_API typedef struct udif_transfer_record
 {
 	uint8_t sender[UDIF_SIGNED_HASH_SIZE];		/*!< Sender signature */
 	uint8_t receiver[UDIF_SIGNED_HASH_SIZE];	/*!< Receiver signature */
-	uint8_t txid[UDIF_CRYPTO_HASH_SIZE];				/*!< Transaction ID */
-	uint8_t serial[UDIF_SERIAL_NUMBER_SIZE];	/*!< Object serial */
+	uint8_t txid[UDIF_TX_ID_SIZE];				/*!< Transaction ID */
+	uint8_t serial[UDIF_OBJECT_SERIAL_SIZE];	/*!< Object serial */
 	uint8_t originator[UDIF_SERIAL_NUMBER_SIZE];/*!< Previous owner */
 	uint8_t owner[UDIF_SERIAL_NUMBER_SIZE];		/*!< New owner */
 	uint64_t timestamp;							/*!< Transfer time */
@@ -227,13 +226,13 @@ UDIF_EXPORT_API udif_errors udif_object_compute_signature(udif_object* obj, cons
 *
 * \param digest: The output digest (32 bytes)
 * \param objserial: [const] The object serial number
-* \param txid: [const] The transfer id
+* \param originator: [const] The current object owner
 * \param toowner: [const] The new object owner
 * \param timestamp: The current timestamp
 *
 * \return Returns udif_error_none on success
 */
-UDIF_EXPORT_API udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* objserial, const uint8_t* txid, const uint8_t* toowner, uint64_t timestamp);
+UDIF_EXPORT_API udif_errors udif_object_compute_transfer_digest(uint8_t* digest, const uint8_t* objserial, const uint8_t* originator, const uint8_t* toowner, uint64_t timestamp);
 
 /*!
 * \brief Create a new object
@@ -388,6 +387,19 @@ UDIF_EXPORT_API udif_errors udif_transfer_deserialize(udif_transfer_record* tran
 * \return Returns udif_error_none on success
 */
 UDIF_EXPORT_API udif_errors udif_transfer_serialize(uint8_t* output, size_t outlen, const udif_transfer_record* transfer);
+
+/*!
+* \brief Compute the transaction identifier for a transfer record.
+*
+* Computes the canonical transfer digest from the serialized transfer fields
+* excluding both signatures and writes it to the output buffer.
+*
+* \param digest: The output digest (32 bytes)
+* \param transfer: [const] The transfer record
+*
+* \return Returns udif_error_none on success
+*/
+UDIF_EXPORT_API udif_errors udif_transfer_compute_txid(uint8_t* digest, const udif_transfer_record* transfer);
 
 /*!
 * \brief Verify transfer record
